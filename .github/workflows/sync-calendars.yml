@@ -5,6 +5,19 @@ on:
     # Run daily at 2 AM Melbourne time (adjust as needed)
     - cron: '0 16 * * *'  # 4 PM UTC = 2 AM AEST/3 AM AEDT
   workflow_dispatch:  # Allow manual triggering
+    inputs:
+      competition:
+        description: 'Single competition to process (leave empty to process all)'
+        required: false
+        type: string
+      use_cache:
+        description: 'Use cached results from previous runs'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 jobs:
   sync-calendars:
