@@ -1,6 +1,14 @@
 # Hockey Victoria Calendar Setup Scripts
 
-This directory contains setup and utility scripts for managing Hockey Victoria competition calendars and Google Calendar integration.
+This directory contains scripts for improving Hockey Victoria competition calendars. 
+
+Improvements:
+* Fixtures in Google Calendar, updated daily to capture any scheduling changes (time, location, etc)
+* Simplified Calendar names i.e. `FHC Men - PL`
+* Simplified Round names i.e. 
+  * From: `2025 Senior Competition Men's Premier League - 2025 Round 18 - Footscray Hockey Club vs Camberwell Hockey Club`
+  * To: `PL - FHC vs CAM`
+* Links to relevant HV pages: Full Fixture, Ladder, Current Round
 
 ## 📋 Available Scripts
 
@@ -14,6 +22,7 @@ This directory contains setup and utility scripts for managing Hockey Victoria c
 | **Calendar Exporter** | `npm run export-calendars` | Exports calendar data to JSON |
 | **Calendar Deleter** | `npm run delete-calendars` | Deletes Google Calendars (with safety prompts) |
 | **Documentation Generator** | `npm run generate-docs` | Generates markdown documentation with calendar links |
+| **Club Mappings Updater** | `npm run update-mappings-club-names` | Updates club name mappings from ladder data |
 
 ### Workflow Scripts
 
@@ -58,7 +67,15 @@ This directory contains setup and utility scripts for managing Hockey Victoria c
    - Saves results to `config/competitions.json`
    - Supports resuming from interruptions
 
-2. **Create Google Calendars**
+2. **Update Club Mappings**
+   ```bash
+   npm run update-mappings-club-names
+   ```
+   - Discovers all Clubs names for you competitions
+   - Saves results to `config/mappings-club-names.json`
+   - Review the file for new nmes and abbreviations
+
+3. **Create Google Calendars**
    ```bash
    npm run create-calendars
    ```
@@ -66,7 +83,7 @@ This directory contains setup and utility scripts for managing Hockey Victoria c
    - Updates `competitions.json` with calendar IDs
    - Skips existing calendars
 
-3. **Process and Upload Fixtures**
+4. **Process and Upload Fixtures**
    ```bash
    # Process all competitions
    npm run process-all-competitions -- --all
@@ -78,7 +95,7 @@ This directory contains setup and utility scripts for managing Hockey Victoria c
    - Processes and enhances calendar events
    - Uploads to Google Calendars
 
-4. **Generate Documentation**
+5. **Generate Documentation**
    ```bash
    npm run generate-docs
    ```
@@ -294,6 +311,59 @@ npm run generate-docs [-- options]
 **Output:**
 - `docs/competitions.md` - Formatted documentation
 
+---
+
+### Club Mappings Updater (`update-mappings-club-names`)
+
+Scans ladder URLs from competitions.json and automatically adds missing club names to mappings-club-names.json.
+
+**Usage:**
+```bash
+npm run update-mappings-club-names [-- options]
+```
+
+**Options:**
+- `--dry-run, -d` - Show what would be added without making changes
+- `--force, -f` - Force re-scan all competitions (ignore existing mappings)
+- `--help, -h` - Show help
+
+**Features:**
+- **Automated Discovery**: Scrapes club names from Hockey Victoria ladder pages
+- **Smart Abbreviations**: Generates unique abbreviations automatically
+- **Duplicate Prevention**: Ensures abbreviations are unique
+- **Dry Run Mode**: Preview changes before applying
+- **Progress Tracking**: Shows detailed progress and results
+
+**How it works:**
+1. Loads existing club mappings from `config/mappings-club-names.json`
+2. Scans each competition's ladder URL using Puppeteer
+3. Extracts club names from ladder tables
+4. Generates unique abbreviations for new clubs
+5. Updates the mappings file with new entries
+
+**Examples:**
+```bash
+# Update mappings with new clubs
+npm run update-mappings-club-names
+
+# Preview what would be added
+npm run update-mappings-club-names -- --dry-run
+
+# Force re-scan all competitions
+npm run update-mappings-club-names -- --force
+```
+
+**Use Cases:**
+- Initial setup to populate club mappings
+- Periodic updates when new clubs join competitions
+- Maintenance after adding new competitions to competitions.json
+- Fixing missing club abbreviations in calendar processing
+
+**Requirements:**
+- Valid ladder URLs in competitions.json
+- Internet connection to access Hockey Victoria website
+- Puppeteer for web scraping
+
 ## 🗂️ File Structure
 
 ```
@@ -308,7 +378,8 @@ src/
 │   ├── create-google-calendars.js  # Calendar creation
 │   ├── delete-google-calendars.js  # Calendar deletion
 │   ├── list-google-calendars.js    # Calendar listing/export
-│   └── generate-docs.js           # Documentation generation
+│   ├── generate-docs.js           # Documentation generation
+│   └── update-mappings-club-names.js # Club mappings updater
 └── tasks/                           # Task workflow scripts
     ├── index.js                    # Main workflow orchestration
     ├── process-competition.js      # Single competition processor
