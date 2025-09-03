@@ -25,6 +25,10 @@ google cloud app
 2. You may recieve "Calendar usage limits exceeded" when running this for the first time
 3. You can verify what calendar exist by running `npm run list-calendars`
 
+## Generate a landing page
+1. Run `npm run generate-docs`
+2. Review `/docs/competitions.md` for links to all your calendars
+
 # Updating Fixtures
 
 ## Interactive

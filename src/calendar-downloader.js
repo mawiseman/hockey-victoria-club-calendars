@@ -95,7 +95,7 @@ export async function downloadAllCalendars(competitions, outputDir) {
  * @param {string} filePath - Path to the competitions file
  * @returns {Promise<Array>} - Array of competition objects
  */
-export async function loadFootscrayCompetitions(filePath = 'config/competitions.json') {
+export async function loadCompetitions(filePath = 'config/competitions.json') {
     try {
         const data = await fs.readFile(filePath, 'utf8');
         const competitionsData = JSON.parse(data);
@@ -112,31 +112,6 @@ export async function loadFootscrayCompetitions(filePath = 'config/competitions.
     } catch (error) {
         if (error.code === 'ENOENT') {
             throw new Error(`Competition file not found: ${filePath}. Run the competition scraper first.`);
-        }
-        throw error;
-    }
-}
-
-/**
- * Load competitions from legacy competitions.json format
- * @param {string} filePath - Path to the competitions file
- * @returns {Promise<Array>} - Array of competition objects
- */
-export async function loadLegacyCompetitions(filePath = 'config/competitions.json') {
-    try {
-        const data = await fs.readFile(filePath, 'utf8');
-        const competitionsData = JSON.parse(data);
-        
-        if (!competitionsData.competitions || !Array.isArray(competitionsData.competitions)) {
-            throw new Error('Invalid competition data format - missing competitions array');
-        }
-        
-        console.log(`Loaded ${competitionsData.competitions.length} competitions from ${filePath}`);
-        
-        return competitionsData.competitions;
-    } catch (error) {
-        if (error.code === 'ENOENT') {
-            throw new Error(`Competition file not found: ${filePath}`);
         }
         throw error;
     }

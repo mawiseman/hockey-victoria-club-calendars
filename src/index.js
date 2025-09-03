@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { downloadAllCalendars, loadFootscrayCompetitions, loadLegacyCompetitions } from './calendar-downloader.js';
+import { downloadAllCalendars, loadCompetitions } from './calendar-downloader.js';
 import { processAllCalendars } from './calendar-processor.js';
 import { uploadAllCalendars } from './google-calendar.js';
 
@@ -458,14 +458,9 @@ async function main() {
         let competitions;
         try {
             console.log('Loading competitions from config/competitions.json...');
-            competitions = await loadFootscrayCompetitions();
+            competitions = await loadCompetitions();
         } catch (error) {
-            console.log('Footscray competitions not found, trying legacy format...');
-            try {
-                competitions = await loadLegacyCompetitions();
-            } catch (legacyError) {
-                throw new Error(`Could not load competitions from either format:\n- New format: ${error.message}\n- Legacy format: ${legacyError.message}`);
-            }
+            throw new Error(`Could not load competitions${error.message}`);
         }
         
         // Create temp directory

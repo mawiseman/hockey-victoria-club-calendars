@@ -27,7 +27,7 @@ async function loadProgress() {
             foundCompetitions: [],
             totalLinksFound: 0,
             totalProcessed: 0,
-            totalWithFootscray: 0
+            totalWithClub: 0
         };
     }
 }
@@ -68,7 +68,7 @@ async function loadProgressWithSet() {
 async function saveCompetitionResult(progress, competitionData) {
     if (competitionData) {
         progress.foundCompetitions.push(competitionData);
-        progress.totalWithFootscray++;
+        progress.totalWithClub++;
         console.log(`✅ Saved competition: ${competitionData.name}`);
     }
     
@@ -84,7 +84,7 @@ async function saveCompetitionResult(progress, competitionData) {
         scrapedAt: progress.startedAt,
         lastUpdated: progress.lastUpdated,
         clubName: CLUB_NAME,
-        totalCompetitions: progress.totalWithFootscray,
+        totalCompetitions: progress.totalWithClub,
         totalProcessed: progress.totalProcessed,
         totalLinksFound: progress.totalLinksFound,
         competitions: progress.foundCompetitions
@@ -105,7 +105,7 @@ async function processCompetitionsInParallel(browser, competitionLinks, progress
     }
     
     console.log(`📋 Resuming: ${pendingLinks.length} competitions remaining to process`);
-    console.log(`📊 Progress: ${progress.totalProcessed}/${progress.totalLinksFound} processed, ${progress.totalWithFootscray} with Footscray`);
+    console.log(`📊 Progress: ${progress.totalProcessed}/${progress.totalLinksFound} processed, ${progress.totalWithClub} with Club`);
     
     // Process in batches with concurrency limit
     for (let i = 0; i < pendingLinks.length; i += MAX_CONCURRENT) {
@@ -133,9 +133,9 @@ async function processCompetitionsInParallel(browser, competitionLinks, progress
                 await saveCompetitionResult(progress, competitionData);
                 
                 if (competitionData) {
-                    console.log(`✓ Found Footscray in: ${competitionData.name}`);
+                    console.log(`✓ Found '${link.text}' in: ${competitionData.name}`);
                 } else {
-                    console.log(`✗ Footscray not found in: ${link.text}`);
+                    console.log(`✗ '${link.text}' not found in: ${link.text}`);
                 }
                 
                 return competitionData;
@@ -164,7 +164,7 @@ async function processCompetitionsInParallel(browser, competitionLinks, progress
 }
 
 /**
- * Scrape all competitions and find those containing Footscray Hockey Club
+ * Scrape all competitions and find those containing the Club name
  */
 async function scrapeCompetitions() {
     // Load or create progress
@@ -179,7 +179,7 @@ async function scrapeCompetitions() {
         const page = await browser.newPage();
         
         console.log('📂 Loading progress...');
-        console.log(`📊 Previous session: ${progress.totalProcessed} processed, ${progress.totalWithFootscray} with Footscray`);
+        console.log(`📊 Previous session: ${progress.totalProcessed} processed, ${progress.totalWithClub}`);
         
         console.log('\n🌐 Navigating to Hockey Victoria games page...');
         await page.goto(BASE_URL, { 
@@ -206,7 +206,7 @@ async function scrapeCompetitions() {
         // Process competitions in parallel
         await processCompetitionsInParallel(browser, competitionLinks, progress);
         
-        console.log(`\n🎉 Complete! Found ${progress.totalWithFootscray} competitions with Footscray Hockey Club`);
+        console.log(`\n🎉 Complete! Found ${progress.totalWithClub} competitions with ${CLUB_NAME}`);
         console.log(`📊 Total processed: ${progress.totalProcessed}/${progress.totalLinksFound}`);
         console.log(`💾 Results saved to ${OUTPUT_FILE}`);
         console.log(`📋 Progress saved to ${PROGRESS_FILE}`);
@@ -308,7 +308,7 @@ async function getLadderLinks(page) {
 }
 
 /**
- * Check if a competition contains Footscray Hockey Club and extract data
+ * Check if a competition contains CLUB_NAME and extract data
  * This now follows a 3-layer navigation: games page → competition page → ladder page
  */
 async function checkCompetition(page, competitionLink) {
@@ -334,7 +334,7 @@ async function checkCompetition(page, competitionLink) {
         
         console.log(`    Found ${ladderLinks.length} ladder link(s)`);
         
-        // Step 3: Check each ladder page for Footscray Hockey Club
+        // Step 3: Check each ladder page for CLUB_NAME
         for (const ladderLink of ladderLinks) {
             console.log(`    → Checking ladder: ${ladderLink.url}`);
             
@@ -348,8 +348,8 @@ async function checkCompetition(page, competitionLink) {
                 // Wait for content to load
                 // await new Promise(resolve => setTimeout(resolve, 2000));
                 
-                // Check if Footscray Hockey Club is present in the ladder and find fixture URL
-                const footscrayData = await page.evaluate((clubName) => {
+                // Check if CLUB_NAME is present in the ladder and find fixture URL
+                const clubData = await page.evaluate((clubName) => {
                     console.log(`Searching for: ${clubName}`);
                     
                     // First, check if the club name exists on the page
@@ -384,22 +384,22 @@ async function checkCompetition(page, competitionLink) {
                     return { found: false };
                 }, CLUB_NAME);
                 
-                if (footscrayData.found) {
+                if (clubData.found) {
                     console.log(`      ✓ Found ${CLUB_NAME} in ladder!`);
                     
-                    if (footscrayData.fixtureUrl) {
-                        console.log(`      ✓ Fixture URL: ${footscrayData.fixtureUrl}`);
+                    if (clubData.fixtureUrl) {
+                        console.log(`      ✓ Fixture URL: ${clubData.fixtureUrl}`);
                         return {
                             name: competitionLink.text, // Use the original competition link text from start page
-                            fixtureUrl: footscrayData.fixtureUrl,
+                            fixtureUrl: clubData.fixtureUrl,
                             competitionUrl: competitionLink.url,
                             ladderUrl: ladderLink.url,
                             scrapedAt: new Date().toISOString()
                         };
                     } else {
-                        console.log(`      ⚠️ Club found but no fixture URL found (strategy: ${footscrayData.strategy})`);
-                        if (footscrayData.debugInfo) {
-                            console.log(`      Debug info:`, footscrayData.debugInfo);
+                        console.log(`      ⚠️ Club found but no fixture URL found (strategy: ${clubData.strategy})`);
+                        if (clubData.debugInfo) {
+                            console.log(`      Debug info:`, clubData.debugInfo);
                         }
                         return null; // Don't save entries without fixture URLs
                     }
@@ -412,7 +412,7 @@ async function checkCompetition(page, competitionLink) {
             }
         }
         
-        return null; // No ladders contained Footscray Hockey Club
+        return null; // No ladders contained CLUB_NAME
         
     } catch (error) {
         console.error(`  Error processing competition ${competitionLink.url}: ${error.message}`);

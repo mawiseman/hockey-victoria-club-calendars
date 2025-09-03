@@ -1,6 +1,6 @@
 # Competition Scraper
 
-This script automatically discovers Hockey Victoria competitions that include Footscray Hockey Club.
+This script automatically discovers Hockey Victoria competitions that include CLUB_NAME.
 
 ## Usage
 
@@ -19,7 +19,7 @@ This script automatically discovers Hockey Victoria competitions that include Fo
 1. **Navigates to** https://www.hockeyvictoria.org.au/games/
 2. **Finds all competition links** (those containing `/pointscore/`)
 3. **Visits each competition's ladder page**
-4. **Checks for "Footscray Hockey Club"** in the team listings
+4. **Checks for "Club Name"** in the team listings
 5. **Extracts competition data**:
    - Competition name (e.g. "2025 Senior Competition · Women's Premier League - 2025")
    - Competition ID from URL (e.g. "21935" from `/pointscore/21935`)
