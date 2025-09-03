@@ -1,0 +1,74 @@
+{
+  "competitionReplacements": [
+    {
+      "pattern": "Premier League Reserves",
+      "replacement": "PLR"
+    },
+    {
+      "pattern": "Premier League",
+      "replacement": "PL"
+    },
+    {
+      "pattern": "Pennant",
+      "replacement": "PEN"
+    },
+    {
+      "pattern": "Metro 1",
+      "replacement": "M1"
+    },
+    {
+      "pattern": "Metro 2",
+      "replacement": "M2"
+    },
+    {
+      "pattern": "North West",
+      "replacement": "NW"
+    },
+    {
+      "pattern": "South",
+      "replacement": "S"
+    },
+    {
+      "pattern": "East",
+      "replacement": "E"
+    },
+    {
+      "pattern": "U12 Mixed Shield",
+      "replacement": "U12 Shield"
+    },
+    {
+      "pattern": "{{YEAR}} Midweek Men's 45+ NW",
+      "replacement": "Men 45+ NW"
+    },
+    {
+      "pattern": "{{YEAR}} Midweek Women's 35+ CN",
+      "replacement": "Women 35+ CN"
+    },
+    {
+      "pattern": "{{YEAR}} Senior Competition Men's",
+      "replacement": ""
+    },
+    {
+      "pattern": "{{YEAR}} Senior Competition Women's ",
+      "replacement": ""
+    },
+    {
+      "pattern": "{{YEAR}} Midweek Competition ",
+      "replacement": ""
+    },
+    {
+      "pattern": "{{YEAR}} Junior Competition",
+      "replacement": ""
+    }
+  ],
+  "roundPatterns": [
+    {
+      "regex": "- \\d+ Round \\d+ -",
+      "replacement": "-"
+    },
+    {
+      "regex": "\\s*Round\\s+\\d+\\b",
+      "replacement": ""
+    }
+  ]
+}

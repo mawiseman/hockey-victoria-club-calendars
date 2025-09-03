@@ -1,0 +1,33 @@
+{
+  "clubMappings": {
+    "Altona Hockey Club": "ALT",
+    "Bayside Powerhouse Saints Hockey Club": "BPS",
+    "Brunswick Hockey Club": "BRU",
+    "Camberwell Hockey Club": "CAM",
+    "Caroline Springs Hockey Club": "CS",
+    "Craigieburn Falcons Hockey Club": "FAL",
+    "Doncaster Hockey Club": "DON",
+    "Essendon Hockey": "ESS",
+    "Footscray Hockey Club": "FHC",
+    "Greensborough Hockey Club": "GRN",
+    "Hawthorn Hockey Club": "HAW",
+    "Hockey Geelong Sharks": "GEL",
+    "Hume Hockey Club": "HHC",
+    "KBH Brumbies Hockey Club": "KBH",
+    "Knox Hockey Club": "KNO",
+    "La Trobe University Hockey Club": "LAT",
+    "MCC Hockey Section": "MCC",
+    "Melbourne Razorbacks Hockey Club": "RAZ",
+    "Melbourne University Hockey Club": "MUHC",
+    "Melton Hockey Club": "MEL",
+    "Mentone Hockey Club": "MNT",
+    "Monash University Hockey Club": "MON",
+    "PEGS Hockey Club": "PEGS",
+    "RMIT Hockey Club": "RMIT",
+    "Southern United Hockey Club": "SUHC",
+    "Sunshine Hockey Club": "SUN",
+    "Toorak East Malvern Hockey Club": "TEM",
+    "Waverley Hockey Club": "WAV",
+    "Yarra Hockey Club": "YAR"
+  }
+}

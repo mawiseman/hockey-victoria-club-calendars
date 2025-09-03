@@ -1,0 +1,176 @@
+{
+  "competitions": [
+    {
+      "name": "FHC Men PL",
+      "competitionId": "21935/336954",
+      "calendars": [
+        "c_98969a8b2ed91cd8f83393ff3b97454eb3fd217e305c59ea82d1d8cf52b386da@group.calendar.google.com",
+        "c_cbeeb50dc374f85c00cc8b7cbdb64631a2854a0518bd70870dc76a25885dcefb@group.calendar.google.com"
+      ],
+      "category": "men"
+    },
+    {
+      "name": "FHC Men PLR",
+      "competitionId": "21935/336955",
+      "calendars": [
+        "c_98969a8b2ed91cd8f83393ff3b97454eb3fd217e305c59ea82d1d8cf52b386da@group.calendar.google.com",
+        "c_c6597b47eefeb9a38f2335476d2889768382b88e37ec4e5aa3f8259a49ac4894@group.calendar.google.com"
+      ],
+      "category": "men"
+    },
+    {
+      "name": "FHC Men PA",
+      "competitionId": "21935/336951",
+      "calendars": [
+        "c_98969a8b2ed91cd8f83393ff3b97454eb3fd217e305c59ea82d1d8cf52b386da@group.calendar.google.com",
+        "c_4d3df4cf4f6813fd8ce1b4c1fca20b45a3112bb87461597d9bc11f05d4930f18@group.calendar.google.com"
+      ],
+      "category": "men"
+    },
+    {
+      "name": "FHC Men PB",
+      "competitionId": "21935/336952",
+      "calendars": [
+        "c_98969a8b2ed91cd8f83393ff3b97454eb3fd217e305c59ea82d1d8cf52b386da@group.calendar.google.com",
+        "c_364ef01fef398c129571d5128087eb211f3b79146cb893b9aa01bc70b607c827@group.calendar.google.com"
+      ],
+      "category": "men"
+    },
+    {
+      "name": "FHC Men PD NW",
+      "competitionId": "21935/336953",
+      "calendars": [
+        "c_98969a8b2ed91cd8f83393ff3b97454eb3fd217e305c59ea82d1d8cf52b386da@group.calendar.google.com",
+        "c_62638e48541754d57532e5aca24822bf8d9bd1571cf50fc3c5cba0937640c42c@group.calendar.google.com"
+      ],
+      "category": "men"
+    },
+    {
+      "name": "FHC Men M1 NW",
+      "competitionId": "21935/336950",
+      "calendars": [
+        "c_98969a8b2ed91cd8f83393ff3b97454eb3fd217e305c59ea82d1d8cf52b386da@group.calendar.google.com",
+        "c_5d10a6624099c5658a7e587fcf23cd171ec72fccf92e681a810b2e635db11862@group.calendar.google.com"
+      ],
+      "category": "men"
+    },
+    {
+      "name": "FHC Women PL",
+      "competitionId": "21935/336962",
+      "calendars": [
+        "c_65d18c304ca4cfa67b3169dd65194c86432e994834fab5b59823d1050f93f049@group.calendar.google.com",
+        "c_bac3f22b1f54b3b7a53c0b74bd5dde72b8d247985d34ab0a318b2e5478f13a75@group.calendar.google.com"
+      ],
+      "category": "women"
+    },
+    {
+      "name": "FHC Women PLR",
+      "competitionId": "21935/336963",
+      "calendars": [
+        "c_65d18c304ca4cfa67b3169dd65194c86432e994834fab5b59823d1050f93f049@group.calendar.google.com",
+        "c_cd99bdbe3e7d04a43910e07984cdc4f118012bad2185819b3b5e59b451dd85f9@group.calendar.google.com"
+      ],
+      "category": "women"
+    },
+    {
+      "name": "FHC Women PA",
+      "competitionId": "21935/336957",
+      "calendars": [
+        "c_65d18c304ca4cfa67b3169dd65194c86432e994834fab5b59823d1050f93f049@group.calendar.google.com",
+        "c_23e96d89c4a03b40520a39fff0054cd831890ec9a9f02e938029437a9d1623eb@group.calendar.google.com"
+      ],
+      "category": "women"
+    },
+    {
+      "name": "FHC Women PB",
+      "competitionId": "21935/336958",
+      "calendars": [
+        "c_65d18c304ca4cfa67b3169dd65194c86432e994834fab5b59823d1050f93f049@group.calendar.google.com",
+        "c_db7d8da6105713fb9b214cfe0fa95db0e16f4a9980f83a4affaca55c9ec3c085@group.calendar.google.com"
+      ],
+      "category": "women"
+    },
+    {
+      "name": "FHC Women PC",
+      "competitionId": "21935/336959",
+      "calendars": [
+        "c_65d18c304ca4cfa67b3169dd65194c86432e994834fab5b59823d1050f93f049@group.calendar.google.com",
+        "c_95d73b86838ec29e37bd4be62354ae7e7c428995b045f1747e98f921af2c88e9@group.calendar.google.com"
+      ],
+      "category": "women"
+    },
+    {
+      "name": "FHC Women PD NW",
+      "competitionId": "21935/336960",
+      "calendars": [
+        "c_65d18c304ca4cfa67b3169dd65194c86432e994834fab5b59823d1050f93f049@group.calendar.google.com",
+        "c_2fe69af0b413ea4efa88c567fba926d564980f91a73683cd33e4eea18ce9a911@group.calendar.google.com"
+      ],
+      "category": "women"
+    },
+    {
+      "name": "FHC Women PE NW",
+      "competitionId": "21935/336961",
+      "calendars": [
+        "c_65d18c304ca4cfa67b3169dd65194c86432e994834fab5b59823d1050f93f049@group.calendar.google.com",
+        "c_311ba83e87137a23fd46600753980cdd0eee20728dd1bb0a61e0b3c068d6170b@group.calendar.google.com"
+      ],
+      "category": "women"
+    },
+    {
+      "name": "FHC Women M1 NW",
+      "competitionId": "21935/336956",
+      "calendars": [
+        "c_65d18c304ca4cfa67b3169dd65194c86432e994834fab5b59823d1050f93f049@group.calendar.google.com",
+        "c_e4c3f30d76eb8c882f765d11e72466f4dd97646747ad4723885cc0f486d5799a@group.calendar.google.com"
+      ],
+      "category": "women"
+    },
+    {
+      "name": "FHC Juniors U12 Shield",
+      "competitionId": "22385/345558",
+      "calendars": [
+        "c_17b4284de487271673235900036255f4a3b6b91f183878546afa7eb366c1200f@group.calendar.google.com"
+      ],
+      "category": "juniors"
+    },
+    {
+      "name": "FHC Midweek Men 45+",
+      "competitionId": "22076/338768",
+      "calendars": [
+        "c_28b87a6bf8452ebb67fb3553bae5a59db7304be25cb5407c50b5a05cba63c798@group.calendar.google.com"
+      ],
+      "category": "midweek"
+    },
+    {
+      "name": "FHC Midweek Women 35+",
+      "competitionId": "22076/338772",
+      "calendars": [
+        "c_7334aeed1f8a9fb6dc2fc720ef9aa47ec01038658791a853e09e65c037adb69e@group.calendar.google.com"
+      ],
+      "category": "midweek"
+    }
+  ],
+  "calendarLinks": {
+    "men": {
+      "PL": "https://bit.ly/fhc-men-pl-fixture",
+      "PLR": "https://bit.ly/fhc-men-plr-fixture",
+      "PA": "https://bit.ly/fhc-men-pa-fixture",
+      "PB": "https://bit.ly/fhc-men-pb-fixture",
+      "PD_NW": "https://bit.ly/fhc-men-pdnw-fixture",
+      "M1_NW": "https://bit.ly/fhc-men-m1nw-fixture",
+      "combined": "https://bit.ly/fhc-men-fixtures"
+    },
+    "women": {
+      "PL": "https://bit.ly/fhc-women-pl-fixture",
+      "PLR": "https://bit.ly/fhc-women-plr-fixture",
+      "PA": "https://bit.ly/fhc-women-pa-fixture",
+      "PB": "https://bit.ly/fhc-women-pb-fixture",
+      "PC": "https://bit.ly/fhc-women-pc-fixture",
+      "PD_NW": "https://bit.ly/fhc-women-pdnw-fixture",
+      "PE_NW": "https://bit.ly/fhc-womens-fixture-penw-fixture",
+      "M1_NW": "https://bit.ly/fhc-women-m1nw-fixture",
+      "combined": "https://bit.ly/fhc-women-fixture"
+    }
+  }
+}

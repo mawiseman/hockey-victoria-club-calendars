@@ -1,0 +1,32 @@
+{
+  "name": "hockey-victoria-calendar-scraper",
+  "version": "1.0.0",
+  "description": "Automated Hockey Victoria calendar synchronization to Google Calendar",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "sync": "node src/index.js",
+    "test": "node src/test.js"
+  },
+  "keywords": [
+    "hockey",
+    "calendar",
+    "google-calendar",
+    "ical"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@googleapis/calendar": "^9.7.9",
+    "ical": "^0.8.0",
+    "node-fetch": "^3.3.2",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
