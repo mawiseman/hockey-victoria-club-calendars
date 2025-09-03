@@ -2,8 +2,8 @@ import fs from 'fs/promises';
 import ical from 'ical';
 
 // Import shared utilities
-import { authenticateGoogle } from '../shared/google-auth.js';
-import { getDetailedError, isApiLimitError, logSuccess, logWarning, logInfo } from '../shared/error-utils.js';
+import { authenticateGoogle } from '../lib/google-auth.js';
+import { getDetailedError, isApiLimitError, logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
 
 /**
  * Delete all events from a Google Calendar

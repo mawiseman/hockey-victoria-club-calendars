@@ -3,8 +3,8 @@ import fs from 'fs/promises';
 import path from 'path';
 
 // Import shared utilities
-import { loadCompetitionData } from '../shared/competition-utils.js';
-import { logSuccess, logWarning, logInfo } from '../shared/error-utils.js';
+import { loadCompetitionData } from '../lib/competition-utils.js';
+import { logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
 
 const ICAL_BASE_URL = 'https://www.hockeyvictoria.org.au/games/team/export/ical/';
 

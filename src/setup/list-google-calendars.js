@@ -3,10 +3,10 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 // Import shared utilities
-import { initializeCalendarClient } from '../shared/google-auth.js';
-import { loadCompetitionData, getCompetitionStats } from '../shared/competition-utils.js';
-import { getCalendarPrefix, COMPETITIONS_FILE } from '../shared/config.js';
-import { withErrorHandling, logSuccess, logInfo } from '../shared/error-utils.js';
+import { initializeCalendarClient } from '../lib/google-auth.js';
+import { loadCompetitionData, getCompetitionStats } from '../lib/competition-utils.js';
+import { getCalendarPrefix, COMPETITIONS_FILE } from '../lib/config.js';
+import { withErrorHandling, logSuccess, logInfo } from '../lib/error-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -193,7 +193,7 @@ Requirements:
 /**
  * Parse command line arguments
  */
-function parseArguments() {
+async function parseArguments() {
     const args = process.argv.slice(2);
     const options = {
         help: false,
@@ -241,7 +241,7 @@ function parseArguments() {
  * Main execution
  */
 async function main() {
-    const options = parseArguments();
+    const options = await parseArguments();
     
     if (options.help) {
         showHelp();

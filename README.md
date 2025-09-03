@@ -19,7 +19,8 @@ This directory contains setup and utility scripts for managing Hockey Victoria c
 
 | Script | Command | Description |
 |--------|---------|-------------|
-| **Process Fixture** | `npm run process-fixture` | Main workflow: download, process, and upload calendars |
+| **Process All Competitions** | `npm run process-all-competitions` | Process all competitions: download, process, and upload calendars |
+| **Process Competition** | `npm run process-competition` | Process a single competition's calendar |
 
 ## 🚀 Quick Start
 
@@ -29,8 +30,8 @@ This directory contains setup and utility scripts for managing Hockey Victoria c
    - Edit `config/settings.json` to configure your club:
      ```json
      {
-       "clubName": "Your Hockey Club Name",
-       "calendarPrefix": "YHC "
+       "clubName": "Footscray Hockey Club",
+       "calendarPrefix": "FHC "
      }
      ```
    - **clubName**: Full name of your hockey club (used for scraping competitions)
@@ -67,7 +68,11 @@ This directory contains setup and utility scripts for managing Hockey Victoria c
 
 3. **Process and Upload Fixtures**
    ```bash
-   npm run process-fixture -- --all
+   # Process all competitions
+   npm run process-all-competitions -- --all
+   
+   # Or process a single competition
+   npm run process-competition -- "Men's Premier League - 2025"
    ```
    - Downloads iCal files from Hockey Victoria
    - Processes and enhances calendar events
@@ -104,6 +109,97 @@ npm run scrape-competitions [-- options]
 **Output:**
 - `config/competitions.json` - Competition data with fixture/ladder URLs
 - `temp/scraper-progress.json` - Progress tracking
+
+---
+
+### Process Competition (`process-competition`)
+
+Processes fixtures for a single competition instead of processing all competitions.
+
+**Usage:**
+```bash
+npm run process-competition [-- options]
+npm run process-competition -- "Competition Name"
+npm run process-competition -- --competition "Competition Name" --steps download,process
+```
+
+**Options:**
+- `--competition, -c <name>` - Competition name to update
+- `--all` - Run all steps (download, process, upload) [default]
+- `--steps <steps>` - Comma-separated list of steps (download, process, upload)
+- `--force` - Force re-run of steps even if previous results exist
+- `--list, -l` - List all available competitions
+- `--help, -h` - Show help
+
+**Features:**
+- **Interactive Selection**: Choose from categorized competition list
+- **Visual Indicators**: Shows ✅ for competitions with calendars, ❌ without
+- **Flexible Name Matching**: Supports partial name matching
+- **Targeted Updates**: Update single competitions without processing all
+- **Faster Processing**: Only processes selected competition
+
+**Examples:**
+```bash
+# Interactive competition selection
+npm run process-competition
+
+# List all available competitions
+npm run process-competition -- --list
+
+# Process specific competition
+npm run process-competition -- "Men's Premier League - 2025"
+
+# Force process with specific steps
+npm run process-competition -- -c "U16 Girls Pennant NW - 2025" --force
+
+# Download and process only (skip upload)
+npm run process-competition -- "Women's Pennant A - 2025" --steps download,process
+```
+
+**Use Cases:**
+- Fix individual competition issues without reprocessing all
+- Test changes on a single competition
+- Update newly added competitions
+- Recover from upload failures for specific competitions
+
+---
+
+### Process All Competitions (`process-all-competitions`)
+
+Main workflow to download, process, and upload all competition calendars.
+
+**Usage:**
+```bash
+npm run process-all-competitions [-- options]
+```
+
+**Options:**
+- `--all` - Run all steps (download, process, upload)
+- `--steps <steps>` - Comma-separated list of steps
+- `--force` - Force re-run of steps even if previous results exist
+- `--help, -h` - Show help
+
+**Features:**
+- **Interactive Mode**: Menu-driven step selection (default)
+- **Batch Processing**: Handles all competitions at once
+- **Step Caching**: Resumes from previous successful steps
+- **Progress Tracking**: Shows success/failure for each competition
+
+**Examples:**
+```bash
+# Interactive mode (choose steps from menu)
+npm run process-all-competitions
+
+# Run all steps
+npm run process-all-competitions -- --all
+
+# Run specific steps
+npm run process-all-competitions -- --steps download
+npm run process-all-competitions -- --steps download,process
+
+# Force re-run all steps
+npm run process-all-competitions -- --all --force
+```
 
 ---
 
@@ -201,18 +297,25 @@ npm run generate-docs [-- options]
 ## 🗂️ File Structure
 
 ```
-setup/
-├── shared/                          # Shared utilities
+src/
+├── lib/                             # Shared utilities
 │   ├── google-auth.js              # Google Calendar authentication
 │   ├── config.js                   # Shared configuration constants
 │   ├── competition-utils.js        # Competition data utilities
 │   └── error-utils.js              # Error handling utilities
-├── competition-scraper.js          # Competition discovery
-├── create-google-calendars.js      # Calendar creation
-├── delete-google-calendars.js      # Calendar deletion
-├── list-google-calendars.js        # Calendar listing/export
-├── generate-docs.js               # Documentation generation
-└── README.md                      # This file
+├── setup/                           # Setup and utility scripts
+│   ├── competition-scraper.js      # Competition discovery
+│   ├── create-google-calendars.js  # Calendar creation
+│   ├── delete-google-calendars.js  # Calendar deletion
+│   ├── list-google-calendars.js    # Calendar listing/export
+│   └── generate-docs.js           # Documentation generation
+└── tasks/                           # Task workflow scripts
+    ├── index.js                    # Main workflow orchestration
+    ├── process-competition.js      # Single competition processor
+    ├── fixture-processor.js        # Shared processing logic
+    ├── calendar-downloader.js      # Calendar downloading
+    ├── calendar-processor.js       # Calendar processing
+    └── google-calendar.js          # Google Calendar integration
 ```
 
 ## ⚙️ Configuration
@@ -232,7 +335,7 @@ setup/
 - **clubName**: Used by the competition scraper to find your club in Hockey Victoria competitions. Must exactly match your club name as it appears on the Hockey Victoria website.
 - **calendarPrefix**: Added to the beginning of all Google Calendar names (e.g., "YHC Men's Pennant A Grade"). Keeps your calendars organized and easily identifiable.
 
-### Internal Configuration (`shared/config.js`)
+### Internal Configuration (`src/lib/config.js`)
 
 Technical constants used across all scripts:
 
@@ -278,6 +381,16 @@ Competitions are automatically categorized:
 - Ensure dependencies are run in order: scrape → create → process
 - Check file paths in error messages
 
+**Upload Failures for Specific Competitions**
+- Use `npm run process-competition` to retry individual competitions
+- Add `--force` flag to bypass cached results: `npm run process-competition -- "Competition Name" --force`
+- Common after creating new calendars - cached results may not have calendar IDs
+
+**"No Google Calendar IDs specified" Error**
+- Occurs when using cached results from before calendars were created
+- Solution: `npm run process-competition -- "Competition Name" --force`
+- Or clear cache: `rm temp/step-results.json`
+
 ### Getting Help
 
 Each script includes detailed help:
@@ -292,7 +405,7 @@ graph TD
     A[scrape-competitions] --> B[config/competitions.json]
     B --> C[create-calendars]
     C --> D[competitions.json + calendar IDs]
-    D --> E[process-fixture]
+    D --> E[process-all-competitions]
     E --> F[Google Calendars with events]
     D --> G[generate-docs]
     G --> H[docs/competitions.md]
@@ -309,7 +422,7 @@ graph TD
 
 2. **Weekly**: Update fixture calendars
    ```bash
-   npm run process-fixture -- --all
+   npm run process-all-competitions -- --all
    ```
 
 3. **As needed**: Update documentation
@@ -319,7 +432,7 @@ graph TD
 
 ### Cleanup
 
-- **Temp files**: Automatically managed by `process-fixture`
+- **Temp files**: Automatically managed by `process-all-competitions`
 - **Old calendars**: Use `delete-calendars` for bulk removal
 - **Progress files**: Safe to delete `temp/scraper-progress.json` to restart scraping
 

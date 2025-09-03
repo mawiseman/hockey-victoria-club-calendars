@@ -2,10 +2,10 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 // Import shared utilities
-import { initializeCalendarClient } from '../shared/google-auth.js';
-import { loadCompetitionData, extractCalendarIds } from '../shared/competition-utils.js';
-import { getCalendarPrefix, COMPETITIONS_FILE } from '../shared/config.js';
-import { withErrorHandling, logSuccess, logWarning, logInfo, retryWithBackoff } from '../shared/error-utils.js';
+import { initializeCalendarClient } from '../lib/google-auth.js';
+import { loadCompetitionData, extractCalendarIds } from '../lib/competition-utils.js';
+import { getCalendarPrefix, COMPETITIONS_FILE } from '../lib/config.js';
+import { withErrorHandling, logSuccess, logWarning, logInfo, retryWithBackoff } from '../lib/error-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

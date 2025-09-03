@@ -3,7 +3,7 @@
  */
 import fs from 'fs/promises';
 
-// Load settings from config/settings.json
+// Load settings from ../config/settings.json
 let settings = null;
 
 async function loadSettings() {

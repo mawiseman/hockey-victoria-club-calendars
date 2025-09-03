@@ -3,8 +3,8 @@ import path from 'path';
 import ical from 'ical';
 
 // Import shared utilities
-import { MAPPINGS_CLUB_FILE, MAPPINGS_COMPETITION_FILE } from '../shared/config.js';
-import { logSuccess, logWarning, logInfo } from '../shared/error-utils.js';
+import { MAPPINGS_CLUB_FILE, MAPPINGS_COMPETITION_FILE } from '../lib/config.js';
+import { logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
 
 const FIXTURE_BASE_URL = 'https://www.hockeyvictoria.org.au/games/team/';
 const LADDER_BASE_URL = 'https://www.hockeyvictoria.org.au/pointscore/';

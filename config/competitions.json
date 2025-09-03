@@ -1,6 +1,6 @@
 {
   "scrapedAt": "2025-09-03T10:23:48.627Z",
-  "lastUpdated": "2025-09-03T10:30:58.808Z",
+  "lastUpdated": "2025-09-03T11:55:14.472Z",
   "clubName": "Footscray Hockey Club",
   "totalCompetitions": 30,
   "totalProcessed": 146,
@@ -336,14 +336,26 @@
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22385/345562",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/22385/37705",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22385/37705",
-      "scrapedAt": "2025-09-03T10:24:37.792Z"
+      "scrapedAt": "2025-09-03T10:24:37.792Z",
+      "googleCalendar": {
+        "calendarId": "e8424707b8f97fb4838f83244bfbc641a044627eb16ed8a031a075ef3d2f1391@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=e8424707b8f97fb4838f83244bfbc641a044627eb16ed8a031a075ef3d2f1391%40group.calendar.google.com",
+        "title": "FHC U16 Boys Pennant NW - 2025",
+        "createdAt": "2025-09-03T11:55:14.471Z"
+      }
     },
     {
       "name": "U16 Girls Pennant NW - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22385/345564",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/22385/37702",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22385/37702",
-      "scrapedAt": "2025-09-03T10:24:37.979Z"
+      "scrapedAt": "2025-09-03T10:24:37.979Z",
+      "googleCalendar": {
+        "calendarId": "9526027a0c3e486ae6c1484b5bab4b5fc1b9926a331752bdfcf12c0e855a3f11@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=9526027a0c3e486ae6c1484b5bab4b5fc1b9926a331752bdfcf12c0e855a3f11%40group.calendar.google.com",
+        "title": "FHC U16 Girls Pennant NW - 2025",
+        "createdAt": "2025-09-03T11:55:14.472Z"
+      }
     },
     {
       "name": "U16 Girls Shield - 2025",
@@ -366,7 +378,5 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22385/37709",
       "scrapedAt": "2025-09-03T10:24:40.934Z"
     }
-  ],
-  "hasGoogleCalendars": true,
-  "calendarsCreated": 25
+  ]
 }

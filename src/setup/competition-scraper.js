@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 // Import shared utilities
-import { getClubName, BASE_URL } from '../shared/config.js';
+import { getClubName, BASE_URL } from '../lib/config.js';
 
 let CLUB_NAME = null;
 
@@ -17,7 +17,7 @@ async function getClubNameCached() {
     return CLUB_NAME;
 }
 const OUTPUT_DIR = 'temp';
-const OUTPUT_FILE = 'config/competitions.json';
+const OUTPUT_FILE = '../config/competitions.json';
 const PROGRESS_FILE = 'temp/scraper-progress.json';
 const MAX_CONCURRENT = 5;
 

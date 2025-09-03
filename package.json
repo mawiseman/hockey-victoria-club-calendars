@@ -2,16 +2,17 @@
   "name": "hockey-victoria-calendar-scraper",
   "version": "1.0.0",
   "description": "Automated Hockey Victoria calendar synchronization to Google Calendar",
-  "main": "src/index.js",
+  "main": "src/tasks/process-all-competitions.js",
   "type": "module",
   "scripts": {
-    "process-fixture": "node src/index.js",
-    "scrape-competitions": "node setup/competition-scraper.js",
-    "create-calendars": "node setup/create-google-calendars.js",
-    "list-calendars": "node setup/list-google-calendars.js",
-    "export-calendars": "node setup/list-google-calendars.js --export",
-    "delete-calendars": "node setup/delete-google-calendars.js",
-    "generate-docs": "node setup/generate-docs.js"
+    "process-all-competitions": "node src/tasks/process-all-competitions.js",
+    "process-competition": "node src/tasks/process-competition.js",
+    "scrape-competitions": "node src/setup/competition-scraper.js",
+    "create-calendars": "node src/setup/create-google-calendars.js",
+    "list-calendars": "node src/setup/list-google-calendars.js",
+    "export-calendars": "node src/setup/list-google-calendars.js --export",
+    "delete-calendars": "node src/setup/delete-google-calendars.js",
+    "generate-docs": "node src/setup/generate-docs.js"
   },
   "keywords": [
     "hockey",

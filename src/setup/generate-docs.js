@@ -4,9 +4,9 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 // Import shared utilities
-import { loadCompetitionData, categorizeCompetitions } from '../shared/competition-utils.js';
-import { OUTPUT_DIR, COMPETITIONS_FILE } from '../shared/config.js';
-import { withErrorHandling, logSuccess, logInfo } from '../shared/error-utils.js';
+import { loadCompetitionData, categorizeCompetitions } from '../lib/competition-utils.js';
+import { OUTPUT_DIR, COMPETITIONS_FILE } from '../lib/config.js';
+import { withErrorHandling, logSuccess, logInfo } from '../lib/error-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
