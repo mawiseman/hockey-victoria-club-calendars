@@ -11,7 +11,7 @@ const ROUND_BASE_URL = 'https://www.hockeyvictoria.org.au/games/';
  */
 async function loadConfig() {
     const clubMappings = JSON.parse(
-        await fs.readFile('./config/mappings-club-names', 'utf8')
+        await fs.readFile('./config/mappings-club-names.json', 'utf8')
     );
     const competitionNames = JSON.parse(
         await fs.readFile('./config/mappings-competition-names.json', 'utf8')

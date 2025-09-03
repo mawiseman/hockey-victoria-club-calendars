@@ -332,8 +332,10 @@ async function runUploadStep(processResults, competitions, options) {
     console.log('\n=== STEP 3: Uploading to Google Calendar ===\n');
     
     // Check if Google Calendar upload is configured
-    if (!process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
-        console.log('⚠️  GOOGLE_SERVICE_ACCOUNT_KEY environment variable not set');
+    try {
+        await fs.access('service-account-key.json');
+    } catch (error) {
+        console.log('⚠️  service-account-key.json file not found');
         console.log('Skipping Google Calendar upload step');
         return null;
     }
@@ -509,19 +511,17 @@ async function main() {
             }
         }
         
-        // Clean up temp files (optional - comment out if you want to keep them)
-        const shouldCleanup = process.env.CLEANUP_TEMP !== 'false' && 
-                            options.steps.includes('upload') && 
-                            !options.steps.includes('download') && 
-                            !options.steps.includes('process');
+        // Clean up temp files only if explicitly requested
+        const shouldCleanup = process.env.CLEANUP_TEMP === 'true';
         
         if (shouldCleanup) {
             console.log('\nCleaning up temporary files...');
             await fs.rm('./temp/downloads', { recursive: true, force: true });
             await fs.rm('./temp/processed', { recursive: true, force: true });
+            console.log('✅ Temporary files cleaned up');
         } else {
             console.log('\n💡 Temporary files preserved in ./temp/ for step resumption');
-            console.log('   Use CLEANUP_TEMP=false to always preserve temp files');
+            console.log('   Use CLEANUP_TEMP=true to enable automatic cleanup');
         }
         
         console.log('\n========================================');

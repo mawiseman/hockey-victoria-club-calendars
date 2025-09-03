@@ -10,7 +10,8 @@
     "create-calendars": "node setup/create-google-calendars.js",
     "list-calendars": "node setup/list-google-calendars.js",
     "export-calendars": "node setup/list-google-calendars.js --export",
-    "delete-calendars": "node setup/delete-google-calendars.js"
+    "delete-calendars": "node setup/delete-google-calendars.js",
+    "generate-docs": "node setup/generate-docs.js"
   },
   "keywords": [
     "hockey",

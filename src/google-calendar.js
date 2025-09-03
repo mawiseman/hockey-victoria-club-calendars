@@ -3,24 +3,73 @@ import fs from 'fs/promises';
 import ical from 'ical';
 
 /**
+ * Check if error is due to API limits
+ */
+function isApiLimitError(error) {
+    if (!error.response) return false;
+    
+    const status = error.response.status;
+    const data = error.response.data;
+    
+    // Check for various API limit scenarios
+    if (status === 429) return true; // Too Many Requests
+    if (status === 403 && data?.error?.errors) {
+        const errors = data.error.errors;
+        return errors.some(err => 
+            err.reason === 'rateLimitExceeded' ||
+            err.reason === 'userRateLimitExceeded' ||
+            err.reason === 'quotaExceeded' ||
+            err.reason === 'dailyLimitExceeded'
+        );
+    }
+    
+    return false;
+}
+
+/**
+ * Get detailed error message
+ */
+function getDetailedError(error) {
+    if (isApiLimitError(error)) {
+        return `🚫 Google Calendar API limit exceeded: ${error.message}. Please wait and try again later.`;
+    }
+    
+    if (error.response) {
+        const status = error.response.status;
+        const data = error.response.data;
+        
+        if (status === 404) {
+            return `❌ Calendar not found: ${error.message}`;
+        }
+        if (status === 401) {
+            return `🔐 Authentication failed: ${error.message}`;
+        }
+        if (status === 403) {
+            return `⛔ Permission denied: ${error.message}`;
+        }
+        
+        return `📡 API error (${status}): ${data?.error?.message || error.message}`;
+    }
+    
+    return `💥 Unexpected error: ${error.message}`;
+}
+
+/**
  * Authenticate with Google Calendar API using service account
  */
 export async function authenticateGoogle() {
     try {
-        // Use service account credentials from environment variable
-        const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY || '{}');
-        
         const auth = new google.auth.GoogleAuth({
-            credentials,
+            keyFile: 'service-account-key.json',
             scopes: ['https://www.googleapis.com/auth/calendar']
         });
-        
+
         const authClient = await auth.getClient();
         const calendar = google.calendar({ version: 'v3', auth: authClient });
         
         return calendar;
     } catch (error) {
-        console.error('Authentication error:', error);
+        console.error('Authentication error:', getDetailedError(error));
         throw error;
     }
 }
@@ -55,14 +104,15 @@ export async function deleteAllEvents(calendar, calendarId) {
                     eventId: event.id
                 });
             } catch (deleteError) {
-                console.warn(`Failed to delete event ${event.id}: ${deleteError.message}`);
+                console.warn(`Failed to delete event ${event.id}: ${getDetailedError(deleteError)}`);
             }
         }
         
         console.log(`Deleted ${events.length} events`);
     } catch (error) {
-        console.error(`Error deleting events: ${error.message}`);
-        throw error;
+        const detailedError = getDetailedError(error);
+        console.error(`Error deleting events: ${detailedError}`);
+        throw new Error(detailedError);
     }
 }
 
@@ -104,7 +154,7 @@ export async function importICalToGoogle(calendar, calendarId, icalPath) {
                     
                     imported++;
                 } catch (insertError) {
-                    console.warn(`Failed to import event: ${insertError.message}`);
+                    console.warn(`Failed to import event: ${getDetailedError(insertError)}`);
                     failed++;
                 }
             }
@@ -113,8 +163,9 @@ export async function importICalToGoogle(calendar, calendarId, icalPath) {
         console.log(`Imported ${imported} events (${failed} failed)`);
         return { imported, failed };
     } catch (error) {
-        console.error(`Error importing events: ${error.message}`);
-        throw error;
+        const detailedError = getDetailedError(error);
+        console.error(`Error importing events: ${detailedError}`);
+        throw new Error(detailedError);
     }
 }
 
@@ -141,11 +192,12 @@ export async function uploadToGoogleCalendars(processedPath, calendarIds) {
                 ...importResult
             });
         } catch (error) {
-            console.error(`Failed to upload to ${calendarId}: ${error.message}`);
+            const detailedError = getDetailedError(error);
+            console.error(`Failed to upload to ${calendarId}: ${detailedError}`);
             results.push({
                 calendarId,
                 success: false,
-                error: error.message
+                error: detailedError
             });
         }
     }
@@ -160,13 +212,24 @@ export async function uploadAllCalendars(processResults) {
     const uploadResults = {};
     
     for (const [name, result] of Object.entries(processResults)) {
-        if (result.success && result.processedPath && result.competition.calendars) {
+        // Extract calendar IDs from the competition data
+        let calendarIds = null;
+        
+        if (result.competition.calendars) {
+            // Legacy format: array of calendar IDs
+            calendarIds = result.competition.calendars;
+        } else if (result.competition.googleCalendar && result.competition.googleCalendar.calendarId) {
+            // New format: single googleCalendar object
+            calendarIds = [result.competition.googleCalendar.calendarId];
+        }
+        
+        if (result.success && result.processedPath && calendarIds) {
             console.log(`\n===== Uploading: ${name} =====`);
             
             try {
                 const uploadResult = await uploadToGoogleCalendars(
                     result.processedPath,
-                    result.competition.calendars
+                    calendarIds
                 );
                 
                 uploadResults[name] = {
@@ -174,16 +237,30 @@ export async function uploadAllCalendars(processResults) {
                     calendars: uploadResult
                 };
             } catch (error) {
-                console.error(`Upload failed for ${name}: ${error.message}`);
+                const detailedError = getDetailedError(error);
+                console.error(`Upload failed for ${name}: ${detailedError}`);
                 uploadResults[name] = {
                     success: false,
-                    error: error.message
+                    error: detailedError
                 };
             }
         } else {
+            // Provide more detailed error information
+            let errorMsg = 'Upload failed: ';
+            if (!result.success) {
+                errorMsg += 'processing step failed';
+            } else if (!result.processedPath) {
+                errorMsg += 'no processed calendar file found';
+            } else if (!calendarIds) {
+                errorMsg += 'no Google Calendar IDs specified for this competition';
+            } else {
+                errorMsg += 'unknown error';
+            }
+            
+            console.error(`${name}: ${errorMsg}`);
             uploadResults[name] = {
                 success: false,
-                error: 'Processing failed or no calendars specified'
+                error: errorMsg
             };
         }
     }
