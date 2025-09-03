@@ -33,23 +33,15 @@
       "replacement": "E"
     },
     {
-      "pattern": "U12 Mixed Shield",
-      "replacement": "U12 Shield"
+      "pattern": "{{YEAR}} Midweek {{GENDER}} (.*)",
+      "replacement": "{{GENDER}} $1",
+      "examples": [
+        { "original": "2025 Midweek Men's 45+ NW", "output":"Mens 45+ NW" },
+        { "original": "2025 Midweek Womens's 35+ CN", "output":"Women's 35+ CN" }
+      ]
     },
     {
-      "pattern": "{{YEAR}} Midweek Men's 45+ NW",
-      "replacement": "Men 45+ NW"
-    },
-    {
-      "pattern": "{{YEAR}} Midweek Women's 35+ CN",
-      "replacement": "Women 35+ CN"
-    },
-    {
-      "pattern": "{{YEAR}} Senior Competition Men's",
-      "replacement": ""
-    },
-    {
-      "pattern": "{{YEAR}} Senior Competition Women's ",
+      "pattern": "{{YEAR}} Senior Competition {{GENDER}}",
       "replacement": ""
     },
     {

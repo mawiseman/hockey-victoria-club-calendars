@@ -38,8 +38,24 @@ function replaceCompetitionNames(text, competitionReplacements) {
     const currentYear = new Date().getFullYear().toString();
     
     for (const replacement of competitionReplacements) {
-        const pattern = replacement.pattern.replace('{{YEAR}}', currentYear);
-        result = result.replace(new RegExp(pattern, 'g'), replacement.replacement);
+        let pattern = replacement.pattern;
+        
+        // Replace {{YEAR}} variable
+        pattern = pattern.replace('{{YEAR}}', currentYear);
+        
+        // Replace {{GENDER}} variable with both Men's and Women's options
+        if (pattern.includes('{{GENDER}}')) {
+            const menPattern = pattern.replace('{{GENDER}}', "Men's");
+            const womenPattern = pattern.replace('{{GENDER}}', "Women's");
+            
+            const menReplacement = replacement.replacement.replace('{{GENDER}}', 'Men');
+            const womenReplacement = replacement.replacement.replace('{{GENDER}}', 'Women');
+            
+            result = result.replace(new RegExp(menPattern, 'g'), menReplacement);
+            result = result.replace(new RegExp(womenPattern, 'g'), womenReplacement);
+        } else {
+            result = result.replace(new RegExp(pattern, 'g'), replacement.replacement);
+        }
     }
     
     return result;
