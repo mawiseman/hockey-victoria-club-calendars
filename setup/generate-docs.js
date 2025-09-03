@@ -1,68 +1,16 @@
 import fs from 'fs/promises';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-const COMPETITIONS_FILE = 'config/competitions.json';
-const OUTPUT_DIR = 'docs';
+// Import shared utilities
+import { loadCompetitionData, categorizeCompetitions } from './shared/competition-utils.js';
+import { OUTPUT_DIR, COMPETITIONS_FILE } from './shared/config.js';
+import { withErrorHandling, logSuccess, logInfo } from './shared/error-utils.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'competitions.md');
-
-/**
- * Load competition data
- */
-async function loadCompetitionData() {
-    try {
-        const data = await fs.readFile(COMPETITIONS_FILE, 'utf8');
-        const competitionsData = JSON.parse(data);
-        
-        if (!competitionsData.competitions || !Array.isArray(competitionsData.competitions)) {
-            throw new Error('Invalid competition data format - missing competitions array');
-        }
-        
-        return competitionsData;
-    } catch (error) {
-        if (error.code === 'ENOENT') {
-            throw new Error(`Competition file not found: ${COMPETITIONS_FILE}`);
-        }
-        throw error;
-    }
-}
-
-/**
- * Categorize competitions
- */
-function categorizeCompetitions(competitions) {
-    const categories = {
-        mens: [],
-        womens: [],
-        midweek: [],
-        juniors: []
-    };
-    
-    for (const competition of competitions) {
-        const name = competition.name.toLowerCase();
-        
-        if (name.includes('midweek')) {
-            categories.midweek.push(competition);
-        } else if (name.includes('u12') || name.includes('u14') || name.includes('u16') || name.includes('u18')) {
-            categories.juniors.push(competition);
-        } else if (name.includes("women's") || name.includes('women ')) {
-            categories.womens.push(competition);
-        } else if (name.includes("men's") || name.includes('men ')) {
-            categories.mens.push(competition);
-        } else {
-            // Default to appropriate category based on context
-            if (name.includes('mixed')) {
-                categories.juniors.push(competition);
-            } else {
-                // Add to a general category or skip
-                console.warn(`Could not categorize competition: ${competition.name}`);
-            }
-        }
-    }
-    
-    // Keep original order from JSON file (remove alphabetical sorting)
-    
-    return categories;
-}
 
 /**
  * Generate markdown content
@@ -137,39 +85,74 @@ function formatCompetitionTable(competitions) {
 }
 
 /**
- * Main execution
+ * Main function to generate documentation
  */
 async function generateDocs() {
-    try {
-        console.log('🔍 Loading competition data...');
-        const competitionsData = await loadCompetitionData();
-        
-        console.log('📂 Categorizing competitions...');
-        const categories = categorizeCompetitions(competitionsData.competitions);
-        
-        // Print category summary
-        console.log(`📊 Found competitions:`);
-        console.log(`  - Men's: ${categories.mens.length}`);
-        console.log(`  - Women's: ${categories.womens.length}`);
-        console.log(`  - Midweek: ${categories.midweek.length}`);
-        console.log(`  - Juniors: ${categories.juniors.length}`);
-        
-        console.log('📝 Generating markdown...');
-        const markdown = generateMarkdown(competitionsData, categories);
-        
-        // Ensure output directory exists
-        await fs.mkdir(OUTPUT_DIR, { recursive: true });
-        
-        // Write markdown file
-        await fs.writeFile(OUTPUT_FILE, markdown, 'utf8');
-        
-        console.log(`✅ Documentation generated: ${OUTPUT_FILE}`);
-        console.log(`📖 Total competitions documented: ${competitionsData.totalCompetitions}`);
-        
-    } catch (error) {
-        console.error('❌ Error generating documentation:', error.message);
-        process.exit(1);
-    }
+    logInfo('Starting documentation generation...');
+    
+    // Load competition data
+    const competitionsData = await loadCompetitionData();
+    
+    logInfo(`Loaded ${competitionsData.competitions.length} competitions from ${COMPETITIONS_FILE}`);
+    
+    // Categorize competitions
+    const categories = categorizeCompetitions(competitionsData.competitions);
+    
+    // Print category summary
+    logInfo(`Found competitions:`);
+    console.log(`  - Men's: ${categories.mens.length}`);
+    console.log(`  - Women's: ${categories.womens.length}`);
+    console.log(`  - Midweek: ${categories.midweek.length}`);
+    console.log(`  - Juniors: ${categories.juniors.length}`);
+    
+    // Generate markdown
+    logInfo('Generating markdown...');
+    const markdown = generateMarkdown(competitionsData, categories);
+    
+    // Ensure output directory exists
+    await fs.mkdir(OUTPUT_DIR, { recursive: true });
+    
+    // Write markdown file
+    await fs.writeFile(OUTPUT_FILE, markdown, 'utf8');
+    
+    logSuccess(`Documentation generated: ${OUTPUT_FILE}`);
+    logInfo(`Total competitions documented: ${competitionsData.totalCompetitions}`);
+}
+
+/**
+ * Show help information
+ */
+function showHelp() {
+    console.log(`
+📖 Competition Documentation Generator
+
+Generates markdown documentation for competitions with Google Calendar links
+
+Usage:
+  npm run generate-docs [-- options]
+
+Options:
+  --help, -h       Show this help message
+
+Examples:
+  npm run generate-docs                    # Generate competition documentation
+  npm run generate-docs -- --help         # Show this help
+
+Process:
+  1. Reads competition data from ${COMPETITIONS_FILE}
+  2. Categorizes competitions by type (Men's, Women's, Midweek, Juniors)
+  3. Generates markdown documentation with Google Calendar links
+  4. Saves output to ${OUTPUT_FILE}
+
+Requirements:
+  • ${COMPETITIONS_FILE} must exist (run npm run scrape-competitions first)
+  • Google Calendars should be created (run npm run create-calendars)
+
+Output Format:
+  • Organized by competition category
+  • Table format with competition names and calendar subscribe links
+  • Competitions maintain order from JSON file
+`);
 }
 
 /**
@@ -191,35 +174,7 @@ function parseArguments() {
 }
 
 /**
- * Display help information
- */
-function showHelp() {
-    console.log(`
-📖 Competition Documentation Generator
-
-npm run generate-docs [-- options]
-
-Options:
-  --help, -h       Show this help message
-
-Examples:
-  npm run generate-docs                    # Generate competition documentation
-  npm run generate-docs -- --help         # Show this help
-
-Process:
-  1. Reads competition data from ${COMPETITIONS_FILE}
-  2. Categorizes competitions by type (Men's, Women's, Midweek, Juniors)
-  3. Generates markdown documentation with Google Calendar links
-  4. Saves output to ${OUTPUT_FILE}
-
-Requirements:
-  • ${COMPETITIONS_FILE} must exist (run npm run scrape-competitions first)
-  • Google Calendars should be created (run npm run create-calendars)
-`);
-}
-
-/**
- * Main function
+ * Main execution
  */
 async function main() {
     const options = parseArguments();
@@ -233,14 +188,8 @@ async function main() {
 }
 
 // Run if called directly
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 if (process.argv[1] === __filename) {
-    main();
+    await withErrorHandling(main, 'generate-docs')();
 }
 
 export { generateDocs, categorizeCompetitions };

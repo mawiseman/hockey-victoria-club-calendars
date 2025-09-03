@@ -1,264 +1,311 @@
-# Hockey Victoria Calendar Scraper - GitHub Actions Version
+# Hockey Victoria Calendar Setup Scripts
 
-This is a Node.js implementation of the Hockey Victoria Calendar Scraper designed to run entirely on GitHub Actions. It automatically downloads, processes, and uploads hockey fixtures to Google Calendar.
+This directory contains setup and utility scripts for managing Hockey Victoria competition calendars and Google Calendar integration.
 
-## Features
+## 📋 Available Scripts
 
-- ✅ Downloads iCal calendars from Hockey Victoria website
-- ✅ Processes events to improve readability (club abbreviations, simplified competition names)
-- ✅ Uploads to multiple Google Calendars
-- ✅ Runs automatically via GitHub Actions (daily schedule)
-- ✅ Configurable via JSON files
-- ✅ No local infrastructure required
+### Core Scripts
 
-## Project Structure
+| Script | Command | Description |
+|--------|---------|-------------|
+| **Competition Scraper** | `npm run scrape-competitions` | Scrapes Hockey Victoria for competitions containing Footscray Hockey Club |
+| **Calendar Creator** | `npm run create-calendars` | Creates Google Calendars for each competition |
+| **Calendar Lister** | `npm run list-calendars` | Lists existing Google Calendars |
+| **Calendar Exporter** | `npm run export-calendars` | Exports calendar data to JSON |
+| **Calendar Deleter** | `npm run delete-calendars` | Deletes Google Calendars (with safety prompts) |
+| **Documentation Generator** | `npm run generate-docs` | Generates markdown documentation with calendar links |
 
-```
-src-actions/
-├── config/                      # Configuration files
-│   ├── competitions.json        # Competition definitions and calendar mappings
-│   ├── mappings-club-names.json       # Club name to abbreviation mappings
-│   └── mappings-competition-names.json   # Competition name replacements
-├── src/                         # Source code
-│   ├── index.js                 # Main orchestration script
-│   ├── calendar-downloader.js   # Downloads iCal files
-│   ├── calendar-processor.js    # Processes calendar events
-│   └── google-calendar.js       # Google Calendar API integration
-├── package.json                 # Node.js dependencies
-└── README.md                    # This file
+### Workflow Scripts
 
-.github/workflows/
-└── sync-calendars.yml          # GitHub Actions workflow
-```
+| Script | Command | Description |
+|--------|---------|-------------|
+| **Process Fixture** | `npm run process-fixture` | Main workflow: download, process, and upload calendars |
 
-## Setup Instructions
+## 🚀 Quick Start
 
-### 1. Create Google Service Account
+### Prerequisites
 
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select existing one
-3. Enable the Google Calendar API
-4. Create a Service Account:
-   - Go to "IAM & Admin" → "Service Accounts"
-   - Click "Create Service Account"
-   - Give it a name (e.g., "hockey-calendar-sync")
-   - Grant it the "Editor" role
-   - Create and download a JSON key
+1. **Google Calendar API Setup**
+   - Create a Google Cloud Project
+   - Enable Google Calendar API
+   - Create a Service Account
+   - Download service account key as `service-account-key.json` in project root
 
-### 2. Grant Calendar Access
+2. **Node.js Dependencies**
+   ```bash
+   npm install
+   ```
 
-For each Google Calendar that needs to be updated:
+### Basic Workflow
 
-1. Open Google Calendar
-2. Go to Calendar Settings
-3. Share the calendar with the service account email (found in the JSON key)
-4. Grant "Make changes to events" permission
+1. **Scrape Competitions**
+   ```bash
+   npm run scrape-competitions
+   ```
+   - Discovers all competitions containing Footscray Hockey Club
+   - Saves results to `config/competitions.json`
+   - Supports resuming from interruptions
 
-### 3. Configure GitHub Repository
+2. **Create Google Calendars**
+   ```bash
+   npm run create-calendars
+   ```
+   - Creates public Google Calendars for each competition
+   - Updates `competitions.json` with calendar IDs
+   - Skips existing calendars
 
-1. Go to your GitHub repository
-2. Navigate to Settings → Secrets and variables → Actions
-3. Add a new repository secret:
-   - Name: `GOOGLE_SERVICE_ACCOUNT_KEY`
-   - Value: Paste the entire contents of the service account JSON key
+3. **Process and Upload Fixtures**
+   ```bash
+   npm run process-fixture -- --all
+   ```
+   - Downloads iCal files from Hockey Victoria
+   - Processes and enhances calendar events
+   - Uploads to Google Calendars
 
-### 4. Configure Competitions
+4. **Generate Documentation**
+   ```bash
+   npm run generate-docs
+   ```
+   - Creates `docs/competitions.md` with calendar subscribe links
+   - Organized by category (Men's, Women's, Midweek, Juniors)
 
-Edit the configuration files in `src-actions/config/`:
+## 📖 Script Documentation
 
-#### competitions.json
-- Add/remove competitions
-- Update calendar IDs
-- Modify category assignments
+### Competition Scraper (`scrape-competitions`)
 
-#### mappings-club-names.json
-- Add new clubs and their abbreviations
-- Update existing abbreviations
+Discovers competitions by scraping Hockey Victoria's games pages.
 
-#### mappings-competition-names.json
-- Modify competition name replacements
-- Add new patterns for round/competition names
-
-## Usage
-
-### Automatic Execution
-
-The workflow runs automatically:
-- **Schedule**: Daily at 2 AM Melbourne time
-- **Manual**: Go to Actions tab → Select "Sync Hockey Victoria Calendars" → Run workflow
-
-### Local Testing
-
+**Usage:**
 ```bash
-cd src-actions
-npm install
-
-# Set environment variable (Linux/Mac)
-export GOOGLE_SERVICE_ACCOUNT_KEY='<paste-json-key-here>'
-
-# Set environment variable (Windows PowerShell)
-$env:GOOGLE_SERVICE_ACCOUNT_KEY='<paste-json-key-here>'
-
-# Run the sync
-npm start
+npm run scrape-competitions [-- options]
 ```
 
-### Manual Trigger via GitHub
+**Options:**
+- `--force, -f` - Restart from scratch (ignore saved progress)
+- `--help, -h` - Show help
 
-1. Go to the Actions tab in your repository
-2. Select "Sync Hockey Victoria Calendars"
-3. Click "Run workflow"
-4. Choose options:
-   - Cleanup temp files: Yes/No
+**Features:**
+- **3-layer navigation**: Games page → Competition page → Ladder page
+- **Parallel processing**: Up to 5 competitions simultaneously
+- **Progress tracking**: Resume from interruptions
+- **Smart filtering**: Only includes pages with Footscray Hockey Club
 
-## Configuration
+**Output:**
+- `config/competitions.json` - Competition data with fixture/ladder URLs
+- `temp/scraper-progress.json` - Progress tracking
 
-### Adding a New Competition
+---
 
-1. Edit `src-actions/config/competitions.json`:
-```json
-{
-  "name": "Competition Name",
-  "competitionId": "12345/67890",
-  "calendars": [
-    "calendar_id_1@group.calendar.google.com",
-    "calendar_id_2@group.calendar.google.com"
-  ],
-  "category": "men|women|juniors|midweek"
-}
+### Calendar Creator (`create-calendars`)
+
+Creates Google Calendars for competitions.
+
+**Usage:**
+```bash
+npm run create-calendars [-- options]
 ```
 
-2. Commit and push changes
-3. The next scheduled run will include the new competition
+**Options:**
+- `--help, -h` - Show help
 
-### Modifying Club Names
+**Features:**
+- **Duplicate detection**: Skips existing calendars with same names
+- **Public calendars**: Creates publicly accessible calendars
+- **Rate limiting**: Respects Google API limits
+- **Metadata updates**: Updates `competitions.json` with calendar info
 
-Edit `src-actions/config/mappings-club-names.json`:
-```json
-{
-  "clubMappings": {
-    "Full Club Name": "ABC",
-    "Another Club Name": "XYZ"
-  }
-}
+**Requirements:**
+- `service-account-key.json` in project root
+- Google Calendar API enabled
+- Service account with calendar creation permissions
+
+---
+
+### Calendar Management
+
+#### List Calendars (`list-calendars`)
+
+**Usage:**
+```bash
+npm run list-calendars [-- options]
 ```
 
-### Adjusting Schedule
+**Options:**
+- `--all` - Show all calendars
+- `--filter <prefix>` - Filter by prefix (default: "FHC ")
+- `--stats` - Show calendar statistics
+- `--help, -h` - Show help
 
-Edit `.github/workflows/sync-calendars.yml`:
-```yaml
-on:
-  schedule:
-    - cron: '0 16 * * *'  # Modify this line
+#### Export Calendars (`export-calendars`)
+
+**Usage:**
+```bash
+npm run export-calendars [-- options]
 ```
 
-Use [crontab.guru](https://crontab.guru/) to generate cron expressions.
+**Options:**
+- `--export <file>` - Export filename (default: exported-calendars.json)
+- `--all` - Export all calendars
+- `--filter <prefix>` - Filter by prefix
 
-## Monitoring
+#### Delete Calendars (`delete-calendars`)
 
-### Check Workflow Status
+**Usage:**
+```bash
+npm run delete-calendars [-- options]
+```
 
-1. Go to Actions tab
-2. View recent workflow runs
-3. Click on a run to see detailed logs
+**Options:**
+- `--all` - Delete all FHC calendars
+- `--pattern <pattern>` - Delete calendars matching pattern
+- `--name <name>` - Delete specific calendar by name
+- `--help, -h` - Show help
 
-### Failure Notifications
+**Safety Features:**
+- Interactive confirmation required
+- Multiple deletion methods
+- Cannot recover deleted calendars
 
-When a sync fails:
-- An issue is automatically created in the repository
-- Temporary files are uploaded as artifacts for debugging
+---
 
-## Troubleshooting
+### Documentation Generator (`generate-docs`)
+
+**Usage:**
+```bash
+npm run generate-docs [-- options]
+```
+
+**Options:**
+- `--help, -h` - Show help
+
+**Features:**
+- **Auto-categorization**: Groups by Men's, Women's, Midweek, Juniors
+- **Table format**: Clean markdown tables with subscribe links
+- **Order preservation**: Maintains JSON file order
+- **Live updates**: Shows last updated timestamp
+
+**Output:**
+- `docs/competitions.md` - Formatted documentation
+
+## 🗂️ File Structure
+
+```
+setup/
+├── shared/                          # Shared utilities
+│   ├── google-auth.js              # Google Calendar authentication
+│   ├── config.js                   # Shared configuration constants
+│   ├── competition-utils.js        # Competition data utilities
+│   └── error-utils.js              # Error handling utilities
+├── competition-scraper.js          # Competition discovery
+├── create-google-calendars.js      # Calendar creation
+├── delete-google-calendars.js      # Calendar deletion
+├── list-google-calendars.js        # Calendar listing/export
+├── generate-docs.js               # Documentation generation
+└── README.md                      # This file
+```
+
+## ⚙️ Configuration
+
+### Shared Configuration (`shared/config.js`)
+
+Key constants used across all scripts:
+
+```javascript
+// File paths
+COMPETITIONS_FILE = 'config/competitions.json'
+SERVICE_ACCOUNT_KEY = 'service-account-key.json'
+
+// Google Calendar
+CALENDAR_PREFIX = 'FHC '
+SCOPES = ['https://www.googleapis.com/auth/calendar']
+
+// Hockey Victoria
+BASE_URL = 'https://www.hockeyvictoria.org.au/games/'
+CLUB_NAME = 'Footscray Hockey Club'
+```
+
+### Competition Categories
+
+Competitions are automatically categorized:
+
+- **Midweek**: Contains "midweek"
+- **Juniors**: Contains "u12", "u14", "u16", "u18", or "mixed"
+- **Women's**: Contains "women's" or "women "
+- **Men's**: Contains "men's" or "men "
+
+## 🔧 Troubleshooting
 
 ### Common Issues
 
-1. **Authentication Failed**
-   - Verify `GOOGLE_SERVICE_ACCOUNT_KEY` secret is set correctly
-   - Ensure service account has calendar access
+**Authentication Errors**
+- Ensure `service-account-key.json` exists in project root
+- Verify Google Calendar API is enabled
+- Check service account permissions
 
-2. **Calendar Not Found**
-   - Check calendar IDs in competitions.json
-   - Verify service account has access to the calendar
+**Rate Limiting**
+- Scripts include automatic retry with exponential backoff
+- API limits typically reset within minutes
 
-3. **Events Not Appearing**
-   - Check timezone settings
-   - Verify events are within the correct date range
+**Missing Competitions**
+- Run `npm run scrape-competitions --force` to refresh data
+- Check Hockey Victoria website accessibility
 
-4. **Download Failed**
-   - Check Hockey Victoria website is accessible
-   - Verify competition IDs are correct
+**File Not Found Errors**
+- Ensure dependencies are run in order: scrape → create → process
+- Check file paths in error messages
 
-### Debug Mode
+### Getting Help
 
-To keep temporary files for debugging:
-1. Run workflow manually
-2. Set "Clean up temporary files" to "false"
-3. Download artifacts from the workflow run
+Each script includes detailed help:
+```bash
+npm run <script-name> -- --help
+```
 
-## Environment Variables
+## 📊 Data Flow
 
-- `GOOGLE_SERVICE_ACCOUNT_KEY`: Google service account credentials (required)
-- `CLEANUP_TEMP`: Whether to delete temporary files after sync (default: true)
+```mermaid
+graph TD
+    A[scrape-competitions] --> B[config/competitions.json]
+    B --> C[create-calendars]
+    C --> D[competitions.json + calendar IDs]
+    D --> E[process-fixture]
+    E --> F[Google Calendars with events]
+    D --> G[generate-docs]
+    G --> H[docs/competitions.md]
+```
 
-## Dependencies
+## 🔄 Maintenance
 
-- `@googleapis/calendar`: Google Calendar API client
-- `ical`: iCal parsing library
-- `node-fetch`: HTTP client for downloading calendars
-- `dotenv`: Environment variable management
+### Regular Tasks
 
-## Security Notes
+1. **Monthly**: Refresh competition data
+   ```bash
+   npm run scrape-competitions --force
+   ```
 
-- Never commit the service account key to the repository
-- Use GitHub Secrets for sensitive information
-- Regularly rotate service account keys
-- Limit calendar permissions to minimum required
+2. **Weekly**: Update fixture calendars
+   ```bash
+   npm run process-fixture -- --all
+   ```
 
-## Contributing
+3. **As needed**: Update documentation
+   ```bash
+   npm run generate-docs
+   ```
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test locally
-5. Submit a pull request
+### Cleanup
 
-## License
+- **Temp files**: Automatically managed by `process-fixture`
+- **Old calendars**: Use `delete-calendars` for bulk removal
+- **Progress files**: Safe to delete `temp/scraper-progress.json` to restart scraping
 
-MIT
+## 📈 Performance
 
-## Support
+- **Concurrent processing**: 5 simultaneous operations
+- **Progress saving**: Resume interrupted operations
+- **Rate limiting**: Respects Google API limits
+- **Efficient caching**: Avoids redundant API calls
 
-For issues or questions:
-1. Check existing GitHub Issues
-2. Create a new issue with:
-   - Description of the problem
-   - Error messages from logs
-   - Configuration details (without sensitive data)
+---
 
-
-
-
-# 1. Download all fixtures (takes time)
-  npm start -- --steps download
-
-  # 2. Test processing with different settings
-  npm start -- --steps process --force
-
-  # 3. Upload when satisfied
-  npm start -- --steps upload
-
-  Production Workflow:
-
-  # Full pipeline (default)
-  npm start
-
-  # Or force fresh run
-  npm start -- --force
-
-  Troubleshooting:
-
-  # Re-process with new settings
-  npm start -- --steps process --force
-
-  # Skip problematic download, just upload
-  npm start -- --steps upload
+*This documentation is automatically maintained and updated with each script modification.*

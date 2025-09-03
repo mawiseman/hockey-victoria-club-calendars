@@ -127,9 +127,9 @@ function generateDescription(competition, roundNumber) {
         const ladderUrl = `${LADDER_BASE_URL}${competition.competitionId}`;
         const roundUrl = `${ROUND_BASE_URL}${competition.competitionId}/${roundNumber}`;
         
-        description += `Full Fixture: ${fixtureUrl}\n`;
-        description += `Current Round: ${roundUrl}\n`;
-        description += `Ladder: ${ladderUrl}\n`;
+        description += `Full Fixture: ${fixtureUrl}\n\n`;
+        description += `Current Round: ${roundUrl}\n\n`;
+        description += `Ladder: ${ladderUrl}\n\n`;
     }
     
     description += `\n\nLast Updated: ${new Date().toISOString()}`;

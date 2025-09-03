@@ -1,51 +1,15 @@
 import fs from 'fs/promises';
-import { google } from 'googleapis';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
+// Import shared utilities
+import { initializeCalendarClient } from './shared/google-auth.js';
+import { loadCompetitionData, getCompetitionsWithoutCalendars } from './shared/competition-utils.js';
+import { CALENDAR_PREFIX, CLUB_NAME, COMPETITIONS_FILE, getCurrentTimestamp } from './shared/config.js';
+import { withErrorHandling, logSuccess, logWarning, logInfo, retryWithBackoff } from './shared/error-utils.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-const COMPETITIONS_FILE = 'config/competitions.json';
-const CALENDAR_PREFIX = 'FHC ';
-const CLUB_NAME = 'Footscray Hockey Club';
-const SCOPES = ['https://www.googleapis.com/auth/calendar'];
-
-/**
- * Load competition data from scraper output
- */
-async function loadCompetitionData() {
-    try {
-        const data = await fs.readFile(COMPETITIONS_FILE, 'utf8');
-        const competitions = JSON.parse(data);
-        
-        if (!competitions.competitions || !Array.isArray(competitions.competitions)) {
-            throw new Error('Invalid competition data format');
-        }
-        
-        return competitions;
-    } catch (error) {
-        if (error.code === 'ENOENT') {
-            throw new Error(`Competition file not found: ${COMPETITIONS_FILE}. Run the scraper first.`);
-        }
-        throw error;
-    }
-}
-
-/**
- * Initialize Google Calendar API client
- */
-async function initializeCalendarClient() {
-    const auth = new google.auth.GoogleAuth({
-        keyFile: process.env.GOOGLE_SERVICE_ACCOUNT_KEY || 'service-account-key.json',
-        scopes: SCOPES,
-    });
-
-    const authClient = await auth.getClient();
-    const calendar = google.calendar({ version: 'v3', auth: authClient });
-    
-    return calendar;
-}
 
 /**
  * Get all existing calendars from Google
@@ -60,258 +24,274 @@ async function getExistingCalendars(calendar) {
         
         return response.data.items || [];
     } catch (error) {
-        console.error('Error fetching existing calendars:', error.message);
-        return [];
+        throw new Error(`Failed to fetch existing calendars: ${error.message}`);
     }
 }
 
 /**
- * Create a public Google Calendar
+ * Create a new Google Calendar
  */
-async function createPublicCalendar(calendar, competitionName) {
-    const calendarTitle = `${CALENDAR_PREFIX}${competitionName}`;
-    
-    console.log(`📅 Creating calendar: ${calendarTitle}`);
+async function createCalendar(calendar, title, description) {
+    const calendarResource = {
+        summary: title,
+        description: description,
+        timeZone: 'Australia/Melbourne'
+    };
     
     try {
-        // Create the calendar
-        const calendarResource = {
-            summary: calendarTitle,
-            description: `${CLUB_NAME} fixtures for ${competitionName}`,
-            timeZone: 'Australia/Melbourne',
-        };
-        
-        const createdCalendar = await calendar.calendars.insert({
-            resource: calendarResource
+        const response = await retryWithBackoff(async () => {
+            return await calendar.calendars.insert({
+                resource: calendarResource
+            });
         });
         
-        const calendarId = createdCalendar.data.id;
-        console.log(`✅ Created calendar with ID: ${calendarId}`);
+        const calendarId = response.data.id;
         
         // Make the calendar public
-        await calendar.acl.insert({
-            calendarId: calendarId,
-            resource: {
-                role: 'reader',
-                scope: {
-                    type: 'default'  // Makes it public
+        await retryWithBackoff(async () => {
+            await calendar.acl.insert({
+                calendarId: calendarId,
+                resource: {
+                    role: 'reader',
+                    scope: {
+                        type: 'default'
+                    }
                 }
-            }
+            });
         });
         
-        console.log(`🌐 Made calendar public`);
-        
-        // Generate public URL
         const publicUrl = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(calendarId)}`;
         
         return {
-            calendarId: calendarId,
-            publicUrl: publicUrl,
-            title: calendarTitle
+            calendarId,
+            publicUrl,
+            title
         };
-        
     } catch (error) {
-        console.error(`❌ Failed to create calendar for ${competitionName}: ${error.message}`);
-        throw error;
+        throw new Error(`Failed to create calendar "${title}": ${error.message}`);
     }
 }
 
 /**
- * Update competition data with Google Calendar information
+ * Update competition data with calendar information
  */
 async function updateCompetitionData(competitionData, calendarUpdates) {
-    console.log(`📝 Updating competition data with calendar information...`);
+    // Create a map of competition names to calendar data
+    const calendarMap = new Map();
+    calendarUpdates.forEach(update => {
+        calendarMap.set(update.competitionName, {
+            calendarId: update.calendarId,
+            publicUrl: update.publicUrl,
+            title: update.title,
+            createdAt: getCurrentTimestamp()
+        });
+    });
     
-    // Update each competition with its calendar data
+    // Update competitions with calendar data
     competitionData.competitions.forEach(competition => {
-        const calendarInfo = calendarUpdates.find(cal => 
-            cal.originalName === competition.name
-        );
-        
-        if (calendarInfo) {
-            competition.googleCalendar = {
-                calendarId: calendarInfo.calendarId,
-                publicUrl: calendarInfo.publicUrl,
-                title: calendarInfo.title,
-                createdAt: new Date().toISOString()
-            };
+        const calendarData = calendarMap.get(competition.name);
+        if (calendarData) {
+            competition.googleCalendar = calendarData;
         }
     });
     
     // Update metadata
-    competitionData.lastUpdated = new Date().toISOString();
+    competitionData.lastUpdated = getCurrentTimestamp();
     competitionData.hasGoogleCalendars = true;
     competitionData.calendarsCreated = calendarUpdates.length;
     
     // Save updated data
     await fs.writeFile(COMPETITIONS_FILE, JSON.stringify(competitionData, null, 2), 'utf8');
-    console.log(`✅ Updated ${COMPETITIONS_FILE} with calendar information`);
 }
 
 /**
- * Create Google Calendars for all competitions
+ * Main function to create Google Calendars
  */
-async function createCalendarsForCompetitions() {
-    console.log('🚀 Starting Google Calendar creation process...\n');
+async function createGoogleCalendars() {
+    logInfo('Starting Google Calendar creation process...');
     
-    try {
-        // Load competition data
-        console.log('📂 Loading competition data...');
-        const competitionData = await loadCompetitionData();
-        console.log(`📊 Found ${competitionData.competitions.length} competitions`);
+    // Load competition data
+    const competitionData = await loadCompetitionData();
+    const competitions = competitionData.competitions;
+    
+    logInfo(`Loaded ${competitions.length} competitions from ${COMPETITIONS_FILE}`);
+    
+    // Initialize Google Calendar client
+    const calendar = await initializeCalendarClient();
+    logSuccess('Connected to Google Calendar API');
+    
+    // Get existing calendars
+    logInfo('Fetching existing Google Calendars...');
+    const existingCalendars = await getExistingCalendars(calendar);
+    
+    // Filter competitions that need calendars
+    const competitionsNeedingCalendars = getCompetitionsWithoutCalendars(competitions);
+    
+    if (competitionsNeedingCalendars.length === 0) {
+        logSuccess('All competitions already have Google Calendars configured!');
+        return;
+    }
+    
+    logInfo(`Found ${competitionsNeedingCalendars.length} competitions needing calendars`);
+    
+    const calendarUpdates = [];
+    
+    // Process each competition
+    for (let i = 0; i < competitionsNeedingCalendars.length; i++) {
+        const competition = competitionsNeedingCalendars[i];
+        const calendarTitle = `${CALENDAR_PREFIX}${competition.name}`;
         
-        // Check if calendars already exist
-        const existingCalendars = competitionData.competitions.filter(comp => comp.googleCalendar);
-        if (existingCalendars.length > 0) {
-            console.log(`⚠️  ${existingCalendars.length} competitions already have calendars in JSON`);
-        }
+        logInfo(`Processing (${i + 1}/${competitionsNeedingCalendars.length}): ${competition.name}`);
         
-        const newCompetitions = competitionData.competitions.filter(comp => !comp.googleCalendar);
-        
-        if (newCompetitions.length === 0) {
-            console.log('✅ All competitions already have Google Calendars!');
-            return;
-        }
-        
-        console.log(`📅 Need to process ${newCompetitions.length} competitions...\n`);
-        
-        // Initialize Google Calendar API
-        console.log('🔐 Initializing Google Calendar API...');
-        const calendar = await initializeCalendarClient();
-        console.log('✅ Google Calendar API initialized\n');
-        
-        // Get existing calendars from Google to check for duplicates
-        console.log('🔍 Checking for existing calendars in Google...');
-        const googleCalendars = await getExistingCalendars(calendar);
-        const existingCalendarNames = new Set(
-            googleCalendars.map(cal => cal.summary).filter(Boolean)
-        );
-        console.log(`📋 Found ${googleCalendars.length} existing calendars in Google\n`);
-        
-        const calendarUpdates = [];
-        const skippedCompetitions = [];
-        
-        // Create calendars for each competition
-        for (let i = 0; i < newCompetitions.length; i++) {
-            const competition = newCompetitions[i];
-            const proposedCalendarName = `${CALENDAR_PREFIX}${competition.name}`;
+        try {
+            // Check if calendar already exists
+            const existingCalendar = existingCalendars.find(cal => 
+                cal.summary === calendarTitle
+            );
             
-            console.log(`\n[${i + 1}/${newCompetitions.length}] Processing: ${competition.name}`);
-            
-            // Check if a calendar with this name already exists
-            if (existingCalendarNames.has(proposedCalendarName)) {
-                console.log(`⚠️  Calendar already exists with name: ${proposedCalendarName}`);
+            if (existingCalendar) {
+                logWarning(`Calendar already exists: ${calendarTitle}`);
                 
-                // Find the existing calendar to get its details
-                const existingCal = googleCalendars.find(cal => cal.summary === proposedCalendarName);
-                if (existingCal) {
-                    console.log(`   📋 Existing Calendar ID: ${existingCal.id}`);
-                    const publicUrl = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(existingCal.id)}`;
-                    console.log(`   🌐 Public URL: ${publicUrl}`);
-                    
-                    // Add to updates so it gets saved in the JSON
-                    calendarUpdates.push({
-                        originalName: competition.name,
-                        calendarId: existingCal.id,
-                        publicUrl: publicUrl,
-                        title: existingCal.summary,
-                        existingCalendar: true  // Mark as already existing
-                    });
-                    
-                    skippedCompetitions.push(competition.name);
-                }
-                continue;
-            }
-            
-            try {
-                const calendarInfo = await createPublicCalendar(calendar, competition.name);
+                const publicUrl = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(existingCalendar.id)}`;
                 
                 calendarUpdates.push({
-                    originalName: competition.name,
-                    ...calendarInfo
+                    competitionName: competition.name,
+                    calendarId: existingCalendar.id,
+                    publicUrl: publicUrl,
+                    title: calendarTitle,
+                    existingCalendar: true
+                });
+            } else {
+                logInfo(`Creating new calendar: ${calendarTitle}`);
+                
+                const calendarData = await createCalendar(
+                    calendar, 
+                    calendarTitle,
+                    `${CLUB_NAME} - ${competition.name} fixtures and events`
+                );
+                
+                calendarUpdates.push({
+                    competitionName: competition.name,
+                    calendarId: calendarData.calendarId,
+                    publicUrl: calendarData.publicUrl,
+                    title: calendarData.title,
+                    existingCalendar: false
                 });
                 
-                console.log(`📋 Public URL: ${calendarInfo.publicUrl}`);
-                
-                // Add delay between API calls to respect rate limits
-                if (i < newCompetitions.length - 1) {
-                    console.log('⏳ Waiting 2 seconds...');
-                    await new Promise(resolve => setTimeout(resolve, 2000));
-                }
-                
-            } catch (error) {
-                console.error(`❌ Failed to create calendar for ${competition.name}: ${error.message}`);
-                // Continue with other competitions
-            }
-        }
-        
-        // Update the competition data file
-        if (calendarUpdates.length > 0) {
-            await updateCompetitionData(competitionData, calendarUpdates);
-            
-            const newlyCreated = calendarUpdates.filter(cal => !cal.existingCalendar).length;
-            const reused = calendarUpdates.filter(cal => cal.existingCalendar).length;
-            
-            console.log(`\n🎉 Process complete!`);
-            console.log(`📊 Summary:`);
-            console.log(`   ✅ Newly created calendars: ${newlyCreated}`);
-            console.log(`   🔄 Existing calendars reused: ${reused}`);
-            console.log(`   📄 Total calendars processed: ${calendarUpdates.length}`);
-            console.log(`   💾 Updated data saved to ${COMPETITIONS_FILE}`);
-            
-            // Display details for newly created calendars
-            if (newlyCreated > 0) {
-                console.log('\n📋 Newly Created Calendars:');
-                calendarUpdates
-                    .filter(cal => !cal.existingCalendar)
-                    .forEach((cal, index) => {
-                        console.log(`${index + 1}. ${cal.title}`);
-                        console.log(`   📅 Calendar ID: ${cal.calendarId}`);
-                        console.log(`   🌐 Public URL: ${cal.publicUrl}\n`);
-                    });
+                logSuccess(`Created: ${calendarTitle}`);
             }
             
-            // Display details for reused calendars
-            if (reused > 0) {
-                console.log('\n♻️  Existing Calendars Linked:');
-                calendarUpdates
-                    .filter(cal => cal.existingCalendar)
-                    .forEach((cal, index) => {
-                        console.log(`${index + 1}. ${cal.title}`);
-                        console.log(`   📅 Calendar ID: ${cal.calendarId}`);
-                        console.log(`   🌐 Public URL: ${cal.publicUrl}\n`);
-                    });
+            // Add delay between API calls
+            if (i < competitionsNeedingCalendars.length - 1) {
+                logInfo('Waiting 2 seconds before next API call...');
+                await new Promise(resolve => setTimeout(resolve, 2000));
             }
-        } else {
-            console.log('\n⚠️  No calendars were successfully created or linked.');
+            
+        } catch (error) {
+            logWarning(`Failed to process ${competition.name}: ${error.message}`);
+            // Continue with other competitions
         }
-        
-    } catch (error) {
-        console.error(`💥 Script failed: ${error.message}`);
-        
-        if (error.message.includes('service-account-key.json')) {
-            console.log('\n💡 Setup instructions:');
-            console.log('1. Create a Google Cloud Project');
-            console.log('2. Enable the Google Calendar API');
-            console.log('3. Create a Service Account');
-            console.log('4. Download the service account key as service-account-key.json');
-            console.log('5. Place it in the project root directory');
-        }
-        
-        process.exit(1);
     }
+    
+    // Update competition data
+    if (calendarUpdates.length > 0) {
+        logInfo('Updating competition data file...');
+        await updateCompetitionData(competitionData, calendarUpdates);
+        
+        const newlyCreated = calendarUpdates.filter(cal => !cal.existingCalendar).length;
+        const reused = calendarUpdates.filter(cal => cal.existingCalendar).length;
+        
+        console.log(`\\n🎉 Process complete!`);
+        console.log(`📊 Summary:`);
+        console.log(`   ✅ Newly created calendars: ${newlyCreated}`);
+        console.log(`   🔄 Existing calendars reused: ${reused}`);
+        console.log(`   📄 Total calendars processed: ${calendarUpdates.length}`);
+        logSuccess(`Updated data saved to ${COMPETITIONS_FILE}`);
+        
+        // Display calendar details
+        if (newlyCreated > 0) {
+            console.log('\\n📋 Newly Created Calendars:');
+            calendarUpdates
+                .filter(cal => !cal.existingCalendar)
+                .forEach((cal, index) => {
+                    console.log(`${index + 1}. ${cal.title}`);
+                    console.log(`   📅 Calendar ID: ${cal.calendarId}`);
+                    console.log(`   🌐 Public URL: ${cal.publicUrl}\\n`);
+                });
+        }
+    } else {
+        logWarning('No calendars were created or updated');
+    }
+}
+
+/**
+ * Show help information
+ */
+function showHelp() {
+    console.log(`
+📅 Google Calendar Creator
+
+Creates Google Calendars for each competition found in competitions.json
+
+Usage:
+  npm run create-calendars [-- options]
+
+Options:
+  --help, -h       Show this help message
+
+Examples:
+  npm run create-calendars                    # Create calendars for all competitions
+  npm run create-calendars -- --help         # Show this help
+
+Process:
+  1. Loads competitions from ${COMPETITIONS_FILE}
+  2. Connects to Google Calendar API using service-account-key.json
+  3. Creates public calendars with "${CALENDAR_PREFIX}" prefix
+  4. Updates competitions.json with calendar IDs and public URLs
+  5. Skips competitions that already have calendars configured
+
+Requirements:
+  • service-account-key.json must exist in project root
+  • Google Calendar API must be enabled
+  • Service account must have calendar creation permissions
+`);
+}
+
+/**
+ * Parse command line arguments
+ */
+function parseArguments() {
+    const args = process.argv.slice(2);
+    const options = {
+        help: false
+    };
+    
+    for (const arg of args) {
+        if (arg === '--help' || arg === '-h') {
+            options.help = true;
+        }
+    }
+    
+    return options;
 }
 
 /**
  * Main execution
  */
 async function main() {
-    await createCalendarsForCompetitions();
+    const options = parseArguments();
+    
+    if (options.help) {
+        showHelp();
+        return;
+    }
+    
+    await withErrorHandling(createGoogleCalendars, 'create-calendars')();
 }
 
-// Run the script if called directly
+// Run if called directly
 if (process.argv[1] === __filename) {
     main();
 }
 
-export { createCalendarsForCompetitions, createPublicCalendar, loadCompetitionData };
+export { createGoogleCalendars };
