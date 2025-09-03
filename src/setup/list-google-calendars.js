@@ -98,6 +98,7 @@ async function exportCalendars(outputPath = 'exported-calendars.json', filterPre
             timezone: cal.timeZone || 'Unknown',
             accessRole: cal.accessRole || 'Unknown',
             publicUrl: `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(cal.id)}`,
+            icalUrl: `https://calendar.google.com/calendar/ical/${encodeURIComponent(cal.id)}/public/basic.ics`,
             primary: cal.primary || false
         }))
     };

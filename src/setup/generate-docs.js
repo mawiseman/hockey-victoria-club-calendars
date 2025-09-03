@@ -63,21 +63,33 @@ function generateMarkdown(competitionsData, categories) {
  * Format competitions as a table
  */
 function formatCompetitionTable(competitions) {
-    let table = `| Competition | Google Calendar |\n`;
-    table += `|-------------|----------------|\n`;
+    let table = `| Competition | Google Calendar | iCal Subscribe |\n`;
+    table += `|-------------|----------|----------------|\n`;
     
     for (const competition of competitions) {
         const name = competition.name;
         
-        // Google Calendar column
-        let calendarCol;
-        if (competition.googleCalendar && competition.googleCalendar.publicUrl) {
-            calendarCol = `[📅 Subscribe](${competition.googleCalendar.publicUrl})`;
+        // Google Calendar columns
+        let webViewCol;
+        let icalCol;
+        if (competition.googleCalendar) {
+            if (competition.googleCalendar.publicUrl) {
+                webViewCol = `[📅 View](${competition.googleCalendar.publicUrl})`;
+            } else {
+                webViewCol = `*Not available*`;
+            }
+            
+            if (competition.googleCalendar.icalUrl) {
+                icalCol = `[📲 Subscribe](${competition.googleCalendar.icalUrl})`;
+            } else {
+                icalCol = `*Not available*`;
+            }
         } else {
-            calendarCol = `*Not configured*`;
+            webViewCol = `*Not configured*`;
+            icalCol = `*Not configured*`;
         }
         
-        table += `| ${name} | ${calendarCol} |\n`;
+        table += `| ${name} | ${webViewCol} | ${icalCol} |\n`;
     }
     
     table += `\n`;
