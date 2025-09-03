@@ -32,24 +32,39 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: 'src-actions/package-lock.json'
+          cache-dependency-path: 'package-lock.json'
       
       - name: Install dependencies
-        working-directory: ./src-actions
         run: npm ci || npm install
       
-      - name: Run calendar sync
-        working-directory: ./src-actions
+      - name: Run calendar sync for all competitions
+        if: ${{ github.event.inputs.competition == '' || github.event.inputs.competition == null }}
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
-        run: npm start
+        run: |
+          if [[ "${{ github.event.inputs.use_cache }}" == "true" ]]; then
+            npm run process-all-competitions -- --all --use-cache
+          else
+            npm run process-all-competitions -- --all
+          fi
+      
+      - name: Run calendar sync for single competition
+        if: ${{ github.event.inputs.competition != '' && github.event.inputs.competition != null }}
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+        run: |
+          if [[ "${{ github.event.inputs.use_cache }}" == "true" ]]; then
+            npm run process-competition -- "${{ github.event.inputs.competition }}" --use-cache
+          else
+            npm run process-competition -- "${{ github.event.inputs.competition }}"
+          fi
       
       - name: Upload artifacts on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: sync-logs
-          path: src-actions/temp/
+          path: temp/
           retention-days: 7
 
   notify-on-failure:
@@ -69,6 +84,6 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: `Calendar Sync Failed - ${date}`,
-              body: `The calendar synchronization workflow failed.\n\nRun URL: ${runUrl}\n\nPlease check the logs for more information.`,
+              body: `The calendar synchronization workflow failed.\n\n${ context.payload.inputs?.competition ? `Competition: ${context.payload.inputs.competition}\n` : 'Mode: All competitions\n' }Run URL: ${runUrl}\n\nPlease check the logs for more information.`,
               labels: ['bug', 'automated']
             });
