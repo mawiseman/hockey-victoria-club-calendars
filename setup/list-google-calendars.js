@@ -162,14 +162,14 @@ async function exportCalendarList() {
         };
         
         const fs = await import('fs/promises');
-        await fs.mkdir('scraper-output', { recursive: true });
+        await fs.mkdir('temp', { recursive: true });
         await fs.writeFile(
-            'scraper-output/google-calendars-list.json', 
+            'temp/google-calendars-list.json', 
             JSON.stringify(exportData, null, 2),
             'utf8'
         );
         
-        console.log('✅ Calendar list exported to scraper-output/google-calendars-list.json');
+        console.log('✅ Calendar list exported to temp/google-calendars-list.json');
         
     } catch (error) {
         console.error(`❌ Error exporting calendars: ${error.message}`);

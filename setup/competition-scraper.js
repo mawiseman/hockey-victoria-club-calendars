@@ -6,9 +6,9 @@ import { dirname } from 'path';
 
 const BASE_URL = 'https://www.hockeyvictoria.org.au/games/';
 const CLUB_NAME = 'Footscray Hockey Club';
-const OUTPUT_DIR = 'scraper-output';
-const OUTPUT_FILE = `${OUTPUT_DIR}/footscray-competitions.json`;
-const PROGRESS_FILE = `${OUTPUT_DIR}/scraper-progress.json`;
+const OUTPUT_DIR = 'temp';
+const OUTPUT_FILE = 'config/competitions.json';
+const PROGRESS_FILE = 'temp/scraper-progress.json';
 const MAX_CONCURRENT = 5;
 
 /**
@@ -422,10 +422,80 @@ async function checkCompetition(page, competitionLink) {
 
 
 /**
+ * Parse command line arguments
+ */
+function parseArguments() {
+    const args = process.argv.slice(2);
+    const options = {
+        help: false,
+        force: false
+    };
+    
+    for (const arg of args) {
+        if (arg === '--help' || arg === '-h') {
+            options.help = true;
+        } else if (arg === '--force' || arg === '-f') {
+            options.force = true;
+        }
+    }
+    
+    return options;
+}
+
+/**
+ * Display help information
+ */
+function showHelp() {
+    console.log(`
+📖 Hockey Victoria Competition Scraper Usage:
+
+npm run scrape-competitions [-- options]
+
+Options:
+  --force, -f      Force restart the scraping process (ignore saved progress)
+  --help, -h       Show this help message
+
+Examples:
+  npm run scrape-competitions                    # Resume from saved progress
+  npm run scrape-competitions -- --force        # Start fresh (ignore progress)
+  npm run scrape-competitions -- --help         # Show this help
+
+Process:
+  1. Scrapes all competition links from ${BASE_URL}
+  2. For each competition, checks if ${CLUB_NAME} participates
+  3. Extracts fixture URLs, competition URLs, and ladder URLs
+  4. Saves results to ${OUTPUT_FILE}
+  5. Progress is automatically saved to ${PROGRESS_FILE}
+
+Output:
+  • Competition data: ${OUTPUT_FILE}
+  • Progress tracking: ${PROGRESS_FILE}
+`);
+}
+
+/**
  * Main execution
  */
 async function main() {
+    const options = parseArguments();
+    
+    if (options.help) {
+        showHelp();
+        return;
+    }
+    
     try {
+        if (options.force) {
+            console.log('🔄 Force mode: Starting fresh (ignoring saved progress)');
+            // Delete progress file to force restart
+            try {
+                await fs.unlink(PROGRESS_FILE);
+                console.log('📝 Cleared previous progress');
+            } catch (error) {
+                // File doesn't exist, which is fine
+            }
+        }
+        
         await scrapeCompetitions();
     } catch (error) {
         console.error('Script failed:', error.message);

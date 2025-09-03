@@ -5,14 +5,12 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "sync": "node src/index.js",
-    "test": "node src/test.js",
-    "scrape-competitions": "node utils/competition-scraper.js",
-    "create-calendars": "node utils/create-google-calendars.js",
-    "list-calendars": "node utils/list-google-calendars.js",
-    "export-calendars": "node utils/list-google-calendars.js --export",
-    "delete-calendars": "node utils/delete-google-calendars.js"
+    "process-fixture": "node src/index.js",
+    "scrape-competitions": "node setup/competition-scraper.js",
+    "create-calendars": "node setup/create-google-calendars.js",
+    "list-calendars": "node setup/list-google-calendars.js",
+    "export-calendars": "node setup/list-google-calendars.js --export",
+    "delete-calendars": "node setup/delete-google-calendars.js"
   },
   "keywords": [
     "hockey",

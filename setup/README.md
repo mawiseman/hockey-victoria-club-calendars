@@ -27,9 +27,9 @@ This script automatically discovers Hockey Victoria competitions that include Fo
 
 ## Output
 
-The script generates files in the `scraper-output/` folder:
-- `scraper-output/footscray-competitions.json` - Final competition results
-- `scraper-output/scraper-progress.json` - Progress tracking for resumption
+The script generates files in the `config/` folder:
+- `config/competitions.json` - Final competition results
+- `config/scraper-progress.json` - Progress tracking for resumption
 
 The main results file has the following structure:
 
@@ -56,7 +56,7 @@ The main results file has the following structure:
 You can modify these constants in `competition-scraper.js`:
 
 - `CLUB_NAME`: The club to search for (default: "Footscray Hockey Club")
-- `OUTPUT_DIR`: Where to save results (default: "scraper-output")
+- `OUTPUT_DIR`: Where to save results (default: "config")
 - `MAX_CONCURRENT`: Number of parallel processes (default: 5)
 
 ## Browser Settings
@@ -67,7 +67,6 @@ You can modify these constants in `competition-scraper.js`:
 
 ## Notes
 
-- **Output is ignored by git** - The `scraper-output/` folder is automatically excluded from version control
 - **Resumable execution** - The script can be safely interrupted and resumed from where it left off
 - **Progressive saving** - Results are saved immediately as they're found, so no progress is lost
 - **Parallel processing** - Up to 5 competitions are processed simultaneously for faster execution

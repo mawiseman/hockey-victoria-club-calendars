@@ -6,12 +6,23 @@ const ICAL_BASE_URL = 'https://www.hockeyvictoria.org.au/games/team/export/ical/
 
 /**
  * Downloads an iCal calendar from Hockey Victoria
- * @param {string} competitionTeamId - The competition ID
+ * @param {string} competitionTeamId - The competition team ID (can be full URL or just ID)
  * @param {string} outputPath - Path to save the downloaded calendar
  * @returns {Promise<boolean>} - Success status
  */
 export async function downloadCalendar(competitionTeamId, outputPath) {
-    const url = `${ICAL_BASE_URL}${competitionTeamId}`;
+    // Extract team ID from fixture URL if it's a full URL
+    let teamId = competitionTeamId;
+    if (competitionTeamId.includes('/games/team/')) {
+        // Extract team ID from URL like "https://www.hockeyvictoria.org.au/games/team/21935/336963"
+        const urlParts = competitionTeamId.split('/');
+        const teamIndex = urlParts.indexOf('team');
+        if (teamIndex !== -1 && urlParts.length > teamIndex + 2) {
+            teamId = `${urlParts[teamIndex + 1]}/${urlParts[teamIndex + 2]}`;
+        }
+    }
+    
+    const url = `${ICAL_BASE_URL}${teamId}`;
     
     console.log(`Downloading calendar from: ${url}`);
     
@@ -52,7 +63,22 @@ export async function downloadAllCalendars(competitions, outputDir) {
         const outputPath = path.join(outputDir, fileName);
         
         console.log(`\nProcessing: ${competition.name}`);
-        const success = await downloadCalendar(competition.competitionTeamId, outputPath);
+        
+        // Handle both old format (competitionTeamId) and new format (fixtureUrl)
+        const teamIdOrUrl = competition.fixtureUrl || competition.competitionTeamId;
+        
+        if (!teamIdOrUrl) {
+            console.error(`No fixture URL or competition team ID found for: ${competition.name}`);
+            results[competition.name] = {
+                success: false,
+                path: null,
+                competition,
+                error: 'Missing fixture URL or competition team ID'
+            };
+            continue;
+        }
+        
+        const success = await downloadCalendar(teamIdOrUrl, outputPath);
         
         results[competition.name] = {
             success,
@@ -62,4 +88,56 @@ export async function downloadAllCalendars(competitions, outputDir) {
     }
     
     return results;
+}
+
+/**
+ * Load competitions from competitions.json
+ * @param {string} filePath - Path to the competitions file
+ * @returns {Promise<Array>} - Array of competition objects
+ */
+export async function loadFootscrayCompetitions(filePath = 'config/competitions.json') {
+    try {
+        const data = await fs.readFile(filePath, 'utf8');
+        const competitionsData = JSON.parse(data);
+        
+        if (!competitionsData.competitions || !Array.isArray(competitionsData.competitions)) {
+            throw new Error('Invalid competition data format - missing competitions array');
+        }
+        
+        console.log(`Loaded ${competitionsData.competitions.length} competitions from ${filePath}`);
+        console.log(`Data scraped at: ${competitionsData.scrapedAt}`);
+        console.log(`Last updated: ${competitionsData.lastUpdated}`);
+        
+        return competitionsData.competitions;
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            throw new Error(`Competition file not found: ${filePath}. Run the competition scraper first.`);
+        }
+        throw error;
+    }
+}
+
+/**
+ * Load competitions from legacy competitions.json format
+ * @param {string} filePath - Path to the competitions file
+ * @returns {Promise<Array>} - Array of competition objects
+ */
+export async function loadLegacyCompetitions(filePath = 'config/competitions.json') {
+    try {
+        const data = await fs.readFile(filePath, 'utf8');
+        const competitionsData = JSON.parse(data);
+        
+        if (!competitionsData.competitions || !Array.isArray(competitionsData.competitions)) {
+            throw new Error('Invalid competition data format - missing competitions array');
+        }
+        
+        console.log(`Loaded ${competitionsData.competitions.length} competitions from ${filePath}`);
+        
+        return competitionsData.competitions;
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            throw new Error(`Competition file not found: ${filePath}`);
+        }
+        throw error;
+    }
 }

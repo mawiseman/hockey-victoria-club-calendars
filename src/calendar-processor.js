@@ -11,10 +11,10 @@ const ROUND_BASE_URL = 'https://www.hockeyvictoria.org.au/games/';
  */
 async function loadConfig() {
     const clubMappings = JSON.parse(
-        await fs.readFile('./config/club-mappings.json', 'utf8')
+        await fs.readFile('./config/mappings-club-names', 'utf8')
     );
     const competitionNames = JSON.parse(
-        await fs.readFile('./config/competition-names.json', 'utf8')
+        await fs.readFile('./config/mappings-competition-names.json', 'utf8')
     );
     return { clubMappings, competitionNames };
 }
@@ -24,9 +24,17 @@ async function loadConfig() {
  */
 function replaceClubNames(text, clubMappings) {
     let result = text;
+    const originalText = text;
+    
     for (const [fullName, abbreviation] of Object.entries(clubMappings.clubMappings)) {
         result = result.replace(new RegExp(fullName, 'g'), abbreviation);
     }
+    
+    // Check if any replacements were made
+    if (result === originalText) {
+        console.log(`⚠️  No club name mappings found for: "${originalText}"`);
+    }
+    
     return result;
 }
 
@@ -35,6 +43,7 @@ function replaceClubNames(text, clubMappings) {
  */
 function replaceCompetitionNames(text, competitionReplacements) {
     let result = text;
+    const originalText = text;
     const currentYear = new Date().getFullYear().toString();
     
     for (const replacement of competitionReplacements) {
@@ -56,6 +65,11 @@ function replaceCompetitionNames(text, competitionReplacements) {
         } else {
             result = result.replace(new RegExp(pattern, 'g'), replacement.replacement);
         }
+    }
+    
+    // Check if any replacements were made
+    if (result === originalText) {
+        console.log(`⚠️  No competition name mappings found for: "${originalText}"`);
     }
     
     return result;
@@ -86,14 +100,38 @@ function extractRoundFromSummary(summary) {
 /**
  * Generate event description
  */
-function generateDescription(competitionTeamId, competitionId, roundNumber) {
-    const fixtureUrl = `${FIXTURE_BASE_URL}${competitionTeamId}`;
-    const ladderUrl = `${LADDER_BASE_URL}${competitionId}`;
-    const roundUrl = `${ROUND_BASE_URL}${competitionId}/${roundNumber}`;
+function generateDescription(competition, roundNumber) {
+    let description = '';
     
-    let description = `Full Fixture: ${fixtureUrl}\n`;
-    description += `Current Round: ${roundUrl}`;
-    description += `Ladder: ${ladderUrl}\n`;
+    // Handle both old format (competitionTeamId/competitionId) and new format (URLs)
+    if (competition.fixtureUrl) {
+        // New format - use the URLs directly
+        description += `Full Fixture: ${competition.fixtureUrl}\n`;
+        
+        if (competition.ladderUrl) {
+            description += `Ladder: ${competition.ladderUrl}\n`;
+        }
+        
+        // Extract competition ID from ladder URL for round URL
+        if (competition.ladderUrl) {
+            const ladderMatch = competition.ladderUrl.match(/\/pointscore\/(\d+\/\d+)/);
+            if (ladderMatch) {
+                const competitionId = ladderMatch[1]; // This will be "21935/37286"
+                const roundUrl = `${ROUND_BASE_URL}${competitionId}/round/${roundNumber}`;
+                description += `Current Round: ${roundUrl}\n`;
+            }
+        }
+    } else if (competition.competitionTeamId && competition.competitionId) {
+        // Legacy format - construct URLs
+        const fixtureUrl = `${FIXTURE_BASE_URL}${competition.competitionTeamId}`;
+        const ladderUrl = `${LADDER_BASE_URL}${competition.competitionId}`;
+        const roundUrl = `${ROUND_BASE_URL}${competition.competitionId}/${roundNumber}`;
+        
+        description += `Full Fixture: ${fixtureUrl}\n`;
+        description += `Current Round: ${roundUrl}\n`;
+        description += `Ladder: ${ladderUrl}\n`;
+    }
+    
     description += `\n\nLast Updated: ${new Date().toISOString()}`;
     
     return description;
@@ -133,11 +171,7 @@ export async function processCalendar(inputPath, outputPath, competition) {
             summary = replaceRoundNames(summary, config.competitionNames.roundPatterns);
             
             // Generate description
-            const description = generateDescription(
-                competition.competitionTeamId,
-                competition.competitionId,
-                roundNumber
-            );
+            const description = generateDescription(competition, roundNumber);
             
             // Calculate end time based on game duration
             const startDate = new Date(event.start);

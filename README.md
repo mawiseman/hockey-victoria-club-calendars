@@ -17,8 +17,8 @@ This is a Node.js implementation of the Hockey Victoria Calendar Scraper designe
 src-actions/
 ├── config/                      # Configuration files
 │   ├── competitions.json        # Competition definitions and calendar mappings
-│   ├── club-mappings.json       # Club name to abbreviation mappings
-│   └── competition-names.json   # Competition name replacements
+│   ├── mappings-club-names.json       # Club name to abbreviation mappings
+│   └── mappings-competition-names.json   # Competition name replacements
 ├── src/                         # Source code
 │   ├── index.js                 # Main orchestration script
 │   ├── calendar-downloader.js   # Downloads iCal files
@@ -71,11 +71,11 @@ Edit the configuration files in `src-actions/config/`:
 - Update calendar IDs
 - Modify category assignments
 
-#### club-mappings.json
+#### mappings-club-names.json
 - Add new clubs and their abbreviations
 - Update existing abbreviations
 
-#### competition-names.json
+#### mappings-competition-names.json
 - Modify competition name replacements
 - Add new patterns for round/competition names
 
@@ -133,7 +133,7 @@ npm start
 
 ### Modifying Club Names
 
-Edit `src-actions/config/club-mappings.json`:
+Edit `src-actions/config/mappings-club-names.json`:
 ```json
 {
   "clubMappings": {
@@ -234,3 +234,31 @@ For issues or questions:
    - Description of the problem
    - Error messages from logs
    - Configuration details (without sensitive data)
+
+
+
+
+# 1. Download all fixtures (takes time)
+  npm start -- --steps download
+
+  # 2. Test processing with different settings
+  npm start -- --steps process --force
+
+  # 3. Upload when satisfied
+  npm start -- --steps upload
+
+  Production Workflow:
+
+  # Full pipeline (default)
+  npm start
+
+  # Or force fresh run
+  npm start -- --force
+
+  Troubleshooting:
+
+  # Re-process with new settings
+  npm start -- --steps process --force
+
+  # Skip problematic download, just upload
+  npm start -- --steps upload

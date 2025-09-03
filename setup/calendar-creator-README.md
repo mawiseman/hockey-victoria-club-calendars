@@ -13,7 +13,7 @@ This script automatically creates public Google Calendars for each Footscray Hoc
 
 2. **Competition Data:**
    - Run the competition scraper first: `npm run scrape-competitions`
-   - Ensure `scraper-output/footscray-competitions.json` exists
+   - Ensure `config/competitions.json` exists
 
 ## Usage
 
@@ -23,7 +23,7 @@ npm run create-calendars
 
 ## What it does
 
-1. **Reads competition data** from `scraper-output/footscray-competitions.json`
+1. **Reads competition data** from `config/competitions.json`
 2. **Creates public Google Calendars** for each competition that doesn't already have one
 3. **Applies naming convention**: Prepends "FHC " to each competition name
 4. **Sets calendar visibility** to public (readable by anyone)

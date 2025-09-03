@@ -6,7 +6,7 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const COMPETITIONS_FILE = 'scraper-output/footscray-competitions.json';
+const COMPETITIONS_FILE = 'config/competitions.json';
 const CALENDAR_PREFIX = 'FHC ';
 const CLUB_NAME = 'Footscray Hockey Club';
 const SCOPES = ['https://www.googleapis.com/auth/calendar'];
