@@ -4,8 +4,18 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-const BASE_URL = 'https://www.hockeyvictoria.org.au/games/';
-const CLUB_NAME = 'Footscray Hockey Club';
+// Import shared utilities
+import { getClubName, BASE_URL } from '../shared/config.js';
+
+let CLUB_NAME = null;
+
+// Load club name from settings
+async function getClubNameCached() {
+    if (!CLUB_NAME) {
+        CLUB_NAME = await getClubName();
+    }
+    return CLUB_NAME;
+}
 const OUTPUT_DIR = 'temp';
 const OUTPUT_FILE = 'config/competitions.json';
 const PROGRESS_FILE = 'temp/scraper-progress.json';
@@ -83,7 +93,7 @@ async function saveCompetitionResult(progress, competitionData) {
     const outputData = {
         scrapedAt: progress.startedAt,
         lastUpdated: progress.lastUpdated,
-        clubName: CLUB_NAME,
+        clubName: await getClubNameCached(),
         totalCompetitions: progress.totalWithClub,
         totalProcessed: progress.totalProcessed,
         totalLinksFound: progress.totalLinksFound,
@@ -206,7 +216,8 @@ async function scrapeCompetitions() {
         // Process competitions in parallel
         await processCompetitionsInParallel(browser, competitionLinks, progress);
         
-        console.log(`\n🎉 Complete! Found ${progress.totalWithClub} competitions with ${CLUB_NAME}`);
+        const clubName = await getClubNameCached();
+        console.log(`\n🎉 Complete! Found ${progress.totalWithClub} competitions with ${clubName}`);
         console.log(`📊 Total processed: ${progress.totalProcessed}/${progress.totalLinksFound}`);
         console.log(`💾 Results saved to ${OUTPUT_FILE}`);
         console.log(`📋 Progress saved to ${PROGRESS_FILE}`);
@@ -308,7 +319,7 @@ async function getLadderLinks(page) {
 }
 
 /**
- * Check if a competition contains CLUB_NAME and extract data
+ * Check if a competition contains the club name and extract data
  * This now follows a 3-layer navigation: games page → competition page → ladder page
  */
 async function checkCompetition(page, competitionLink) {
@@ -334,7 +345,7 @@ async function checkCompetition(page, competitionLink) {
         
         console.log(`    Found ${ladderLinks.length} ladder link(s)`);
         
-        // Step 3: Check each ladder page for CLUB_NAME
+        // Step 3: Check each ladder page for club name
         for (const ladderLink of ladderLinks) {
             console.log(`    → Checking ladder: ${ladderLink.url}`);
             
@@ -348,7 +359,7 @@ async function checkCompetition(page, competitionLink) {
                 // Wait for content to load
                 // await new Promise(resolve => setTimeout(resolve, 2000));
                 
-                // Check if CLUB_NAME is present in the ladder and find fixture URL
+                // Check if club name is present in the ladder and find fixture URL
                 const clubData = await page.evaluate((clubName) => {
                     console.log(`Searching for: ${clubName}`);
                     
@@ -382,10 +393,11 @@ async function checkCompetition(page, competitionLink) {
                     
                     console.log(`Club not found on page`);
                     return { found: false };
-                }, CLUB_NAME);
+                }, await getClubNameCached());
                 
                 if (clubData.found) {
-                    console.log(`      ✓ Found ${CLUB_NAME} in ladder!`);
+                    const clubName = await getClubNameCached();
+                    console.log(`      ✓ Found ${clubName} in ladder!`);
                     
                     if (clubData.fixtureUrl) {
                         console.log(`      ✓ Fixture URL: ${clubData.fixtureUrl}`);
@@ -404,7 +416,8 @@ async function checkCompetition(page, competitionLink) {
                         return null; // Don't save entries without fixture URLs
                     }
                 } else {
-                    console.log(`      ✗ ${CLUB_NAME} not found in this ladder`);
+                    const clubName = await getClubNameCached();
+                    console.log(`      ✗ ${clubName} not found in this ladder`);
                 }
                 
             } catch (ladderError) {
@@ -412,7 +425,7 @@ async function checkCompetition(page, competitionLink) {
             }
         }
         
-        return null; // No ladders contained CLUB_NAME
+        return null; // No ladders contained the club name
         
     } catch (error) {
         console.error(`  Error processing competition ${competitionLink.url}: ${error.message}`);
@@ -462,7 +475,7 @@ Examples:
 
 Process:
   1. Scrapes all competition links from ${BASE_URL}
-  2. For each competition, checks if ${CLUB_NAME} participates
+  2. For each competition, checks if the configured club participates
   3. Extracts fixture URLs, competition URLs, and ladder URLs
   4. Saves results to ${OUTPUT_FILE}
   5. Progress is automatically saved to ${PROGRESS_FILE}

@@ -1,6 +1,33 @@
 /**
  * Shared configuration constants for setup scripts
  */
+import fs from 'fs/promises';
+
+// Load settings from config/settings.json
+let settings = null;
+
+async function loadSettings() {
+    if (!settings) {
+        const data = await fs.readFile('config/settings.json', 'utf8');
+        settings = JSON.parse(data);
+    }
+    return settings;
+}
+
+// Settings that need to be loaded dynamically
+export async function getSettings() {
+    return await loadSettings();
+}
+
+export async function getCalendarPrefix() {
+    const settings = await loadSettings();
+    return settings.calendarPrefix;
+}
+
+export async function getClubName() {
+    const settings = await loadSettings();
+    return settings.clubName;
+}
 
 // File paths
 export const COMPETITIONS_FILE = 'config/competitions.json';
@@ -8,14 +35,14 @@ export const SERVICE_ACCOUNT_KEY = 'service-account-key.json';
 export const OUTPUT_DIR = 'docs';
 export const TEMP_DIR = 'temp';
 export const PROGRESS_FILE = 'temp/scraper-progress.json';
+export const MAPPINGS_CLUB_FILE = 'config/mappings-club-names.json';
+export const MAPPINGS_COMPETITION_FILE = 'config/mappings-competition-names.json';
 
 // Google Calendar configuration
-export const CALENDAR_PREFIX = 'FHC ';
 export const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 
 // Hockey Victoria configuration
 export const BASE_URL = 'https://www.hockeyvictoria.org.au/games/';
-export const CLUB_NAME = 'Footscray Hockey Club';
 
 // API limits and performance
 export const MAX_CONCURRENT = 5;

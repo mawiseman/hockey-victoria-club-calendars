@@ -2,6 +2,10 @@ import fs from 'fs/promises';
 import path from 'path';
 import ical from 'ical';
 
+// Import shared utilities
+import { MAPPINGS_CLUB_FILE, MAPPINGS_COMPETITION_FILE } from '../shared/config.js';
+import { logSuccess, logWarning, logInfo } from '../shared/error-utils.js';
+
 const FIXTURE_BASE_URL = 'https://www.hockeyvictoria.org.au/games/team/';
 const LADDER_BASE_URL = 'https://www.hockeyvictoria.org.au/pointscore/';
 const ROUND_BASE_URL = 'https://www.hockeyvictoria.org.au/games/';
@@ -11,10 +15,10 @@ const ROUND_BASE_URL = 'https://www.hockeyvictoria.org.au/games/';
  */
 async function loadConfig() {
     const clubMappings = JSON.parse(
-        await fs.readFile('./config/mappings-club-names.json', 'utf8')
+        await fs.readFile(MAPPINGS_CLUB_FILE, 'utf8')
     );
     const competitionNames = JSON.parse(
-        await fs.readFile('./config/mappings-competition-names.json', 'utf8')
+        await fs.readFile(MAPPINGS_COMPETITION_FILE, 'utf8')
     );
     return { clubMappings, competitionNames };
 }
@@ -32,7 +36,7 @@ function replaceClubNames(text, clubMappings) {
     
     // Check if any replacements were made
     if (result === originalText) {
-        console.log(`⚠️  No club name mappings found for: "${originalText}"`);
+        logWarning(`No club name mappings found for: "${originalText}"`);
     }
     
     return result;
@@ -69,7 +73,7 @@ function replaceCompetitionNames(text, competitionReplacements) {
     
     // Check if any replacements were made
     if (result === originalText) {
-        console.log(`⚠️  No competition name mappings found for: "${originalText}"`);
+        logWarning(`No competition name mappings found for: "${originalText}"`);
     }
     
     return result;
@@ -141,7 +145,7 @@ function generateDescription(competition, roundNumber) {
  * Process a single calendar file
  */
 export async function processCalendar(inputPath, outputPath, competition) {
-    console.log(`Processing calendar: ${inputPath}`);
+    logInfo(`Processing calendar: ${inputPath}`);
     
     const config = await loadConfig();
     const icalData = await fs.readFile(inputPath, 'utf8');
@@ -199,7 +203,7 @@ export async function processCalendar(inputPath, outputPath, competition) {
     await fs.mkdir(path.dirname(outputPath), { recursive: true });
     await fs.writeFile(outputPath, processedCal, 'utf8');
     
-    console.log(`Processed calendar saved to: ${outputPath}`);
+    logSuccess(`Processed calendar saved to: ${outputPath}`);
     return outputPath;
 }
 
@@ -244,7 +248,7 @@ export async function processAllCalendars(downloadResults, outputDir) {
                     competition: result.competition
                 };
             } catch (error) {
-                console.error(`Error processing ${name}: ${error.message}`);
+                logWarning(`Error processing ${name}: ${error.message}`);
                 results[name] = {
                     success: false,
                     error: error.message,

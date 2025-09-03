@@ -1,84 +1,15 @@
-import { google } from 'googleapis';
 import fs from 'fs/promises';
 import ical from 'ical';
 
-/**
- * Check if error is due to API limits
- */
-function isApiLimitError(error) {
-    if (!error.response) return false;
-    
-    const status = error.response.status;
-    const data = error.response.data;
-    
-    // Check for various API limit scenarios
-    if (status === 429) return true; // Too Many Requests
-    if (status === 403 && data?.error?.errors) {
-        const errors = data.error.errors;
-        return errors.some(err => 
-            err.reason === 'rateLimitExceeded' ||
-            err.reason === 'userRateLimitExceeded' ||
-            err.reason === 'quotaExceeded' ||
-            err.reason === 'dailyLimitExceeded'
-        );
-    }
-    
-    return false;
-}
-
-/**
- * Get detailed error message
- */
-function getDetailedError(error) {
-    if (isApiLimitError(error)) {
-        return `🚫 Google Calendar API limit exceeded: ${error.message}. Please wait and try again later.`;
-    }
-    
-    if (error.response) {
-        const status = error.response.status;
-        const data = error.response.data;
-        
-        if (status === 404) {
-            return `❌ Calendar not found: ${error.message}`;
-        }
-        if (status === 401) {
-            return `🔐 Authentication failed: ${error.message}`;
-        }
-        if (status === 403) {
-            return `⛔ Permission denied: ${error.message}`;
-        }
-        
-        return `📡 API error (${status}): ${data?.error?.message || error.message}`;
-    }
-    
-    return `💥 Unexpected error: ${error.message}`;
-}
-
-/**
- * Authenticate with Google Calendar API using service account
- */
-export async function authenticateGoogle() {
-    try {
-        const auth = new google.auth.GoogleAuth({
-            keyFile: 'service-account-key.json',
-            scopes: ['https://www.googleapis.com/auth/calendar']
-        });
-
-        const authClient = await auth.getClient();
-        const calendar = google.calendar({ version: 'v3', auth: authClient });
-        
-        return calendar;
-    } catch (error) {
-        console.error('Authentication error:', getDetailedError(error));
-        throw error;
-    }
-}
+// Import shared utilities
+import { authenticateGoogle } from '../shared/google-auth.js';
+import { getDetailedError, isApiLimitError, logSuccess, logWarning, logInfo } from '../shared/error-utils.js';
 
 /**
  * Delete all events from a Google Calendar
  */
 export async function deleteAllEvents(calendar, calendarId) {
-    console.log(`Deleting old events from calendar: ${calendarId}`);
+    logInfo(`Deleting old events from calendar: ${calendarId}`);
     
     try {
         // List all events
@@ -92,7 +23,7 @@ export async function deleteAllEvents(calendar, calendarId) {
         const events = response.data.items || [];
         
         if (events.length === 0) {
-            console.log('No events to delete');
+            logInfo('No events to delete');
             return;
         }
         
@@ -104,11 +35,11 @@ export async function deleteAllEvents(calendar, calendarId) {
                     eventId: event.id
                 });
             } catch (deleteError) {
-                console.warn(`Failed to delete event ${event.id}: ${getDetailedError(deleteError)}`);
+                logWarning(`Failed to delete event ${event.id}: ${getDetailedError(deleteError)}`);
             }
         }
         
-        console.log(`Deleted ${events.length} events`);
+        logSuccess(`Deleted ${events.length} events`);
     } catch (error) {
         const detailedError = getDetailedError(error);
         console.error(`Error deleting events: ${detailedError}`);
@@ -120,7 +51,7 @@ export async function deleteAllEvents(calendar, calendarId) {
  * Import events from iCal file to Google Calendar
  */
 export async function importICalToGoogle(calendar, calendarId, icalPath) {
-    console.log(`Importing events to calendar: ${calendarId}`);
+    logInfo(`Importing events from: ${icalPath}`);
     
     try {
         const icalData = await fs.readFile(icalPath, 'utf8');
@@ -134,9 +65,8 @@ export async function importICalToGoogle(calendar, calendarId, icalPath) {
             if (event.type === 'VEVENT') {
                 try {
                     const googleEvent = {
-                        summary: event.summary,
-                        description: event.description,
-                        location: event.location,
+                        summary: event.summary || 'No title',
+                        description: event.description || '',
                         start: {
                             dateTime: event.start.toISOString(),
                             timeZone: 'Australia/Melbourne'
@@ -144,7 +74,8 @@ export async function importICalToGoogle(calendar, calendarId, icalPath) {
                         end: {
                             dateTime: event.end.toISOString(),
                             timeZone: 'Australia/Melbourne'
-                        }
+                        },
+                        location: event.location || ''
                     };
                     
                     await calendar.events.insert({
@@ -154,13 +85,13 @@ export async function importICalToGoogle(calendar, calendarId, icalPath) {
                     
                     imported++;
                 } catch (insertError) {
-                    console.warn(`Failed to import event: ${getDetailedError(insertError)}`);
+                    logWarning(`Failed to import event: ${getDetailedError(insertError)}`);
                     failed++;
                 }
             }
         }
         
-        console.log(`Imported ${imported} events (${failed} failed)`);
+        logSuccess(`Imported ${imported} events (${failed} failed)`);
         return { imported, failed };
     } catch (error) {
         const detailedError = getDetailedError(error);
@@ -177,7 +108,7 @@ export async function uploadToGoogleCalendars(processedPath, calendarIds) {
     const results = [];
     
     for (const calendarId of calendarIds) {
-        console.log(`\nUploading to calendar: ${calendarId}`);
+        logInfo(`Uploading to calendar: ${calendarId}`);
         
         try {
             // Delete old events
@@ -224,7 +155,7 @@ export async function uploadAllCalendars(processResults) {
         }
         
         if (result.success && result.processedPath && calendarIds) {
-            console.log(`\n===== Uploading: ${name} =====`);
+            logInfo(`Uploading: ${name}`);
             
             try {
                 const uploadResult = await uploadToGoogleCalendars(

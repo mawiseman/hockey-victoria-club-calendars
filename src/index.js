@@ -1,11 +1,16 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { downloadAllCalendars, loadCompetitions } from './calendar-downloader.js';
+import { downloadAllCalendars } from './calendar-downloader.js';
 import { processAllCalendars } from './calendar-processor.js';
 import { uploadAllCalendars } from './google-calendar.js';
 
+// Import shared utilities
+import { loadCompetitionData } from '../shared/competition-utils.js';
+import { logSuccess, logWarning, logInfo } from '../shared/error-utils.js';
+
 // Step result tracking
-const STEPS_FILE = 'temp/step-results.json';
+import { TEMP_DIR } from '../shared/config.js';
+const STEPS_FILE = path.join(TEMP_DIR, 'step-results.json');
 
 /**
  * Save step results for later use
@@ -32,7 +37,7 @@ async function saveStepResults(stepName, results, competitions) {
     allSteps[stepName] = stepData;
     await fs.writeFile(STEPS_FILE, JSON.stringify(allSteps, null, 2), 'utf8');
     
-    console.log(`💾 Step results saved to ${STEPS_FILE}`);
+    logSuccess(`Step results saved to ${STEPS_FILE}`);
 }
 
 /**
@@ -51,19 +56,19 @@ async function loadStepResults(stepName) {
                 // Check if download files exist
                 const hasValidFiles = await verifyDownloadFiles(stepData.results);
                 if (!hasValidFiles) {
-                    console.log(`⚠️  Previous ${stepName} results found but files are missing. Will re-run.`);
+                    logWarning(`Previous ${stepName} results found but files are missing. Will re-run.`);
                     return null;
                 }
             } else if (stepName === 'process') {
                 // Check if processed files exist
                 const hasValidFiles = await verifyProcessedFiles(stepData.results);
                 if (!hasValidFiles) {
-                    console.log(`⚠️  Previous ${stepName} results found but files are missing. Will re-run.`);
+                    logWarning(`Previous ${stepName} results found but files are missing. Will re-run.`);
                     return null;
                 }
             }
             
-            console.log(`📂 Found previous ${stepName} results from ${stepData.completedAt}`);
+            logInfo(`Found previous ${stepName} results from ${stepData.completedAt}`);
             return stepData;
         }
         
@@ -249,7 +254,7 @@ async function runDownloadStep(competitions, options) {
     if (!options.force) {
         const previousResults = await loadStepResults('download');
         if (previousResults) {
-            console.log('⏭️  Previous download results found. Use --force to re-download.');
+            logInfo('Previous download results found. Use --force to re-download.');
             return previousResults.results;
         }
     }
@@ -261,7 +266,7 @@ async function runDownloadStep(competitions, options) {
     
     // Check download results
     const downloadedCount = Object.values(downloadResults).filter(r => r.success).length;
-    console.log(`\n📊 Downloaded ${downloadedCount}/${competitions.length} calendars successfully`);
+    logSuccess(`Downloaded ${downloadedCount}/${competitions.length} calendars successfully`);
     
     // Save results for next steps
     await saveStepResults('download', downloadResults, competitions);
@@ -457,14 +462,15 @@ async function main() {
         // Load competition data - try new format first, fall back to legacy
         let competitions;
         try {
-            console.log('Loading competitions from config/competitions.json...');
-            competitions = await loadCompetitions();
+            logInfo('Loading competitions from config/competitions.json...');
+            const competitionData = await loadCompetitionData();
+            competitions = competitionData.competitions;
         } catch (error) {
             throw new Error(`Could not load competitions${error.message}`);
         }
         
         // Create temp directory
-        await fs.mkdir('./temp', { recursive: true });
+        await fs.mkdir(TEMP_DIR, { recursive: true });
         
         // Execute steps in order
         let downloadResults = null;

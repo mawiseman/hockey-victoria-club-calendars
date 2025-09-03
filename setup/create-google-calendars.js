@@ -3,10 +3,10 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 // Import shared utilities
-import { initializeCalendarClient } from './shared/google-auth.js';
-import { loadCompetitionData, getCompetitionsWithoutCalendars } from './shared/competition-utils.js';
-import { CALENDAR_PREFIX, CLUB_NAME, COMPETITIONS_FILE, getCurrentTimestamp } from './shared/config.js';
-import { withErrorHandling, logSuccess, logWarning, logInfo, retryWithBackoff } from './shared/error-utils.js';
+import { initializeCalendarClient } from '../shared/google-auth.js';
+import { loadCompetitionData, getCompetitionsWithoutCalendars } from '../shared/competition-utils.js';
+import { getCalendarPrefix, getClubName, COMPETITIONS_FILE, getCurrentTimestamp } from '../shared/config.js';
+import { withErrorHandling, logSuccess, logWarning, logInfo, retryWithBackoff } from '../shared/error-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -139,7 +139,8 @@ async function createGoogleCalendars() {
     // Process each competition
     for (let i = 0; i < competitionsNeedingCalendars.length; i++) {
         const competition = competitionsNeedingCalendars[i];
-        const calendarTitle = `${CALENDAR_PREFIX}${competition.name}`;
+        const calendarPrefix = await getCalendarPrefix();
+        const calendarTitle = `${calendarPrefix}${competition.name}`;
         
         logInfo(`Processing (${i + 1}/${competitionsNeedingCalendars.length}): ${competition.name}`);
         
@@ -167,7 +168,7 @@ async function createGoogleCalendars() {
                 const calendarData = await createCalendar(
                     calendar, 
                     calendarTitle,
-                    `${CLUB_NAME} - ${competition.name} fixtures and events`
+                    `${await getClubName()} - ${competition.name} fixtures and events`
                 );
                 
                 calendarUpdates.push({
@@ -246,7 +247,7 @@ Examples:
 Process:
   1. Loads competitions from ${COMPETITIONS_FILE}
   2. Connects to Google Calendar API using service-account-key.json
-  3. Creates public calendars with "${CALENDAR_PREFIX}" prefix
+  3. Creates public calendars with club prefix
   4. Updates competitions.json with calendar IDs and public URLs
   5. Skips competitions that already have calendars configured
 

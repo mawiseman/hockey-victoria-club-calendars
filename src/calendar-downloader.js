@@ -2,6 +2,10 @@ import fetch from 'node-fetch';
 import fs from 'fs/promises';
 import path from 'path';
 
+// Import shared utilities
+import { loadCompetitionData } from '../shared/competition-utils.js';
+import { logSuccess, logWarning, logInfo } from '../shared/error-utils.js';
+
 const ICAL_BASE_URL = 'https://www.hockeyvictoria.org.au/games/team/export/ical/';
 
 /**
@@ -24,7 +28,7 @@ export async function downloadCalendar(competitionTeamId, outputPath) {
     
     const url = `${ICAL_BASE_URL}${teamId}`;
     
-    console.log(`Downloading calendar from: ${url}`);
+    logInfo(`Downloading calendar from: ${url}`);
     
     try {
         const response = await fetch(url);
@@ -41,10 +45,10 @@ export async function downloadCalendar(competitionTeamId, outputPath) {
         // Save the calendar
         await fs.writeFile(outputPath, data, 'utf8');
         
-        console.log(`Calendar saved to: ${outputPath}`);
+        logSuccess(`Calendar saved to: ${outputPath}`);
         return true;
     } catch (error) {
-        console.error(`Error downloading calendar: ${error.message}`);
+        logWarning(`Error downloading calendar: ${error.message}`);
         return false;
     }
 }
@@ -62,13 +66,13 @@ export async function downloadAllCalendars(competitions, outputDir) {
         const fileName = `${competition.name.replace(/[^a-z0-9]/gi, '_')}.ics`;
         const outputPath = path.join(outputDir, fileName);
         
-        console.log(`\nProcessing: ${competition.name}`);
+        logInfo(`Processing: ${competition.name}`);
         
         // Handle both old format (competitionTeamId) and new format (fixtureUrl)
         const teamIdOrUrl = competition.fixtureUrl || competition.competitionTeamId;
         
         if (!teamIdOrUrl) {
-            console.error(`No fixture URL or competition team ID found for: ${competition.name}`);
+            logWarning(`No fixture URL or competition team ID found for: ${competition.name}`);
             results[competition.name] = {
                 success: false,
                 path: null,
@@ -90,29 +94,3 @@ export async function downloadAllCalendars(competitions, outputDir) {
     return results;
 }
 
-/**
- * Load competitions from competitions.json
- * @param {string} filePath - Path to the competitions file
- * @returns {Promise<Array>} - Array of competition objects
- */
-export async function loadCompetitions(filePath = 'config/competitions.json') {
-    try {
-        const data = await fs.readFile(filePath, 'utf8');
-        const competitionsData = JSON.parse(data);
-        
-        if (!competitionsData.competitions || !Array.isArray(competitionsData.competitions)) {
-            throw new Error('Invalid competition data format - missing competitions array');
-        }
-        
-        console.log(`Loaded ${competitionsData.competitions.length} competitions from ${filePath}`);
-        console.log(`Data scraped at: ${competitionsData.scrapedAt}`);
-        console.log(`Last updated: ${competitionsData.lastUpdated}`);
-        
-        return competitionsData.competitions;
-    } catch (error) {
-        if (error.code === 'ENOENT') {
-            throw new Error(`Competition file not found: ${filePath}. Run the competition scraper first.`);
-        }
-        throw error;
-    }
-}

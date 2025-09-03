@@ -3,10 +3,10 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 // Import shared utilities
-import { initializeCalendarClient } from './shared/google-auth.js';
-import { loadCompetitionData, getCompetitionStats } from './shared/competition-utils.js';
-import { CALENDAR_PREFIX, COMPETITIONS_FILE } from './shared/config.js';
-import { withErrorHandling, logSuccess, logInfo } from './shared/error-utils.js';
+import { initializeCalendarClient } from '../shared/google-auth.js';
+import { loadCompetitionData, getCompetitionStats } from '../shared/competition-utils.js';
+import { getCalendarPrefix, COMPETITIONS_FILE } from '../shared/config.js';
+import { withErrorHandling, logSuccess, logInfo } from '../shared/error-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -122,8 +122,9 @@ async function showCalendarStats() {
         // Get Google calendars
         const calendar = await initializeCalendarClient();
         const existingCalendars = await getExistingCalendars(calendar);
+        const calendarPrefix = await getCalendarPrefix();
         const fhcCalendars = existingCalendars.filter(cal => 
-            cal.summary && cal.summary.includes(CALENDAR_PREFIX)
+            cal.summary && cal.summary.includes(calendarPrefix)
         );
         
         console.log('\n📊 Calendar Statistics:');
@@ -144,7 +145,8 @@ async function showCalendarStats() {
         
     } catch (error) {
         logInfo('Competition data not available for statistics');
-        await listCalendars(CALENDAR_PREFIX);
+        const calendarPrefix = await getCalendarPrefix();
+        await listCalendars(calendarPrefix);
     }
 }
 
@@ -162,7 +164,7 @@ Usage:
   npm run export-calendars [-- options]
 
 Options:
-  --filter <prefix>        Show only calendars with specific prefix (default: "${CALENDAR_PREFIX}")
+  --filter <prefix>        Show only calendars with specific prefix (default: FHC prefix)
   --all                    Show all calendars (no filtering)
   --export <file>          Export to JSON file (default: exported-calendars.json)
   --stats                  Show calendar statistics
@@ -228,7 +230,8 @@ function parseArguments() {
     }
     
     if (!options.all && options.filter === null) {
-        options.filter = CALENDAR_PREFIX;
+        const calendarPrefix = await getCalendarPrefix();
+        options.filter = calendarPrefix;
     }
     
     return options;

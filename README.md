@@ -25,13 +25,24 @@ This directory contains setup and utility scripts for managing Hockey Victoria c
 
 ### Prerequisites
 
-1. **Google Calendar API Setup**
+1. **Configuration Setup**
+   - Edit `config/settings.json` to configure your club:
+     ```json
+     {
+       "clubName": "Your Hockey Club Name",
+       "calendarPrefix": "YHC "
+     }
+     ```
+   - **clubName**: Full name of your hockey club (used for scraping competitions)
+   - **calendarPrefix**: Prefix for Google Calendar names (keeps calendars organized)
+
+2. **Google Calendar API Setup**
    - Create a Google Cloud Project
    - Enable Google Calendar API
    - Create a Service Account
    - Download service account key as `service-account-key.json` in project root
 
-2. **Node.js Dependencies**
+3. **Node.js Dependencies**
    ```bash
    npm install
    ```
@@ -42,7 +53,7 @@ This directory contains setup and utility scripts for managing Hockey Victoria c
    ```bash
    npm run scrape-competitions
    ```
-   - Discovers all competitions containing Footscray Hockey Club
+   - Discovers all competitions containing your configured club
    - Saves results to `config/competitions.json`
    - Supports resuming from interruptions
 
@@ -88,7 +99,7 @@ npm run scrape-competitions [-- options]
 - **3-layer navigation**: Games page → Competition page → Ladder page
 - **Parallel processing**: Up to 5 competitions simultaneously
 - **Progress tracking**: Resume from interruptions
-- **Smart filtering**: Only includes pages with Footscray Hockey Club
+- **Smart filtering**: Only includes pages with your configured club
 
 **Output:**
 - `config/competitions.json` - Competition data with fixture/ladder URLs
@@ -132,7 +143,7 @@ npm run list-calendars [-- options]
 
 **Options:**
 - `--all` - Show all calendars
-- `--filter <prefix>` - Filter by prefix (default: "FHC ")
+- `--filter <prefix>` - Filter by prefix (default: configured calendar prefix)
 - `--stats` - Show calendar statistics
 - `--help, -h` - Show help
 
@@ -156,7 +167,7 @@ npm run delete-calendars [-- options]
 ```
 
 **Options:**
-- `--all` - Delete all FHC calendars
+- `--all` - Delete all calendars with configured prefix
 - `--pattern <pattern>` - Delete calendars matching pattern
 - `--name <name>` - Delete specific calendar by name
 - `--help, -h` - Show help
@@ -206,9 +217,24 @@ setup/
 
 ## ⚙️ Configuration
 
-### Shared Configuration (`shared/config.js`)
+### Club Configuration (`config/settings.json`)
 
-Key constants used across all scripts:
+**Required**: Configure your club details before using the scripts:
+
+```json
+{
+  "clubName": "Your Hockey Club Name",
+  "calendarPrefix": "YHC "
+}
+```
+
+**Settings Impact:**
+- **clubName**: Used by the competition scraper to find your club in Hockey Victoria competitions. Must exactly match your club name as it appears on the Hockey Victoria website.
+- **calendarPrefix**: Added to the beginning of all Google Calendar names (e.g., "YHC Men's Pennant A Grade"). Keeps your calendars organized and easily identifiable.
+
+### Internal Configuration (`shared/config.js`)
+
+Technical constants used across all scripts:
 
 ```javascript
 // File paths
@@ -216,12 +242,10 @@ COMPETITIONS_FILE = 'config/competitions.json'
 SERVICE_ACCOUNT_KEY = 'service-account-key.json'
 
 // Google Calendar
-CALENDAR_PREFIX = 'FHC '
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 // Hockey Victoria
 BASE_URL = 'https://www.hockeyvictoria.org.au/games/'
-CLUB_NAME = 'Footscray Hockey Club'
 ```
 
 ### Competition Categories

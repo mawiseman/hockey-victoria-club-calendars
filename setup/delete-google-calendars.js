@@ -2,10 +2,10 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 // Import shared utilities
-import { initializeCalendarClient } from './shared/google-auth.js';
-import { loadCompetitionData, extractCalendarIds } from './shared/competition-utils.js';
-import { CALENDAR_PREFIX, COMPETITIONS_FILE } from './shared/config.js';
-import { withErrorHandling, logSuccess, logWarning, logInfo, retryWithBackoff } from './shared/error-utils.js';
+import { initializeCalendarClient } from '../shared/google-auth.js';
+import { loadCompetitionData, extractCalendarIds } from '../shared/competition-utils.js';
+import { getCalendarPrefix, COMPETITIONS_FILE } from '../shared/config.js';
+import { withErrorHandling, logSuccess, logWarning, logInfo, retryWithBackoff } from '../shared/error-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -49,7 +49,10 @@ async function deleteCalendar(calendar, calendarId, title) {
 /**
  * Delete calendars by pattern matching
  */
-async function deleteCalendarsByPattern(pattern = CALENDAR_PREFIX) {
+async function deleteCalendarsByPattern(pattern = null) {
+    if (!pattern) {
+        pattern = await getCalendarPrefix();
+    }
     logInfo(`Starting calendar deletion process for pattern: "${pattern}"`);
     
     // Initialize Google Calendar client
@@ -175,7 +178,7 @@ Usage:
   npm run delete-calendars [-- options]
 
 Options:
-  --all                    Delete all calendars with "${CALENDAR_PREFIX}" prefix
+  --all                    Delete all calendars with FHC prefix
   --pattern <pattern>      Delete calendars matching custom pattern
   --name <name>            Delete specific calendar by exact name
   --help, -h              Show this help message
@@ -248,7 +251,7 @@ async function main() {
         console.log(`   ❌ Failed: ${results.failed}`);
         console.log(`   ❓ Not found: ${results.notFound}`);
     } else if (options.pattern || options.all) {
-        const pattern = options.pattern || CALENDAR_PREFIX;
+        const pattern = options.pattern || await getCalendarPrefix();
         results = await deleteCalendarsByPattern(pattern);
         console.log(`\n📊 Deletion Summary:`);
         console.log(`   ✅ Deleted: ${results.deleted}`);
