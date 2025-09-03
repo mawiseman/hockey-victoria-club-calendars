@@ -6,12 +6,12 @@ const ICAL_BASE_URL = 'https://www.hockeyvictoria.org.au/games/team/export/ical/
 
 /**
  * Downloads an iCal calendar from Hockey Victoria
- * @param {string} competitionId - The competition ID
+ * @param {string} competitionTeamId - The competition ID
  * @param {string} outputPath - Path to save the downloaded calendar
  * @returns {Promise<boolean>} - Success status
  */
-export async function downloadCalendar(competitionId, outputPath) {
-    const url = `${ICAL_BASE_URL}${competitionId}`;
+export async function downloadCalendar(competitionTeamId, outputPath) {
+    const url = `${ICAL_BASE_URL}${competitionTeamId}`;
     
     console.log(`Downloading calendar from: ${url}`);
     
@@ -52,7 +52,7 @@ export async function downloadAllCalendars(competitions, outputDir) {
         const outputPath = path.join(outputDir, fileName);
         
         console.log(`\nProcessing: ${competition.name}`);
-        const success = await downloadCalendar(competition.competitionId, outputPath);
+        const success = await downloadCalendar(competition.competitionTeamId, outputPath);
         
         results[competition.name] = {
             success,

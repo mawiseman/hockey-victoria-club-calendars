@@ -3,6 +3,8 @@ import path from 'path';
 import ical from 'ical';
 
 const FIXTURE_BASE_URL = 'https://www.hockeyvictoria.org.au/games/team/';
+const LADDER_BASE_URL = 'https://www.hockeyvictoria.org.au/pointscore/';
+const ROUND_BASE_URL = 'https://www.hockeyvictoria.org.au/games/';
 
 /**
  * Load configuration files
@@ -57,27 +59,26 @@ function replaceRoundNames(text, roundPatterns) {
 }
 
 /**
+ * Extract round number from event summary
+ */
+function extractRoundFromSummary(summary) {
+    // Look for patterns like "Round 1", "R1", "Rd 5", etc.
+    const roundMatches = summary.match(/(?:Round|R|Rd)\s*(\d+)/i);
+    return roundMatches ? roundMatches[1] : '1'; // Default to round 1 if not found
+}
+
+/**
  * Generate event description
  */
-function generateDescription(competitionId, category, calendarLinks) {
-    const fixtureUrl = `${FIXTURE_BASE_URL}${competitionId}`;
-    const links = calendarLinks[category];
+function generateDescription(competitionTeamId, competitionId, roundNumber) {
+    const fixtureUrl = `${FIXTURE_BASE_URL}${competitionTeamId}`;
+    const ladderUrl = `${LADDER_BASE_URL}${competitionId}`;
+    const roundUrl = `${ROUND_BASE_URL}${competitionId}/${roundNumber}`;
     
-    let description = `Team Fixture: ${fixtureUrl}\n\nOther Calendars\n`;
-    
-    if (links) {
-        for (const [key, url] of Object.entries(links)) {
-            if (key !== 'combined') {
-                const division = key.replace('_', ' ');
-                description += `- ${division}: ${url}\n`;
-            }
-        }
-        if (links.combined) {
-            description += `\n- All Combined: ${links.combined}\n`;
-        }
-    }
-    
-    description += `\nLast Updated: ${new Date().toISOString()}`;
+    let description = `Full Fixture: ${fixtureUrl}\n`;
+    description += `Current Round: ${roundUrl}`;
+    description += `Ladder: ${ladderUrl}\n`;
+    description += `\n\nLast Updated: ${new Date().toISOString()}`;
     
     return description;
 }
@@ -85,12 +86,15 @@ function generateDescription(competitionId, category, calendarLinks) {
 /**
  * Process a single calendar file
  */
-export async function processCalendar(inputPath, outputPath, competition, calendarLinks) {
+export async function processCalendar(inputPath, outputPath, competition) {
     console.log(`Processing calendar: ${inputPath}`);
     
     const config = await loadConfig();
     const icalData = await fs.readFile(inputPath, 'utf8');
     const parsedCal = ical.parseICS(icalData);
+    
+    // Get game duration for this competition (default to 90 minutes if not specified)
+    const gameDuration = competition.gameDuration || 90;
     
     // Build new iCal file
     let processedCal = 'BEGIN:VCALENDAR\n';
@@ -102,24 +106,32 @@ export async function processCalendar(inputPath, outputPath, competition, calend
     for (const key in parsedCal) {
         const event = parsedCal[key];
         if (event.type === 'VEVENT') {
+            // Extract round from original summary before processing
+            const originalSummary = event.summary || '';
+            const roundNumber = extractRoundFromSummary(originalSummary);
+            
             // Process summary
-            let summary = event.summary || '';
+            let summary = originalSummary;
             summary = replaceClubNames(summary, config.clubMappings);
             summary = replaceCompetitionNames(summary, config.competitionNames.competitionReplacements);
             summary = replaceRoundNames(summary, config.competitionNames.roundPatterns);
             
             // Generate description
             const description = generateDescription(
+                competition.competitionTeamId,
                 competition.competitionId,
-                competition.category,
-                calendarLinks
+                roundNumber
             );
+            
+            // Calculate end time based on game duration
+            const startDate = new Date(event.start);
+            const endDate = new Date(startDate.getTime() + (gameDuration * 60 * 1000));
             
             // Build event
             processedCal += 'BEGIN:VEVENT\n';
             processedCal += `UID:${event.uid}\n`;
-            processedCal += `DTSTART:${formatDateTime(event.start)}\n`;
-            processedCal += `DTEND:${formatDateTime(event.end)}\n`;
+            processedCal += `DTSTART:${formatDateTime(startDate)}\n`;
+            processedCal += `DTEND:${formatDateTime(endDate)}\n`;
             processedCal += `SUMMARY:${summary}\n`;
             processedCal += `DESCRIPTION:${description.replace(/\n/g, '\\n')}\n`;
             
@@ -161,7 +173,7 @@ function formatDateTime(date) {
 /**
  * Process all downloaded calendars
  */
-export async function processAllCalendars(downloadResults, outputDir, calendarLinks) {
+export async function processAllCalendars(downloadResults, outputDir) {
     const results = {};
     
     for (const [name, result] of Object.entries(downloadResults)) {
@@ -173,8 +185,7 @@ export async function processAllCalendars(downloadResults, outputDir, calendarLi
                 const processedPath = await processCalendar(
                     result.path,
                     outputPath,
-                    result.competition,
-                    calendarLinks
+                    result.competition
                 );
                 
                 results[name] = {

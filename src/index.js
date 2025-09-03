@@ -19,7 +19,7 @@ async function main() {
             await fs.readFile('./config/competitions.json', 'utf8')
         );
         
-        const { competitions, calendarLinks } = competitionsConfig;
+        const { competitions } = competitionsConfig;
         
         // Create temp directories
         const tempDir = './temp';
@@ -41,8 +41,7 @@ async function main() {
         console.log('\n=== STEP 2: Processing Calendars ===\n');
         const processResults = await processAllCalendars(
             downloadResults,
-            processedDir,
-            calendarLinks
+            processedDir
         );
         
         // Check process results
