@@ -1,7 +1,7 @@
 # Footscray Hockey Club - Competition Calendars
 
 **Total Competitions:** 30  
-**Last Updated:** 03/09/2025, 8:30:58 pm  
+**Last Updated:** 03/09/2025, 9:55:14 pm  
 
 ---
 
@@ -52,11 +52,11 @@
 | U14 Girls Shield - 2025 | [📅 Subscribe](https://calendar.google.com/calendar/embed?src=880a259c687fbaab1f2393e7924193dcf983661cb26fa87e5f4c8ed4eb6788f9%40group.calendar.google.com) |
 | U12 Mixed Pennant NW - 2025 | [📅 Subscribe](https://calendar.google.com/calendar/embed?src=1f5f57d0306bbb139202db69b77910c0fcf2fea94f6c28acc02c755faccefec8%40group.calendar.google.com) |
 | U14 Mixed District - 2025 | [📅 Subscribe](https://calendar.google.com/calendar/embed?src=df54f9be80aec4f876bb2e3b14b472d7e94b5c26b23fda0c5ac7a1fa7ca5fb3a%40group.calendar.google.com) |
-| U16 Boys Pennant NW - 2025 | *Not configured* |
-| U16 Girls Pennant NW - 2025 | *Not configured* |
-| U16 Girls Shield - 2025 | *Not configured* |
-| U16 Boys Shield - 2025 | *Not configured* |
-| U18 Mixed District NW - 2025 | *Not configured* |
+| U16 Boys Pennant NW - 2025 | [📅 Subscribe](https://calendar.google.com/calendar/embed?src=e8424707b8f97fb4838f83244bfbc641a044627eb16ed8a031a075ef3d2f1391%40group.calendar.google.com) |
+| U16 Girls Pennant NW - 2025 | [📅 Subscribe](https://calendar.google.com/calendar/embed?src=9526027a0c3e486ae6c1484b5bab4b5fc1b9926a331752bdfcf12c0e855a3f11%40group.calendar.google.com) |
+| U16 Girls Shield - 2025 | [📅 Subscribe](https://calendar.google.com/calendar/embed?src=28bd82cc99aaf0f313201466a4476dd2eba914e88ab0c2dfb046a34250ab5a54%40group.calendar.google.com) |
+| U16 Boys Shield - 2025 | [📅 Subscribe](https://calendar.google.com/calendar/embed?src=4d313e68043917a41d6282daae1797d4757a060d8c2915620441ce94acb1320b%40group.calendar.google.com) |
+| U18 Mixed District NW - 2025 | [📅 Subscribe](https://calendar.google.com/calendar/embed?src=f89c9bab78c51f03641723bbfe8327cd4d631c7721e72071cc192159824a23f3%40group.calendar.google.com) |
 
 
 ---

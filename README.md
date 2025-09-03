@@ -18,10 +18,10 @@ Improvements:
 |--------|---------|-------------|
 | **Competition Scraper** | `npm run scrape-competitions` | Scrapes Hockey Victoria for competitions containing Footscray Hockey Club |
 | **Calendar Creator** | `npm run create-calendars` | Creates Google Calendars for each competition |
+| **Documentation Generator** | `npm run generate-docs` | Generates markdown documentation with calendar links |
 | **Calendar Lister** | `npm run list-calendars` | Lists existing Google Calendars |
 | **Calendar Exporter** | `npm run export-calendars` | Exports calendar data to JSON |
 | **Calendar Deleter** | `npm run delete-calendars` | Deletes Google Calendars (with safety prompts) |
-| **Documentation Generator** | `npm run generate-docs` | Generates markdown documentation with calendar links |
 | **Club Mappings Updater** | `npm run update-mappings-club-names` | Updates club name mappings from ladder data |
 
 ### Workflow Scripts
