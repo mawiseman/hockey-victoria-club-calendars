@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node src/index.js",
     "sync": "node src/index.js",
-    "test": "node src/test.js"
+    "test": "node src/test.js",
+    "scrape-competitions": "node utils/competition-scraper.js"
   },
   "keywords": [
     "hockey",
@@ -21,7 +22,8 @@
     "@googleapis/calendar": "^9.7.9",
     "ical": "^0.8.0",
     "node-fetch": "^3.3.2",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "puppeteer": "^24.9.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.30"

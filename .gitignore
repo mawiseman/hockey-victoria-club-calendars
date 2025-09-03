@@ -11,6 +11,7 @@ package-lock.json
 temp/
 downloads/
 processed/
+scraper-output/
 *.ics
 
 # Logs
