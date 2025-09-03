@@ -14,7 +14,7 @@ function parseArguments() {
     const args = process.argv.slice(2);
     const options = {
         steps: null, // null means interactive mode
-        force: false,
+        useCache: false,
         help: false,
         all: false,
         interactive: true
@@ -31,8 +31,8 @@ function parseArguments() {
             options.steps = ['download', 'process', 'upload'];
             options.all = true;
             options.interactive = false;
-        } else if (arg === '--force') {
-            options.force = true;
+        } else if (arg === '--use-cache') {
+            options.useCache = true;
         } else if (arg === '--help' || arg === '-h') {
             options.help = true;
         }
@@ -54,7 +54,7 @@ Options:
   --all             Run all steps (download, process, upload)
   --steps <steps>   Comma-separated list of steps to run
                     Available: download, process, upload
-  --force          Force re-run of steps even if previous results exist
+  --use-cache      Use cached results from previous runs
   --help, -h       Show this help message
 
 Examples:
@@ -64,8 +64,8 @@ Examples:
   npm run process-all-competitions -- --steps process            # Process fixtures only  
   npm run process-all-competitions -- --steps upload             # Upload to Google Calendar only
   npm run process-all-competitions -- --steps download,process   # Download and process only
-  npm run process-all-competitions -- --all --force              # Force re-run all steps
-  npm run process-all-competitions -- --steps process --force    # Force re-run process step
+  npm run process-all-competitions -- --all                      # Re-run all steps (default)
+  npm run process-all-competitions -- --steps process --use-cache # Use cached download results
 
 Modes:
   • No arguments: Interactive menu to choose steps
@@ -74,11 +74,11 @@ Modes:
 
 Step Dependencies:
   • download: No dependencies (reads competition data)
-  • process: Requires download results (or --force to re-download)
-  • upload: Requires process results (or --force to re-download & process)
+  • process: Requires download results (or will re-download)
+  • upload: Requires process results (or will re-download & process)
 
-Previous step results are automatically loaded when available.
-Use --force to ignore cached results and re-run from scratch.
+By default, all steps are re-run from scratch.
+Use --use-cache to reuse results from previous runs.
 `);
 }
 

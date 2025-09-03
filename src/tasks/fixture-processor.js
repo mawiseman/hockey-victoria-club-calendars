@@ -123,11 +123,11 @@ async function verifyProcessedFiles(processResults) {
 export async function runDownloadStep(competitions, options) {
     console.log('\n=== STEP 1: Downloading Fixtures ===\n');
     
-    // Check if we should skip this step
-    if (!options.force) {
+    // Check if we should use cached results
+    if (options.useCache) {
         const previousResults = await loadStepResults('download');
         if (previousResults) {
-            logInfo('Previous download results found. Use --force to re-download.');
+            logInfo('Using cached download results. Remove --use-cache to re-download.');
             return previousResults.results;
         }
     }
@@ -157,10 +157,10 @@ export async function runProcessStep(downloadResults, competitions, options) {
     
     // If no download results provided, try to load from previous step
     if (!actualDownloadResults) {
-        if (!options.force) {
+        if (options.useCache) {
             const previousResults = await loadStepResults('process');
             if (previousResults) {
-                console.log('⏭️  Previous process results found. Use --force to re-process.');
+                console.log('⏭️  Using cached process results. Remove --use-cache to re-process.');
                 return previousResults.results;
             }
         }
@@ -222,10 +222,10 @@ export async function runUploadStep(processResults, competitions, options) {
     
     // If no process results provided, try to load from previous step
     if (!actualProcessResults) {
-        if (!options.force) {
+        if (options.useCache) {
             const previousResults = await loadStepResults('upload');
             if (previousResults) {
-                console.log('⏭️  Previous upload results found. Use --force to re-upload.');
+                console.log('⏭️  Using cached upload results. Remove --use-cache to re-upload.');
                 return previousResults.results;
             }
         }
@@ -330,16 +330,6 @@ export async function processFixtures(competitions, options) {
         }
     }
     
-    // Clean up temp files only if explicitly requested
-    const shouldCleanup = process.env.CLEANUP_TEMP === 'true';
-    
-    if (shouldCleanup) {
-        console.log('\nCleaning up temporary files...');
-        await fs.rm(path.join(TEMP_DIR, 'downloads'), { recursive: true, force: true });
-        await fs.rm(path.join(TEMP_DIR, 'processed'), { recursive: true, force: true });
-        console.log('✅ Temporary files cleaned up');
-    } else {
-        console.log('\n💡 Temporary files preserved in ./temp/ for step resumption');
-        console.log('   Use CLEANUP_TEMP=true to enable automatic cleanup');
-    }
+    // Always preserve temp files for debugging and resumption
+    console.log('\n💡 Temporary files preserved in ./temp/ for debugging and step resumption');
 }

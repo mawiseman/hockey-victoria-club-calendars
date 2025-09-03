@@ -5,15 +5,6 @@ on:
     # Run daily at 2 AM Melbourne time (adjust as needed)
     - cron: '0 16 * * *'  # 4 PM UTC = 2 AM AEST/3 AM AEDT
   workflow_dispatch:  # Allow manual triggering
-    inputs:
-      cleanup_temp:
-        description: 'Clean up temporary files after sync'
-        required: false
-        default: 'true'
-        type: choice
-        options:
-          - 'true'
-          - 'false'
 
 jobs:
   sync-calendars:
@@ -38,7 +29,6 @@ jobs:
         working-directory: ./src-actions
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
-          CLEANUP_TEMP: ${{ github.event.inputs.cleanup_temp || 'true' }}
         run: npm start
       
       - name: Upload artifacts on failure

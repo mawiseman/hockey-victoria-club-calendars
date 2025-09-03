@@ -12,8 +12,7 @@ function parseArguments() {
     const args = process.argv.slice(2);
     const options = {
         help: false,
-        dryRun: false,
-        force: false
+        dryRun: false
     };
     
     for (let i = 0; i < args.length; i++) {
@@ -23,8 +22,6 @@ function parseArguments() {
             options.help = true;
         } else if (arg === '--dry-run' || arg === '-d') {
             options.dryRun = true;
-        } else if (arg === '--force' || arg === '-f') {
-            options.force = true;
         }
     }
     
@@ -45,7 +42,6 @@ Usage:
 
 Options:
   --dry-run, -d    Show what would be added without making changes
-  --force, -f      Force re-scan all competitions (ignore existing mappings)
   --help, -h       Show this help message
 
 Features:
@@ -58,7 +54,7 @@ Features:
 Examples:
   npm run update-mappings-club-names                    # Update mappings
   npm run update-mappings-club-names -- --dry-run      # Preview changes
-  npm run update-mappings-club-names -- --force        # Force re-scan all
+  npm run update-mappings-club-names -- --dry-run      # Preview changes only
 `);
 }
 

@@ -114,7 +114,7 @@ npm run scrape-competitions [-- options]
 ```
 
 **Options:**
-- `--force, -f` - Restart from scratch (ignore saved progress)
+- `--use-progress, -p` - Resume from saved progress if available
 - `--help, -h` - Show help
 
 **Features:**
@@ -144,7 +144,7 @@ npm run process-competition -- --competition "Competition Name" --steps download
 - `--competition, -c <name>` - Competition name to update
 - `--all` - Run all steps (download, process, upload) [default]
 - `--steps <steps>` - Comma-separated list of steps (download, process, upload)
-- `--force` - Force re-run of steps even if previous results exist
+- `--use-cache` - Use cached results from previous runs
 - `--list, -l` - List all available competitions
 - `--help, -h` - Show help
 
@@ -166,8 +166,8 @@ npm run process-competition -- --list
 # Process specific competition
 npm run process-competition -- "Men's Premier League - 2025"
 
-# Force process with specific steps
-npm run process-competition -- -c "U16 Girls Pennant NW - 2025" --force
+# Process with specific steps (runs fresh by default)
+npm run process-competition -- -c "U16 Girls Pennant NW - 2025"
 
 # Download and process only (skip upload)
 npm run process-competition -- "Women's Pennant A - 2025" --steps download,process
@@ -193,7 +193,7 @@ npm run process-all-competitions [-- options]
 **Options:**
 - `--all` - Run all steps (download, process, upload)
 - `--steps <steps>` - Comma-separated list of steps
-- `--force` - Force re-run of steps even if previous results exist
+- `--use-cache` - Use cached results from previous runs
 - `--help, -h` - Show help
 
 **Features:**
@@ -214,8 +214,8 @@ npm run process-all-competitions -- --all
 npm run process-all-competitions -- --steps download
 npm run process-all-competitions -- --steps download,process
 
-# Force re-run all steps
-npm run process-all-competitions -- --all --force
+# Re-run all steps (default behavior)
+npm run process-all-competitions -- --all
 ```
 
 ---
@@ -324,7 +324,7 @@ npm run update-mappings-club-names [-- options]
 
 **Options:**
 - `--dry-run, -d` - Show what would be added without making changes
-- `--force, -f` - Force re-scan all competitions (ignore existing mappings)
+- `--dry-run, -d` - Preview changes without saving
 - `--help, -h` - Show help
 
 **Features:**
@@ -349,8 +349,8 @@ npm run update-mappings-club-names
 # Preview what would be added
 npm run update-mappings-club-names -- --dry-run
 
-# Force re-scan all competitions
-npm run update-mappings-club-names -- --force
+# Update mappings with new clubs
+npm run update-mappings-club-names
 ```
 
 **Use Cases:**
@@ -445,7 +445,7 @@ Competitions are automatically categorized:
 - API limits typically reset within minutes
 
 **Missing Competitions**
-- Run `npm run scrape-competitions --force` to refresh data
+- Run `npm run scrape-competitions` to refresh data (starts fresh by default)
 - Check Hockey Victoria website accessibility
 
 **File Not Found Errors**
@@ -454,12 +454,13 @@ Competitions are automatically categorized:
 
 **Upload Failures for Specific Competitions**
 - Use `npm run process-competition` to retry individual competitions
-- Add `--force` flag to bypass cached results: `npm run process-competition -- "Competition Name" --force`
+- By default, all steps are re-run from scratch
+- Add `--use-cache` flag to use cached results: `npm run process-competition -- "Competition Name" --use-cache`
 - Common after creating new calendars - cached results may not have calendar IDs
 
 **"No Google Calendar IDs specified" Error**
 - Occurs when using cached results from before calendars were created
-- Solution: `npm run process-competition -- "Competition Name" --force`
+- Solution: `npm run process-competition -- "Competition Name"` (runs fresh by default)
 - Or clear cache: `rm temp/step-results.json`
 
 ### Getting Help
@@ -488,7 +489,7 @@ graph TD
 
 1. **Monthly**: Refresh competition data
    ```bash
-   npm run scrape-competitions --force
+   npm run scrape-competitions
    ```
 
 2. **Weekly**: Update fixture calendars

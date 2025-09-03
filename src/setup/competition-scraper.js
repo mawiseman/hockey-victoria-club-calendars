@@ -441,14 +441,14 @@ function parseArguments() {
     const args = process.argv.slice(2);
     const options = {
         help: false,
-        force: false
+        useProgress: false
     };
     
     for (const arg of args) {
         if (arg === '--help' || arg === '-h') {
             options.help = true;
-        } else if (arg === '--force' || arg === '-f') {
-            options.force = true;
+        } else if (arg === '--use-progress' || arg === '-p') {
+            options.useProgress = true;
         }
     }
     
@@ -465,13 +465,13 @@ function showHelp() {
 npm run scrape-competitions [-- options]
 
 Options:
-  --force, -f      Force restart the scraping process (ignore saved progress)
-  --help, -h       Show this help message
+  --use-progress, -p    Resume from saved progress if available
+  --help, -h            Show this help message
 
 Examples:
-  npm run scrape-competitions                    # Resume from saved progress
-  npm run scrape-competitions -- --force        # Start fresh (ignore progress)
-  npm run scrape-competitions -- --help         # Show this help
+  npm run scrape-competitions                         # Start fresh (default)
+  npm run scrape-competitions -- --use-progress      # Resume from saved progress
+  npm run scrape-competitions -- --help              # Show this help
 
 Process:
   1. Scrapes all competition links from ${BASE_URL}
@@ -498,15 +498,17 @@ async function main() {
     }
     
     try {
-        if (options.force) {
-            console.log('🔄 Force mode: Starting fresh (ignoring saved progress)');
-            // Delete progress file to force restart
+        if (!options.useProgress) {
+            console.log('🔄 Starting fresh (default behavior)');
+            // Delete progress file to start fresh
             try {
                 await fs.unlink(PROGRESS_FILE);
                 console.log('📝 Cleared previous progress');
             } catch (error) {
                 // File doesn't exist, which is fine
             }
+        } else {
+            console.log('📂 Using saved progress if available');
         }
         
         await scrapeCompetitions();

@@ -14,7 +14,7 @@ function parseArguments() {
     const args = process.argv.slice(2);
     const options = {
         steps: null,
-        force: false,
+        useCache: false,
         help: false,
         competition: null,
         list: false
@@ -28,8 +28,8 @@ function parseArguments() {
             i++; // Skip next argument
         } else if (arg === '--all') {
             options.steps = ['download', 'process', 'upload'];
-        } else if (arg === '--force') {
-            options.force = true;
+        } else if (arg === '--use-cache') {
+            options.useCache = true;
         } else if (arg === '--help' || arg === '-h') {
             options.help = true;
         } else if (arg === '--list' || arg === '-l') {
@@ -72,7 +72,7 @@ Options:
   --all                     Run all steps (download, process, upload) [default]
   --steps <steps>           Comma-separated list of steps to run
                            Available: download, process, upload
-  --force                   Force re-run of steps even if previous results exist
+  --use-cache              Use cached results from previous runs
   --list, -l               List all available competitions
   --help, -h               Show this help message
 
@@ -80,7 +80,7 @@ Examples:
   npm run process-competition                                              # Interactive selection
   npm run process-competition -- --list                                    # List all competitions
   npm run process-competition -- "Men's Premier League - 2025"            # Process specific competition
-  npm run process-competition -- -c "Women's Pennant A - 2025" --force    # Force process
+  npm run process-competition -- -c "Women's Pennant A - 2025"           # Process (default)
   npm run process-competition -- --competition "U16 Girls Shield - 2025" --steps download,process
 
 Modes:
@@ -93,8 +93,8 @@ Step Dependencies:
   • process: Processes and enriches calendar events
   • upload: Uploads to Google Calendar
 
-Previous step results are automatically loaded when available.
-Use --force to ignore cached results and re-run from scratch.
+By default, all steps are re-run from scratch.
+Use --use-cache to reuse results from previous runs.
 `);
 }
 
