@@ -8,7 +8,11 @@
     "start": "node src/index.js",
     "sync": "node src/index.js",
     "test": "node src/test.js",
-    "scrape-competitions": "node utils/competition-scraper.js"
+    "scrape-competitions": "node utils/competition-scraper.js",
+    "create-calendars": "node utils/create-google-calendars.js",
+    "list-calendars": "node utils/list-google-calendars.js",
+    "export-calendars": "node utils/list-google-calendars.js --export",
+    "delete-calendars": "node utils/delete-google-calendars.js"
   },
   "keywords": [
     "hockey",
@@ -20,6 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "@googleapis/calendar": "^9.7.9",
+    "googleapis": "^131.0.0",
     "ical": "^0.8.0",
     "node-fetch": "^3.3.2",
     "dotenv": "^16.4.5",
