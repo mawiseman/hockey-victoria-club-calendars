@@ -38,7 +38,7 @@ jobs:
       - name: Run calendar sync for all competitions
         if: ${{ github.event.inputs.competition == '' || github.event.inputs.competition == null }}
         env:
-          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY_JSON }}
         run: |
           if [[ "${{ github.event.inputs.use_cache }}" == "true" ]]; then
             npm run process-all-competitions -- --all --use-cache
@@ -49,7 +49,7 @@ jobs:
       - name: Run calendar sync for single competition
         if: ${{ github.event.inputs.competition != '' && github.event.inputs.competition != null }}
         env:
-          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY_JSON }}
         run: |
           if [[ "${{ github.event.inputs.use_cache }}" == "true" ]]; then
             npm run process-competition -- "${{ github.event.inputs.competition }}" --use-cache
