@@ -34,7 +34,9 @@ jobs:
       
       - name: Create service account key file from secret
         run: |
-          echo "${{ secrets.SERVICE_ACCOUNT_KEY_JSON }}" > service-account-key.json
+          echo '${{ secrets.SERVICE_ACCOUNT_KEY_JSON }}' > service-account-key.json
+          # Validate that the JSON is properly formatted
+          jq empty service-account-key.json || (echo "Invalid JSON in SERVICE_ACCOUNT_KEY_JSON secret" && exit 1)
       
       - name: Install dependencies
         run: npm ci || npm install
