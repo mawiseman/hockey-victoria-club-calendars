@@ -71,7 +71,7 @@ export async function importICalToGoogle(calendar, calendarId, icalPath) {
                         continue;
                     }
                     
-                    // Handle timezone-aware date parsing
+                    // Parse the times from the processed iCal
                     let startTime, endTime;
                     
                     if (event.start instanceof Date) {
@@ -93,36 +93,16 @@ export async function importICalToGoogle(calendar, calendarId, icalPath) {
                         continue;
                     }
                     
-                    // Additional debug logging for timezone issues
-                    if (process.env.GITHUB_ACTIONS) {
-                        console.log(`DEBUG: Event "${event.summary}" - Original start: ${event.start}, End: ${event.end}`);
-                        console.log(`DEBUG: Parsed start: ${startTime.toISOString()}, End: ${endTime.toISOString()}`);
-                    }
-                    
                     // Check for empty time range (end time must be after start time)
                     if (endTime <= startTime) {
                         logWarning(`Event has invalid time range (end <= start): ${event.summary || 'Unknown'} - Start: ${startTime.toISOString()}, End: ${endTime.toISOString()}`);
-                        
-                        // In GitHub Actions, try to recover by assuming the issue is timezone-related
-                        if (process.env.GITHUB_ACTIONS) {
-                            // If times are very close, it might be a timezone parsing issue
-                            // Try adding the expected game duration to start time as fallback
-                            const durationMs = 90 * 60 * 1000; // 90 minutes default
-                            const correctedEndTime = new Date(startTime.getTime() + durationMs);
-                            
-                            console.log(`DEBUG: Attempting timezone correction - New end: ${correctedEndTime.toISOString()}`);
-                            
-                            if (correctedEndTime > startTime) {
-                                endTime = correctedEndTime;
-                                logWarning(`Applied timezone correction for event: ${event.summary}`);
-                            } else {
-                                failed++;
-                                continue;
-                            }
-                        } else {
-                            failed++;
-                            continue;
-                        }
+                        failed++;
+                        continue;
+                    }
+                    
+                    // Debug logging for GitHub Actions
+                    if (process.env.GITHUB_ACTIONS) {
+                        console.log(`DEBUG: Importing "${event.summary}" - Start: ${startTime.toISOString()}, End: ${endTime.toISOString()}`);
                     }
                     
                     const googleEvent = {

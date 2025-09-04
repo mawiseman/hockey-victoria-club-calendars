@@ -245,32 +245,37 @@ export async function processCalendar(inputPath, outputPath, competition) {
             // Generate description
             const description = await generateDescription(competition, roundNumber);
             
-            // Handle start time - preserve timezone information
-            let startDate;
+            // Handle timezone conversion properly
+            let originalStart;
             if (event.start instanceof Date) {
-                startDate = new Date(event.start);
+                originalStart = event.start;
             } else {
-                startDate = new Date(event.start);
+                originalStart = new Date(event.start);
             }
             
-            // Validate start date
-            if (isNaN(startDate.getTime())) {
+            // Validate original start date
+            if (isNaN(originalStart.getTime())) {
                 logWarning(`Skipping event with invalid start date: ${summary} - Start: ${event.start}`);
                 continue;
             }
             
-            // The original event.start should already be in the correct timezone
-            // We just need to calculate the end time by adding duration
-            const endDate = new Date(startDate.getTime() + (gameDuration * 60 * 1000));
+            // Convert to Melbourne timezone and create proper local times
+            // This ensures we work with Melbourne local time throughout
+            const melbourneStart = convertToMelbourneTime(originalStart);
+            const melbourneEnd = new Date(melbourneStart.getTime() + (gameDuration * 60 * 1000));
             
-            // Convert both times to Melbourne timezone for iCal output
-            const melbourneStart = convertToMelbourneTime(startDate);
-            const melbourneEnd = convertToMelbourneTime(endDate);
-            
-            // Validate that end time is after start time
-            if (endDate <= startDate) {
+            // Validate that end time is after start time (using Melbourne times)
+            if (melbourneEnd <= melbourneStart) {
                 logWarning(`Skipping event with invalid time range: ${summary} - Duration: ${gameDuration} minutes`);
                 continue;
+            }
+            
+            // Add debug logging for GitHub Actions
+            if (process.env.GITHUB_ACTIONS) {
+                console.log(`DEBUG: Processing "${summary}"`);
+                console.log(`DEBUG: Original start: ${originalStart.toISOString()}`);
+                console.log(`DEBUG: Melbourne start: ${melbourneStart.toISOString()}`);
+                console.log(`DEBUG: Melbourne end: ${melbourneEnd.toISOString()}`);
             }
             
             // Build event
@@ -308,27 +313,26 @@ function convertToMelbourneTime(date) {
     
     const d = date instanceof Date ? date : new Date(date);
     
-    // Get the Melbourne time components
-    const formatter = new Intl.DateTimeFormat('en-CA', {
-        timeZone: 'Australia/Melbourne',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-    });
+    if (isNaN(d.getTime())) {
+        return null;
+    }
     
-    const parts = formatter.formatToParts(d);
-    const partsMap = {};
-    parts.forEach(part => {
-        partsMap[part.type] = part.value;
-    });
+    // Get the Melbourne time components using consistent formatting
+    const melbourneTime = d.toLocaleString('sv-SE', {
+        timeZone: 'Australia/Melbourne'
+    }); // sv-SE gives YYYY-MM-DD HH:mm:ss format
     
-    // Create a new Date representing the Melbourne local time
-    // Note: This creates a Date object where the UTC time equals the Melbourne local time
-    return new Date(`${partsMap.year}-${partsMap.month}-${partsMap.day}T${partsMap.hour}:${partsMap.minute}:${partsMap.second}`);
+    // Parse the Melbourne time string and create a new Date
+    // This Date object will have UTC time equal to Melbourne local time
+    const melbourneDate = new Date(melbourneTime);
+    
+    // Validate the result
+    if (isNaN(melbourneDate.getTime())) {
+        console.error(`Failed to convert time to Melbourne: ${d.toISOString()}`);
+        return d; // Return original if conversion fails
+    }
+    
+    return melbourneDate;
 }
 
 /**
