@@ -13,9 +13,9 @@ const __dirname = dirname(__filename);
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'competitions.md');
 
 /**
- * Generate markdown content
+ * Generate index markdown content with all calendars
  */
-function generateMarkdown(competitionsData, categories) {
+function generateIndexMarkdown(competitionsData, categories) {
     const { clubName, totalCompetitions, lastUpdated } = competitionsData;
     
     let markdown = `# ${clubName} - Competition Calendars\n\n`;
@@ -23,28 +23,76 @@ function generateMarkdown(competitionsData, categories) {
     markdown += `**Last Updated:** ${new Date(lastUpdated).toLocaleString()}  \n\n`;
     markdown += `---\n\n`;
     
-    // Men's Competitions
+    // Get all competitions with calendars for combined view
+    const allCompetitions = [
+        ...categories.mens,
+        ...categories.womens, 
+        ...categories.midweek,
+        ...categories.juniors
+    ];
+    
+    const competitionsWithCalendars = allCompetitions.filter(comp => 
+        comp.googleCalendar && comp.googleCalendar.calendarId
+    );
+    
+    // Combined calendar view of ALL competitions
+    if (competitionsWithCalendars.length > 0) {
+        markdown += `## All Competitions - Combined Calendar View\n\n`;
+        
+        const calendarSources = competitionsWithCalendars.map(comp => 
+            `&src=${encodeURIComponent(comp.googleCalendar.calendarId)}`
+        ).join('');
+        
+        const iframeUrl = `https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0${calendarSources}`;
+        
+        markdown += `<iframe src="${iframeUrl}" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>\n\n`;
+        markdown += `---\n\n`;
+    }
+    
+    // Create navigation links to category pages
+    markdown += `## Calendar Categories\n\n`;
+    
+    if (categories.mens.length > 0) {
+        markdown += `### [Men's Competitions](mens-calendars.md) (${categories.mens.length})\n`;
+        markdown += `Combined calendar view of all men's competitions.\n\n`;
+    }
+    
+    if (categories.womens.length > 0) {
+        markdown += `### [Women's Competitions](womens-calendars.md) (${categories.womens.length})\n`;
+        markdown += `Combined calendar view of all women's competitions.\n\n`;
+    }
+    
+    if (categories.midweek.length > 0) {
+        markdown += `### [Midweek Competitions](midweek-calendars.md) (${categories.midweek.length})\n`;
+        markdown += `Combined calendar view of all midweek competitions.\n\n`;
+    }
+    
+    if (categories.juniors.length > 0) {
+        markdown += `### [Junior Competitions](juniors-calendars.md) (${categories.juniors.length})\n`;
+        markdown += `Combined calendar view of all junior competitions.\n\n`;
+    }
+    
+    markdown += `---\n\n`;
+    
+    // Add individual competition sections for each category
     if (categories.mens.length > 0) {
         markdown += `## Men's Competitions\n\n`;
         markdown += formatCompetitionTable(categories.mens);
         markdown += `\n`;
     }
     
-    // Women's Competitions
     if (categories.womens.length > 0) {
         markdown += `## Women's Competitions\n\n`;
         markdown += formatCompetitionTable(categories.womens);
         markdown += `\n`;
     }
     
-    // Midweek Competitions
     if (categories.midweek.length > 0) {
         markdown += `## Midweek Competitions\n\n`;
         markdown += formatCompetitionTable(categories.midweek);
         markdown += `\n`;
     }
     
-    // Junior Competitions
     if (categories.juniors.length > 0) {
         markdown += `## Junior Competitions\n\n`;
         markdown += formatCompetitionTable(categories.juniors);
@@ -63,7 +111,7 @@ function generateMarkdown(competitionsData, categories) {
  * Format competitions as a table
  */
 function formatCompetitionTable(competitions) {
-    let table = `| Competition | Google Calendar | iCal Subscribe |\n`;
+    let table = `| Competition | Web View | iCal Subscribe |\n`;
     table += `|-------------|----------|----------------|\n`;
     
     for (const competition of competitions) {
@@ -97,6 +145,74 @@ function formatCompetitionTable(competitions) {
 }
 
 /**
+ * Generate category-specific markdown page with embedded calendars
+ */
+function generateCategoryMarkdown(categoryName, competitions, clubName) {
+    const categoryTitle = categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
+    
+    let markdown = `# ${clubName} - ${categoryTitle} Calendars\n\n`;
+    markdown += `[← Back to All Calendars](competitions.md)\n\n`;
+    markdown += `**${categoryTitle} Competitions:** ${competitions.length}\n\n`;
+    markdown += `---\n\n`;
+    
+    // Filter competitions with calendars
+    const competitionsWithCalendars = competitions.filter(comp => 
+        comp.googleCalendar && comp.googleCalendar.calendarId
+    );
+    
+    if (competitionsWithCalendars.length === 0) {
+        markdown += `No calendars available for ${categoryTitle.toLowerCase()} competitions.\n`;
+        return markdown;
+    }
+    
+    // Generate combined calendar iframe
+    markdown += `## Combined Calendar View\n\n`;
+    const calendarSources = competitionsWithCalendars.map(comp => 
+        `&src=${encodeURIComponent(comp.googleCalendar.calendarId)}`
+    ).join('');
+    
+    const iframeUrl = `https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0${calendarSources}`;
+    
+    markdown += `<iframe src="${iframeUrl}" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>\n\n`;
+    
+    // Individual competition links
+    markdown += `## Individual Competitions\n\n`;
+    markdown += `| Competition | Web View | iCal Subscribe |\n`;
+    markdown += `|-------------|----------|----------------|\n`;
+    
+    for (const competition of competitions) {
+        const name = competition.name;
+        
+        // Google Calendar columns
+        let webViewCol;
+        let icalCol;
+        if (competition.googleCalendar) {
+            if (competition.googleCalendar.publicUrl) {
+                webViewCol = `[📅 View](${competition.googleCalendar.publicUrl})`;
+            } else {
+                webViewCol = `*Not available*`;
+            }
+            
+            if (competition.googleCalendar.icalUrl) {
+                icalCol = `[📲 Subscribe](${competition.googleCalendar.icalUrl})`;
+            } else {
+                icalCol = `*Not available*`;
+            }
+        } else {
+            webViewCol = `*Not configured*`;
+            icalCol = `*Not configured*`;
+        }
+        
+        markdown += `| ${name} | ${webViewCol} | ${icalCol} |\n`;
+    }
+    
+    markdown += `\n---\n\n`;
+    markdown += `*This page is automatically generated from competitions.json*\n`;
+    
+    return markdown;
+}
+
+/**
  * Main function to generate documentation
  */
 async function generateDocs() {
@@ -117,17 +233,40 @@ async function generateDocs() {
     console.log(`  - Midweek: ${categories.midweek.length}`);
     console.log(`  - Juniors: ${categories.juniors.length}`);
     
-    // Generate markdown
-    logInfo('Generating markdown...');
-    const markdown = generateMarkdown(competitionsData, categories);
+    // Generate index markdown
+    logInfo('Generating index markdown...');
+    const indexMarkdown = generateIndexMarkdown(competitionsData, categories);
     
     // Ensure output directory exists
     await fs.mkdir(OUTPUT_DIR, { recursive: true });
     
-    // Write markdown file
-    await fs.writeFile(OUTPUT_FILE, markdown, 'utf8');
+    // Write index markdown file
+    await fs.writeFile(OUTPUT_FILE, indexMarkdown, 'utf8');
+    logSuccess(`Index documentation generated: ${OUTPUT_FILE}`);
     
-    logSuccess(`Documentation generated: ${OUTPUT_FILE}`);
+    // Generate category-specific pages
+    const categoryPages = [
+        { name: 'mens', competitions: categories.mens, filename: 'mens-calendars.md' },
+        { name: 'womens', competitions: categories.womens, filename: 'womens-calendars.md' },
+        { name: 'midweek', competitions: categories.midweek, filename: 'midweek-calendars.md' },
+        { name: 'juniors', competitions: categories.juniors, filename: 'juniors-calendars.md' }
+    ];
+    
+    for (const categoryPage of categoryPages) {
+        if (categoryPage.competitions.length > 0) {
+            logInfo(`Generating ${categoryPage.name} calendar page...`);
+            const categoryMarkdown = generateCategoryMarkdown(
+                categoryPage.name, 
+                categoryPage.competitions, 
+                competitionsData.clubName
+            );
+            
+            const categoryOutputFile = path.join(OUTPUT_DIR, categoryPage.filename);
+            await fs.writeFile(categoryOutputFile, categoryMarkdown, 'utf8');
+            logSuccess(`${categoryPage.name} calendar page generated: ${categoryOutputFile}`);
+        }
+    }
+    
     logInfo(`Total competitions documented: ${competitionsData.totalCompetitions}`);
 }
 
