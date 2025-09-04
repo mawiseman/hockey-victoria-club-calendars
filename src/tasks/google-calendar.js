@@ -64,15 +64,39 @@ export async function importICalToGoogle(calendar, calendarId, icalPath) {
             const event = parsedCal[key];
             if (event.type === 'VEVENT') {
                 try {
+                    // Validate event times
+                    if (!event.start || !event.end) {
+                        logWarning(`Event missing start or end time: ${event.summary || 'Unknown'}`);
+                        failed++;
+                        continue;
+                    }
+                    
+                    const startTime = new Date(event.start);
+                    const endTime = new Date(event.end);
+                    
+                    // Check for invalid dates
+                    if (isNaN(startTime.getTime()) || isNaN(endTime.getTime())) {
+                        logWarning(`Event has invalid date/time: ${event.summary || 'Unknown'} - Start: ${event.start}, End: ${event.end}`);
+                        failed++;
+                        continue;
+                    }
+                    
+                    // Check for empty time range (end time must be after start time)
+                    if (endTime <= startTime) {
+                        logWarning(`Event has invalid time range (end <= start): ${event.summary || 'Unknown'} - Start: ${startTime.toISOString()}, End: ${endTime.toISOString()}`);
+                        failed++;
+                        continue;
+                    }
+                    
                     const googleEvent = {
                         summary: event.summary || 'No title',
                         description: event.description || '',
                         start: {
-                            dateTime: event.start.toISOString(),
+                            dateTime: startTime.toISOString(),
                             timeZone: 'Australia/Melbourne'
                         },
                         end: {
-                            dateTime: event.end.toISOString(),
+                            dateTime: endTime.toISOString(),
                             timeZone: 'Australia/Melbourne'
                         },
                         location: event.location || ''

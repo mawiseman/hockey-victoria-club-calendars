@@ -226,6 +226,12 @@ export async function processCalendar(inputPath, outputPath, competition) {
     for (const key in parsedCal) {
         const event = parsedCal[key];
         if (event.type === 'VEVENT') {
+            // Validate event has required fields
+            if (!event.start || !event.uid) {
+                logWarning(`Skipping event missing required fields: ${event.summary || 'Unknown'}`);
+                continue;
+            }
+            
             // Extract round from original summary before processing
             const originalSummary = event.summary || '';
             const roundNumber = extractRoundFromSummary(originalSummary, maxRegularRound);
@@ -241,7 +247,20 @@ export async function processCalendar(inputPath, outputPath, competition) {
             
             // Calculate end time based on game duration
             const startDate = new Date(event.start);
+            
+            // Validate start date
+            if (isNaN(startDate.getTime())) {
+                logWarning(`Skipping event with invalid start date: ${summary} - Start: ${event.start}`);
+                continue;
+            }
+            
             const endDate = new Date(startDate.getTime() + (gameDuration * 60 * 1000));
+            
+            // Validate that end time is after start time
+            if (endDate <= startDate) {
+                logWarning(`Skipping event with invalid time range: ${summary} - Duration: ${gameDuration} minutes`);
+                continue;
+            }
             
             // Build event
             processedCal += 'BEGIN:VEVENT\n';
