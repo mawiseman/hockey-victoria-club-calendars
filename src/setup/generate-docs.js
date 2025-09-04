@@ -76,7 +76,7 @@ async function generateIndexMarkdown(competitionsData, categories) {
         const combinedCalendarUrl = await buildCombinedCalendarUrl(allCompetitions);
         
         if (combinedCalendarUrl) {
-            markdown += `📅 **[View All Competitions Calendar](${combinedCalendarUrl})**\n\n`;
+            markdown += `📅 **<a href="${combinedCalendarUrl}" target="_blank">View All Competitions Calendar</a>**\n\n`;
             markdown += `*Opens Google Calendar with all ${competitionsWithCalendars.length} competition calendars combined in one view.*\n\n`;
         }
         markdown += `---\n\n`;
@@ -132,13 +132,13 @@ async function formatCompetitionTable(competitions, categoryName) {
         const combinedCalendarUrl = await buildCombinedCalendarUrl(competitions);
         
         if (combinedCalendarUrl) {
-            content += `📅 **[View Combined ${categoryName} Calendar](${combinedCalendarUrl})**\n\n`;
+            content += `📅 **<a href="${combinedCalendarUrl}" target="_blank">View Combined ${categoryName} Calendar</a>**\n\n`;
             content += `*Opens Google Calendar with all ${competitionsWithCalendars.length} ${categoryName.toLowerCase()} competition calendars in one view.*\n\n`;
         }
     }
     
     // Add individual competitions table
-    let table = `| Competition | Web View | iCal Subscribe |\n`;
+    let table = `| Competition |  Google Calendar | iCal Subscribe |\n`;
     table += `|-------------|----------|----------------|\n`;
     
     for (const competition of competitions) {
@@ -149,13 +149,13 @@ async function formatCompetitionTable(competitions, categoryName) {
         let icalCol;
         if (competition.googleCalendar) {
             if (competition.googleCalendar.publicUrl) {
-                webViewCol = `[📅 View](${competition.googleCalendar.publicUrl})`;
+                webViewCol = `<a href="${competition.googleCalendar.publicUrl}" target="_blank">📅 View</a>`;
             } else {
                 webViewCol = `*Not available*`;
             }
             
             if (competition.googleCalendar.icalUrl) {
-                icalCol = `[📲 Subscribe](${competition.googleCalendar.icalUrl})`;
+                icalCol = `<a href="${competition.googleCalendar.icalUrl}" target="_blank">📲 Subscribe</a>`;
             } else {
                 icalCol = `*Not available*`;
             }

@@ -178,13 +178,15 @@ export async function runProcessStep(downloadResults, competitions, options) {
             await fs.mkdir(downloadDir, { recursive: true });
             
             // Download calendars first
+            console.log(`📊 Attempting to download ${competitions.length} competitions...`);
             actualDownloadResults = await downloadAllCalendars(competitions, downloadDir);
             
             // Save download results for future use
             await saveStepResults('download', actualDownloadResults, competitions);
             
             const downloadedCount = Object.values(actualDownloadResults).filter(r => r.success).length;
-            console.log(`📥 Downloaded ${downloadedCount}/${competitions.length} calendars for processing`);
+            const failedCount = Object.values(actualDownloadResults).filter(r => !r.success).length;
+            console.log(`📥 Downloaded ${downloadedCount}/${competitions.length} calendars for processing (${failedCount} failed)`);
         }
     }
     
@@ -235,6 +237,19 @@ export async function runUploadStep(processResults, competitions, options) {
         if (processStepData) {
             actualProcessResults = processStepData.results;
             console.log('📂 Using previous process results for upload');
+            
+            // Filter process results to only include the competitions we're currently processing
+            const competitionNames = new Set(competitions.map(c => c.name));
+            const filteredResults = {};
+            
+            for (const [name, result] of Object.entries(actualProcessResults)) {
+                if (competitionNames.has(name)) {
+                    filteredResults[name] = result;
+                }
+            }
+            
+            actualProcessResults = filteredResults;
+            console.log(`📊 Filtered to ${Object.keys(filteredResults).length} matching competitions for upload`);
         } else {
             throw new Error('No process results available. Run process step first or use --steps download,process,upload');
         }

@@ -35,6 +35,57 @@ export async function loadCompetitions(filePath = COMPETITIONS_FILE) {
 }
 
 /**
+ * Custom sorting function for Men's and Women's competitions
+ * @param {Array} competitions - Array of competition objects
+ * @returns {Array} - Sorted competitions
+ */
+function sortSeniorCompetitions(competitions) {
+    return competitions.sort((a, b) => {
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+        
+        // Extract competition type and level for comparison
+        const getCompetitionOrder = (name) => {
+            if (name.includes('premier league reserves') || name.includes('premier league reserve')) {
+                return { type: 'premier', level: 2, name };
+            } else if (name.includes('premier league')) {
+                return { type: 'premier', level: 1, name };
+            } else if (name.includes('pennant a')) {
+                return { type: 'pennant', level: 1, name };
+            } else if (name.includes('pennant b')) {
+                return { type: 'pennant', level: 2, name };
+            } else if (name.includes('pennant c')) {
+                return { type: 'pennant', level: 3, name };
+            } else if (name.includes('metro')) {
+                // Extract metro number if present (e.g., "Metro 1", "Metro 2")
+                const metroMatch = name.match(/metro\s*(\d+)/);
+                const metroLevel = metroMatch ? parseInt(metroMatch[1]) : 1;
+                return { type: 'metro', level: metroLevel, name };
+            }
+            
+            return { type: 'other', level: 999, name };
+        };
+        
+        const orderA = getCompetitionOrder(nameA);
+        const orderB = getCompetitionOrder(nameB);
+        
+        // First sort by competition type
+        const typeOrder = { 'premier': 1, 'pennant': 2, 'metro': 3, 'other': 4 };
+        if (typeOrder[orderA.type] !== typeOrder[orderB.type]) {
+            return typeOrder[orderA.type] - typeOrder[orderB.type];
+        }
+        
+        // Then sort by level within the same type
+        if (orderA.level !== orderB.level) {
+            return orderA.level - orderB.level;
+        }
+        
+        // Finally sort alphabetically if same type and level
+        return nameA.localeCompare(nameB);
+    });
+}
+
+/**
  * Categorize competitions by type
  * @param {Array} competitions - Array of competition objects
  * @returns {Object} - Categorized competitions
@@ -63,6 +114,14 @@ export function categorizeCompetitions(competitions) {
             console.warn(`Could not categorize competition: ${competition.name}`);
         }
     }
+    
+    // Apply custom sorting
+    categories.mens = sortSeniorCompetitions(categories.mens);
+    categories.womens = sortSeniorCompetitions(categories.womens);
+    
+    // Sort midweek and juniors alphabetically
+    categories.midweek.sort((a, b) => a.name.localeCompare(b.name));
+    categories.juniors.sort((a, b) => a.name.localeCompare(b.name));
     
     return categories;
 }
