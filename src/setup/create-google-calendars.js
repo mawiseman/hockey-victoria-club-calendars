@@ -105,9 +105,44 @@ async function getExistingCalendars(calendar) {
 }
 
 /**
+ * Get the category for a competition name
+ */
+function getCompetitionCategory(competitionName) {
+    const nameLower = competitionName.toLowerCase();
+    
+    if (nameLower.includes('midweek')) {
+        return 'midweek';
+    } else if (nameLower.includes('u16') || nameLower.includes('u14') || nameLower.includes('u12') || 
+               nameLower.includes('u10') || nameLower.includes('junior')) {
+        return 'juniors';
+    } else if (nameLower.includes("women's")) {
+        return 'womens';
+    } else if (nameLower.includes("men's")) {
+        return 'mens';
+    }
+    
+    return null;
+}
+
+/**
+ * Get the color ID for a competition category
+ * Google Calendar API uses specific color IDs (1-24)
+ */
+function getCategoryColorId(category) {
+    const colorMap = {
+        'mens': '9',       // Blue
+        'womens': '11',    // Red
+        'midweek': '10',   // Green
+        'juniors': '6'     // Orange
+    };
+    
+    return colorMap[category] || '1'; // Default to blue
+}
+
+/**
  * Create a new Google Calendar
  */
-async function createCalendar(calendar, title, description) {
+async function createCalendar(calendar, title, description, competitionName = null) {
     const calendarResource = {
         summary: title,
         description: description,
@@ -122,6 +157,27 @@ async function createCalendar(calendar, title, description) {
         });
         
         const calendarId = response.data.id;
+        
+        // Set calendar color based on competition category
+        if (competitionName) {
+            const category = getCompetitionCategory(competitionName);
+            if (category) {
+                const colorId = getCategoryColorId(category);
+                try {
+                    await retryWithBackoff(async () => {
+                        await calendar.calendarList.update({
+                            calendarId: calendarId,
+                            resource: {
+                                colorId: colorId
+                            }
+                        });
+                    });
+                    logInfo(`Set calendar color for ${category} competition`);
+                } catch (error) {
+                    logWarning(`Failed to set calendar color: ${error.message}`);
+                }
+            }
+        }
         
         // Make the calendar public
         await retryWithBackoff(async () => {
@@ -232,6 +288,25 @@ async function createGoogleCalendars() {
                 if (verifyCalendar) {
                     logInfo(`Calendar already configured and verified: ${calendarTitle}`);
                     
+                    // Update calendar color for existing calendar
+                    const category = getCompetitionCategory(competition.name);
+                    if (category) {
+                        const colorId = getCategoryColorId(category);
+                        try {
+                            await retryWithBackoff(async () => {
+                                await calendar.calendarList.update({
+                                    calendarId: competition.googleCalendar.calendarId,
+                                    resource: {
+                                        colorId: colorId
+                                    }
+                                });
+                            });
+                            logInfo(`Updated calendar color for ${category} competition`);
+                        } catch (error) {
+                            logWarning(`Failed to update calendar color: ${error.message}`);
+                        }
+                    }
+                    
                     // Update with latest URLs including iCal if missing
                     const publicUrl = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(competition.googleCalendar.calendarId)}`;
                     const icalUrl = `https://calendar.google.com/calendar/ical/${encodeURIComponent(competition.googleCalendar.calendarId)}/public/basic.ics`;
@@ -250,7 +325,8 @@ async function createGoogleCalendars() {
                     const calendarData = await createCalendar(
                         calendar, 
                         calendarTitle,
-                        `${await getClubName()} - ${competition.name} fixtures and events`
+                        `${await getClubName()} - ${competition.name} fixtures and events`,
+                        competition.name
                     );
                     
                     calendarUpdates.push({
@@ -273,6 +349,25 @@ async function createGoogleCalendars() {
                 if (existingCalendar) {
                     logWarning(`Calendar exists in Google but not in competitions.json: ${calendarTitle}`);
                     
+                    // Update calendar color for existing calendar
+                    const category = getCompetitionCategory(competition.name);
+                    if (category) {
+                        const colorId = getCategoryColorId(category);
+                        try {
+                            await retryWithBackoff(async () => {
+                                await calendar.calendarList.update({
+                                    calendarId: existingCalendar.id,
+                                    resource: {
+                                        colorId: colorId
+                                    }
+                                });
+                            });
+                            logInfo(`Updated calendar color for ${category} competition`);
+                        } catch (error) {
+                            logWarning(`Failed to update calendar color: ${error.message}`);
+                        }
+                    }
+                    
                     const publicUrl = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(existingCalendar.id)}`;
                     const icalUrl = `https://calendar.google.com/calendar/ical/${encodeURIComponent(existingCalendar.id)}/public/basic.ics`;
                     
@@ -290,7 +385,8 @@ async function createGoogleCalendars() {
                     const calendarData = await createCalendar(
                         calendar, 
                         calendarTitle,
-                        `${await getClubName()} - ${competition.name} fixtures and events`
+                        `${await getClubName()} - ${competition.name} fixtures and events`,
+                        competition.name
                     );
                     
                     calendarUpdates.push({
