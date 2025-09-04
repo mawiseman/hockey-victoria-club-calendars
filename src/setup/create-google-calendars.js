@@ -5,11 +5,87 @@ import { dirname } from 'path';
 // Import shared utilities
 import { initializeCalendarClient } from '../lib/google-auth.js';
 import { loadCompetitionData, getCompetitionsWithoutCalendars } from '../lib/competition-utils.js';
-import { getCalendarPrefix, getClubName, COMPETITIONS_FILE, getCurrentTimestamp } from '../lib/config.js';
+import { getCalendarPrefix, getClubName, COMPETITIONS_FILE, getCurrentTimestamp, getSettings } from '../lib/config.js';
 import { withErrorHandling, logSuccess, logWarning, logInfo, retryWithBackoff } from '../lib/error-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Constants
+const SETTINGS_FILE = 'config/settings.json';
+
+/**
+ * Update settings.json with club calendar information
+ */
+async function updateSettingsWithClubCalendar(calendarId, publicUrl, icalUrl) {
+    try {
+        const settings = await getSettings();
+        settings.clubCalendar = {
+            calendarId,
+            publicUrl,
+            icalUrl,
+            createdAt: getCurrentTimestamp()
+        };
+        
+        await fs.writeFile(SETTINGS_FILE, JSON.stringify(settings, null, 2), 'utf8');
+        logSuccess(`Updated settings.json with club calendar information`);
+    } catch (error) {
+        logWarning(`Failed to update settings.json: ${error.message}`);
+    }
+}
+
+/**
+ * Create or verify club-level calendar
+ */
+async function ensureClubCalendar(calendar, existingCalendars) {
+    const clubName = await getClubName();
+    const calendarTitle = `${clubName}`;
+    
+    logInfo('Checking for club-level calendar...');
+    
+    // Check if club calendar already exists in Google
+    const existingClubCalendar = existingCalendars.find(cal => 
+        cal.summary === calendarTitle
+    );
+    
+    if (existingClubCalendar) {
+        logInfo(`Club calendar already exists: ${calendarTitle}`);
+        
+        const publicUrl = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(existingClubCalendar.id)}`;
+        const icalUrl = `https://calendar.google.com/calendar/ical/${encodeURIComponent(existingClubCalendar.id)}/public/basic.ics`;
+        
+        // Update settings with existing calendar
+        await updateSettingsWithClubCalendar(existingClubCalendar.id, publicUrl, icalUrl);
+        
+        return {
+            calendarId: existingClubCalendar.id,
+            publicUrl,
+            icalUrl,
+            title: calendarTitle,
+            existed: true
+        };
+    } else {
+        logInfo(`Creating club calendar: ${calendarTitle}`);
+        
+        const clubCalendarData = await createCalendar(
+            calendar,
+            calendarTitle,
+            `${clubName} - Combined view of all competition fixtures and events`
+        );
+        
+        // Update settings with new calendar
+        await updateSettingsWithClubCalendar(
+            clubCalendarData.calendarId,
+            clubCalendarData.publicUrl,
+            clubCalendarData.icalUrl
+        );
+        
+        return {
+            ...clubCalendarData,
+            existed: false
+        };
+    }
+}
 
 /**
  * Get all existing calendars from Google
@@ -121,6 +197,14 @@ async function createGoogleCalendars() {
     // Get existing calendars
     logInfo('Fetching existing Google Calendars...');
     const existingCalendars = await getExistingCalendars(calendar);
+    
+    // Ensure club-level calendar exists
+    const clubCalendarInfo = await ensureClubCalendar(calendar, existingCalendars);
+    if (clubCalendarInfo.existed) {
+        logSuccess(`Club calendar verified: ${clubCalendarInfo.title}`);
+    } else {
+        logSuccess(`Club calendar created: ${clubCalendarInfo.title}`);
+    }
     
     // Process all competitions to ensure they have calendar details
     const competitionsToProcess = competitions;

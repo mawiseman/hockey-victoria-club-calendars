@@ -1,5 +1,11 @@
 {
   "clubName": "Footscray Hockey Club",
   "calendarPrefix": "FHC ",
-  "calendarsHomepage": "https://github.com/mawiseman/hockey-victoria-club-calendars/blob/main/docs/competitions.md"
+  "calendarsHomepage": "https://github.com/mawiseman/hockey-victoria-club-calendars/blob/main/docs/competitions.md",
+  "clubCalendar": {
+    "calendarId": "e5b4e34ae8aa71f8f86178b195b908ccdc38cd5694eb4a468b467aa8d67f4f0a@group.calendar.google.com",
+    "publicUrl": "https://calendar.google.com/calendar/embed?src=e5b4e34ae8aa71f8f86178b195b908ccdc38cd5694eb4a468b467aa8d67f4f0a%40group.calendar.google.com",
+    "icalUrl": "https://calendar.google.com/calendar/ical/e5b4e34ae8aa71f8f86178b195b908ccdc38cd5694eb4a468b467aa8d67f4f0a%40group.calendar.google.com/public/basic.ics",
+    "createdAt": "2025-09-04T00:56:56.297Z"
+  }
 }
