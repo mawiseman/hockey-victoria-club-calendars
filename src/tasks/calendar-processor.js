@@ -3,7 +3,7 @@ import path from 'path';
 import ical from 'ical';
 
 // Import shared utilities
-import { MAPPINGS_CLUB_FILE, MAPPINGS_COMPETITION_FILE } from '../lib/config.js';
+import { MAPPINGS_CLUB_FILE, MAPPINGS_COMPETITION_FILE, getSettings } from '../lib/config.js';
 import { logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
 
 const FIXTURE_BASE_URL = 'https://www.hockeyvictoria.org.au/games/team/';
@@ -93,49 +93,89 @@ function replaceRoundNames(text, roundPatterns) {
 }
 
 /**
- * Extract round number from event summary
+ * Extract round number from event summary, returns null for finals or unknown rounds
  */
-function extractRoundFromSummary(summary) {
-    // Look for patterns like "Round 1", "R1", "Rd 5", etc.
+function extractRoundFromSummary(summary, maxRegularRound = 0) {
+    // First check for regular rounds
     const roundMatches = summary.match(/(?:Round|R|Rd)\s*(\d+)/i);
-    return roundMatches ? roundMatches[1] : '1'; // Default to round 1 if not found
+    if (roundMatches) {
+        return parseInt(roundMatches[1], 10);
+    }
+    
+    // Check for finals - return null as we don't want round links for finals
+    const finalsOrder = [
+        'Elimination Final',
+        'Semi Final', 
+        'Preliminary Final',
+        'Grand Final'
+    ];
+    
+    const summaryLower = summary.toLowerCase();
+    
+    for (let i = 0; i < finalsOrder.length; i++) {
+        const finalType = finalsOrder[i].toLowerCase();
+        if (summaryLower.includes(finalType)) {
+            return null; // Don't include round links for finals
+        }
+    }
+    
+    // Return null if no round found - don't include round link
+    return null;
+}
+
+/**
+ * Find the highest regular round number in all events
+ */
+function findMaxRegularRound(parsedCal) {
+    let maxRound = 0;
+    
+    for (const key in parsedCal) {
+        const event = parsedCal[key];
+        if (event.type === 'VEVENT' && event.summary) {
+            const roundMatches = event.summary.match(/(?:Round|R|Rd)\s*(\d+)/i);
+            if (roundMatches) {
+                const roundNumber = parseInt(roundMatches[1], 10);
+                maxRound = Math.max(maxRound, roundNumber);
+            }
+        }
+    }
+    
+    return maxRound;
 }
 
 /**
  * Generate event description
  */
-function generateDescription(competition, roundNumber) {
+async function generateDescription(competition, roundNumber) {
     let description = '';
     
-    // Handle both old format (competitionTeamId/competitionId) and new format (URLs)
-    if (competition.fixtureUrl) {
-        // New format - use the URLs directly
-        description += `Full Fixture: ${competition.fixtureUrl}\n`;
-        
-        if (competition.ladderUrl) {
-            description += `Ladder: ${competition.ladderUrl}\n`;
-        }
-        
-        // Extract competition ID from ladder URL for round URL
-        if (competition.ladderUrl) {
-            const ladderMatch = competition.ladderUrl.match(/\/pointscore\/(\d+\/\d+)/);
-            if (ladderMatch) {
-                const competitionId = ladderMatch[1]; // This will be "21935/37286"
-                const roundUrl = `${ROUND_BASE_URL}${competitionId}/round/${roundNumber}`;
-                description += `Current Round: ${roundUrl}\n`;
-            }
-        }
-    } else if (competition.competitionTeamId && competition.competitionId) {
-        // Legacy format - construct URLs
-        const fixtureUrl = `${FIXTURE_BASE_URL}${competition.competitionTeamId}`;
-        const ladderUrl = `${LADDER_BASE_URL}${competition.competitionId}`;
-        const roundUrl = `${ROUND_BASE_URL}${competition.competitionId}/${roundNumber}`;
-        
-        description += `Full Fixture: ${fixtureUrl}\n\n`;
-        description += `Current Round: ${roundUrl}\n\n`;
-        description += `Ladder: ${ladderUrl}\n\n`;
+    // New format - use the URLs directly
+    description += `Full Fixture: ${competition.fixtureUrl}\n\n`;
+    
+    if (competition.ladderUrl) {
+        description += `Ladder: ${competition.ladderUrl}\n\n`;
     }
     
+    // Extract competition ID from ladder URL for round URL (only for regular rounds)
+    if (competition.ladderUrl && roundNumber !== null) {
+        const ladderMatch = competition.ladderUrl.match(/\/pointscore\/(\d+\/\d+)/);
+        if (ladderMatch) {
+            const competitionId = ladderMatch[1]; // This will be "21935/37286"
+            const roundUrl = `${ROUND_BASE_URL}${competitionId}/round/${roundNumber}`;
+            description += `Current Round: ${roundUrl}\n`;
+        }
+    }
+    
+    // Add calendars homepage from settings
+    try {
+        const settings = await getSettings();
+        if (settings.calendarsHomepage) {
+            description += `\n\nCalendars Homepage: ${settings.calendarsHomepage}\n`;
+        }
+    } catch (error) {
+        logWarning('Could not load settings for calendarsHomepage');
+    }
+
     description += `\n\nLast Updated: ${new Date().toISOString()}`;
     
     return description;
@@ -161,12 +201,34 @@ export async function processCalendar(inputPath, outputPath, competition) {
     processedCal += 'CALSCALE:GREGORIAN\n';
     processedCal += 'METHOD:PUBLISH\n';
     
+    // Add Australia/Melbourne timezone definition
+    processedCal += 'BEGIN:VTIMEZONE\n';
+    processedCal += 'TZID:Australia/Melbourne\n';
+    processedCal += 'BEGIN:STANDARD\n';
+    processedCal += 'DTSTART:20070401T030000\n';
+    processedCal += 'RRULE:FREQ=YEARLY;BYMONTH=4;BYDAY=1SU\n';
+    processedCal += 'TZNAME:AEST\n';
+    processedCal += 'TZOFFSETFROM:+1100\n';
+    processedCal += 'TZOFFSETTO:+1000\n';
+    processedCal += 'END:STANDARD\n';
+    processedCal += 'BEGIN:DAYLIGHT\n';
+    processedCal += 'DTSTART:20071007T020000\n';
+    processedCal += 'RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=1SU\n';
+    processedCal += 'TZNAME:AEDT\n';
+    processedCal += 'TZOFFSETFROM:+1000\n';
+    processedCal += 'TZOFFSETTO:+1100\n';
+    processedCal += 'END:DAYLIGHT\n';
+    processedCal += 'END:VTIMEZONE\n';
+    
+    // First pass: find the maximum regular round number
+    const maxRegularRound = findMaxRegularRound(parsedCal);
+    
     for (const key in parsedCal) {
         const event = parsedCal[key];
         if (event.type === 'VEVENT') {
             // Extract round from original summary before processing
             const originalSummary = event.summary || '';
-            const roundNumber = extractRoundFromSummary(originalSummary);
+            const roundNumber = extractRoundFromSummary(originalSummary, maxRegularRound);
             
             // Process summary
             let summary = originalSummary;
@@ -175,7 +237,7 @@ export async function processCalendar(inputPath, outputPath, competition) {
             summary = replaceRoundNames(summary, config.competitionNames.roundPatterns);
             
             // Generate description
-            const description = generateDescription(competition, roundNumber);
+            const description = await generateDescription(competition, roundNumber);
             
             // Calculate end time based on game duration
             const startDate = new Date(event.start);
@@ -184,8 +246,8 @@ export async function processCalendar(inputPath, outputPath, competition) {
             // Build event
             processedCal += 'BEGIN:VEVENT\n';
             processedCal += `UID:${event.uid}\n`;
-            processedCal += `DTSTART:${formatDateTime(startDate)}\n`;
-            processedCal += `DTEND:${formatDateTime(endDate)}\n`;
+            processedCal += `DTSTART;TZID=Australia/Melbourne:${formatDateTime(startDate)}\n`;
+            processedCal += `DTEND;TZID=Australia/Melbourne:${formatDateTime(endDate)}\n`;
             processedCal += `SUMMARY:${summary}\n`;
             processedCal += `DESCRIPTION:${description.replace(/\n/g, '\\n')}\n`;
             
@@ -208,20 +270,20 @@ export async function processCalendar(inputPath, outputPath, competition) {
 }
 
 /**
- * Format date/time for iCal
+ * Format date/time for iCal in local timezone (Australia/Melbourne)
  */
 function formatDateTime(date) {
     if (!date) return '';
     
     const d = new Date(date);
-    const year = d.getUTCFullYear();
-    const month = String(d.getUTCMonth() + 1).padStart(2, '0');
-    const day = String(d.getUTCDate()).padStart(2, '0');
-    const hour = String(d.getUTCHours()).padStart(2, '0');
-    const minute = String(d.getUTCMinutes()).padStart(2, '0');
-    const second = String(d.getUTCSeconds()).padStart(2, '0');
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const hour = String(d.getHours()).padStart(2, '0');
+    const minute = String(d.getMinutes()).padStart(2, '0');
+    const second = String(d.getSeconds()).padStart(2, '0');
     
-    return `${year}${month}${day}T${hour}${minute}${second}Z`;
+    return `${year}${month}${day}T${hour}${minute}${second}`;
 }
 
 /**

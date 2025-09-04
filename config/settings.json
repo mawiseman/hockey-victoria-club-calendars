@@ -1,4 +1,5 @@
 {
   "clubName": "Footscray Hockey Club",
-  "calendarPrefix": "FHC "
+  "calendarPrefix": "FHC ",
+  "calendarsHomepage": "https://github.com/mawiseman/hockey-victoria-club-calendars/blob/main/docs/competitions.md"
 }
