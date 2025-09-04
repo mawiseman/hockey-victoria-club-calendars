@@ -275,14 +275,6 @@ export async function processCalendar(inputPath, outputPath, competition) {
             const utcStart = convertMelbourneLocalToUTC(melbourneStart);
             const utcEnd = convertMelbourneLocalToUTC(melbourneEnd);
             
-            // Add debug logging for GitHub Actions
-            if (process.env.GITHUB_ACTIONS) {
-                console.log(`DEBUG: Processing "${summary}"`);
-                console.log(`DEBUG: Original start (Melbourne local): ${originalStart.toISOString()}`);
-                console.log(`DEBUG: UTC start for iCal: ${utcStart.toISOString()}`);
-                console.log(`DEBUG: UTC end for iCal: ${utcEnd.toISOString()}`);
-            }
-            
             // Build event using UTC times
             processedCal += 'BEGIN:VEVENT\n';
             processedCal += `UID:${event.uid}\n`;
