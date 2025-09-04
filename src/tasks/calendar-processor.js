@@ -298,9 +298,8 @@ function formatDateTime(date) {
     // If it's a string or other format, convert it
     const d = date instanceof Date ? date : new Date(date);
     
-    // Get the date/time components in Australia/Melbourne timezone
-    // Use toLocaleString to get the correct local time for Melbourne
-    const melbourneDateTime = d.toLocaleString('en-AU', {
+    // Use Intl.DateTimeFormat for more reliable timezone conversion
+    const formatter = new Intl.DateTimeFormat('en-CA', {
         timeZone: 'Australia/Melbourne',
         year: 'numeric',
         month: '2-digit',
@@ -311,13 +310,14 @@ function formatDateTime(date) {
         hour12: false
     });
     
-    // Parse the formatted string to extract components
-    // Format will be: "28/06/2025, 14:00:00"
-    const [datePart, timePart] = melbourneDateTime.split(', ');
-    const [day, month, year] = datePart.split('/');
-    const [hour, minute, second] = timePart.split(':');
+    const parts = formatter.formatToParts(d);
+    const partsMap = {};
+    parts.forEach(part => {
+        partsMap[part.type] = part.value;
+    });
     
-    return `${year}${month}${day}T${hour}${minute}${second}`;
+    // Format as iCal datetime: YYYYMMDDTHHMMSS
+    return `${partsMap.year}${partsMap.month}${partsMap.day}T${partsMap.hour}${partsMap.minute}${partsMap.second}`;
 }
 
 /**
