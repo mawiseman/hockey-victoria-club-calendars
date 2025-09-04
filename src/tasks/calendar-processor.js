@@ -270,18 +270,33 @@ export async function processCalendar(inputPath, outputPath, competition) {
 }
 
 /**
- * Format date/time for iCal in local timezone (Australia/Melbourne)
+ * Format date/time for iCal in Australia/Melbourne timezone
  */
 function formatDateTime(date) {
     if (!date) return '';
     
-    const d = new Date(date);
-    const year = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    const hour = String(d.getHours()).padStart(2, '0');
-    const minute = String(d.getMinutes()).padStart(2, '0');
-    const second = String(d.getSeconds()).padStart(2, '0');
+    // If date is already a Date object, use it directly
+    // If it's a string or other format, convert it
+    const d = date instanceof Date ? date : new Date(date);
+    
+    // Get the date/time components in Australia/Melbourne timezone
+    // Use toLocaleString to get the correct local time for Melbourne
+    const melbourneDateTime = d.toLocaleString('en-AU', {
+        timeZone: 'Australia/Melbourne',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    });
+    
+    // Parse the formatted string to extract components
+    // Format will be: "28/06/2025, 14:00:00"
+    const [datePart, timePart] = melbourneDateTime.split(', ');
+    const [day, month, year] = datePart.split('/');
+    const [hour, minute, second] = timePart.split(':');
     
     return `${year}${month}${day}T${hour}${minute}${second}`;
 }
