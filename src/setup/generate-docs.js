@@ -13,9 +13,9 @@ const __dirname = dirname(__filename);
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'competitions.md');
 
 /**
- * Build combined calendar URL with club calendar first
+ * Build combined calendar URL with club calendar first and category-specific colors
  */
-async function buildCombinedCalendarUrl(competitions) {
+async function buildCombinedCalendarUrl(competitions, category = null) {
     const competitionsWithCalendars = competitions.filter(comp => 
         comp.googleCalendar && comp.googleCalendar.calendarId
     );
@@ -24,26 +24,98 @@ async function buildCombinedCalendarUrl(competitions) {
         return null;
     }
     
+    // Define colors for each category
+    const categoryColors = {
+        'mens': '%23285F9B',        // Royal blue
+        'womens': '%23D50000',      // Red
+        'midweek': '%23008000',     // Green
+        'juniors': '%23FF8C00'      // Orange
+    };
+    
     let calendarSources = '';
+    let colorParams = '';
+    let calendarIndex = 0;
     
     // Try to get club calendar from settings and add it first
     try {
         const settings = await getSettings();
         if (settings.clubCalendar && settings.clubCalendar.calendarId) {
             calendarSources += `&src=${encodeURIComponent(settings.clubCalendar.calendarId)}`;
+            // Club calendar gets a neutral color (grey)
+            colorParams += `&color=%23616161`;
+            calendarIndex++;
         }
     } catch (error) {
         // Continue without club calendar if settings can't be loaded
     }
     
-    // Add individual competition calendars
-    const competitionSources = competitionsWithCalendars.map(comp => 
-        `&src=${encodeURIComponent(comp.googleCalendar.calendarId)}`
-    ).join('');
+    // Add individual competition calendars with category-specific colors
+    const categoryColor = category ? categoryColors[category] : null;
     
-    calendarSources += competitionSources;
+    competitionsWithCalendars.forEach(comp => {
+        calendarSources += `&src=${encodeURIComponent(comp.googleCalendar.calendarId)}`;
+        
+        // Add color parameter if we have a category color
+        if (categoryColor) {
+            colorParams += `&color=${categoryColor}`;
+        }
+    });
     
-    return `https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0${calendarSources}`;
+    return `https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0${calendarSources}${colorParams}`;
+}
+
+/**
+ * Build combined calendar URL with mixed colors for all categories
+ */
+async function buildCombinedCalendarUrlWithMixedColors(categories) {
+    // Define colors for each category
+    const categoryColors = {
+        'mens': '%23285F9B',        // Royal blue
+        'womens': '%23D50000',      // Red
+        'midweek': '%23008000',     // Green
+        'juniors': '%23FF8C00'      // Orange
+    };
+    
+    let calendarSources = '';
+    let colorParams = '';
+    
+    // Try to get club calendar from settings and add it first
+    try {
+        const settings = await getSettings();
+        if (settings.clubCalendar && settings.clubCalendar.calendarId) {
+            calendarSources += `&src=${encodeURIComponent(settings.clubCalendar.calendarId)}`;
+            // Club calendar gets a neutral color (grey)
+            colorParams += `&color=%23616161`;
+        }
+    } catch (error) {
+        // Continue without club calendar if settings can't be loaded
+    }
+    
+    // Add competitions from each category with their respective colors
+    const categoryMappings = [
+        { competitions: categories.mens, color: categoryColors.mens },
+        { competitions: categories.womens, color: categoryColors.womens },
+        { competitions: categories.midweek, color: categoryColors.midweek },
+        { competitions: categories.juniors, color: categoryColors.juniors }
+    ];
+    
+    let hasCalendars = false;
+    
+    categoryMappings.forEach(({ competitions, color }) => {
+        competitions.forEach(comp => {
+            if (comp.googleCalendar && comp.googleCalendar.calendarId) {
+                calendarSources += `&src=${encodeURIComponent(comp.googleCalendar.calendarId)}`;
+                colorParams += `&color=${color}`;
+                hasCalendars = true;
+            }
+        });
+    });
+    
+    if (!hasCalendars) {
+        return null;
+    }
+    
+    return `https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0${calendarSources}${colorParams}`;
 }
 
 /**
@@ -73,7 +145,7 @@ async function generateIndexMarkdown(competitionsData, categories) {
     if (competitionsWithCalendars.length > 0) {
         markdown += `## All Competitions - Combined Calendar View\n\n`;
         
-        const combinedCalendarUrl = await buildCombinedCalendarUrl(allCompetitions);
+        const combinedCalendarUrl = await buildCombinedCalendarUrlWithMixedColors(categories);
         
         if (combinedCalendarUrl) {
             markdown += `📅 **<a href="${combinedCalendarUrl}" target="_blank">View All Competitions Calendar</a>**\n\n`;
@@ -129,7 +201,13 @@ async function formatCompetitionTable(competitions, categoryName) {
     
     // Add combined calendar link if there are competitions with calendars
     if (competitionsWithCalendars.length > 0) {
-        const combinedCalendarUrl = await buildCombinedCalendarUrl(competitions);
+        // Determine category key for color coding
+        const categoryKey = categoryName.toLowerCase().includes("men's") ? 'mens' :
+                           categoryName.toLowerCase().includes("women's") ? 'womens' :
+                           categoryName.toLowerCase().includes('midweek') ? 'midweek' :
+                           categoryName.toLowerCase().includes('junior') ? 'juniors' : null;
+        
+        const combinedCalendarUrl = await buildCombinedCalendarUrl(competitions, categoryKey);
         
         if (combinedCalendarUrl) {
             content += `📅 **<a href="${combinedCalendarUrl}" target="_blank">View Combined ${categoryName} Calendar</a>**\n\n`;
