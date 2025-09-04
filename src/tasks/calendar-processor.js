@@ -245,8 +245,13 @@ export async function processCalendar(inputPath, outputPath, competition) {
             // Generate description
             const description = await generateDescription(competition, roundNumber);
             
-            // Calculate end time based on game duration
-            const startDate = new Date(event.start);
+            // Handle start time - preserve timezone information
+            let startDate;
+            if (event.start instanceof Date) {
+                startDate = new Date(event.start);
+            } else {
+                startDate = new Date(event.start);
+            }
             
             // Validate start date
             if (isNaN(startDate.getTime())) {
@@ -254,7 +259,13 @@ export async function processCalendar(inputPath, outputPath, competition) {
                 continue;
             }
             
+            // The original event.start should already be in the correct timezone
+            // We just need to calculate the end time by adding duration
             const endDate = new Date(startDate.getTime() + (gameDuration * 60 * 1000));
+            
+            // Convert both times to Melbourne timezone for iCal output
+            const melbourneStart = convertToMelbourneTime(startDate);
+            const melbourneEnd = convertToMelbourneTime(endDate);
             
             // Validate that end time is after start time
             if (endDate <= startDate) {
@@ -265,8 +276,8 @@ export async function processCalendar(inputPath, outputPath, competition) {
             // Build event
             processedCal += 'BEGIN:VEVENT\n';
             processedCal += `UID:${event.uid}\n`;
-            processedCal += `DTSTART;TZID=Australia/Melbourne:${formatDateTime(startDate)}\n`;
-            processedCal += `DTEND;TZID=Australia/Melbourne:${formatDateTime(endDate)}\n`;
+            processedCal += `DTSTART;TZID=Australia/Melbourne:${formatDateTime(melbourneStart)}\n`;
+            processedCal += `DTEND;TZID=Australia/Melbourne:${formatDateTime(melbourneEnd)}\n`;
             processedCal += `SUMMARY:${summary}\n`;
             processedCal += `DESCRIPTION:${description.replace(/\n/g, '\\n')}\n`;
             
@@ -289,16 +300,15 @@ export async function processCalendar(inputPath, outputPath, competition) {
 }
 
 /**
- * Format date/time for iCal in Australia/Melbourne timezone
+ * Convert a Date to Melbourne timezone, returning a new Date object
+ * that represents the Melbourne local time
  */
-function formatDateTime(date) {
-    if (!date) return '';
+function convertToMelbourneTime(date) {
+    if (!date) return null;
     
-    // If date is already a Date object, use it directly
-    // If it's a string or other format, convert it
     const d = date instanceof Date ? date : new Date(date);
     
-    // Use Intl.DateTimeFormat for more reliable timezone conversion
+    // Get the Melbourne time components
     const formatter = new Intl.DateTimeFormat('en-CA', {
         timeZone: 'Australia/Melbourne',
         year: 'numeric',
@@ -316,8 +326,28 @@ function formatDateTime(date) {
         partsMap[part.type] = part.value;
     });
     
+    // Create a new Date representing the Melbourne local time
+    // Note: This creates a Date object where the UTC time equals the Melbourne local time
+    return new Date(`${partsMap.year}-${partsMap.month}-${partsMap.day}T${partsMap.hour}:${partsMap.minute}:${partsMap.second}`);
+}
+
+/**
+ * Format date/time for iCal in local time format
+ */
+function formatDateTime(date) {
+    if (!date) return '';
+    
+    const d = date instanceof Date ? date : new Date(date);
+    
     // Format as iCal datetime: YYYYMMDDTHHMMSS
-    return `${partsMap.year}${partsMap.month}${partsMap.day}T${partsMap.hour}${partsMap.minute}${partsMap.second}`;
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const hour = String(d.getHours()).padStart(2, '0');
+    const minute = String(d.getMinutes()).padStart(2, '0');
+    const second = String(d.getSeconds()).padStart(2, '0');
+    
+    return `${year}${month}${day}T${hour}${minute}${second}`;
 }
 
 /**
