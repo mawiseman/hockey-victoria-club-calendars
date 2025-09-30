@@ -50,10 +50,10 @@ export const API_DELAY = 100; // milliseconds between requests
 
 // Competition categorization patterns
 export const COMPETITION_CATEGORIES = {
-    MIDWEEK: ['midweek'],
-    JUNIORS: ['u12', 'u14', 'u16', 'u18', 'mixed'],
-    WOMENS: ["women's", 'women '],
-    MENS: ["men's", 'men ']
+    MIDWEEK: ['midweek', '35+', 't1', 't2', 't3', 't4', 'masters', 'wednesday', 'tuesday', 'monday', 'thursday', 'friday'],
+    JUNIORS: ['u12', 'u14', 'u16', 'u18', 'under 12', 'under 14', 'under 16', 'under 18', 'mixed', 'girls'],
+    WOMENS: ["women's", 'women ', 'womens'],
+    MENS: ["men's", 'men ', 'mens']
 };
 
 // Default timeouts

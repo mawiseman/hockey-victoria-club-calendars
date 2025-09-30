@@ -121,11 +121,11 @@ async function buildCombinedCalendarUrlWithMixedColors(categories) {
 /**
  * Generate index markdown content with all calendars
  */
-async function generateIndexMarkdown(competitionsData, categories) {
-    const { clubName, totalCompetitions, lastUpdated } = competitionsData;
-    
+async function generateIndexMarkdown(competitionsData, categories, activeCompetitions) {
+    const { clubName, lastUpdated } = competitionsData;
+
     let markdown = `# ${clubName} - Competition Calendars\n\n`;
-    markdown += `**Total Competitions:** ${totalCompetitions}  \n`;
+    markdown += `**Active Competitions:** ${activeCompetitions.length}  \n`;
     markdown += `**Last Updated:** ${new Date(lastUpdated).toLocaleString()}  \n\n`;
     markdown += `---\n\n`;
     
@@ -216,12 +216,21 @@ async function formatCompetitionTable(competitions, categoryName) {
     }
     
     // Add individual competitions table
-    let table = `| Competition |  Google Calendar | iCal Subscribe |\n`;
-    table += `|-------------|----------|----------------|\n`;
-    
+    let table = `| Competition | Fixture | Competition | Google Calendar | iCal Subscribe |\n`;
+    table += `|-------------|----------|-------------|----------|----------------|\n`;
+
     for (const competition of competitions) {
         const name = competition.name;
-        
+
+        // Fixture and Competition URL columns
+        const fixtureCol = competition.fixtureUrl ?
+            `<a href="${competition.fixtureUrl}" target="_blank">🏑 Fixture</a>` :
+            `*Not available*`;
+
+        const competitionCol = competition.competitionUrl ?
+            `<a href="${competition.competitionUrl}" target="_blank">🏆 Competition</a>` :
+            `*Not available*`;
+
         // Google Calendar columns
         let webViewCol;
         let icalCol;
@@ -231,7 +240,7 @@ async function formatCompetitionTable(competitions, categoryName) {
             } else {
                 webViewCol = `*Not available*`;
             }
-            
+
             if (competition.googleCalendar.icalUrl) {
                 icalCol = `<a href="${competition.googleCalendar.icalUrl}" target="_blank">📲 Subscribe</a>`;
             } else {
@@ -241,8 +250,8 @@ async function formatCompetitionTable(competitions, categoryName) {
             webViewCol = `*Not configured*`;
             icalCol = `*Not configured*`;
         }
-        
-        table += `| ${name} | ${webViewCol} | ${icalCol} |\n`;
+
+        table += `| ${name} | ${fixtureCol} | ${competitionCol} | ${webViewCol} | ${icalCol} |\n`;
     }
     
     content += table + `\n`;
@@ -258,11 +267,15 @@ async function generateDocs() {
     
     // Load competition data
     const competitionsData = await loadCompetitionData();
-    
+
     logInfo(`Loaded ${competitionsData.competitions.length} competitions from ${COMPETITIONS_FILE}`);
-    
-    // Categorize competitions
-    const categories = categorizeCompetitions(competitionsData.competitions);
+
+    // Filter to only active competitions
+    const activeCompetitions = competitionsData.competitions.filter(comp => comp.isActive !== false);
+    logInfo(`Filtered to ${activeCompetitions.length} active competitions`);
+
+    // Categorize active competitions only
+    const categories = categorizeCompetitions(activeCompetitions);
     
     // Print category summary
     logInfo(`Found competitions:`);
@@ -273,7 +286,7 @@ async function generateDocs() {
     
     // Generate index markdown
     logInfo('Generating index markdown...');
-    const indexMarkdown = await generateIndexMarkdown(competitionsData, categories);
+    const indexMarkdown = await generateIndexMarkdown(competitionsData, categories, activeCompetitions);
     
     // Ensure output directory exists
     await fs.mkdir(OUTPUT_DIR, { recursive: true });
@@ -283,7 +296,7 @@ async function generateDocs() {
     logSuccess(`Index documentation generated: ${OUTPUT_FILE}`);
     
     
-    logInfo(`Total competitions documented: ${competitionsData.totalCompetitions}`);
+    logInfo(`Total active competitions documented: ${activeCompetitions.length}`);
 }
 
 /**

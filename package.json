@@ -13,7 +13,8 @@
     "export-calendars": "node src/setup/list-google-calendars.js --export",
     "delete-calendars": "node src/setup/delete-google-calendars.js",
     "generate-docs": "node src/setup/generate-docs.js",
-    "update-mappings-club-names": "node src/setup/update-mappings-club-names.js"
+    "update-mappings-club-names": "node src/setup/update-mappings-club-names.js",
+    "update-competition-status": "node src/setup/update-competition-status.js"
   },
   "keywords": [
     "hockey",
