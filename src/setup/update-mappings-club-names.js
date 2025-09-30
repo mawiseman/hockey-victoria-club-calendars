@@ -80,6 +80,18 @@ async function loadCompetitions() {
         const competitionData = JSON.parse(data);
         return competitionData.competitions || [];
     } catch (error) {
+        if (error.code === 'ENOENT') {
+            // Create empty competitions.json if it doesn't exist
+            console.log(`Creating empty ${COMPETITIONS_FILE} file...`);
+            const emptyData = {
+                competitions: [],
+                scrapedAt: new Date().toISOString(),
+                totalCompetitions: 0
+            };
+            await fs.writeFile(COMPETITIONS_FILE, JSON.stringify(emptyData, null, 2), 'utf8');
+            console.log(`Created ${COMPETITIONS_FILE} with empty structure. Run 'npm run scrape-competitions' to populate it.`);
+            return [];
+        }
         console.error(`❌ Could not load competitions: ${error.message}`);
         throw error;
     }

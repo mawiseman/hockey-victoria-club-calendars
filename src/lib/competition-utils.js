@@ -10,15 +10,24 @@ export async function loadCompetitionData(filePath = COMPETITIONS_FILE) {
     try {
         const data = await fs.readFile(filePath, 'utf8');
         const competitionsData = JSON.parse(data);
-        
+
         if (!competitionsData.competitions || !Array.isArray(competitionsData.competitions)) {
             throw new Error('Invalid competition data format - missing competitions array');
         }
-        
+
         return competitionsData;
     } catch (error) {
         if (error.code === 'ENOENT') {
-            throw new Error(`Competition file not found: ${filePath}. Run the competition scraper first.`);
+            // Create empty competitions.json if it doesn't exist
+            console.log(`Creating empty ${filePath} file...`);
+            const emptyData = {
+                competitions: [],
+                scrapedAt: new Date().toISOString(),
+                totalCompetitions: 0
+            };
+            await fs.writeFile(filePath, JSON.stringify(emptyData, null, 2), 'utf8');
+            console.log(`Created ${filePath} with empty structure. Run 'npm run scrape-competitions' to populate it.`);
+            return emptyData;
         }
         throw error;
     }

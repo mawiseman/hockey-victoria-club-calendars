@@ -1,24 +1,55 @@
 {
+  "defaultMatchDuration": 90,
   "competitionReplacements": [
     {
+      "pattern": "Under",
+      "replacement": "",
+      "duration": 60
+    },
+    {
+      "pattern": "Midweek",
+      "replacement": "",
+      "duration": 60
+    },
+    {
+      "pattern": "Masters",
+      "replacement": "",
+      "duration": 60
+    },
+    {
+      "pattern": "Social",
+      "replacement": "",
+      "duration": 60
+    },
+    {
       "pattern": "Premier League Reserves",
-      "replacement": "PLR"
+      "replacement": "PLR",
+      "duration": 90
     },
     {
       "pattern": "Premier League",
-      "replacement": "PL"
+      "replacement": "PL",
+      "duration": 90
     },
     {
       "pattern": "Pennant",
-      "replacement": "PEN"
+      "replacement": "PEN",
+      "duration": 90
     },
     {
       "pattern": "Metro 1",
-      "replacement": "M1"
+      "replacement": "M1",
+      "duration": 90
     },
     {
       "pattern": "Metro 2",
-      "replacement": "M2"
+      "replacement": "M2",
+      "duration": 90
+    },
+    {
+      "pattern": "League",
+      "replacement": "",
+      "duration": 90
     },
     {
       "pattern": "North West",
@@ -35,6 +66,7 @@
     {
       "pattern": "{{YEAR}} Midweek {{GENDER}} (.*)",
       "replacement": "{{GENDER}} $1",
+      "duration": 60,
       "examples": [
         { "original": "2025 Midweek Men's 45+ NW", "output":"Mens 45+ NW" },
         { "original": "2025 Midweek Womens's 35+ CN", "output":"Women's 35+ CN" }
@@ -46,11 +78,13 @@
     },
     {
       "pattern": "{{YEAR}} Midweek Competition ",
-      "replacement": ""
+      "replacement": "",
+      "duration": 60
     },
     {
       "pattern": "{{YEAR}} Junior Competition",
-      "replacement": ""
+      "replacement": "",
+      "duration": 60
     }
   ],
   "roundPatterns": [

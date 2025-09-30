@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 // Import shared utilities
-import { getClubName, BASE_URL } from '../lib/config.js';
+import { getClubName, BASE_URL, COMPETITIONS_FILE } from '../lib/config.js';
 
 let CLUB_NAME = null;
 
@@ -17,9 +17,46 @@ async function getClubNameCached() {
     return CLUB_NAME;
 }
 const OUTPUT_DIR = 'temp';
-const OUTPUT_FILE = '../config/competitions.json';
+const OUTPUT_FILE = COMPETITIONS_FILE; // Use the centralized path from config
 const PROGRESS_FILE = 'temp/scraper-progress.json';
 const MAX_CONCURRENT = 5;
+
+// Load competition name mappings configuration
+let COMPETITION_CONFIG = null;
+
+async function getCompetitionConfig() {
+    if (!COMPETITION_CONFIG) {
+        try {
+            const configData = await fs.readFile('config/mappings-competition-names.json', 'utf8');
+            COMPETITION_CONFIG = JSON.parse(configData);
+        } catch (error) {
+            // Fallback to defaults if config file not found
+            COMPETITION_CONFIG = {
+                defaultMatchDuration: 90,
+                competitionReplacements: []
+            };
+        }
+    }
+    return COMPETITION_CONFIG;
+}
+
+/**
+ * Determine match duration based on competition name
+ */
+async function determineMatchDuration(competitionName) {
+    const config = await getCompetitionConfig();
+    const nameLower = competitionName.toLowerCase();
+
+    // Check patterns in order - first match with duration wins
+    for (const replacement of config.competitionReplacements) {
+        if (replacement.duration && nameLower.includes(replacement.pattern.toLowerCase())) {
+            return replacement.duration;
+        }
+    }
+
+    // Return default duration
+    return config.defaultMatchDuration || 90;
+}
 
 /**
  * Load or create progress tracking data
@@ -139,11 +176,11 @@ async function processCompetitionsInParallel(browser, competitionLinks, progress
                 // Mark as processed
                 progress.processedLinks.add(link.url);
                 
-                // Save result
-                await saveCompetitionResult(progress, competitionData);
-                
                 if (competitionData) {
                     console.log(`✓ Found '${link.text}' in: ${competitionData.name}`);
+
+                    // Save result
+                    await saveCompetitionResult(progress, competitionData);
                 } else {
                     console.log(`✗ '${link.text}' not found in: ${link.text}`);
                 }
@@ -401,11 +438,14 @@ async function checkCompetition(page, competitionLink) {
                     
                     if (clubData.fixtureUrl) {
                         console.log(`      ✓ Fixture URL: ${clubData.fixtureUrl}`);
+                        const matchDuration = await determineMatchDuration(competitionLink.text);
+                        console.log(`      ✓ Match duration: ${matchDuration} minutes`);
                         return {
                             name: competitionLink.text, // Use the original competition link text from start page
                             fixtureUrl: clubData.fixtureUrl,
                             competitionUrl: competitionLink.url,
                             ladderUrl: ladderLink.url,
+                            matchDuration: matchDuration,
                             scrapedAt: new Date().toISOString()
                         };
                     } else {

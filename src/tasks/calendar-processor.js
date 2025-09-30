@@ -192,7 +192,7 @@ export async function processCalendar(inputPath, outputPath, competition) {
     const parsedCal = ical.parseICS(icalData);
     
     // Get game duration for this competition (default to 90 minutes if not specified)
-    const gameDuration = competition.gameDuration || 90;
+    const gameDuration = competition.matchDuration || 90;
     
     // Build new iCal file
     let processedCal = 'BEGIN:VCALENDAR\n';
