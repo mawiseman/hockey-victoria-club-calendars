@@ -17,7 +17,8 @@ function parseArguments() {
         useCache: false,
         help: false,
         competition: null,
-        list: false
+        list: false,
+        includeInactive: false
     };
     
     for (let i = 0; i < args.length; i++) {
@@ -34,6 +35,8 @@ function parseArguments() {
             options.help = true;
         } else if (arg === '--list' || arg === '-l') {
             options.list = true;
+        } else if (arg === '--include-inactive') {
+            options.includeInactive = true;
         } else if (arg === '--competition' || arg === '-c') {
             if (i + 1 < args.length) {
                 options.competition = args[i + 1];
@@ -73,6 +76,7 @@ Options:
   --steps <steps>           Comma-separated list of steps to run
                            Available: download, process, upload
   --use-cache              Use cached results from previous runs
+  --include-inactive       Include inactive competitions in selection
   --list, -l               List all available competitions
   --help, -h               Show this help message
 
@@ -235,24 +239,40 @@ async function main() {
         logInfo('Loading competitions from config/competitions.json...');
         const competitionData = await loadCompetitionData();
         const allCompetitions = competitionData.competitions;
-        
-        if (options.list) {
-            await listCompetitions(allCompetitions);
-            return;
+
+        // Filter competitions based on active status (unless includeInactive flag is set)
+        const competitionsToShow = options.includeInactive ? allCompetitions : allCompetitions.filter(comp => comp.isActive !== false);
+        if (!options.includeInactive) {
+            logInfo(`Filtered to ${competitionsToShow.length} active competitions (${allCompetitions.length} total)`);
+        } else {
+            logInfo(`Showing all ${competitionsToShow.length} competitions (including inactive)`);
         }
         
+        if (options.list) {
+            await listCompetitions(competitionsToShow);
+            return;
+        }
+
         // Select competition
         let selectedCompetition = null;
-        
+
         if (options.competition) {
-            // Find competition by name
-            selectedCompetition = findCompetition(allCompetitions, options.competition);
-            if (!selectedCompetition) {
+            // Find competition by name (search in appropriate competitions based on includeInactive flag)
+            selectedCompetition = findCompetition(competitionsToShow, options.competition);
+            if (!selectedCompetition && !options.includeInactive) {
+                // If not found in active competitions, check inactive ones and warn
+                const inactiveMatch = findCompetition(allCompetitions, options.competition);
+                if (inactiveMatch && inactiveMatch.isActive === false) {
+                    console.log(`\n⚠️  Competition "${options.competition}" is marked as inactive.`);
+                    console.log('Use --include-inactive flag to process inactive competitions, or run "npm run update-competition-status" to refresh status.');
+                }
+                process.exit(1);
+            } else if (!selectedCompetition) {
                 process.exit(1);
             }
         } else {
             // Interactive selection
-            selectedCompetition = await selectCompetitionInteractively(allCompetitions);
+            selectedCompetition = await selectCompetitionInteractively(competitionsToShow);
         }
         
         console.log(`\n🎯 Selected: ${selectedCompetition.name}`);

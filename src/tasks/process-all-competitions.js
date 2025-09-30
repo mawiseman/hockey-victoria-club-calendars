@@ -179,7 +179,11 @@ async function main() {
         // Load competition data
         logInfo('Loading competitions from config/competitions.json...');
         const competitionData = await loadCompetitionData();
-        const competitions = competitionData.competitions;
+        const allCompetitions = competitionData.competitions;
+
+        // Filter to only active competitions
+        const competitions = allCompetitions.filter(comp => comp.isActive !== false);
+        logInfo(`Filtered to ${competitions.length} active competitions (${allCompetitions.length} total)`);
         
         // Create temp directory
         await fs.mkdir(TEMP_DIR, { recursive: true });
