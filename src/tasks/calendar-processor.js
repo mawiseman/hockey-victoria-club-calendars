@@ -13,7 +13,7 @@ const ROUND_BASE_URL = 'https://www.hockeyvictoria.org.au/games/';
 /**
  * Load configuration files
  */
-async function loadConfig() {
+export async function loadConfig() {
     const clubMappings = JSON.parse(
         await fs.readFile(MAPPINGS_CLUB_FILE, 'utf8')
     );
@@ -26,7 +26,7 @@ async function loadConfig() {
 /**
  * Replace club names with abbreviations
  */
-function replaceClubNames(text, clubMappings) {
+export function replaceClubNames(text, clubMappings) {
     let result = text;
     const originalText = text;
     
@@ -45,44 +45,47 @@ function replaceClubNames(text, clubMappings) {
 /**
  * Replace competition names
  */
-function replaceCompetitionNames(text, competitionReplacements) {
+export function replaceCompetitionNames(text, competitionReplacements) {
     let result = text;
     const originalText = text;
     const currentYear = new Date().getFullYear().toString();
-    
+
     for (const replacement of competitionReplacements) {
         let pattern = replacement.pattern;
-        
+
         // Replace {{YEAR}} variable
         pattern = pattern.replace('{{YEAR}}', currentYear);
-        
+
         // Replace {{GENDER}} variable with both Men's and Women's options
         if (pattern.includes('{{GENDER}}')) {
             const menPattern = pattern.replace('{{GENDER}}', "Men's");
             const womenPattern = pattern.replace('{{GENDER}}', "Women's");
-            
+
             const menReplacement = replacement.replacement.replace('{{GENDER}}', 'Men');
             const womenReplacement = replacement.replacement.replace('{{GENDER}}', 'Women');
-            
+
             result = result.replace(new RegExp(menPattern, 'g'), menReplacement);
             result = result.replace(new RegExp(womenPattern, 'g'), womenReplacement);
         } else {
             result = result.replace(new RegExp(pattern, 'g'), replacement.replacement);
         }
     }
-    
+
+    // Normalize whitespace - collapse multiple spaces to single space
+    result = result.replace(/\s+/g, ' ').trim();
+
     // Check if any replacements were made
     if (result === originalText) {
         logWarning(`No competition name mappings found for: "${originalText}"`);
     }
-    
+
     return result;
 }
 
 /**
  * Replace round names using regex patterns
  */
-function replaceRoundNames(text, roundPatterns) {
+export function replaceRoundNames(text, roundPatterns) {
     let result = text;
     
     for (const pattern of roundPatterns) {

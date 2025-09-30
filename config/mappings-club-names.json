@@ -22,6 +22,7 @@
     "KBH Brumbies Hockey Club": "KBH",
     "Knox Hockey Club": "KNO",
     "La Trobe University Hockey Club": "LAT",
+    "La Trobe Uni Hockey Club": "LTU",
     "MCC Hockey Section": "MCC",
     "Melbourne Razorbacks Hockey Club": "RAZ",
     "Melbourne University Hockey Club": "MUHC",
@@ -38,12 +39,7 @@
     "Yarra Hockey Club": "YAR",
     "Werribee Hockey Club": "WER",
     "Whittlesea Hockey Club": "WHI",
-    "Bayside Powerhouse Hockey Club": "BPS",
-    "La Trobe Uni Hockey Club": "LTU",
-    "Footscray Hockey Club Red": "FHC RED",
-    "Footscray Hockey Club Blue": "FHC BLUE",
-    "Essendon Rockets": "ESS Rockets",
-    "Essendon Raptors": "ESS Raptors",
-    "Essendon Red Dragons": "Essendon Red Dragons"
+    "Bayside Powerhouse Hockey Club": "BPS"
+
   }
 }

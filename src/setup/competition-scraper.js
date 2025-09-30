@@ -435,13 +435,17 @@ async function checkCompetition(page, competitionLink) {
                 if (clubData.found) {
                     const clubName = await getClubNameCached();
                     console.log(`      ✓ Found ${clubName} in ladder!`);
-                    
+
                     if (clubData.fixtureUrl) {
                         console.log(`      ✓ Fixture URL: ${clubData.fixtureUrl}`);
                         const matchDuration = await determineMatchDuration(competitionLink.text);
                         console.log(`      ✓ Match duration: ${matchDuration} minutes`);
+
+                        // Normalize whitespace - collapse multiple spaces to single space
+                        const normalizedName = competitionLink.text.replace(/\s+/g, ' ').trim();
+
                         return {
-                            name: competitionLink.text, // Use the original competition link text from start page
+                            name: normalizedName,
                             fixtureUrl: clubData.fixtureUrl,
                             competitionUrl: competitionLink.url,
                             ladderUrl: ladderLink.url,

@@ -14,7 +14,8 @@
     "delete-calendars": "node src/setup/delete-google-calendars.js",
     "generate-docs": "node src/setup/generate-docs.js",
     "update-mappings-club-names": "node src/setup/update-mappings-club-names.js",
-    "update-competition-status": "node src/setup/update-competition-status.js"
+    "update-competition-status": "node src/setup/update-competition-status.js",
+    "test-calendar-summary-processing": "node src/tests/calendar-summary-processing.js"
   },
   "keywords": [
     "hockey",

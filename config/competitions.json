@@ -1,661 +1,520 @@
 {
-  "scrapedAt": "2025-09-30T02:05:04.659Z",
-  "lastUpdated": "2025-09-30T02:05:04.660Z",
+  "scrapedAt": "2025-09-30T05:11:37.000Z",
+  "lastUpdated": "2025-09-30T05:11:37.000Z",
   "clubName": "Footscray Hockey Club",
-  "totalCompetitions": 36,
-  "totalProcessed": 36,
-  "totalLinksFound": 148,
+  "totalCompetitions": 34,
+  "totalProcessed": 34,
+  "totalLinksFound": 149,
   "competitions": [
     {
       "name": "League 1 Womens",
-      "originalName": "League 1  Womens",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375029",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39696",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39696",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:12.615Z",
+      "scrapedAt": "2025-09-30T05:11:45.076Z",
       "googleCalendar": {
         "calendarId": "de176a7d8a94cda770a6c10467e10dffc86ac14f6762693b195d002bb13895e1@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=de176a7d8a94cda770a6c10467e10dffc86ac14f6762693b195d002bb13895e1%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/de176a7d8a94cda770a6c10467e10dffc86ac14f6762693b195d002bb13895e1%40group.calendar.google.com/public/basic.ics",
         "title": "FHC League 1 Womens",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.512Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "League 1 Mens",
-      "originalName": "League 1  Mens",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375022",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39698",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39698",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:12.645Z",
+      "scrapedAt": "2025-09-30T05:11:45.162Z",
       "googleCalendar": {
         "calendarId": "d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab%40group.calendar.google.com/public/basic.ics",
         "title": "FHC League 1 Mens",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.513Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "League 2 NW Womens",
-      "originalName": "League 2 NW Womens",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375038",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39699",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39699",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:12.678Z",
+      "scrapedAt": "2025-09-30T05:11:45.167Z",
       "googleCalendar": {
         "calendarId": "a1dd7d3ae24165be6fc0f2c097f3ab3fab127282c078e0fbe9975da4969f2cfb@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=a1dd7d3ae24165be6fc0f2c097f3ab3fab127282c078e0fbe9975da4969f2cfb%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/a1dd7d3ae24165be6fc0f2c097f3ab3fab127282c078e0fbe9975da4969f2cfb%40group.calendar.google.com/public/basic.ics",
         "title": "FHC League 2 NW Womens",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.513Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
+    },
+    {
+      "name": "Under 12 Girls",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375099",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39708",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39708",
+      "matchDuration": 60,
+      "scrapedAt": "2025-09-30T05:11:48.814Z",
+      "googleCalendar": {
+        "calendarId": "13651278507f211f086c099770b42c3be55552e45816828a669bbb729e660e78@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=13651278507f211f086c099770b42c3be55552e45816828a669bbb729e660e78%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/13651278507f211f086c099770b42c3be55552e45816828a669bbb729e660e78%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Under 12 Girls",
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
+    },
+    {
+      "name": "Under 14 Division 1 - Girls",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375137",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39709",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39709",
+      "matchDuration": 60,
+      "scrapedAt": "2025-09-30T05:11:48.922Z",
+      "googleCalendar": {
+        "calendarId": "9e5e3cdf582696c7dc8d0adf7553a69684a027a22d9be3e84c477b80b2784956@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=9e5e3cdf582696c7dc8d0adf7553a69684a027a22d9be3e84c477b80b2784956%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/9e5e3cdf582696c7dc8d0adf7553a69684a027a22d9be3e84c477b80b2784956%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Under 14 Division 1 - Girls",
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "35+ Masters NW League - Women's",
-      "originalName": "35+ Masters NW League - Women's",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375010",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39697",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39697",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:14.793Z",
+      "scrapedAt": "2025-09-30T05:11:49.632Z",
       "googleCalendar": {
         "calendarId": "0c06381c76848567adb2436e32c6705ca890455a25aa8eb54e365ec8cee8ccb7@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=0c06381c76848567adb2436e32c6705ca890455a25aa8eb54e365ec8cee8ccb7%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/0c06381c76848567adb2436e32c6705ca890455a25aa8eb54e365ec8cee8ccb7%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 35+ Masters NW League - Women's",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.514Z"
-    },
-    {
-      "name": "Under 14 Girls",
-      "originalName": "Under 14 Girls",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375137",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39709",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39709",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:14.867Z",
-      "googleCalendar": {
-        "calendarId": "b4db08008504ab071b90497362fcf5cbfb30c24e0689efd58f2ce6e7c08342f1@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=b4db08008504ab071b90497362fcf5cbfb30c24e0689efd58f2ce6e7c08342f1%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/b4db08008504ab071b90497362fcf5cbfb30c24e0689efd58f2ce6e7c08342f1%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 14 Girls",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.515Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Under 16 Girls",
-      "originalName": "Under 16 Girls",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375174",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39710",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39710",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:14.875Z",
+      "scrapedAt": "2025-09-30T05:11:54.553Z",
       "googleCalendar": {
-        "calendarId": "198a856bffaad81af4ee724b46b689b455c83d53bddb82e9a3f5a085895e8412@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=198a856bffaad81af4ee724b46b689b455c83d53bddb82e9a3f5a085895e8412%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/198a856bffaad81af4ee724b46b689b455c83d53bddb82e9a3f5a085895e8412%40group.calendar.google.com/public/basic.ics",
+        "calendarId": "9ddee750429d586f84b07edddf58549294fcd283441febffba66ebacebb30421@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=9ddee750429d586f84b07edddf58549294fcd283441febffba66ebacebb30421%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/9ddee750429d586f84b07edddf58549294fcd283441febffba66ebacebb30421%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 16 Girls",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.515Z"
-    },
-    {
-      "name": "Under 12 Girls",
-      "originalName": "Under 12 Girls",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375099",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39708",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39708",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:14.878Z",
-      "googleCalendar": {
-        "calendarId": "d0e8ec50cadbb8066baee440e72bfcf7e3abfa0122f5e58211ac3ddd1f6bc772@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=d0e8ec50cadbb8066baee440e72bfcf7e3abfa0122f5e58211ac3ddd1f6bc772%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/d0e8ec50cadbb8066baee440e72bfcf7e3abfa0122f5e58211ac3ddd1f6bc772%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 12 Girls",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.515Z"
-    },
-    {
-      "name": "Under 14 Division 1 - Mixed",
-      "originalName": "Under 14 Division 1 - Mixed",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375108",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39705",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39705",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:16.876Z",
-      "googleCalendar": {
-        "calendarId": "9c199f8c15d051e8f7308e6d73d0873279a56857063871ad377e981723b64c7c@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=9c199f8c15d051e8f7308e6d73d0873279a56857063871ad377e981723b64c7c%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/9c199f8c15d051e8f7308e6d73d0873279a56857063871ad377e981723b64c7c%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 14 Division 1 - Mixed",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.516Z"
-    },
-    {
-      "name": "Under 12 Division 1 - Mixed",
-      "originalName": "Under 12 Division 1 - Mixed",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375065",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39704",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39704",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:17.092Z",
-      "googleCalendar": {
-        "calendarId": "d63fae54c2022ba156f0cbdc7d0154f96834c7bcc6c785929330d143cccfd7aa@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=d63fae54c2022ba156f0cbdc7d0154f96834c7bcc6c785929330d143cccfd7aa%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/d63fae54c2022ba156f0cbdc7d0154f96834c7bcc6c785929330d143cccfd7aa%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 12 Division 1 - Mixed",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.517Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Under 12 Division 2 NW - Mixed",
-      "originalName": "Under 12 Division 2 NW - Mixed",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375077",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39715",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39715",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:17.118Z",
+      "scrapedAt": "2025-09-30T05:11:54.983Z",
       "googleCalendar": {
-        "calendarId": "66a46ace7c27e5f96e5ac594a62541c742470c490dad18fae266d1aa001517a9@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=66a46ace7c27e5f96e5ac594a62541c742470c490dad18fae266d1aa001517a9%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/66a46ace7c27e5f96e5ac594a62541c742470c490dad18fae266d1aa001517a9%40group.calendar.google.com/public/basic.ics",
+        "calendarId": "c33e9dd54ec3a5885dd2f32b281f22b2d7b0cb40f9ddf0ca5a396e6de679551d@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=c33e9dd54ec3a5885dd2f32b281f22b2d7b0cb40f9ddf0ca5a396e6de679551d%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/c33e9dd54ec3a5885dd2f32b281f22b2d7b0cb40f9ddf0ca5a396e6de679551d%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 12 Division 2 NW - Mixed",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.517Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
-      "name": "Under 16 Division 2 NW - Mixed",
-      "originalName": "Under 16 Division 2 NW - Mixed",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375159",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39717",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39717",
+      "name": "Under 12 Division 1 - Mixed",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375065",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39704",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39704",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:19.023Z",
+      "scrapedAt": "2025-09-30T05:11:55.209Z",
       "googleCalendar": {
-        "calendarId": "62af74be3c33ecb4259d40e3932de58266765e1918eea5e8eb1aaeabf95eab52@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=62af74be3c33ecb4259d40e3932de58266765e1918eea5e8eb1aaeabf95eab52%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/62af74be3c33ecb4259d40e3932de58266765e1918eea5e8eb1aaeabf95eab52%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 16 Division 2 NW - Mixed",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.517Z"
+        "calendarId": "faabe77e1b1b35c7245c461583e63d5e1f7f284b00dbd58157772063dbb232eb@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=faabe77e1b1b35c7245c461583e63d5e1f7f284b00dbd58157772063dbb232eb%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/faabe77e1b1b35c7245c461583e63d5e1f7f284b00dbd58157772063dbb232eb%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Under 12 Division 1 - Mixed",
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Under 16 Division 1 - Mixed",
-      "originalName": "Under 16 Division 1 - Mixed",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375148",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39706",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39706",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:19.191Z",
+      "scrapedAt": "2025-09-30T05:11:58.762Z",
       "googleCalendar": {
-        "calendarId": "25fa2cf226e191fa9317e18473156cf97e3a7704c68cc800aecd0d22f862ec5b@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=25fa2cf226e191fa9317e18473156cf97e3a7704c68cc800aecd0d22f862ec5b%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/25fa2cf226e191fa9317e18473156cf97e3a7704c68cc800aecd0d22f862ec5b%40group.calendar.google.com/public/basic.ics",
+        "calendarId": "bfc22559d697640ebfdbebcc36db42dd75b02decfa3d6bd4677a69f764c63d99@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=bfc22559d697640ebfdbebcc36db42dd75b02decfa3d6bd4677a69f764c63d99%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/bfc22559d697640ebfdbebcc36db42dd75b02decfa3d6bd4677a69f764c63d99%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 16 Division 1 - Mixed",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.518Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Under 14 Division 2 NW - Mixed",
-      "originalName": "Under 14 Division 2 NW - Mixed",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375119",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39716",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39716",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:19.360Z",
+      "scrapedAt": "2025-09-30T05:11:58.859Z",
       "googleCalendar": {
-        "calendarId": "64e8e1fa75c6ea385a79d22b57055333e5587b42078746ee07bf5c92b9b68469@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=64e8e1fa75c6ea385a79d22b57055333e5587b42078746ee07bf5c92b9b68469%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/64e8e1fa75c6ea385a79d22b57055333e5587b42078746ee07bf5c92b9b68469%40group.calendar.google.com/public/basic.ics",
+        "calendarId": "b55ff8ee1a8ee8fded1d4a4baeb888626050055e1aee21873ff6766d56ff6932@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=b55ff8ee1a8ee8fded1d4a4baeb888626050055e1aee21873ff6766d56ff6932%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/b55ff8ee1a8ee8fded1d4a4baeb888626050055e1aee21873ff6766d56ff6932%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 14 Division 2 NW - Mixed",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.518Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
+    },
+    {
+      "name": "Under 14 Division 1 - Mixed",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375108",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39705",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39705",
+      "matchDuration": 60,
+      "scrapedAt": "2025-09-30T05:11:59.109Z",
+      "googleCalendar": {
+        "calendarId": "d48c4091c7dd1b5316d7edce7a7ba8b6265beb806b7038c69f2a3c1e7a312fe4@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=d48c4091c7dd1b5316d7edce7a7ba8b6265beb806b7038c69f2a3c1e7a312fe4%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/d48c4091c7dd1b5316d7edce7a7ba8b6265beb806b7038c69f2a3c1e7a312fe4%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Under 14 Division 1 - Mixed",
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Under 18 - Mixed",
-      "originalName": "Under 18 - Mixed",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375182",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39707",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39707",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:21.683Z",
+      "scrapedAt": "2025-09-30T05:12:01.467Z",
       "googleCalendar": {
-        "calendarId": "8907e08af2f302907eb1a02984cb644c26d3a7e012b6713d8f1b39823e3980c1@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=8907e08af2f302907eb1a02984cb644c26d3a7e012b6713d8f1b39823e3980c1%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/8907e08af2f302907eb1a02984cb644c26d3a7e012b6713d8f1b39823e3980c1%40group.calendar.google.com/public/basic.ics",
+        "calendarId": "56b90be6d6f0b7774bf1b8b6ff48e6d9b918abcbe3b8003a750f2cda64c75398@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=56b90be6d6f0b7774bf1b8b6ff48e6d9b918abcbe3b8003a750f2cda64c75398%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/56b90be6d6f0b7774bf1b8b6ff48e6d9b918abcbe3b8003a750f2cda64c75398%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 18 - Mixed",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.518Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
+    },
+    {
+      "name": "Under 16 Division 2 NW - Mixed",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375159",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39717",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39717",
+      "matchDuration": 60,
+      "scrapedAt": "2025-09-30T05:12:01.489Z",
+      "googleCalendar": {
+        "calendarId": "0a44fcc6122969f2c8183416e52b602b48292d9c0e19e449d5a1d867948ce644@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=0a44fcc6122969f2c8183416e52b602b48292d9c0e19e449d5a1d867948ce644%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/0a44fcc6122969f2c8183416e52b602b48292d9c0e19e449d5a1d867948ce644%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Under 16 Division 2 NW - Mixed",
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "2025 T4 35+ Womens Footscray Wednesday",
-      "originalName": "2025 T4 35+ Womens Footscray Wednesday",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24044/376315",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/24044/39773",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24044/39773",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:23.863Z",
+      "scrapedAt": "2025-09-30T05:12:05.579Z",
       "googleCalendar": {
         "calendarId": "15353587bd4dd21c88b7479be13e5daf847d6ed6a834eee0c433d03fe37fcca4@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=15353587bd4dd21c88b7479be13e5daf847d6ed6a834eee0c433d03fe37fcca4%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/15353587bd4dd21c88b7479be13e5daf847d6ed6a834eee0c433d03fe37fcca4%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2025 T4 35+ Womens Footscray Wednesday",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-09-30T02:28:53.519Z"
-    },
-    {
-      "name": "Men's Premier League - 2025",
-      "originalName": "Men's Premier League - 2025",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336954",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37287",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37287",
-      "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:26.082Z",
-      "googleCalendar": {
-        "calendarId": "1f220e3aea02d8d0f80df31f81324412484b6f786eff698f6262e980772060e4@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=1f220e3aea02d8d0f80df31f81324412484b6f786eff698f6262e980772060e4%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/1f220e3aea02d8d0f80df31f81324412484b6f786eff698f6262e980772060e4%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Men's Premier League - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.519Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Women's Premier League Reserves - 2025",
-      "originalName": "Women's Premier League Reserves - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336963",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37286",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37286",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:26.089Z",
+      "scrapedAt": "2025-09-30T05:12:07.877Z",
       "googleCalendar": {
         "calendarId": "8b6394caa7d84adfbbc6857f0a7740e5806e6a146f59ab9626ba21963a07786e@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=8b6394caa7d84adfbbc6857f0a7740e5806e6a146f59ab9626ba21963a07786e%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/8b6394caa7d84adfbbc6857f0a7740e5806e6a146f59ab9626ba21963a07786e%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Premier League Reserves - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.520Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Women's Premier League - 2025",
-      "originalName": "Women's Premier League - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336962",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37285",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37285",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:26.112Z",
+      "scrapedAt": "2025-09-30T05:12:07.939Z",
       "googleCalendar": {
         "calendarId": "56536e35edfd9d627d2f81d41b146466edbe42dbf285ad74eb636531bcb93ad7@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=56536e35edfd9d627d2f81d41b146466edbe42dbf285ad74eb636531bcb93ad7%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/56536e35edfd9d627d2f81d41b146466edbe42dbf285ad74eb636531bcb93ad7%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Premier League - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.520Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
+    },
+    {
+      "name": "Men's Premier League - 2025",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336954",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37287",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37287",
+      "matchDuration": 90,
+      "scrapedAt": "2025-09-30T05:12:10.392Z",
+      "googleCalendar": {
+        "calendarId": "1f220e3aea02d8d0f80df31f81324412484b6f786eff698f6262e980772060e4@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=1f220e3aea02d8d0f80df31f81324412484b6f786eff698f6262e980772060e4%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/1f220e3aea02d8d0f80df31f81324412484b6f786eff698f6262e980772060e4%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Men's Premier League - 2025",
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Men's Premier League Reserves - 2025",
-      "originalName": "Men's Premier League Reserves - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336955",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37288",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37288",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:28.170Z",
+      "scrapedAt": "2025-09-30T05:12:10.547Z",
       "googleCalendar": {
         "calendarId": "97956a86ccf6ef13c27f58015aa6958fc711dd7bf08ca136c016162157c6d496@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=97956a86ccf6ef13c27f58015aa6958fc711dd7bf08ca136c016162157c6d496%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/97956a86ccf6ef13c27f58015aa6958fc711dd7bf08ca136c016162157c6d496%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Men's Premier League Reserves - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.522Z"
-    },
-    {
-      "name": "Men's Pennant A - 2025",
-      "originalName": "Men's Pennant A - 2025",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336951",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37301",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37301",
-      "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:33.121Z",
-      "googleCalendar": {
-        "calendarId": "16b655e174b838f23b3fc54687fca5e059843515da89d9c5926645b7e5eeab7d@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=16b655e174b838f23b3fc54687fca5e059843515da89d9c5926645b7e5eeab7d%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/16b655e174b838f23b3fc54687fca5e059843515da89d9c5926645b7e5eeab7d%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Men's Pennant A - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.523Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Women's Pennant A - 2025",
-      "originalName": "Women's Pennant A - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336957",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37298",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37298",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:33.129Z",
+      "scrapedAt": "2025-09-30T05:12:18.721Z",
       "googleCalendar": {
         "calendarId": "3a061a8facf2aad203b3f27ee214d2912894c27e5884d224963308997cc3d097@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=3a061a8facf2aad203b3f27ee214d2912894c27e5884d224963308997cc3d097%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/3a061a8facf2aad203b3f27ee214d2912894c27e5884d224963308997cc3d097%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Pennant A - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.523Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
-      "name": "Men's Pennant B - 2025",
-      "originalName": "Men's Pennant B - 2025",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336952",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37302",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37302",
+      "name": "Men's Pennant A - 2025",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336951",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37301",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37301",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:33.240Z",
+      "scrapedAt": "2025-09-30T05:12:19.619Z",
       "googleCalendar": {
-        "calendarId": "b7311408b7c70beab744c7fdfdf74dc7491f7eaee48e17b538285327204dbd72@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=b7311408b7c70beab744c7fdfdf74dc7491f7eaee48e17b538285327204dbd72%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/b7311408b7c70beab744c7fdfdf74dc7491f7eaee48e17b538285327204dbd72%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Men's Pennant B - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.524Z"
-    },
-    {
-      "name": "Women's Pennant B - 2025",
-      "originalName": "Women's Pennant B - 2025",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336958",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37299",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37299",
-      "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:33.354Z",
-      "googleCalendar": {
-        "calendarId": "e4a63bff99c2b56ba32b7877072c44d116935aad3baada5e751e85aef64f2461@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=e4a63bff99c2b56ba32b7877072c44d116935aad3baada5e751e85aef64f2461%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/e4a63bff99c2b56ba32b7877072c44d116935aad3baada5e751e85aef64f2461%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Women's Pennant B - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.525Z"
+        "calendarId": "16b655e174b838f23b3fc54687fca5e059843515da89d9c5926645b7e5eeab7d@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=16b655e174b838f23b3fc54687fca5e059843515da89d9c5926645b7e5eeab7d%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/16b655e174b838f23b3fc54687fca5e059843515da89d9c5926645b7e5eeab7d%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Men's Pennant A - 2025",
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Women's Pennant C - 2025",
-      "originalName": "Women's Pennant C - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336959",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37300",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37300",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:33.355Z",
+      "scrapedAt": "2025-09-30T05:12:19.931Z",
       "googleCalendar": {
         "calendarId": "cb97b547cddb0381d07e8c8b1b327ed700e90b2e07e68714197ab553fbd2ce9d@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=cb97b547cddb0381d07e8c8b1b327ed700e90b2e07e68714197ab553fbd2ce9d%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/cb97b547cddb0381d07e8c8b1b327ed700e90b2e07e68714197ab553fbd2ce9d%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Pennant C - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.526Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
+    },
+    {
+      "name": "Women's Pennant B - 2025",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336958",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37299",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37299",
+      "matchDuration": 90,
+      "scrapedAt": "2025-09-30T05:12:19.946Z",
+      "googleCalendar": {
+        "calendarId": "e4a63bff99c2b56ba32b7877072c44d116935aad3baada5e751e85aef64f2461@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=e4a63bff99c2b56ba32b7877072c44d116935aad3baada5e751e85aef64f2461%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/e4a63bff99c2b56ba32b7877072c44d116935aad3baada5e751e85aef64f2461%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Women's Pennant B - 2025",
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Men's Pennant D North West - 2025",
-      "originalName": "Men's Pennant D North West - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336953",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37306",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37306",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:35.491Z",
+      "scrapedAt": "2025-09-30T05:12:22.840Z",
       "googleCalendar": {
         "calendarId": "884c99f9887b737724158dc5179e7f3f2b11914ae1b1a6619dfdd4328787f817@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=884c99f9887b737724158dc5179e7f3f2b11914ae1b1a6619dfdd4328787f817%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/884c99f9887b737724158dc5179e7f3f2b11914ae1b1a6619dfdd4328787f817%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Men's Pennant D North West - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.526Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
+    },
+    {
+      "name": "Men's Pennant B - 2025",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336952",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37302",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37302",
+      "matchDuration": 90,
+      "scrapedAt": "2025-09-30T05:12:22.853Z",
+      "googleCalendar": {
+        "calendarId": "b7311408b7c70beab744c7fdfdf74dc7491f7eaee48e17b538285327204dbd72@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=b7311408b7c70beab744c7fdfdf74dc7491f7eaee48e17b538285327204dbd72%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/b7311408b7c70beab744c7fdfdf74dc7491f7eaee48e17b538285327204dbd72%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Men's Pennant B - 2025",
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Women's Pennant D North West - 2025",
-      "originalName": "Women's Pennant D North West - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336960",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37304",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37304",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:35.654Z",
+      "scrapedAt": "2025-09-30T05:12:22.889Z",
       "googleCalendar": {
         "calendarId": "8bb6d3833f4399af37ec044eacd085f45b897d6910935320163b2422cb13eccf@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=8bb6d3833f4399af37ec044eacd085f45b897d6910935320163b2422cb13eccf%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/8bb6d3833f4399af37ec044eacd085f45b897d6910935320163b2422cb13eccf%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Pennant D North West - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.527Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Women's Pennant E North West - 2025",
-      "originalName": "Women's Pennant E North West - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336961",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37308",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37308",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:38.391Z",
+      "scrapedAt": "2025-09-30T05:12:25.774Z",
       "googleCalendar": {
         "calendarId": "14c37c863800760f1cca7118d188c1bf54bde2d694a81613f5b8b25040c4564c@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=14c37c863800760f1cca7118d188c1bf54bde2d694a81613f5b8b25040c4564c%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/14c37c863800760f1cca7118d188c1bf54bde2d694a81613f5b8b25040c4564c%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Pennant E North West - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.527Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Men's Metro 1 North West - 2025",
-      "originalName": "Men's Metro 1 North West - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336950",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37316",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37316",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:40.816Z",
+      "scrapedAt": "2025-09-30T05:12:28.543Z",
       "googleCalendar": {
         "calendarId": "7b66fc969b25978bd41e46cfe08eeac3639b3e887389d752689262199d0f96c3@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=7b66fc969b25978bd41e46cfe08eeac3639b3e887389d752689262199d0f96c3%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/7b66fc969b25978bd41e46cfe08eeac3639b3e887389d752689262199d0f96c3%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Men's Metro 1 North West - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.528Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Women's Metro 1 North West - 2025",
-      "originalName": "Women's Metro 1 North West - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336956",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37313",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37313",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:40.868Z",
+      "scrapedAt": "2025-09-30T05:12:28.661Z",
       "googleCalendar": {
         "calendarId": "a55ef96862114e2a69788c8a347f7877f4813713d20efccfeaccb5d0ac1bc54f@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=a55ef96862114e2a69788c8a347f7877f4813713d20efccfeaccb5d0ac1bc54f%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/a55ef96862114e2a69788c8a347f7877f4813713d20efccfeaccb5d0ac1bc54f%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Metro 1 North West - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.528Z"
-    },
-    {
-      "name": "2025 Midweek Men's 45+ NW",
-      "originalName": "2025 Midweek Men's 45+ NW",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22076/338768",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/22076/37396",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22076/37396",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:43.096Z",
-      "googleCalendar": {
-        "calendarId": "b033da4f5e1edfed703dd9aaa7dad4ac73d77399a382e556174c228d1161deac@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=b033da4f5e1edfed703dd9aaa7dad4ac73d77399a382e556174c228d1161deac%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/b033da4f5e1edfed703dd9aaa7dad4ac73d77399a382e556174c228d1161deac%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC 2025 Midweek Men's 45+ NW",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.529Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "Men's Metro 2 North West - 2025",
-      "originalName": "Men's Metro 2 North West - 2025",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/339251",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37319",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37319",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:43.276Z",
+      "scrapedAt": "2025-09-30T05:12:31.334Z",
       "googleCalendar": {
         "calendarId": "789972398db6baf2f2bceb7192de6415a320e694ad7a838dd377f13dd94eadda@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=789972398db6baf2f2bceb7192de6415a320e694ad7a838dd377f13dd94eadda%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/789972398db6baf2f2bceb7192de6415a320e694ad7a838dd377f13dd94eadda%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Men's Metro 2 North West - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.529Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "2025 Midweek Men's 50+ NW",
-      "originalName": "2025 Midweek Men's 50+ NW",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22076/338770",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/22076/37402",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22076/37402",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:45.541Z",
+      "scrapedAt": "2025-09-30T05:12:34.198Z",
       "googleCalendar": {
         "calendarId": "977372c1fa7188df9da9160c7180f3b02df7dfe35cd75cf5b78a5acd54e66ffc@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=977372c1fa7188df9da9160c7180f3b02df7dfe35cd75cf5b78a5acd54e66ffc%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/977372c1fa7188df9da9160c7180f3b02df7dfe35cd75cf5b78a5acd54e66ffc%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2025 Midweek Men's 50+ NW",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.530Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "2025 Midweek Women's 45+",
-      "originalName": "2025 Midweek Women's 45+",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22076/338771",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/22076/37408",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22076/37408",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:45.730Z",
+      "scrapedAt": "2025-09-30T05:12:34.210Z",
       "googleCalendar": {
         "calendarId": "05e5a33f8cc7a2e422a0d806ebd2bb8cf7ea4b6738cb17b6bcd9acc00f76142b@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=05e5a33f8cc7a2e422a0d806ebd2bb8cf7ea4b6738cb17b6bcd9acc00f76142b%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/05e5a33f8cc7a2e422a0d806ebd2bb8cf7ea4b6738cb17b6bcd9acc00f76142b%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2025 Midweek Women's 45+",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.532Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
+    },
+    {
+      "name": "2025 Midweek Men's 45+ NW",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22076/338768",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/22076/37396",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22076/37396",
+      "matchDuration": 60,
+      "scrapedAt": "2025-09-30T05:12:34.215Z",
+      "googleCalendar": {
+        "calendarId": "b033da4f5e1edfed703dd9aaa7dad4ac73d77399a382e556174c228d1161deac@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=b033da4f5e1edfed703dd9aaa7dad4ac73d77399a382e556174c228d1161deac%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/b033da4f5e1edfed703dd9aaa7dad4ac73d77399a382e556174c228d1161deac%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC 2025 Midweek Men's 45+ NW",
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     },
     {
       "name": "2025 Midweek Women's 35+ CN",
-      "originalName": "2025 Midweek Women's 35+ CN",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22076/338772",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/22076/37406",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22076/37406",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T02:05:52.348Z",
+      "scrapedAt": "2025-09-30T05:12:40.333Z",
       "googleCalendar": {
         "calendarId": "0ecdee091c358190110ffc5f29f422a8359db99ba3340536837aa7cac33a3405@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=0ecdee091c358190110ffc5f29f422a8359db99ba3340536837aa7cac33a3405%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/0ecdee091c358190110ffc5f29f422a8359db99ba3340536837aa7cac33a3405%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2025 Midweek Women's 35+ CN",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.533Z"
-    },
-    {
-      "name": "U12 Mixed Shield - 2025",
-      "originalName": "U12 Mixed Shield - 2025",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22385/345558",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/22385/37687",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22385/37687",
-      "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:55.902Z",
-      "googleCalendar": {
-        "calendarId": "48dbcaebc8b9eb2177d1cbb05b0c0e0c12605dafc72b10c9e723ea10a4106947@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=48dbcaebc8b9eb2177d1cbb05b0c0e0c12605dafc72b10c9e723ea10a4106947%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/48dbcaebc8b9eb2177d1cbb05b0c0e0c12605dafc72b10c9e723ea10a4106947%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC U12 Mixed Shield - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.533Z"
-    },
-    {
-      "name": "U12 Girls Shield - 2025",
-      "originalName": "U12 Girls Shield - 2025",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22385/345556",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/22385/37684",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22385/37684",
-      "matchDuration": 90,
-      "scrapedAt": "2025-09-30T02:05:56.016Z",
-      "googleCalendar": {
-        "calendarId": "e3db61302c19f3512fb7e4e6920b521460717bb2bde9257b9334250826ec5861@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=e3db61302c19f3512fb7e4e6920b521460717bb2bde9257b9334250826ec5861%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/e3db61302c19f3512fb7e4e6920b521460717bb2bde9257b9334250826ec5861%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC U12 Girls Shield - 2025",
-        "createdAt": "2025-09-30T02:14:26.267Z"
-      },
-      "isActive": false,
-      "statusUpdatedAt": "2025-09-30T02:28:53.534Z"
+        "createdAt": "2025-09-30T05:42:42.148Z"
+      }
     }
-  ],
-  "lastStatusUpdate": "2025-09-30T02:30:23.005Z",
-  "activeCompetitions": 14,
-  "inactiveCompetitions": 22
+  ]
 }
