@@ -242,7 +242,7 @@ async function formatCompetitionTable(competitions, categoryName) {
             }
 
             if (competition.googleCalendar.icalUrl) {
-                icalCol = `<a href="${competition.googleCalendar.icalUrl}" target="_blank">📲 Subscribe</a>`;
+                icalCol = `<details><summary>📲 Subscribe</summary>Copy this link and paste it into your preferred calendar: ${competition.googleCalendar.icalUrl}</details>`;
             } else {
                 icalCol = `*Not available*`;
             }
