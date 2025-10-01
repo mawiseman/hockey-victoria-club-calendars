@@ -69,5 +69,43 @@
 
 ---
 
-*This documentation is automatically generated from competitions.json*  
+*This documentation is automatically generated from competitions.json*
 *To update calendars, run: `npm run process-fixture`*
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Find all iCal Subscribe links
+  const links = document.querySelectorAll('a[href*="/calendar/ical/"]');
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const icalUrl = this.href;
+
+      // Copy to clipboard
+      navigator.clipboard.writeText(icalUrl).then(() => {
+        // Show feedback
+        const originalText = this.innerHTML;
+        this.innerHTML = '✅ Copied!';
+        this.style.color = 'green';
+
+        // Create and show instruction message
+        const message = document.createElement('div');
+        message.textContent = 'Use this link in your preferred calendar app';
+        message.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #4CAF50; color: white; padding: 12px 24px; border-radius: 4px; z-index: 1000; font-weight: bold;';
+        document.body.appendChild(message);
+
+        // Reset after 3 seconds
+        setTimeout(() => {
+          this.innerHTML = originalText;
+          this.style.color = '';
+          message.remove();
+        }, 3000);
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+        alert('Failed to copy link. Please try again.');
+      });
+    });
+  });
+});
+</script>
