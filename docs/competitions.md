@@ -21,7 +21,7 @@
 
 | Competition | Fixture | Competition | Google Calendar | iCal Subscribe |
 |-------------|----------|-------------|----------|----------------|
-| League 1 Mens | <a href="https://www.hockeyvictoria.org.au/games/team/23987/375022" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/23987/39698" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab%40group.calendar.google.com" target="_blank">📅 View</a> | <a href="https://calendar.google.com/calendar/ical/d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab%40group.calendar.google.com/public/basic.ics" target="_blank">📲 Subscribe</a> |
+| League 1 Mens | <a href="https://www.hockeyvictoria.org.au/games/team/23987/375022" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/23987/39698" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab%40group.calendar.google.com" target="_blank">📅 View</a> | <details><summary>📲 Subscribe</summary>Copy this link and paste it into your preferred calendar: https://calendar.google.com/calendar/ical/d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab%40group.calendar.google.com/public/basic.ics</details>|
 
 
 ## Women's Competitions
