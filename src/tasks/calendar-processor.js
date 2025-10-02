@@ -155,8 +155,8 @@ export function addGenderPrefix(text, originalSummary) {
  * Extract round number from event summary, returns null for finals or unknown rounds
  */
 function extractRoundFromSummary(summary, maxRegularRound = 0) {
-    // First check for regular rounds
-    const roundMatches = summary.match(/(?:Round|R|Rd)\s*(\d+)/i);
+    // First check for regular rounds - use word boundary to avoid matching "Under 12"
+    const roundMatches = summary.match(/\b(?:Round|Rd)\s+(\d+)/i);
     if (roundMatches) {
         return parseInt(roundMatches[1], 10);
     }
@@ -187,11 +187,11 @@ function extractRoundFromSummary(summary, maxRegularRound = 0) {
  */
 function findMaxRegularRound(parsedCal) {
     let maxRound = 0;
-    
+
     for (const key in parsedCal) {
         const event = parsedCal[key];
         if (event.type === 'VEVENT' && event.summary) {
-            const roundMatches = event.summary.match(/(?:Round|R|Rd)\s*(\d+)/i);
+            const roundMatches = event.summary.match(/\b(?:Round|Rd)\s+(\d+)/i);
             if (roundMatches) {
                 const roundNumber = parseInt(roundMatches[1], 10);
                 maxRound = Math.max(maxRound, roundNumber);
