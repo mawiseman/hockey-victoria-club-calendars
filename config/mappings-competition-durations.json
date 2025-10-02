@@ -1,0 +1,15 @@
+{
+  "defaultDuration": 90,
+  "durationMappings": [
+    {
+      "keywords": ["Indoor", "Junior", "Midweek", "Masters", "Social", "Term 4", "U12", "U14", "U16", "U18"],
+      "duration": 60,
+      "description": "Indoor, Junior, and social competitions are typically 60 minutes"
+    },
+    {
+      "keywords": ["Premier League", "Pennant", "Metro", "Senior Competition"],
+      "duration": 90,
+      "description": "Premier League, Pennant, and Metro competitions are typically 90 minutes"
+    }
+  ]
+}

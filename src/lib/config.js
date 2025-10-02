@@ -37,6 +37,7 @@ export const TEMP_DIR = 'temp';
 export const PROGRESS_FILE = 'temp/scraper-progress.json';
 export const MAPPINGS_CLUB_FILE = 'config/mappings-club-names.json';
 export const MAPPINGS_COMPETITION_FILE = 'config/mappings-competition-names.json';
+export const MAPPINGS_DURATION_FILE = 'config/mappings-competition-durations.json';
 
 // Google Calendar configuration
 export const SCOPES = ['https://www.googleapis.com/auth/calendar'];
@@ -74,4 +75,13 @@ export function getCurrentYear() {
  */
 export function getCurrentTimestamp() {
     return new Date().toISOString();
+}
+
+/**
+ * Load competition duration mappings
+ * @returns {Promise<Object>} Duration configuration
+ */
+export async function getDurationConfig() {
+    const data = await fs.readFile(MAPPINGS_DURATION_FILE, 'utf8');
+    return JSON.parse(data);
 }

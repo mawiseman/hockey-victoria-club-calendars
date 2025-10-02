@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 // Import shared utilities
-import { getClubName, BASE_URL, COMPETITIONS_FILE } from '../lib/config.js';
+import { getClubName, BASE_URL, COMPETITIONS_FILE, getDurationConfig } from '../lib/config.js';
 
 let CLUB_NAME = null;
 
@@ -44,18 +44,20 @@ async function getCompetitionConfig() {
  * Determine match duration based on competition name
  */
 async function determineMatchDuration(competitionName) {
-    const config = await getCompetitionConfig();
+    const durationConfig = await getDurationConfig();
     const nameLower = competitionName.toLowerCase();
 
-    // Check patterns in order - first match with duration wins
-    for (const replacement of config.competitionReplacements) {
-        if (replacement.duration && nameLower.includes(replacement.pattern.toLowerCase())) {
-            return replacement.duration;
+    // Check keyword mappings in order - first match wins
+    for (const mapping of durationConfig.durationMappings) {
+        for (const keyword of mapping.keywords) {
+            if (nameLower.includes(keyword.toLowerCase())) {
+                return mapping.duration;
+            }
         }
     }
 
     // Return default duration
-    return config.defaultMatchDuration || 90;
+    return durationConfig.defaultDuration;
 }
 
 /**

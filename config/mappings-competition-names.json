@@ -1,90 +1,72 @@
 {
-  "defaultMatchDuration": 90,
   "competitionReplacements": [
     {
       "pattern": "{{YEAR}} Senior Indoor League League (\\d+) NW\\s+",
-      "replacement": "Indoor League $1 NW ",
-      "duration": 60
+      "replacement": "Indoor League $1 NW "
     },
     {
       "pattern": "{{YEAR}} Senior Indoor League League (\\d+)\\s+",
-      "replacement": "Indoor League $1 ",
-      "duration": 60
+      "replacement": "Indoor League $1 "
     },
     {
       "pattern": "{{YEAR}} Junior Indoor League Under (\\d+) Division (\\d+) NW - (.*)",
-      "replacement": "U$1 Indoor Div $2 NW $3",
-      "duration": 60
+      "replacement": "U$1 Indoor Div $2 NW $3"
     },
     {
       "pattern": "{{YEAR}} Junior Indoor League Under (\\d+) Division (\\d+) - (.*)",
-      "replacement": "U$1 Indoor Div $2 $3",
-      "duration": 60
+      "replacement": "U$1 Indoor Div $2 $3"
     },
     {
       "pattern": "{{YEAR}} Junior Indoor League Under (\\d+) (.*)",
-      "replacement": "U$1 Indoor $2",
-      "duration": 60
+      "replacement": "U$1 Indoor $2"
     },
     {
       "pattern": "{{YEAR}} Senior Indoor League (\\d+\\+) Masters (\\w+) League - ([^R]+)",
-      "replacement": "$3$1 $2 Indoor",
-      "duration": 60
+      "replacement": "$3$1 $2 Indoor"
     },
     {
       "pattern": "{{YEAR}} Term 4 Summer Competition {{YEAR}} T4 (\\d+\\+) Womens .*?- ",
-      "replacement": "Women $1 - ",
-      "duration": 60
+      "replacement": "Women $1 - "
     },
     {
       "pattern": "{{YEAR}} Midweek Competition ",
-      "replacement": "",
-      "duration": 60
+      "replacement": ""
     },
     {
       "pattern": "Under",
-      "replacement": "",
-      "duration": 60
+      "replacement": ""
     },
     {
       "pattern": "Masters",
-      "replacement": "",
-      "duration": 60
+      "replacement": ""
     },
     {
       "pattern": "Social",
-      "replacement": "",
-      "duration": 60
+      "replacement": ""
     },
     {
       "pattern": "Premier League Reserves",
-      "replacement": "PLR",
-      "duration": 90
+      "replacement": "PLR"
     },
     {
       "pattern": "Premier League",
-      "replacement": "PL",
-      "duration": 90
+      "replacement": "PL"
     },
     {
       "pattern": "Pennant",
-      "replacement": "PEN",
-      "duration": 90
+      "replacement": "PEN"
     },
     {
       "pattern": "Metro 1",
-      "replacement": "M1",
-      "duration": 90
+      "replacement": "M1"
     },
     {
       "pattern": "Metro 2",
-      "replacement": "M2",
-      "duration": 90
+      "replacement": "M2"
     },
     {
       "pattern": "League",
-      "replacement": "",
-      "duration": 90
+      "replacement": ""
     },
     {
       "pattern": "North West",
@@ -100,12 +82,7 @@
     },
     {
       "pattern": "{{YEAR}} Midweek {{GENDER}} (.*)",
-      "replacement": "{{GENDER}} $1",
-      "duration": 60,
-      "examples": [
-        { "original": "2025 Midweek Men's 45+ NW", "output":"Mens 45+ NW" },
-        { "original": "2025 Midweek Womens's 35+ CN", "output":"Women's 35+ CN" }
-      ]
+      "replacement": "{{GENDER}} $1"
     },
     {
       "pattern": "{{YEAR}} Senior Competition {{GENDER}}",
@@ -113,8 +90,7 @@
     },
     {
       "pattern": "{{YEAR}} Junior Competition",
-      "replacement": "",
-      "duration": 60
+      "replacement": ""
     },
     {
       "pattern": "Men's",
