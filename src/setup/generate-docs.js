@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import ical from 'ical';
 
 // Import shared utilities
 import { loadCompetitionData, categorizeCompetitions } from '../lib/competition-utils.js';
@@ -13,29 +14,32 @@ const __dirname = dirname(__filename);
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'competitions.md');
 
 /**
- * Build combined calendar URL with club calendar first and category-specific colors
+ * Build combined calendar URL with club calendar first and category-specific color
  */
-async function buildCombinedCalendarUrl(competitions, category = null) {
-    const competitionsWithCalendars = competitions.filter(comp => 
+async function buildCombinedCalendarUrl(competitions, categoryIndex = 0) {
+    const competitionsWithCalendars = competitions.filter(comp =>
         comp.googleCalendar && comp.googleCalendar.calendarId
     );
-    
+
     if (competitionsWithCalendars.length === 0) {
         return null;
     }
-    
-    // Define colors for each category
-    const categoryColors = {
-        'mens': '%23285F9B',        // Royal blue
-        'womens': '%23D50000',      // Red
-        'midweek': '%23008000',     // Green
-        'juniors': '%23FF8C00'      // Orange
-    };
-    
+
+    // Define colors for different categories (cycle through these)
+    const colors = [
+        '%23285F9B',  // Royal blue
+        '%23D50000',  // Red
+        '%23008000',  // Green
+        '%23FF8C00',  // Orange
+        '%239C27B0',  // Purple
+        '%23F09300',  // Amber
+        '%230B8043',  // Dark green
+        '%23E67C73'   // Coral
+    ];
+
     let calendarSources = '';
     let colorParams = '';
-    let calendarIndex = 0;
-    
+
     // Try to get club calendar from settings and add it first
     try {
         const settings = await getSettings();
@@ -43,24 +47,19 @@ async function buildCombinedCalendarUrl(competitions, category = null) {
             calendarSources += `&src=${encodeURIComponent(settings.clubCalendar.calendarId)}`;
             // Club calendar gets a neutral color (grey)
             colorParams += `&color=%23616161`;
-            calendarIndex++;
         }
     } catch (error) {
         // Continue without club calendar if settings can't be loaded
     }
-    
-    // Add individual competition calendars with category-specific colors
-    const categoryColor = category ? categoryColors[category] : null;
-    
+
+    // Add individual competition calendars with category-specific color
+    const categoryColor = colors[categoryIndex % colors.length];
+
     competitionsWithCalendars.forEach(comp => {
         calendarSources += `&src=${encodeURIComponent(comp.googleCalendar.calendarId)}`;
-        
-        // Add color parameter if we have a category color
-        if (categoryColor) {
-            colorParams += `&color=${categoryColor}`;
-        }
+        colorParams += `&color=${categoryColor}`;
     });
-    
+
     return `https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0${calendarSources}${colorParams}`;
 }
 
@@ -68,17 +67,21 @@ async function buildCombinedCalendarUrl(competitions, category = null) {
  * Build combined calendar URL with mixed colors for all categories
  */
 async function buildCombinedCalendarUrlWithMixedColors(categories) {
-    // Define colors for each category
-    const categoryColors = {
-        'mens': '%23285F9B',        // Royal blue
-        'womens': '%23D50000',      // Red
-        'midweek': '%23008000',     // Green
-        'juniors': '%23FF8C00'      // Orange
-    };
-    
+    // Define colors for different category types (cycle through these)
+    const colors = [
+        '%23285F9B',  // Royal blue
+        '%23D50000',  // Red
+        '%23008000',  // Green
+        '%23FF8C00',  // Orange
+        '%239C27B0',  // Purple
+        '%23F09300',  // Amber
+        '%230B8043',  // Dark green
+        '%23E67C73'   // Coral
+    ];
+
     let calendarSources = '';
     let colorParams = '';
-    
+
     // Try to get club calendar from settings and add it first
     try {
         const settings = await getSettings();
@@ -90,31 +93,28 @@ async function buildCombinedCalendarUrlWithMixedColors(categories) {
     } catch (error) {
         // Continue without club calendar if settings can't be loaded
     }
-    
-    // Add competitions from each category with their respective colors
-    const categoryMappings = [
-        { competitions: categories.mens, color: categoryColors.mens },
-        { competitions: categories.womens, color: categoryColors.womens },
-        { competitions: categories.midweek, color: categoryColors.midweek },
-        { competitions: categories.juniors, color: categoryColors.juniors }
-    ];
-    
+
     let hasCalendars = false;
-    
-    categoryMappings.forEach(({ competitions, color }) => {
-        competitions.forEach(comp => {
+    let colorIndex = 0;
+
+    // Add competitions from each category with cycling colors
+    Object.keys(categories).forEach(categoryName => {
+        const categoryColor = colors[colorIndex % colors.length];
+        colorIndex++;
+
+        categories[categoryName].forEach(comp => {
             if (comp.googleCalendar && comp.googleCalendar.calendarId) {
                 calendarSources += `&src=${encodeURIComponent(comp.googleCalendar.calendarId)}`;
-                colorParams += `&color=${color}`;
+                colorParams += `&color=${categoryColor}`;
                 hasCalendars = true;
             }
         });
     });
-    
+
     if (!hasCalendars) {
         return null;
     }
-    
+
     return `https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0${calendarSources}${colorParams}`;
 }
 
@@ -130,14 +130,12 @@ async function generateIndexMarkdown(competitionsData, categories, activeCompeti
     markdown += `---\n\n`;
     
     // Get all competitions with calendars for combined view
-    const allCompetitions = [
-        ...categories.mens,
-        ...categories.womens, 
-        ...categories.midweek,
-        ...categories.juniors
-    ];
-    
-    const competitionsWithCalendars = allCompetitions.filter(comp => 
+    const allCompetitions = [];
+    Object.keys(categories).forEach(category => {
+        allCompetitions.push(...categories[category]);
+    });
+
+    const competitionsWithCalendars = allCompetitions.filter(comp =>
         comp.googleCalendar && comp.googleCalendar.calendarId
     );
     
@@ -154,30 +152,16 @@ async function generateIndexMarkdown(competitionsData, categories, activeCompeti
         markdown += `---\n\n`;
     }
     
-    
+
     // Add individual competition sections for each category
-    if (categories.mens.length > 0) {
-        markdown += `## Men's Competitions\n\n`;
-        markdown += await formatCompetitionTable(categories.mens, "Men's");
-        markdown += `\n`;
-    }
-    
-    if (categories.womens.length > 0) {
-        markdown += `## Women's Competitions\n\n`;
-        markdown += await formatCompetitionTable(categories.womens, "Women's");
-        markdown += `\n`;
-    }
-    
-    if (categories.midweek.length > 0) {
-        markdown += `## Midweek Competitions\n\n`;
-        markdown += await formatCompetitionTable(categories.midweek, "Midweek");
-        markdown += `\n`;
-    }
-    
-    if (categories.juniors.length > 0) {
-        markdown += `## Junior Competitions\n\n`;
-        markdown += await formatCompetitionTable(categories.juniors, "Junior");
-        markdown += `\n`;
+    let categoryIndex = 0;
+    for (const [categoryName, competitions] of Object.entries(categories)) {
+        if (competitions.length > 0) {
+            markdown += `## ${categoryName}\n\n`;
+            markdown += await formatCompetitionTable(competitions, categoryName, categoryIndex);
+            markdown += `\n`;
+            categoryIndex++;
+        }
     }
     
     // Footer
@@ -191,27 +175,21 @@ async function generateIndexMarkdown(competitionsData, categories, activeCompeti
 /**
  * Format competitions as a table with combined calendar link
  */
-async function formatCompetitionTable(competitions, categoryName) {
+async function formatCompetitionTable(competitions, categoryName, categoryIndex = 0) {
     // Filter competitions with calendars for combined link
-    const competitionsWithCalendars = competitions.filter(comp => 
+    const competitionsWithCalendars = competitions.filter(comp =>
         comp.googleCalendar && comp.googleCalendar.calendarId
     );
-    
+
     let content = '';
-    
+
     // Add combined calendar link if there are competitions with calendars
     if (competitionsWithCalendars.length > 0) {
-        // Determine category key for color coding
-        const categoryKey = categoryName.toLowerCase().includes("men's") ? 'mens' :
-                           categoryName.toLowerCase().includes("women's") ? 'womens' :
-                           categoryName.toLowerCase().includes('midweek') ? 'midweek' :
-                           categoryName.toLowerCase().includes('junior') ? 'juniors' : null;
-        
-        const combinedCalendarUrl = await buildCombinedCalendarUrl(competitions, categoryKey);
-        
+        const combinedCalendarUrl = await buildCombinedCalendarUrl(competitions, categoryIndex);
+
         if (combinedCalendarUrl) {
             content += `📅 **<a href="${combinedCalendarUrl}" target="_blank">View Combined ${categoryName} Calendar</a>**\n\n`;
-            content += `*Opens Google Calendar with all ${competitionsWithCalendars.length} ${categoryName.toLowerCase()} competition calendars in one view.*\n\n`;
+            content += `*Opens Google Calendar with all ${competitionsWithCalendars.length} competition calendars in one view.*\n\n`;
         }
     }
     
@@ -260,29 +238,121 @@ async function formatCompetitionTable(competitions, categoryName) {
 
 
 /**
+ * Get the latest event date from a competition's calendar file
+ */
+async function getLatestEventDate(competitionName) {
+    try {
+        // Try processed file first, fall back to downloads
+        const processedFile = `temp/processed/${competitionName.replace(/[^a-z0-9]/gi, '_')}_processed.ics`;
+        const downloadFile = `temp/downloads/${competitionName.replace(/[^a-z0-9]/gi, '_')}.ics`;
+
+        let calendarFile;
+        try {
+            await fs.access(processedFile);
+            calendarFile = processedFile;
+        } catch {
+            await fs.access(downloadFile);
+            calendarFile = downloadFile;
+        }
+
+        const icalData = await fs.readFile(calendarFile, 'utf8');
+        const parsedCal = ical.parseICS(icalData);
+
+        let latestDate = null;
+
+        for (const key in parsedCal) {
+            const event = parsedCal[key];
+            if (event.type === 'VEVENT' && event.start) {
+                const eventDate = event.start instanceof Date ? event.start : new Date(event.start);
+                if (!latestDate || eventDate > latestDate) {
+                    latestDate = eventDate;
+                }
+            }
+        }
+
+        return latestDate;
+    } catch (error) {
+        // If calendar file doesn't exist or can't be read, return null
+        return null;
+    }
+}
+
+/**
+ * Group competitions by their category from the website
+ */
+function groupByCategory(competitions) {
+    const grouped = {};
+
+    competitions.forEach(comp => {
+        const category = comp.category || 'Uncategorized';
+
+        if (!grouped[category]) {
+            grouped[category] = [];
+        }
+
+        grouped[category].push(comp);
+    });
+
+    // Sort categories alphabetically
+    const sortedCategories = {};
+    Object.keys(grouped).sort().forEach(key => {
+        sortedCategories[key] = grouped[key];
+    });
+
+    return sortedCategories;
+}
+
+/**
+ * Filter competitions to only those with events in the future
+ */
+async function filterActiveCompetitions(competitions) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Start of today
+
+    const results = await Promise.all(
+        competitions.map(async (comp) => {
+            const latestDate = await getLatestEventDate(comp.name);
+
+            // Include if:
+            // - No date found (calendar not available yet) OR
+            // - Latest event is today or in the future
+            if (!latestDate || latestDate >= today) {
+                return comp;
+            }
+            return null;
+        })
+    );
+
+    return results.filter(comp => comp !== null);
+}
+
+/**
  * Main function to generate documentation
  */
 async function generateDocs() {
     logInfo('Starting documentation generation...');
-    
+
     // Load competition data
     const competitionsData = await loadCompetitionData();
 
     logInfo(`Loaded ${competitionsData.competitions.length} competitions from ${COMPETITIONS_FILE}`);
 
-    // Filter to only active competitions
-    const activeCompetitions = competitionsData.competitions.filter(comp => comp.isActive !== false);
-    logInfo(`Filtered to ${activeCompetitions.length} active competitions`);
+    // Filter to only active competitions (isActive !== false)
+    let activeCompetitions = competitionsData.competitions.filter(comp => comp.isActive !== false);
+    logInfo(`Filtered to ${activeCompetitions.length} active competitions (by isActive flag)`);
 
-    // Categorize active competitions only
-    const categories = categorizeCompetitions(activeCompetitions);
-    
+    // Further filter to only competitions with current or future events
+    activeCompetitions = await filterActiveCompetitions(activeCompetitions);
+    logInfo(`Filtered to ${activeCompetitions.length} competitions with current or future events`);
+
+    // Group competitions by their actual category from the website
+    const categories = groupByCategory(activeCompetitions);
+
     // Print category summary
-    logInfo(`Found competitions:`);
-    console.log(`  - Men's: ${categories.mens.length}`);
-    console.log(`  - Women's: ${categories.womens.length}`);
-    console.log(`  - Midweek: ${categories.midweek.length}`);
-    console.log(`  - Juniors: ${categories.juniors.length}`);
+    logInfo(`Found competitions by category:`);
+    Object.keys(categories).forEach(category => {
+        console.log(`  - ${category}: ${categories[category].length}`);
+    });
     
     // Generate index markdown
     logInfo('Generating index markdown...');

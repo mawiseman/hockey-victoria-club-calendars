@@ -61,6 +61,20 @@ async function determineMatchDuration(competitionName) {
 }
 
 /**
+ * Load existing competitions from competitions.json
+ */
+async function loadExistingCompetitions() {
+    try {
+        const data = await fs.readFile(OUTPUT_FILE, 'utf8');
+        const existingData = JSON.parse(data);
+        return existingData.competitions || [];
+    } catch (error) {
+        // File doesn't exist, return empty array
+        return [];
+    }
+}
+
+/**
  * Load or create progress tracking data
  */
 async function loadProgress() {
@@ -68,15 +82,16 @@ async function loadProgress() {
         const progressData = await fs.readFile(PROGRESS_FILE, 'utf8');
         return JSON.parse(progressData);
     } catch (error) {
-        // File doesn't exist or is invalid, return default structure
+        // File doesn't exist or is invalid, load existing competitions and create default structure
+        const existingCompetitions = await loadExistingCompetitions();
         return {
             startedAt: new Date().toISOString(),
             lastUpdated: new Date().toISOString(),
             processedLinks: new Set(),
-            foundCompetitions: [],
+            foundCompetitions: existingCompetitions,
             totalLinksFound: 0,
             totalProcessed: 0,
-            totalWithClub: 0
+            totalWithClub: existingCompetitions.length
         };
     }
 }
@@ -116,19 +131,37 @@ async function loadProgressWithSet() {
  */
 async function saveCompetitionResult(progress, competitionData) {
     if (competitionData) {
-        progress.foundCompetitions.push(competitionData);
-        progress.totalWithClub++;
-        console.log(`✅ Saved competition: ${competitionData.name}`);
+        // Check if competition already exists
+        const existingIndex = progress.foundCompetitions.findIndex(
+            comp => comp.name === competitionData.name
+        );
+
+        if (existingIndex >= 0) {
+            // Merge with existing competition - preserve googleCalendar data
+            const existing = progress.foundCompetitions[existingIndex];
+            progress.foundCompetitions[existingIndex] = {
+                ...competitionData,
+                googleCalendar: existing.googleCalendar || competitionData.googleCalendar,
+                // Preserve isActive flag if it was set
+                isActive: existing.isActive !== undefined ? existing.isActive : competitionData.isActive
+            };
+            console.log(`✅ Updated competition: ${competitionData.name}`);
+        } else {
+            // New competition
+            progress.foundCompetitions.push(competitionData);
+            progress.totalWithClub++;
+            console.log(`✅ Added new competition: ${competitionData.name}`);
+        }
     }
-    
+
     progress.totalProcessed++;
-    
+
     // Save progress file
     await saveProgress(progress);
-    
+
     // Ensure output directory exists and update the main output file
     await fs.mkdir(OUTPUT_DIR, { recursive: true });
-    
+
     const outputData = {
         scrapedAt: progress.startedAt,
         lastUpdated: progress.lastUpdated,
@@ -138,7 +171,7 @@ async function saveCompetitionResult(progress, competitionData) {
         totalLinksFound: progress.totalLinksFound,
         competitions: progress.foundCompetitions
     };
-    
+
     await fs.writeFile(OUTPUT_FILE, JSON.stringify(outputData, null, 2), 'utf8');
 }
 
@@ -267,44 +300,68 @@ async function scrapeCompetitions() {
 }
 
 /**
- * Extract all competition links from the main games page
+ * Extract all competition links from the main games page with their category from H2 headings
  */
 async function getCompetitionLinks(page) {
     return await page.evaluate(() => {
         const links = [];
-        const competitionElements = document.querySelectorAll('a[href*="/games/"]');
-        
-        competitionElements.forEach(element => {
-            const href = element.getAttribute('href');
-            const text = element.textContent.trim();
-            
-            if (href && text) {
-                const fullUrl = href.startsWith('/') ? `https://www.hockeyvictoria.org.au${href}` : href;
-                
-                // Exclude links with specific titles
-                const excludedTitles = ['Download', 'Statistics'];
-                const isExcluded = excludedTitles.some(excludedTitle => 
-                    text.toLowerCase().includes(excludedTitle.toLowerCase())
-                );
-                
-                // Only include URLs that are children of /games/ (not just /games/ itself) and not excluded
-                if (fullUrl.includes('/games/') && 
-                    fullUrl !== 'https://www.hockeyvictoria.org.au/games/' && 
-                    fullUrl.length > 'https://www.hockeyvictoria.org.au/games/'.length &&
-                    !isExcluded) {
-                    links.push({
-                        url: fullUrl,
-                        text: text
-                    });
-                }
+
+        // Find all H2 headings that represent categories
+        const h2Elements = document.querySelectorAll('h2');
+
+        h2Elements.forEach(h2 => {
+            const category = h2.textContent.trim();
+
+            // The H2 is inside a div, and competition links are in sibling divs of that parent
+            const parentDiv = h2.parentElement;
+            if (!parentDiv) return;
+
+            // Find all competition links in sibling divs after the H2's parent div
+            let currentElement = parentDiv.nextElementSibling;
+
+            while (currentElement) {
+                // Stop if we hit another section (contains an H2)
+                if (currentElement.querySelector('h2')) break;
+
+                // Look for competition links in this sibling div
+                const competitionElements = currentElement.querySelectorAll('a[href*="/games/"]');
+
+                competitionElements.forEach(element => {
+                    const href = element.getAttribute('href');
+                    const text = element.textContent.trim();
+
+                    if (href && text) {
+                        const fullUrl = href.startsWith('/') ? `https://www.hockeyvictoria.org.au${href}` : href;
+
+                        // Exclude links with specific titles
+                        const excludedTitles = ['Download', 'Statistics', 'Fixtures and Results'];
+                        const isExcluded = excludedTitles.some(excludedTitle =>
+                            text.toLowerCase().includes(excludedTitle.toLowerCase())
+                        );
+
+                        // Only include URLs that are children of /games/ (not just /games/ itself) and not excluded
+                        if (fullUrl.includes('/games/') &&
+                            fullUrl !== 'https://www.hockeyvictoria.org.au/games/' &&
+                            fullUrl.length > 'https://www.hockeyvictoria.org.au/games/'.length &&
+                            !isExcluded) {
+                            links.push({
+                                url: fullUrl,
+                                text: text,
+                                category: category
+                            });
+                        }
+                    }
+                });
+
+                currentElement = currentElement.nextElementSibling;
             }
         });
-        
-        // Remove duplicates
-        const unique = links.filter((link, index, self) => 
+
+        // Remove duplicates (keep first occurrence with category)
+        const unique = links.filter((link, index, self) =>
             index === self.findIndex(l => l.url === link.url)
         );
-        
+
         return unique;
     });
 }
@@ -448,6 +505,7 @@ async function checkCompetition(page, competitionLink) {
 
                         return {
                             name: normalizedName,
+                            category: competitionLink.category || 'Uncategorized',
                             fixtureUrl: clubData.fixtureUrl,
                             competitionUrl: competitionLink.url,
                             ladderUrl: ladderLink.url,

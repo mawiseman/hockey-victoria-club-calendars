@@ -1,18 +1,19 @@
 {
-  "scrapedAt": "2025-09-30T05:11:37.000Z",
-  "lastUpdated": "2025-09-30T05:11:37.000Z",
+  "scrapedAt": "2025-10-02T22:31:14.623Z",
+  "lastUpdated": "2025-10-02T22:31:14.623Z",
   "clubName": "Footscray Hockey Club",
   "totalCompetitions": 34,
-  "totalProcessed": 34,
+  "totalProcessed": 33,
   "totalLinksFound": 149,
   "competitions": [
     {
       "name": "League 1 Womens",
+      "category": "2025 Senior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375029",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39696",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39696",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:11:45.076Z",
+      "scrapedAt": "2025-10-02T22:31:22.428Z",
       "googleCalendar": {
         "calendarId": "de176a7d8a94cda770a6c10467e10dffc86ac14f6762693b195d002bb13895e1@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=de176a7d8a94cda770a6c10467e10dffc86ac14f6762693b195d002bb13895e1%40group.calendar.google.com",
@@ -23,11 +24,12 @@
     },
     {
       "name": "League 1 Mens",
+      "category": "2025 Senior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375022",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39698",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39698",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:11:45.162Z",
+      "scrapedAt": "2025-10-02T22:31:22.636Z",
       "googleCalendar": {
         "calendarId": "d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab%40group.calendar.google.com",
@@ -38,11 +40,12 @@
     },
     {
       "name": "League 2 NW Womens",
+      "category": "2025 Senior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375038",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39699",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39699",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:11:45.167Z",
+      "scrapedAt": "2025-10-02T22:31:22.384Z",
       "googleCalendar": {
         "calendarId": "a1dd7d3ae24165be6fc0f2c097f3ab3fab127282c078e0fbe9975da4969f2cfb@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=a1dd7d3ae24165be6fc0f2c097f3ab3fab127282c078e0fbe9975da4969f2cfb%40group.calendar.google.com",
@@ -53,11 +56,12 @@
     },
     {
       "name": "Under 12 Girls",
+      "category": "2025 Junior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375099",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39708",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39708",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:11:48.814Z",
+      "matchDuration": 90,
+      "scrapedAt": "2025-10-02T22:31:25.321Z",
       "googleCalendar": {
         "calendarId": "13651278507f211f086c099770b42c3be55552e45816828a669bbb729e660e78@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=13651278507f211f086c099770b42c3be55552e45816828a669bbb729e660e78%40group.calendar.google.com",
@@ -68,11 +72,12 @@
     },
     {
       "name": "Under 14 Division 1 - Girls",
+      "category": "2025 Junior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375137",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39709",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39709",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:11:48.922Z",
+      "matchDuration": 90,
+      "scrapedAt": "2025-10-02T22:31:25.256Z",
       "googleCalendar": {
         "calendarId": "9e5e3cdf582696c7dc8d0adf7553a69684a027a22d9be3e84c477b80b2784956@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=9e5e3cdf582696c7dc8d0adf7553a69684a027a22d9be3e84c477b80b2784956%40group.calendar.google.com",
@@ -83,11 +88,12 @@
     },
     {
       "name": "35+ Masters NW League - Women's",
+      "category": "2025 Senior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375010",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39697",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39697",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:11:49.632Z",
+      "scrapedAt": "2025-10-02T22:31:24.975Z",
       "googleCalendar": {
         "calendarId": "0c06381c76848567adb2436e32c6705ca890455a25aa8eb54e365ec8cee8ccb7@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=0c06381c76848567adb2436e32c6705ca890455a25aa8eb54e365ec8cee8ccb7%40group.calendar.google.com",
@@ -98,11 +104,12 @@
     },
     {
       "name": "Under 16 Girls",
+      "category": "2025 Junior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375174",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39710",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39710",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:11:54.553Z",
+      "matchDuration": 90,
+      "scrapedAt": "2025-10-02T22:31:28.577Z",
       "googleCalendar": {
         "calendarId": "9ddee750429d586f84b07edddf58549294fcd283441febffba66ebacebb30421@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=9ddee750429d586f84b07edddf58549294fcd283441febffba66ebacebb30421%40group.calendar.google.com",
@@ -113,11 +120,12 @@
     },
     {
       "name": "Under 12 Division 2 NW - Mixed",
+      "category": "2025 Junior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375077",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39715",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39715",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:11:54.983Z",
+      "matchDuration": 90,
+      "scrapedAt": "2025-10-02T22:31:28.142Z",
       "googleCalendar": {
         "calendarId": "c33e9dd54ec3a5885dd2f32b281f22b2d7b0cb40f9ddf0ca5a396e6de679551d@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=c33e9dd54ec3a5885dd2f32b281f22b2d7b0cb40f9ddf0ca5a396e6de679551d%40group.calendar.google.com",
@@ -128,11 +136,12 @@
     },
     {
       "name": "Under 12 Division 1 - Mixed",
+      "category": "2025 Junior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375065",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39704",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39704",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:11:55.209Z",
+      "matchDuration": 90,
+      "scrapedAt": "2025-10-02T22:31:28.143Z",
       "googleCalendar": {
         "calendarId": "faabe77e1b1b35c7245c461583e63d5e1f7f284b00dbd58157772063dbb232eb@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=faabe77e1b1b35c7245c461583e63d5e1f7f284b00dbd58157772063dbb232eb%40group.calendar.google.com",
@@ -143,11 +152,12 @@
     },
     {
       "name": "Under 16 Division 1 - Mixed",
+      "category": "2025 Junior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375148",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39706",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39706",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:11:58.762Z",
+      "matchDuration": 90,
+      "scrapedAt": "2025-10-02T22:31:32.057Z",
       "googleCalendar": {
         "calendarId": "bfc22559d697640ebfdbebcc36db42dd75b02decfa3d6bd4677a69f764c63d99@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=bfc22559d697640ebfdbebcc36db42dd75b02decfa3d6bd4677a69f764c63d99%40group.calendar.google.com",
@@ -158,11 +168,12 @@
     },
     {
       "name": "Under 14 Division 2 NW - Mixed",
+      "category": "2025 Junior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375119",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39716",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39716",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:11:58.859Z",
+      "matchDuration": 90,
+      "scrapedAt": "2025-10-02T22:31:32.104Z",
       "googleCalendar": {
         "calendarId": "b55ff8ee1a8ee8fded1d4a4baeb888626050055e1aee21873ff6766d56ff6932@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=b55ff8ee1a8ee8fded1d4a4baeb888626050055e1aee21873ff6766d56ff6932%40group.calendar.google.com",
@@ -173,11 +184,12 @@
     },
     {
       "name": "Under 14 Division 1 - Mixed",
+      "category": "2025 Junior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375108",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39705",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39705",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:11:59.109Z",
+      "matchDuration": 90,
+      "scrapedAt": "2025-10-02T22:31:32.335Z",
       "googleCalendar": {
         "calendarId": "d48c4091c7dd1b5316d7edce7a7ba8b6265beb806b7038c69f2a3c1e7a312fe4@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=d48c4091c7dd1b5316d7edce7a7ba8b6265beb806b7038c69f2a3c1e7a312fe4%40group.calendar.google.com",
@@ -188,11 +200,12 @@
     },
     {
       "name": "Under 18 - Mixed",
+      "category": "2025 Junior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375182",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39707",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39707",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:12:01.467Z",
+      "matchDuration": 90,
+      "scrapedAt": "2025-10-02T22:31:36.807Z",
       "googleCalendar": {
         "calendarId": "56b90be6d6f0b7774bf1b8b6ff48e6d9b918abcbe3b8003a750f2cda64c75398@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=56b90be6d6f0b7774bf1b8b6ff48e6d9b918abcbe3b8003a750f2cda64c75398%40group.calendar.google.com",
@@ -203,11 +216,12 @@
     },
     {
       "name": "Under 16 Division 2 NW - Mixed",
+      "category": "2025 Junior Indoor League",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375159",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39717",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39717",
-      "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:12:01.489Z",
+      "matchDuration": 90,
+      "scrapedAt": "2025-10-02T22:31:37.373Z",
       "googleCalendar": {
         "calendarId": "0a44fcc6122969f2c8183416e52b602b48292d9c0e19e449d5a1d867948ce644@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=0a44fcc6122969f2c8183416e52b602b48292d9c0e19e449d5a1d867948ce644%40group.calendar.google.com",
@@ -218,11 +232,12 @@
     },
     {
       "name": "2025 T4 35+ Womens Footscray Wednesday",
+      "category": "2025 Term 4 Summer Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24044/376315",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/24044/39773",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24044/39773",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:05.579Z",
+      "scrapedAt": "2025-10-02T22:31:42.353Z",
       "googleCalendar": {
         "calendarId": "15353587bd4dd21c88b7479be13e5daf847d6ed6a834eee0c433d03fe37fcca4@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=15353587bd4dd21c88b7479be13e5daf847d6ed6a834eee0c433d03fe37fcca4%40group.calendar.google.com",
@@ -233,11 +248,12 @@
     },
     {
       "name": "Women's Premier League Reserves - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336963",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37286",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37286",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:07.877Z",
+      "scrapedAt": "2025-10-02T22:31:46.310Z",
       "googleCalendar": {
         "calendarId": "8b6394caa7d84adfbbc6857f0a7740e5806e6a146f59ab9626ba21963a07786e@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=8b6394caa7d84adfbbc6857f0a7740e5806e6a146f59ab9626ba21963a07786e%40group.calendar.google.com",
@@ -248,11 +264,12 @@
     },
     {
       "name": "Women's Premier League - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336962",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37285",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37285",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:07.939Z",
+      "scrapedAt": "2025-10-02T22:31:46.640Z",
       "googleCalendar": {
         "calendarId": "56536e35edfd9d627d2f81d41b146466edbe42dbf285ad74eb636531bcb93ad7@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=56536e35edfd9d627d2f81d41b146466edbe42dbf285ad74eb636531bcb93ad7%40group.calendar.google.com",
@@ -263,11 +280,12 @@
     },
     {
       "name": "Men's Premier League - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336954",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37287",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37287",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:10.392Z",
+      "scrapedAt": "2025-10-02T22:31:51.887Z",
       "googleCalendar": {
         "calendarId": "1f220e3aea02d8d0f80df31f81324412484b6f786eff698f6262e980772060e4@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=1f220e3aea02d8d0f80df31f81324412484b6f786eff698f6262e980772060e4%40group.calendar.google.com",
@@ -278,11 +296,12 @@
     },
     {
       "name": "Men's Premier League Reserves - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336955",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37288",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37288",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:10.547Z",
+      "scrapedAt": "2025-10-02T22:31:51.885Z",
       "googleCalendar": {
         "calendarId": "97956a86ccf6ef13c27f58015aa6958fc711dd7bf08ca136c016162157c6d496@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=97956a86ccf6ef13c27f58015aa6958fc711dd7bf08ca136c016162157c6d496%40group.calendar.google.com",
@@ -293,11 +312,12 @@
     },
     {
       "name": "Women's Pennant A - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336957",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37298",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37298",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:18.721Z",
+      "scrapedAt": "2025-10-02T22:32:01.605Z",
       "googleCalendar": {
         "calendarId": "3a061a8facf2aad203b3f27ee214d2912894c27e5884d224963308997cc3d097@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=3a061a8facf2aad203b3f27ee214d2912894c27e5884d224963308997cc3d097%40group.calendar.google.com",
@@ -308,11 +328,12 @@
     },
     {
       "name": "Men's Pennant A - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336951",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37301",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37301",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:19.619Z",
+      "scrapedAt": "2025-10-02T22:32:01.590Z",
       "googleCalendar": {
         "calendarId": "16b655e174b838f23b3fc54687fca5e059843515da89d9c5926645b7e5eeab7d@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=16b655e174b838f23b3fc54687fca5e059843515da89d9c5926645b7e5eeab7d%40group.calendar.google.com",
@@ -323,11 +344,12 @@
     },
     {
       "name": "Women's Pennant C - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336959",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37300",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37300",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:19.931Z",
+      "scrapedAt": "2025-10-02T22:32:01.918Z",
       "googleCalendar": {
         "calendarId": "cb97b547cddb0381d07e8c8b1b327ed700e90b2e07e68714197ab553fbd2ce9d@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=cb97b547cddb0381d07e8c8b1b327ed700e90b2e07e68714197ab553fbd2ce9d%40group.calendar.google.com",
@@ -338,11 +360,12 @@
     },
     {
       "name": "Women's Pennant B - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336958",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37299",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37299",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:19.946Z",
+      "scrapedAt": "2025-10-02T22:32:01.689Z",
       "googleCalendar": {
         "calendarId": "e4a63bff99c2b56ba32b7877072c44d116935aad3baada5e751e85aef64f2461@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=e4a63bff99c2b56ba32b7877072c44d116935aad3baada5e751e85aef64f2461%40group.calendar.google.com",
@@ -353,11 +376,12 @@
     },
     {
       "name": "Men's Pennant D North West - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336953",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37306",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37306",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:22.840Z",
+      "scrapedAt": "2025-10-02T22:32:06.358Z",
       "googleCalendar": {
         "calendarId": "884c99f9887b737724158dc5179e7f3f2b11914ae1b1a6619dfdd4328787f817@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=884c99f9887b737724158dc5179e7f3f2b11914ae1b1a6619dfdd4328787f817%40group.calendar.google.com",
@@ -368,11 +392,12 @@
     },
     {
       "name": "Men's Pennant B - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336952",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37302",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37302",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:22.853Z",
+      "scrapedAt": "2025-10-02T22:32:06.846Z",
       "googleCalendar": {
         "calendarId": "b7311408b7c70beab744c7fdfdf74dc7491f7eaee48e17b538285327204dbd72@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=b7311408b7c70beab744c7fdfdf74dc7491f7eaee48e17b538285327204dbd72%40group.calendar.google.com",
@@ -383,11 +408,12 @@
     },
     {
       "name": "Women's Pennant D North West - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336960",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37304",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37304",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:22.889Z",
+      "scrapedAt": "2025-10-02T22:32:06.360Z",
       "googleCalendar": {
         "calendarId": "8bb6d3833f4399af37ec044eacd085f45b897d6910935320163b2422cb13eccf@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=8bb6d3833f4399af37ec044eacd085f45b897d6910935320163b2422cb13eccf%40group.calendar.google.com",
@@ -398,11 +424,12 @@
     },
     {
       "name": "Women's Pennant E North West - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336961",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37308",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37308",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:25.774Z",
+      "scrapedAt": "2025-10-02T22:32:11.175Z",
       "googleCalendar": {
         "calendarId": "14c37c863800760f1cca7118d188c1bf54bde2d694a81613f5b8b25040c4564c@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=14c37c863800760f1cca7118d188c1bf54bde2d694a81613f5b8b25040c4564c%40group.calendar.google.com",
@@ -413,11 +440,12 @@
     },
     {
       "name": "Men's Metro 1 North West - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336950",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37316",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37316",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:28.543Z",
+      "scrapedAt": "2025-10-02T22:32:15.434Z",
       "googleCalendar": {
         "calendarId": "7b66fc969b25978bd41e46cfe08eeac3639b3e887389d752689262199d0f96c3@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=7b66fc969b25978bd41e46cfe08eeac3639b3e887389d752689262199d0f96c3%40group.calendar.google.com",
@@ -428,11 +456,12 @@
     },
     {
       "name": "Women's Metro 1 North West - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/336956",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37313",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37313",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:28.661Z",
+      "scrapedAt": "2025-10-02T22:32:15.413Z",
       "googleCalendar": {
         "calendarId": "a55ef96862114e2a69788c8a347f7877f4813713d20efccfeaccb5d0ac1bc54f@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=a55ef96862114e2a69788c8a347f7877f4813713d20efccfeaccb5d0ac1bc54f%40group.calendar.google.com",
@@ -443,11 +472,12 @@
     },
     {
       "name": "Men's Metro 2 North West - 2025",
+      "category": "2025 Senior Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/21935/339251",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/21935/37319",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/21935/37319",
       "matchDuration": 90,
-      "scrapedAt": "2025-09-30T05:12:31.334Z",
+      "scrapedAt": "2025-10-02T22:32:20.585Z",
       "googleCalendar": {
         "calendarId": "789972398db6baf2f2bceb7192de6415a320e694ad7a838dd377f13dd94eadda@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=789972398db6baf2f2bceb7192de6415a320e694ad7a838dd377f13dd94eadda%40group.calendar.google.com",
@@ -458,11 +488,12 @@
     },
     {
       "name": "2025 Midweek Men's 50+ NW",
+      "category": "2025 Midweek Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22076/338770",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/22076/37402",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22076/37402",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:12:34.198Z",
+      "scrapedAt": "2025-10-02T22:32:25.065Z",
       "googleCalendar": {
         "calendarId": "977372c1fa7188df9da9160c7180f3b02df7dfe35cd75cf5b78a5acd54e66ffc@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=977372c1fa7188df9da9160c7180f3b02df7dfe35cd75cf5b78a5acd54e66ffc%40group.calendar.google.com",
@@ -473,11 +504,12 @@
     },
     {
       "name": "2025 Midweek Women's 45+",
+      "category": "2025 Midweek Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22076/338771",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/22076/37408",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22076/37408",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:12:34.210Z",
+      "scrapedAt": "2025-10-02T22:32:25.207Z",
       "googleCalendar": {
         "calendarId": "05e5a33f8cc7a2e422a0d806ebd2bb8cf7ea4b6738cb17b6bcd9acc00f76142b@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=05e5a33f8cc7a2e422a0d806ebd2bb8cf7ea4b6738cb17b6bcd9acc00f76142b%40group.calendar.google.com",
@@ -488,11 +520,12 @@
     },
     {
       "name": "2025 Midweek Men's 45+ NW",
+      "category": "2025 Midweek Competition",
       "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/22076/338768",
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/22076/37396",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/22076/37396",
       "matchDuration": 60,
-      "scrapedAt": "2025-09-30T05:12:34.215Z",
+      "scrapedAt": "2025-10-02T22:32:25.369Z",
       "googleCalendar": {
         "calendarId": "b033da4f5e1edfed703dd9aaa7dad4ac73d77399a382e556174c228d1161deac@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=b033da4f5e1edfed703dd9aaa7dad4ac73d77399a382e556174c228d1161deac%40group.calendar.google.com",
