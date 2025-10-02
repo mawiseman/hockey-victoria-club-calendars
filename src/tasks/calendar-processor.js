@@ -29,16 +29,28 @@ export async function loadConfig() {
 export function replaceClubNames(text, clubMappings) {
     let result = text;
     const originalText = text;
-    
-    for (const [fullName, abbreviation] of Object.entries(clubMappings.clubMappings)) {
-        result = result.replace(new RegExp(fullName, 'g'), abbreviation);
+
+    // Escape special regex characters in club name
+    function escapeRegex(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
-    
+
+    for (const [fullName, abbreviation] of Object.entries(clubMappings.clubMappings)) {
+        const escapedName = escapeRegex(fullName);
+
+        // Replace club names followed by optional team suffix (space + word/number)
+        // This handles any suffix pattern without hardcoding them
+        const patternWithSuffix = new RegExp(`${escapedName}( [A-Za-z0-9]+)?\\b`, 'g');
+        result = result.replace(patternWithSuffix, (match, suffix) => {
+            return suffix ? `${abbreviation}${suffix}` : abbreviation;
+        });
+    }
+
     // Check if any replacements were made
     if (result === originalText) {
         logWarning(`No club name mappings found for: "${originalText}"`);
     }
-    
+
     return result;
 }
 
@@ -53,8 +65,8 @@ export function replaceCompetitionNames(text, competitionReplacements) {
     for (const replacement of competitionReplacements) {
         let pattern = replacement.pattern;
 
-        // Replace {{YEAR}} variable
-        pattern = pattern.replace('{{YEAR}}', currentYear);
+        // Replace {{YEAR}} variable (replace all occurrences)
+        pattern = pattern.replace(/\{\{YEAR\}\}/g, currentYear);
 
         // Replace {{GENDER}} variable with both Men's and Women's options
         if (pattern.includes('{{GENDER}}')) {
@@ -87,12 +99,56 @@ export function replaceCompetitionNames(text, competitionReplacements) {
  */
 export function replaceRoundNames(text, roundPatterns) {
     let result = text;
-    
+
     for (const pattern of roundPatterns) {
         result = result.replace(new RegExp(pattern.regex, 'g'), pattern.replacement);
     }
-    
+
     return result;
+}
+
+/**
+ * Detect gender from original summary
+ */
+export function detectGender(text) {
+    const lowerText = text.toLowerCase();
+    if (lowerText.includes("women") || lowerText.includes("girls")) {
+        return "Women";
+    }
+    if (lowerText.includes("men") || lowerText.includes("boys")) {
+        return "Men";
+    }
+    return null;
+}
+
+/**
+ * Add gender prefix to competitions that need it
+ */
+export function addGenderPrefix(text, originalSummary) {
+    const gender = detectGender(originalSummary);
+    if (!gender) return text;
+
+    // Remove trailing gender terms (Men/Women) that might already be present
+    const cleanedText = text.replace(/\s+(Men|Women)(\s|$)/, '$2');
+
+    // List of competition abbreviations that need gender prefix
+    const needsGenderPrefix = [
+        /^(PL|PLR|PEN [A-E]|M1|M2)\s/,
+        /^Indoor (League )?\d+/
+    ];
+
+    for (const pattern of needsGenderPrefix) {
+        if (pattern.test(cleanedText)) {
+            // Add "League" if it's Indoor without it
+            let result = cleanedText;
+            if (/^Indoor \d+/.test(result)) {
+                result = result.replace(/^Indoor (\d+)/, 'Indoor League $1');
+            }
+            return `${gender} ${result}`;
+        }
+    }
+
+    return text;
 }
 
 /**
@@ -244,6 +300,7 @@ export async function processCalendar(inputPath, outputPath, competition) {
             summary = replaceClubNames(summary, config.clubMappings);
             summary = replaceCompetitionNames(summary, config.competitionNames.competitionReplacements);
             summary = replaceRoundNames(summary, config.competitionNames.roundPatterns);
+            summary = addGenderPrefix(summary, originalSummary);
             
             // Generate description
             const description = await generateDescription(competition, roundNumber);

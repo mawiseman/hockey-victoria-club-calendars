@@ -1,11 +1,13 @@
 import fs from 'fs/promises';
 import path from 'path';
 import ical from 'ical';
+import yaml from 'yaml';
 import {
     loadConfig,
     replaceClubNames,
     replaceCompetitionNames,
-    replaceRoundNames
+    replaceRoundNames,
+    addGenderPrefix
 } from '../tasks/calendar-processor.js';
 
 /**
@@ -24,10 +26,28 @@ async function testNameProcessing() {
 
     console.log(`Found ${icsFiles.length} ICS files\n`);
 
-    // Prepare CSV data
-    const csvRows = [
-        ['Filename', 'Original Summary', 'Processed Summary']
-    ];
+    // Path for YAML file
+    const yamlPath = 'temp/test-calendar-summary-processing.yaml';
+
+    // Load existing YAML data if it exists
+    let existingData = [];
+    try {
+        const existingContent = await fs.readFile(yamlPath, 'utf8');
+        existingData = yaml.parse(existingContent) || [];
+    } catch (error) {
+        // File doesn't exist yet, start fresh
+    }
+
+    // Create a map of existing entries by filename for preservation of Target Summary
+    const existingMap = new Map(
+        existingData.map(entry => {
+            const filename = Object.keys(entry)[0];
+            return [filename, entry];
+        })
+    );
+
+    // Prepare YAML data
+    const yamlData = [];
 
     // Process each file
     for (const file of icsFiles) {
@@ -49,18 +69,25 @@ async function testNameProcessing() {
             }
 
             if (originalSummary) {
+                // Remove line breaks from original summary
+                const cleanedOriginal = originalSummary.replace(/\s+/g, ' ').trim();
+
                 // Process the summary
-                let processedSummary = originalSummary;
+                let processedSummary = cleanedOriginal;
                 processedSummary = replaceClubNames(processedSummary, config.clubMappings);
                 processedSummary = replaceCompetitionNames(processedSummary, config.competitionNames.competitionReplacements);
                 processedSummary = replaceRoundNames(processedSummary, config.competitionNames.roundPatterns);
+                processedSummary = addGenderPrefix(processedSummary, cleanedOriginal);
 
-                // Add to CSV rows
-                csvRows.push([
-                    file,
-                    `"${originalSummary}"`,
-                    `"${processedSummary}"`
-                ]);
+                // Add to YAML data, preserving existing Target Summary if present
+                const existingEntry = existingMap.get(file);
+                yamlData.push({
+                    [file]: {
+                        'Original Summary': cleanedOriginal,
+                        'Processed Summary': processedSummary,
+                        'Target Summary': existingEntry && existingEntry[file] ? existingEntry[file]['Target Summary'] : ''
+                    }
+                });
 
                 console.log(`✓ ${file}`);
                 console.log(`  Original: ${originalSummary}`);
@@ -73,13 +100,14 @@ async function testNameProcessing() {
         }
     }
 
-    // Write CSV file
-    const csvContent = csvRows.map(row => row.join(',')).join('\n');
-    const csvPath = 'temp/test-calendar-summary-processing.csv';
-    await fs.writeFile(csvPath, csvContent, 'utf8');
+    // Write YAML file with options to prevent line wrapping
+    const yamlContent = yaml.stringify(yamlData, {
+        lineWidth: 0
+    });
+    await fs.writeFile(yamlPath, yamlContent, 'utf8');
 
-    console.log(`\n✅ CSV saved to: ${csvPath}`);
-    console.log(`   Total files processed: ${csvRows.length - 1}`);
+    console.log(`\n✅ YAML saved to: ${yamlPath}`);
+    console.log(`   Total files processed: ${yamlData.length}`);
 }
 
 // Run the test

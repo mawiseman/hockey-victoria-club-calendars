@@ -2,12 +2,47 @@
   "defaultMatchDuration": 90,
   "competitionReplacements": [
     {
-      "pattern": "Under",
+      "pattern": "{{YEAR}} Senior Indoor League League (\\d+) NW\\s+",
+      "replacement": "Indoor League $1 NW ",
+      "duration": 60
+    },
+    {
+      "pattern": "{{YEAR}} Senior Indoor League League (\\d+)\\s+",
+      "replacement": "Indoor League $1 ",
+      "duration": 60
+    },
+    {
+      "pattern": "{{YEAR}} Junior Indoor League Under (\\d+) Division (\\d+) NW - (.*)",
+      "replacement": "U$1 Indoor Div $2 NW $3",
+      "duration": 60
+    },
+    {
+      "pattern": "{{YEAR}} Junior Indoor League Under (\\d+) Division (\\d+) - (.*)",
+      "replacement": "U$1 Indoor Div $2 $3",
+      "duration": 60
+    },
+    {
+      "pattern": "{{YEAR}} Junior Indoor League Under (\\d+) (.*)",
+      "replacement": "U$1 Indoor $2",
+      "duration": 60
+    },
+    {
+      "pattern": "{{YEAR}} Senior Indoor League (\\d+\\+) Masters (\\w+) League - ([^R]+)",
+      "replacement": "$3$1 $2 Indoor",
+      "duration": 60
+    },
+    {
+      "pattern": "{{YEAR}} Term 4 Summer Competition {{YEAR}} T4 (\\d+\\+) Womens .*?- ",
+      "replacement": "Women $1 - ",
+      "duration": 60
+    },
+    {
+      "pattern": "{{YEAR}} Midweek Competition ",
       "replacement": "",
       "duration": 60
     },
     {
-      "pattern": "Midweek",
+      "pattern": "Under",
       "replacement": "",
       "duration": 60
     },
@@ -77,14 +112,25 @@
       "replacement": ""
     },
     {
-      "pattern": "{{YEAR}} Midweek Competition ",
+      "pattern": "{{YEAR}} Junior Competition",
       "replacement": "",
       "duration": 60
     },
     {
-      "pattern": "{{YEAR}} Junior Competition",
-      "replacement": "",
-      "duration": 60
+      "pattern": "Men's",
+      "replacement": "Men"
+    },
+    {
+      "pattern": "Women's",
+      "replacement": "Women"
+    },
+    {
+      "pattern": "Mens",
+      "replacement": "Men"
+    },
+    {
+      "pattern": "Womens",
+      "replacement": "Women"
     }
   ],
   "roundPatterns": [

@@ -27,11 +27,12 @@
   "license": "MIT",
   "dependencies": {
     "@googleapis/calendar": "^9.7.9",
+    "dotenv": "^16.4.5",
     "googleapis": "^131.0.0",
     "ical": "^0.8.0",
     "node-fetch": "^3.3.2",
-    "dotenv": "^16.4.5",
-    "puppeteer": "^24.9.0"
+    "puppeteer": "^24.9.0",
+    "yaml": "^2.8.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.30"
