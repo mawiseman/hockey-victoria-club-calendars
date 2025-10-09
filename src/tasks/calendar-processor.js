@@ -241,17 +241,56 @@ async function generateDescription(competition, roundNumber) {
 }
 
 /**
+ * Parse raw iCal data to extract original datetime strings
+ * This avoids timezone conversion issues
+ */
+function parseRawICalEvents(icalData) {
+    const events = {};
+    const eventBlocks = icalData.split('BEGIN:VEVENT');
+
+    for (let i = 1; i < eventBlocks.length; i++) {
+        const eventText = eventBlocks[i].split('END:VEVENT')[0];
+        const lines = eventText.split(/\r?\n/);
+
+        let uid = null;
+        let dtstart = null;
+
+        for (const line of lines) {
+            if (line.startsWith('UID:')) {
+                uid = line.substring(4).trim();
+            } else if (line.startsWith('DTSTART')) {
+                // Extract the datetime value after the colon
+                // Format: DTSTART;TZID=Australia/Melbourne:20250414T201500
+                const colonIndex = line.indexOf(':');
+                if (colonIndex !== -1) {
+                    dtstart = line.substring(colonIndex + 1).trim();
+                }
+            }
+        }
+
+        if (uid && dtstart) {
+            events[uid] = { dtstart };
+        }
+    }
+
+    return events;
+}
+
+/**
  * Process a single calendar file
  */
 export async function processCalendar(inputPath, outputPath, competition) {
     logInfo(`Processing calendar: ${inputPath}`);
-    
+
     const config = await loadConfig();
     const icalData = await fs.readFile(inputPath, 'utf8');
     const parsedCal = ical.parseICS(icalData);
-    
+
     // Get game duration for this competition (default to 90 minutes if not specified)
     const gameDuration = competition.matchDuration || 90;
+
+    // Parse original iCal to extract raw datetime strings
+    const rawEvents = parseRawICalEvents(icalData);
     
     // Build new iCal file
     let processedCal = 'BEGIN:VCALENDAR\n';
@@ -301,36 +340,43 @@ export async function processCalendar(inputPath, outputPath, competition) {
             // Generate description
             const description = await generateDescription(competition, roundNumber);
             
-            // Handle timezone conversion properly
-            let originalStart;
-            if (event.start instanceof Date) {
-                originalStart = event.start;
-            } else {
-                originalStart = new Date(event.start);
-            }
-
-            // Validate original start date
-            if (isNaN(originalStart.getTime())) {
-                logWarning(`Skipping event with invalid start date: ${summary} - Start: ${event.start}`);
+            // Get the original datetime string to preserve timezone handling
+            const rawEvent = rawEvents[event.uid];
+            if (!rawEvent || !rawEvent.dtstart) {
+                logWarning(`Skipping event with missing raw datetime: ${summary}`);
                 continue;
             }
 
-            // The ical parser converts the TZID date to UTC
-            // We need to convert it back to Melbourne local time for display
-            const melbourneStart = convertUTCToMelbourneLocal(originalStart);
-            const melbourneEnd = new Date(melbourneStart.getTime() + (gameDuration * 60 * 1000));
+            // Use the original DTSTART value directly
+            const originalDtstart = rawEvent.dtstart;
 
-            // Validate that end time is after start time
-            if (melbourneEnd <= melbourneStart) {
-                logWarning(`Skipping event with invalid time range: ${summary} - Duration: ${gameDuration} minutes`);
-                continue;
-            }
+            // Calculate DTEND by adding game duration to DTSTART
+            // Parse the datetime string: YYYYMMDDTHHMMSS
+            const year = parseInt(originalDtstart.substring(0, 4));
+            const month = parseInt(originalDtstart.substring(4, 6)) - 1; // 0-indexed
+            const day = parseInt(originalDtstart.substring(6, 8));
+            const hour = parseInt(originalDtstart.substring(9, 11));
+            const minute = parseInt(originalDtstart.substring(11, 13));
+            const second = parseInt(originalDtstart.substring(13, 15)) || 0;
+
+            // Create a date object for calculation purposes only
+            const startDate = new Date(year, month, day, hour, minute, second);
+            const endDate = new Date(startDate.getTime() + (gameDuration * 60 * 1000));
+
+            // Format end date/time in the same format as the original
+            const endYear = endDate.getFullYear();
+            const endMonth = String(endDate.getMonth() + 1).padStart(2, '0');
+            const endDay = String(endDate.getDate()).padStart(2, '0');
+            const endHour = String(endDate.getHours()).padStart(2, '0');
+            const endMinute = String(endDate.getMinutes()).padStart(2, '0');
+            const endSecond = String(endDate.getSeconds()).padStart(2, '0');
+            const originalDtend = `${endYear}${endMonth}${endDay}T${endHour}${endMinute}${endSecond}`;
 
             // Build event using TZID format (same as source)
             processedCal += 'BEGIN:VEVENT\n';
             processedCal += `UID:${event.uid}\n`;
-            processedCal += `DTSTART;TZID=Australia/Melbourne:${formatDateTimeLocal(melbourneStart)}\n`;
-            processedCal += `DTEND;TZID=Australia/Melbourne:${formatDateTimeLocal(melbourneEnd)}\n`;
+            processedCal += `DTSTART;TZID=Australia/Melbourne:${originalDtstart}\n`;
+            processedCal += `DTEND;TZID=Australia/Melbourne:${originalDtend}\n`;
             processedCal += `SUMMARY:${summary}\n`;
             processedCal += `DESCRIPTION:${description.replace(/\n/g, '\\n')}\n`;
 
@@ -353,126 +399,6 @@ export async function processCalendar(inputPath, outputPath, competition) {
 }
 
 /**
- * Convert a Date to Melbourne timezone, returning a new Date object
- * that represents the Melbourne local time
- */
-function convertToMelbourneTime(date) {
-    if (!date) return null;
-    
-    const d = date instanceof Date ? date : new Date(date);
-    
-    if (isNaN(d.getTime())) {
-        return null;
-    }
-    
-    // Get the Melbourne time components using consistent formatting
-    const melbourneTime = d.toLocaleString('sv-SE', {
-        timeZone: 'Australia/Melbourne'
-    }); // sv-SE gives YYYY-MM-DD HH:mm:ss format
-    
-    // Parse the Melbourne time string and create a new Date
-    // This Date object will have UTC time equal to Melbourne local time
-    const melbourneDate = new Date(melbourneTime);
-    
-    // Validate the result
-    if (isNaN(melbourneDate.getTime())) {
-        console.error(`Failed to convert time to Melbourne: ${d.toISOString()}`);
-        return d; // Return original if conversion fails
-    }
-    
-    return melbourneDate;
-}
-
-/**
- * Convert UTC time to Melbourne local time
- * The input is a proper UTC Date, and we return a Date with UTC components representing Melbourne local time
- */
-function convertUTCToMelbourneLocal(utcDate) {
-    if (!utcDate) return null;
-
-    const d = utcDate instanceof Date ? utcDate : new Date(utcDate);
-
-    if (isNaN(d.getTime())) {
-        return null;
-    }
-
-    // Format the UTC date as Melbourne local time
-    const melbourneString = d.toLocaleString('sv-SE', {
-        timeZone: 'Australia/Melbourne',
-        hour12: false
-    }); // Format: YYYY-MM-DD HH:mm:ss
-
-    // Parse this string as UTC to create a Date with UTC components matching Melbourne local time
-    const melbourneDate = new Date(melbourneString + 'Z');
-
-    if (isNaN(melbourneDate.getTime())) {
-        console.error(`Failed to convert UTC to Melbourne: ${d.toISOString()}`);
-        return d;
-    }
-
-    return melbourneDate;
-}
-
-/**
- * Convert a time that represents Melbourne local time to proper UTC
- * The input Date has components that represent Melbourne local time but is formatted as UTC
- */
-function convertMelbourneLocalToUTC(melbourneLocalDate) {
-    if (!melbourneLocalDate) return null;
-
-    // Extract the time components - these represent Melbourne local time
-    const year = melbourneLocalDate.getUTCFullYear();
-    const month = melbourneLocalDate.getUTCMonth();
-    const day = melbourneLocalDate.getUTCDate();
-    const hour = melbourneLocalDate.getUTCHours();
-    const minute = melbourneLocalDate.getUTCMinutes();
-    const second = melbourneLocalDate.getUTCSeconds();
-
-    // Create an ISO string representing the Melbourne local time
-    const melbourneTimeString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:${String(second).padStart(2, '0')}`;
-
-    // Use a trick: create a date in UTC, then get its offset when interpreted as Melbourne time
-    // This tells us how many hours Melbourne is ahead of UTC at this specific date/time
-    const utcDate = new Date(`${melbourneTimeString}Z`);
-
-    // Format this UTC time as Melbourne time to see what the local time would be
-    const melbourneParts = new Intl.DateTimeFormat('en-AU', {
-        timeZone: 'Australia/Melbourne',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-    }).formatToParts(utcDate);
-
-    // Extract the parts
-    const melbourneHour = parseInt(melbourneParts.find(p => p.type === 'hour').value);
-    const melbourneDay = parseInt(melbourneParts.find(p => p.type === 'day').value);
-
-    // Calculate the offset (how many hours Melbourne is ahead)
-    // Melbourne is either UTC+10 (AEST) or UTC+11 (AEDT)
-    let offset;
-    const hourDiff = melbourneHour - hour;
-    const dayDiff = melbourneDay - day;
-
-    if (dayDiff === 0) {
-        offset = hourDiff;
-    } else if (dayDiff === 1 || dayDiff < -1) {
-        // Crossed midnight forward
-        offset = hourDiff + 24;
-    } else {
-        // Crossed midnight backward
-        offset = hourDiff - 24;
-    }
-
-    // Convert Melbourne local time to UTC by subtracting the offset
-    const utcMillis = Date.UTC(year, month, day, hour, minute, second) - (offset * 60 * 60 * 1000);
-    return new Date(utcMillis);
-}
-
-/**
  * Format date/time for iCal in local time format (without Z)
  */
 function formatDateTimeLocal(date) {
@@ -490,25 +416,6 @@ function formatDateTimeLocal(date) {
     const second = String(d.getUTCSeconds()).padStart(2, '0');
 
     return `${year}${month}${day}T${hour}${minute}${second}`;
-}
-
-/**
- * Format date/time for iCal in UTC format
- */
-function formatDateTimeUTC(date) {
-    if (!date) return '';
-
-    const d = date instanceof Date ? date : new Date(date);
-
-    // Format as iCal UTC datetime: YYYYMMDDTHHMMSSZ
-    const year = d.getUTCFullYear();
-    const month = String(d.getUTCMonth() + 1).padStart(2, '0');
-    const day = String(d.getUTCDate()).padStart(2, '0');
-    const hour = String(d.getUTCHours()).padStart(2, '0');
-    const minute = String(d.getUTCMinutes()).padStart(2, '0');
-    const second = String(d.getUTCSeconds()).padStart(2, '0');
-
-    return `${year}${month}${day}T${hour}${minute}${second}Z`;
 }
 
 /**
