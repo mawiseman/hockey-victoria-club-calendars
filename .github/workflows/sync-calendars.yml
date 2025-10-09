@@ -58,9 +58,9 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY_JSON }}
         run: |
           if [[ "${{ github.event.inputs.use_cache }}" == "true" ]]; then
-            npm run process-competition -- "${{ github.event.inputs.competition }}" --use-cache
+            npm run process-competition -- --competition "${{ github.event.inputs.competition }}" --use-cache
           else
-            npm run process-competition -- "${{ github.event.inputs.competition }}"
+            npm run process-competition -- --competition "${{ github.event.inputs.competition }}"
           fi
       
       - name: Cleanup service account key

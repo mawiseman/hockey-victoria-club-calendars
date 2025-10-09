@@ -20,7 +20,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/de176a7d8a94cda770a6c10467e10dffc86ac14f6762693b195d002bb13895e1%40group.calendar.google.com/public/basic.ics",
         "title": "FHC League 1 Womens",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.298Z"
     },
     {
       "name": "League 1 Mens",
@@ -36,7 +38,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab%40group.calendar.google.com/public/basic.ics",
         "title": "FHC League 1 Mens",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.347Z"
     },
     {
       "name": "League 2 NW Womens",
@@ -52,7 +56,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/a1dd7d3ae24165be6fc0f2c097f3ab3fab127282c078e0fbe9975da4969f2cfb%40group.calendar.google.com/public/basic.ics",
         "title": "FHC League 2 NW Womens",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.396Z"
     },
     {
       "name": "Under 12 Girls",
@@ -68,7 +74,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/13651278507f211f086c099770b42c3be55552e45816828a669bbb729e660e78%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 12 Girls",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.431Z"
     },
     {
       "name": "Under 14 Division 1 - Girls",
@@ -84,7 +92,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/9e5e3cdf582696c7dc8d0adf7553a69684a027a22d9be3e84c477b80b2784956%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 14 Division 1 - Girls",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.432Z"
     },
     {
       "name": "35+ Masters NW League - Women's",
@@ -100,7 +110,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/0c06381c76848567adb2436e32c6705ca890455a25aa8eb54e365ec8cee8ccb7%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 35+ Masters NW League - Women's",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.472Z"
     },
     {
       "name": "Under 16 Girls",
@@ -116,7 +128,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/9ddee750429d586f84b07edddf58549294fcd283441febffba66ebacebb30421%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 16 Girls",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.505Z"
     },
     {
       "name": "Under 12 Division 2 NW - Mixed",
@@ -132,7 +146,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/c33e9dd54ec3a5885dd2f32b281f22b2d7b0cb40f9ddf0ca5a396e6de679551d%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 12 Division 2 NW - Mixed",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.543Z"
     },
     {
       "name": "Under 12 Division 1 - Mixed",
@@ -148,7 +164,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/faabe77e1b1b35c7245c461583e63d5e1f7f284b00dbd58157772063dbb232eb%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 12 Division 1 - Mixed",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.578Z"
     },
     {
       "name": "Under 16 Division 1 - Mixed",
@@ -164,7 +182,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/bfc22559d697640ebfdbebcc36db42dd75b02decfa3d6bd4677a69f764c63d99%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 16 Division 1 - Mixed",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.620Z"
     },
     {
       "name": "Under 14 Division 2 NW - Mixed",
@@ -180,7 +200,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/b55ff8ee1a8ee8fded1d4a4baeb888626050055e1aee21873ff6766d56ff6932%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 14 Division 2 NW - Mixed",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.653Z"
     },
     {
       "name": "Under 14 Division 1 - Mixed",
@@ -196,7 +218,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/d48c4091c7dd1b5316d7edce7a7ba8b6265beb806b7038c69f2a3c1e7a312fe4%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 14 Division 1 - Mixed",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.682Z"
     },
     {
       "name": "Under 18 - Mixed",
@@ -212,7 +236,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/56b90be6d6f0b7774bf1b8b6ff48e6d9b918abcbe3b8003a750f2cda64c75398%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 18 - Mixed",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.725Z"
     },
     {
       "name": "Under 16 Division 2 NW - Mixed",
@@ -228,7 +254,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/0a44fcc6122969f2c8183416e52b602b48292d9c0e19e449d5a1d867948ce644%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Under 16 Division 2 NW - Mixed",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.758Z"
     },
     {
       "name": "2025 T4 35+ Womens Footscray Wednesday",
@@ -244,7 +272,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/15353587bd4dd21c88b7479be13e5daf847d6ed6a834eee0c433d03fe37fcca4%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2025 T4 35+ Womens Footscray Wednesday",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2025-10-08T09:45:55.796Z"
     },
     {
       "name": "Women's Premier League Reserves - 2025",
@@ -260,7 +290,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/8b6394caa7d84adfbbc6857f0a7740e5806e6a146f59ab9626ba21963a07786e%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Premier League Reserves - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:55.840Z"
     },
     {
       "name": "Women's Premier League - 2025",
@@ -276,7 +308,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/56536e35edfd9d627d2f81d41b146466edbe42dbf285ad74eb636531bcb93ad7%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Premier League - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:55.886Z"
     },
     {
       "name": "Men's Premier League - 2025",
@@ -292,7 +326,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/1f220e3aea02d8d0f80df31f81324412484b6f786eff698f6262e980772060e4%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Men's Premier League - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:55.933Z"
     },
     {
       "name": "Men's Premier League Reserves - 2025",
@@ -308,7 +344,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/97956a86ccf6ef13c27f58015aa6958fc711dd7bf08ca136c016162157c6d496%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Men's Premier League Reserves - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:55.978Z"
     },
     {
       "name": "Women's Pennant A - 2025",
@@ -324,7 +362,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/3a061a8facf2aad203b3f27ee214d2912894c27e5884d224963308997cc3d097%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Pennant A - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.025Z"
     },
     {
       "name": "Men's Pennant A - 2025",
@@ -340,7 +380,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/16b655e174b838f23b3fc54687fca5e059843515da89d9c5926645b7e5eeab7d%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Men's Pennant A - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.059Z"
     },
     {
       "name": "Women's Pennant C - 2025",
@@ -356,7 +398,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/cb97b547cddb0381d07e8c8b1b327ed700e90b2e07e68714197ab553fbd2ce9d%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Pennant C - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.094Z"
     },
     {
       "name": "Women's Pennant B - 2025",
@@ -372,7 +416,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/e4a63bff99c2b56ba32b7877072c44d116935aad3baada5e751e85aef64f2461%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Pennant B - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.139Z"
     },
     {
       "name": "Men's Pennant D North West - 2025",
@@ -388,7 +434,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/884c99f9887b737724158dc5179e7f3f2b11914ae1b1a6619dfdd4328787f817%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Men's Pennant D North West - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.169Z"
     },
     {
       "name": "Men's Pennant B - 2025",
@@ -404,7 +452,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/b7311408b7c70beab744c7fdfdf74dc7491f7eaee48e17b538285327204dbd72%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Men's Pennant B - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.200Z"
     },
     {
       "name": "Women's Pennant D North West - 2025",
@@ -420,7 +470,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/8bb6d3833f4399af37ec044eacd085f45b897d6910935320163b2422cb13eccf%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Pennant D North West - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.239Z"
     },
     {
       "name": "Women's Pennant E North West - 2025",
@@ -436,7 +488,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/14c37c863800760f1cca7118d188c1bf54bde2d694a81613f5b8b25040c4564c%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Pennant E North West - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.271Z"
     },
     {
       "name": "Men's Metro 1 North West - 2025",
@@ -452,7 +506,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/7b66fc969b25978bd41e46cfe08eeac3639b3e887389d752689262199d0f96c3%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Men's Metro 1 North West - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.318Z"
     },
     {
       "name": "Women's Metro 1 North West - 2025",
@@ -468,7 +524,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/a55ef96862114e2a69788c8a347f7877f4813713d20efccfeaccb5d0ac1bc54f%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Women's Metro 1 North West - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.353Z"
     },
     {
       "name": "Men's Metro 2 North West - 2025",
@@ -484,7 +542,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/789972398db6baf2f2bceb7192de6415a320e694ad7a838dd377f13dd94eadda%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Men's Metro 2 North West - 2025",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.391Z"
     },
     {
       "name": "2025 Midweek Men's 50+ NW",
@@ -500,7 +560,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/977372c1fa7188df9da9160c7180f3b02df7dfe35cd75cf5b78a5acd54e66ffc%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2025 Midweek Men's 50+ NW",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.423Z"
     },
     {
       "name": "2025 Midweek Women's 45+",
@@ -516,7 +578,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/05e5a33f8cc7a2e422a0d806ebd2bb8cf7ea4b6738cb17b6bcd9acc00f76142b%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2025 Midweek Women's 45+",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.464Z"
     },
     {
       "name": "2025 Midweek Men's 45+ NW",
@@ -532,7 +596,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/b033da4f5e1edfed703dd9aaa7dad4ac73d77399a382e556174c228d1161deac%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2025 Midweek Men's 45+ NW",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.503Z"
     },
     {
       "name": "2025 Midweek Women's 35+ CN",
@@ -547,7 +613,12 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/0ecdee091c358190110ffc5f29f422a8359db99ba3340536837aa7cac33a3405%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2025 Midweek Women's 35+ CN",
         "createdAt": "2025-09-30T05:42:42.148Z"
-      }
+      },
+      "isActive": false,
+      "statusUpdatedAt": "2025-10-08T09:45:56.534Z"
     }
-  ]
+  ],
+  "lastStatusUpdate": "2025-10-08T09:45:56.535Z",
+  "activeCompetitions": 15,
+  "inactiveCompetitions": 19
 }
