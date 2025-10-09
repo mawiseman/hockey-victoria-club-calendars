@@ -267,15 +267,11 @@ export async function processCalendar(inputPath, outputPath, competition) {
     processedCal += 'DTSTART:20070401T030000\n';
     processedCal += 'RRULE:FREQ=YEARLY;BYMONTH=4;BYDAY=1SU\n';
     processedCal += 'TZNAME:AEST\n';
-    processedCal += 'TZOFFSETFROM:+1100\n';
-    processedCal += 'TZOFFSETTO:+1000\n';
     processedCal += 'END:STANDARD\n';
     processedCal += 'BEGIN:DAYLIGHT\n';
     processedCal += 'DTSTART:20071007T020000\n';
     processedCal += 'RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=1SU\n';
     processedCal += 'TZNAME:AEDT\n';
-    processedCal += 'TZOFFSETFROM:+1000\n';
-    processedCal += 'TZOFFSETTO:+1100\n';
     processedCal += 'END:DAYLIGHT\n';
     processedCal += 'END:VTIMEZONE\n';
     
@@ -312,41 +308,36 @@ export async function processCalendar(inputPath, outputPath, competition) {
             } else {
                 originalStart = new Date(event.start);
             }
-            
+
             // Validate original start date
             if (isNaN(originalStart.getTime())) {
                 logWarning(`Skipping event with invalid start date: ${summary} - Start: ${event.start}`);
                 continue;
             }
-            
-            // The original start time from Hockey Victoria is already Melbourne local time
-            // but it's formatted as UTC. We need to treat it as Melbourne local time.
-            const melbourneStart = originalStart; // Original is already Melbourne local time
+
+            // The ical parser converts the TZID date to UTC
+            // We need to convert it back to Melbourne local time for display
+            const melbourneStart = convertUTCToMelbourneLocal(originalStart);
             const melbourneEnd = new Date(melbourneStart.getTime() + (gameDuration * 60 * 1000));
-            
+
             // Validate that end time is after start time
             if (melbourneEnd <= melbourneStart) {
                 logWarning(`Skipping event with invalid time range: ${summary} - Duration: ${gameDuration} minutes`);
                 continue;
             }
-            
-            // Convert Melbourne local times to proper UTC for iCal
-            // The original times represent Melbourne local time, so we need to convert them to proper UTC
-            const utcStart = convertMelbourneLocalToUTC(melbourneStart);
-            const utcEnd = convertMelbourneLocalToUTC(melbourneEnd);
-            
-            // Build event using UTC times
+
+            // Build event using TZID format (same as source)
             processedCal += 'BEGIN:VEVENT\n';
             processedCal += `UID:${event.uid}\n`;
-            processedCal += `DTSTART:${formatDateTimeUTC(utcStart)}\n`;
-            processedCal += `DTEND:${formatDateTimeUTC(utcEnd)}\n`;
+            processedCal += `DTSTART;TZID=Australia/Melbourne:${formatDateTimeLocal(melbourneStart)}\n`;
+            processedCal += `DTEND;TZID=Australia/Melbourne:${formatDateTimeLocal(melbourneEnd)}\n`;
             processedCal += `SUMMARY:${summary}\n`;
             processedCal += `DESCRIPTION:${description.replace(/\n/g, '\\n')}\n`;
-            
+
             if (event.location) {
                 processedCal += `LOCATION:${event.location}\n`;
             }
-            
+
             processedCal += 'END:VEVENT\n';
         }
     }
@@ -393,12 +384,42 @@ function convertToMelbourneTime(date) {
 }
 
 /**
+ * Convert UTC time to Melbourne local time
+ * The input is a proper UTC Date, and we return a Date with UTC components representing Melbourne local time
+ */
+function convertUTCToMelbourneLocal(utcDate) {
+    if (!utcDate) return null;
+
+    const d = utcDate instanceof Date ? utcDate : new Date(utcDate);
+
+    if (isNaN(d.getTime())) {
+        return null;
+    }
+
+    // Format the UTC date as Melbourne local time
+    const melbourneString = d.toLocaleString('sv-SE', {
+        timeZone: 'Australia/Melbourne',
+        hour12: false
+    }); // Format: YYYY-MM-DD HH:mm:ss
+
+    // Parse this string as UTC to create a Date with UTC components matching Melbourne local time
+    const melbourneDate = new Date(melbourneString + 'Z');
+
+    if (isNaN(melbourneDate.getTime())) {
+        console.error(`Failed to convert UTC to Melbourne: ${d.toISOString()}`);
+        return d;
+    }
+
+    return melbourneDate;
+}
+
+/**
  * Convert a time that represents Melbourne local time to proper UTC
  * The input Date has components that represent Melbourne local time but is formatted as UTC
  */
 function convertMelbourneLocalToUTC(melbourneLocalDate) {
     if (!melbourneLocalDate) return null;
-    
+
     // Extract the time components - these represent Melbourne local time
     const year = melbourneLocalDate.getUTCFullYear();
     const month = melbourneLocalDate.getUTCMonth();
@@ -406,28 +427,69 @@ function convertMelbourneLocalToUTC(melbourneLocalDate) {
     const hour = melbourneLocalDate.getUTCHours();
     const minute = melbourneLocalDate.getUTCMinutes();
     const second = melbourneLocalDate.getUTCSeconds();
-    
-    // Create the Melbourne local time string
+
+    // Create an ISO string representing the Melbourne local time
     const melbourneTimeString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:${String(second).padStart(2, '0')}`;
-    
-    // Create a temporary date to test timezone conversion
-    // We need to find what UTC time would result in this Melbourne local time
-    const tempDate = new Date(`${melbourneTimeString}Z`); // Treat as UTC first
-    
-    // Determine the correct offset for this date
-    // Melbourne is UTC+10 (AEST) or UTC+11 (AEDT)
-    const testDate = new Date(2025, month, day); // Use the same month/day to check DST
-    const isDST = testDate.toLocaleString('en-US', {
+
+    // Use a trick: create a date in UTC, then get its offset when interpreted as Melbourne time
+    // This tells us how many hours Melbourne is ahead of UTC at this specific date/time
+    const utcDate = new Date(`${melbourneTimeString}Z`);
+
+    // Format this UTC time as Melbourne time to see what the local time would be
+    const melbourneParts = new Intl.DateTimeFormat('en-AU', {
         timeZone: 'Australia/Melbourne',
-        timeZoneName: 'short'
-    }).includes('AEDT');
-    
-    const offset = isDST ? 11 : 10; // Hours ahead of UTC
-    
-    // Convert to UTC by subtracting the Melbourne offset
-    const utcTime = tempDate.getTime() - (offset * 60 * 60 * 1000);
-    
-    return new Date(utcTime);
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    }).formatToParts(utcDate);
+
+    // Extract the parts
+    const melbourneHour = parseInt(melbourneParts.find(p => p.type === 'hour').value);
+    const melbourneDay = parseInt(melbourneParts.find(p => p.type === 'day').value);
+
+    // Calculate the offset (how many hours Melbourne is ahead)
+    // Melbourne is either UTC+10 (AEST) or UTC+11 (AEDT)
+    let offset;
+    const hourDiff = melbourneHour - hour;
+    const dayDiff = melbourneDay - day;
+
+    if (dayDiff === 0) {
+        offset = hourDiff;
+    } else if (dayDiff === 1 || dayDiff < -1) {
+        // Crossed midnight forward
+        offset = hourDiff + 24;
+    } else {
+        // Crossed midnight backward
+        offset = hourDiff - 24;
+    }
+
+    // Convert Melbourne local time to UTC by subtracting the offset
+    const utcMillis = Date.UTC(year, month, day, hour, minute, second) - (offset * 60 * 60 * 1000);
+    return new Date(utcMillis);
+}
+
+/**
+ * Format date/time for iCal in local time format (without Z)
+ */
+function formatDateTimeLocal(date) {
+    if (!date) return '';
+
+    const d = date instanceof Date ? date : new Date(date);
+
+    // Format as iCal local datetime: YYYYMMDDTHHMMSS (no Z)
+    // Use UTC methods because the date object already represents local time components
+    const year = d.getUTCFullYear();
+    const month = String(d.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(d.getUTCDate()).padStart(2, '0');
+    const hour = String(d.getUTCHours()).padStart(2, '0');
+    const minute = String(d.getUTCMinutes()).padStart(2, '0');
+    const second = String(d.getUTCSeconds()).padStart(2, '0');
+
+    return `${year}${month}${day}T${hour}${minute}${second}`;
 }
 
 /**
@@ -435,9 +497,9 @@ function convertMelbourneLocalToUTC(melbourneLocalDate) {
  */
 function formatDateTimeUTC(date) {
     if (!date) return '';
-    
+
     const d = date instanceof Date ? date : new Date(date);
-    
+
     // Format as iCal UTC datetime: YYYYMMDDTHHMMSSZ
     const year = d.getUTCFullYear();
     const month = String(d.getUTCMonth() + 1).padStart(2, '0');
@@ -445,7 +507,7 @@ function formatDateTimeUTC(date) {
     const hour = String(d.getUTCHours()).padStart(2, '0');
     const minute = String(d.getUTCMinutes()).padStart(2, '0');
     const second = String(d.getUTCSeconds()).padStart(2, '0');
-    
+
     return `${year}${month}${day}T${hour}${minute}${second}Z`;
 }
 

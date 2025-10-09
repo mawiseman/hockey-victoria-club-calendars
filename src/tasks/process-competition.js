@@ -131,15 +131,20 @@ async function selectCompetitionInteractively(competitions) {
     console.log('\n🎯 Select Competition to Process');
     console.log('=' .repeat(60));
     
-    // Group competitions by category
-    const mens = competitions.filter(c => c.name.toLowerCase().includes("men's") && !c.name.toLowerCase().includes("women's"));
-    const womens = competitions.filter(c => c.name.toLowerCase().includes("women's"));
-    const midweek = competitions.filter(c => c.name.toLowerCase().includes('midweek'));
-    const juniors = competitions.filter(c => c.name.match(/u\d+/i));
-    
+    // Group competitions by category (mutually exclusive)
+    const juniors = competitions.filter(c => c.name.match(/under \d+|u\d+/i));
+    const midweek = competitions.filter(c => !c.name.match(/under \d+|u\d+/i) && c.name.toLowerCase().includes('midweek'));
+    const indoor = competitions.filter(c => !c.name.match(/under \d+|u\d+/i) && !c.name.toLowerCase().includes('midweek') && (c.category?.toLowerCase().includes('indoor') || c.name.toLowerCase().includes('indoor')));
+    const summer = competitions.filter(c => !c.name.match(/under \d+|u\d+/i) && !c.name.toLowerCase().includes('midweek') && !c.category?.toLowerCase().includes('indoor') && !c.name.toLowerCase().includes('indoor') && (c.category?.toLowerCase().includes('summer') || c.category?.toLowerCase().includes('term')));
+    const mens = competitions.filter(c => !c.name.match(/under \d+|u\d+/i) && !c.name.toLowerCase().includes('midweek') && !c.category?.toLowerCase().includes('indoor') && !c.name.toLowerCase().includes('indoor') && !c.category?.toLowerCase().includes('summer') && !c.category?.toLowerCase().includes('term') && c.name.toLowerCase().includes("men's") && !c.name.toLowerCase().includes("women's"));
+    const womens = competitions.filter(c => !c.name.match(/under \d+|u\d+/i) && !c.name.toLowerCase().includes('midweek') && !c.category?.toLowerCase().includes('indoor') && !c.name.toLowerCase().includes('indoor') && !c.category?.toLowerCase().includes('summer') && !c.category?.toLowerCase().includes('term') && c.name.toLowerCase().includes("women's"));
+    const other = competitions.filter(c =>
+        !juniors.includes(c) && !midweek.includes(c) && !indoor.includes(c) && !summer.includes(c) && !mens.includes(c) && !womens.includes(c)
+    );
+
     let displayIndex = 1;
     const indexMap = {};
-    
+
     const displayCategory = (title, comps) => {
         if (comps.length > 0) {
             console.log(`\n${title}:`);
@@ -152,11 +157,14 @@ async function selectCompetitionInteractively(competitions) {
             });
         }
     };
-    
+
+    displayCategory("Junior Competitions", juniors);
+    displayCategory("Indoor League", indoor);
+    displayCategory("Midweek Competitions", midweek);
+    displayCategory("Summer Competitions", summer);
     displayCategory("Men's Competitions", mens);
     displayCategory("Women's Competitions", womens);
-    displayCategory("Midweek Competitions", midweek);
-    displayCategory("Junior Competitions", juniors);
+    displayCategory("Other Competitions", other);
     
     console.log('\n0. Exit');
     console.log('=' .repeat(60));
@@ -241,7 +249,7 @@ async function main() {
         const allCompetitions = competitionData.competitions;
 
         // Filter competitions based on active status (unless includeInactive flag is set)
-        const competitionsToShow = options.includeInactive ? allCompetitions : allCompetitions.filter(comp => comp.isActive !== false);
+        const competitionsToShow = options.includeInactive ? allCompetitions : allCompetitions.filter(comp => comp.isActive === true);
         if (!options.includeInactive) {
             logInfo(`Filtered to ${competitionsToShow.length} active competitions (${allCompetitions.length} total)`);
         } else {
