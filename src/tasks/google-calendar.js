@@ -48,82 +48,128 @@ export async function deleteAllEvents(calendar, calendarId) {
 }
 
 /**
+ * Parse raw iCal data to extract original datetime strings
+ * This bypasses the ical library's timezone conversion
+ */
+function parseRawICalDateTimes(icalData) {
+    const events = {};
+    const eventBlocks = icalData.split('BEGIN:VEVENT');
+
+    for (let i = 1; i < eventBlocks.length; i++) {
+        const eventText = eventBlocks[i].split('END:VEVENT')[0];
+        const lines = eventText.split(/\r?\n/);
+
+        let uid = null;
+        let dtstart = null;
+        let dtend = null;
+
+        for (const line of lines) {
+            if (line.startsWith('UID:')) {
+                uid = line.substring(4).trim();
+            } else if (line.startsWith('DTSTART')) {
+                // Extract the datetime value after the colon
+                // Format: DTSTART;TZID=Australia/Melbourne:20251005T091000
+                const colonIndex = line.indexOf(':');
+                if (colonIndex !== -1) {
+                    dtstart = line.substring(colonIndex + 1).trim();
+                }
+            } else if (line.startsWith('DTEND')) {
+                // Extract the datetime value after the colon
+                const colonIndex = line.indexOf(':');
+                if (colonIndex !== -1) {
+                    dtend = line.substring(colonIndex + 1).trim();
+                }
+            }
+        }
+
+        if (uid && dtstart && dtend) {
+            events[uid] = { dtstart, dtend };
+        }
+    }
+
+    return events;
+}
+
+/**
+ * Convert iCal datetime format to RFC3339 format
+ * Input: 20251005T091000
+ * Output: 2025-10-05T09:10:00
+ */
+function convertICalDateTimeToRFC3339(icalDateTime) {
+    // Format: YYYYMMDDTHHMMSS
+    const year = icalDateTime.substring(0, 4);
+    const month = icalDateTime.substring(4, 6);
+    const day = icalDateTime.substring(6, 8);
+    const hour = icalDateTime.substring(9, 11);
+    const minute = icalDateTime.substring(11, 13);
+    const second = icalDateTime.substring(13, 15);
+
+    return `${year}-${month}-${day}T${hour}:${minute}:${second}`;
+}
+
+/**
  * Import events from iCal file to Google Calendar
  */
 export async function importICalToGoogle(calendar, calendarId, icalPath) {
     logInfo(`Importing events from: ${icalPath}`);
-    
+
     try {
         const icalData = await fs.readFile(icalPath, 'utf8');
         const parsedCal = ical.parseICS(icalData);
-        
+
+        // Parse raw datetime values to avoid timezone conversion issues
+        const rawDateTimes = parseRawICalDateTimes(icalData);
+
         let imported = 0;
         let failed = 0;
-        
+
         for (const key in parsedCal) {
             const event = parsedCal[key];
             if (event.type === 'VEVENT') {
                 try {
-                    // Validate event times
-                    if (!event.start || !event.end) {
-                        logWarning(`Event missing start or end time: ${event.summary || 'Unknown'}`);
+                    // Validate event has required fields
+                    if (!event.uid) {
+                        logWarning(`Event missing UID: ${event.summary || 'Unknown'}`);
                         failed++;
                         continue;
                     }
-                    
-                    // Parse the times from the processed iCal
-                    let startTime, endTime;
-                    
-                    if (event.start instanceof Date) {
-                        startTime = event.start;
-                    } else {
-                        startTime = new Date(event.start);
-                    }
-                    
-                    if (event.end instanceof Date) {
-                        endTime = event.end;
-                    } else {
-                        endTime = new Date(event.end);
-                    }
-                    
-                    // Check for invalid dates
-                    if (isNaN(startTime.getTime()) || isNaN(endTime.getTime())) {
-                        logWarning(`Event has invalid date/time: ${event.summary || 'Unknown'} - Start: ${event.start}, End: ${event.end}`);
+
+                    // Get raw datetime values
+                    const rawEvent = rawDateTimes[event.uid];
+                    if (!rawEvent || !rawEvent.dtstart || !rawEvent.dtend) {
+                        logWarning(`Event missing raw datetime values: ${event.summary || 'Unknown'}`);
                         failed++;
                         continue;
                     }
-                    
-                    // Check for empty time range (end time must be after start time)
-                    if (endTime <= startTime) {
-                        logWarning(`Event has invalid time range (end <= start): ${event.summary || 'Unknown'} - Start: ${startTime.toISOString()}, End: ${endTime.toISOString()}`);
-                        failed++;
-                        continue;
-                    }
-                    
-                    // Debug logging for GitHub Actions
+
+                    // Convert iCal datetime format to RFC3339 format
+                    const startDateTime = convertICalDateTimeToRFC3339(rawEvent.dtstart);
+                    const endDateTime = convertICalDateTimeToRFC3339(rawEvent.dtend);
+
+                    // Debug logging
                     if (process.env.GITHUB_ACTIONS) {
-                        console.log(`DEBUG: Importing "${event.summary}" - Start: ${startTime.toISOString()}, End: ${endTime.toISOString()}`);
+                        console.log(`DEBUG: Importing "${event.summary}" - Start: ${startDateTime}, End: ${endDateTime} (Melbourne time)`);
                     }
-                    
+
                     const googleEvent = {
                         summary: event.summary || 'No title',
                         description: event.description || '',
                         start: {
-                            dateTime: startTime.toISOString(),
+                            dateTime: startDateTime,
                             timeZone: 'Australia/Melbourne'
                         },
                         end: {
-                            dateTime: endTime.toISOString(),
+                            dateTime: endDateTime,
                             timeZone: 'Australia/Melbourne'
                         },
                         location: event.location || ''
                     };
-                    
+
                     await calendar.events.insert({
                         calendarId,
                         resource: googleEvent
                     });
-                    
+
                     imported++;
                 } catch (insertError) {
                     logWarning(`Failed to import event: ${getDetailedError(insertError)}`);
@@ -131,7 +177,7 @@ export async function importICalToGoogle(calendar, calendarId, icalPath) {
                 }
             }
         }
-        
+
         logSuccess(`Imported ${imported} events (${failed} failed)`);
         return { imported, failed };
     } catch (error) {

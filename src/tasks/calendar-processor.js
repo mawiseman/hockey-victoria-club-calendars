@@ -315,7 +315,7 @@ export async function processCalendar(inputPath, outputPath, competition) {
     processedCal += 'END:DAYLIGHT\n';
     processedCal += 'END:VTIMEZONE\n';
     */
-   
+
     // First pass: find the maximum regular round number
     const maxRegularRound = findMaxRegularRound(parsedCal);
     
@@ -398,26 +398,6 @@ export async function processCalendar(inputPath, outputPath, competition) {
     
     logSuccess(`Processed calendar saved to: ${outputPath}`);
     return outputPath;
-}
-
-/**
- * Format date/time for iCal in local time format (without Z)
- */
-function formatDateTimeLocal(date) {
-    if (!date) return '';
-
-    const d = date instanceof Date ? date : new Date(date);
-
-    // Format as iCal local datetime: YYYYMMDDTHHMMSS (no Z)
-    // Use UTC methods because the date object already represents local time components
-    const year = d.getUTCFullYear();
-    const month = String(d.getUTCMonth() + 1).padStart(2, '0');
-    const day = String(d.getUTCDate()).padStart(2, '0');
-    const hour = String(d.getUTCHours()).padStart(2, '0');
-    const minute = String(d.getUTCMinutes()).padStart(2, '0');
-    const second = String(d.getUTCSeconds()).padStart(2, '0');
-
-    return `${year}${month}${day}T${hour}${minute}${second}`;
 }
 
 /**
