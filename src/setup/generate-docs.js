@@ -192,12 +192,15 @@ async function formatCompetitionTable(competitions, categoryName, categoryIndex 
             content += `*Opens Google Calendar with all ${competitionsWithCalendars.length} competition calendars in one view.*\n\n`;
         }
     }
-    
+
     // Add individual competitions table
     let table = `| Competition | Fixture | Competition | Google Calendar | iCal Subscribe |\n`;
     table += `|-------------|----------|-------------|----------|----------------|\n`;
 
-    for (const competition of competitions) {
+    // Sort competitions by name alphabetically
+    const sortedCompetitions = [...competitions].sort((a, b) => a.name.localeCompare(b.name));
+
+    for (const competition of sortedCompetitions) {
         const name = competition.name;
 
         // Fixture and Competition URL columns
