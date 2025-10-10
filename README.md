@@ -1,6 +1,6 @@
-# Hockey Victoria Calendar Setup Scripts
+# Hockey Victoria Improved Club Calendars
 
-This directory contains scripts for improving Hockey Victoria competition calendars. 
+This project contains scripts for improving Hockey Victoria competition calendars. 
 
 [![Sync Hockey Victoria Calendars](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml/badge.svg)](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml)
 
