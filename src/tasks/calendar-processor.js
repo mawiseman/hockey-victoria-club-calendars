@@ -296,6 +296,7 @@ export async function processCalendar(inputPath, outputPath, competition) {
     let processedCal = 'BEGIN:VCALENDAR\n';
     processedCal += 'VERSION:2.0\n';
     processedCal += 'PRODID:-//Hockey Victoria Calendar Scraper//EN\n';
+    /*
     processedCal += 'CALSCALE:GREGORIAN\n';
     processedCal += 'METHOD:PUBLISH\n';
     
@@ -313,7 +314,8 @@ export async function processCalendar(inputPath, outputPath, competition) {
     processedCal += 'TZNAME:AEDT\n';
     processedCal += 'END:DAYLIGHT\n';
     processedCal += 'END:VTIMEZONE\n';
-    
+    */
+   
     // First pass: find the maximum regular round number
     const maxRegularRound = findMaxRegularRound(parsedCal);
     
