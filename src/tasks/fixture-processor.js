@@ -309,42 +309,90 @@ export async function processFixtures(competitions, options) {
     let downloadResults = null;
     let processResults = null;
     let uploadResults = null;
-    
+    let hasErrors = false;
+
     // Step 1: Download
     if (options.steps.includes('download')) {
         downloadResults = await runDownloadStep(competitions, options);
+        const failedDownloads = Object.values(downloadResults).filter(r => !r.success);
+        if (failedDownloads.length > 0) {
+            hasErrors = true;
+            console.log(`\n⚠️  ${failedDownloads.length} download(s) failed:`);
+            for (const result of failedDownloads) {
+                const competitionName = result.competition?.name || 'Unknown';
+                console.log(`   - ${competitionName}: ${result.error || 'Unknown error'}`);
+            }
+        }
     }
-    
+
     // Step 2: Process
     if (options.steps.includes('process')) {
         processResults = await runProcessStep(downloadResults, competitions, options);
+        const failedProcessing = Object.values(processResults).filter(r => !r.success);
+        if (failedProcessing.length > 0) {
+            hasErrors = true;
+            console.log(`\n⚠️  ${failedProcessing.length} processing failure(s):`);
+            for (const result of failedProcessing) {
+                const competitionName = result.competition?.name || 'Unknown';
+                console.log(`   - ${competitionName}: ${result.error || 'Unknown error'}`);
+            }
+        }
+
+        // Also warn about empty calendars (success but 0 events)
+        const emptyCalendars = Object.values(processResults).filter(r => r.success && r.eventCount === 0);
+        if (emptyCalendars.length > 0) {
+            hasErrors = true;
+            console.log(`\n⚠️  ${emptyCalendars.length} calendar(s) have no events:`);
+            for (const result of emptyCalendars) {
+                const competitionName = result.competition?.name || 'Unknown';
+                console.log(`   - ${competitionName}: Calendar is empty or all events were filtered out`);
+            }
+        }
     }
-    
+
     // Step 3: Upload
     if (options.steps.includes('upload')) {
         uploadResults = await runUploadStep(processResults, competitions, options);
+        const failedUploads = Object.values(uploadResults).filter(r => !r.success);
+        if (failedUploads.length > 0) {
+            hasErrors = true;
+            console.log(`\n⚠️  ${failedUploads.length} upload(s) failed:`);
+            for (const result of failedUploads) {
+                const competitionName = result.competition?.name || 'Unknown';
+                console.log(`   - ${competitionName}: ${result.error || 'Unknown error'}`);
+            }
+        }
     }
-    
+
     // Generate summary report if upload was run
     if (options.steps.includes('upload')) {
         generateSummaryReport(uploadResults);
     }
-    
+
     // Show step completion summary
     console.log('\n========================================');
     console.log('STEP COMPLETION SUMMARY');
     console.log('========================================\n');
-    
+
     for (const step of options.steps) {
         const stepData = await loadStepResults(step);
         if (stepData) {
+            logInfo(`Found previous ${step} results from ${stepData.completedAt}`);
             const successCount = Object.values(stepData.results).filter(r => r.success).length;
-            console.log(`✅ ${step}: ${successCount}/${stepData.totalCompetitions} successful (${stepData.completedAt})`);
+            const failureCount = stepData.totalCompetitions - successCount;
+            if (failureCount > 0) {
+                console.log(`⚠️  ${step}: ${successCount}/${stepData.totalCompetitions} successful (${stepData.completedAt})`);
+            } else {
+                console.log(`✅ ${step}: ${successCount}/${stepData.totalCompetitions} successful (${stepData.completedAt})`);
+            }
         } else {
             console.log(`❌ ${step}: No results found`);
+            hasErrors = true;
         }
     }
-    
+
     // Always preserve temp files for debugging and resumption
     console.log('\n💡 Temporary files preserved in ./temp/ for debugging and step resumption');
+
+    return { hasErrors };
 }

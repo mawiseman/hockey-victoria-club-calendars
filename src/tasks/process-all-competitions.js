@@ -189,12 +189,18 @@ async function main() {
         await fs.mkdir(TEMP_DIR, { recursive: true });
         
         // Process all competitions
-        await processFixtures(competitions, options);
-        
+        const result = await processFixtures(competitions, options);
+
         console.log('\n========================================');
         console.log(`Completed at: ${new Date().toISOString()}`);
         console.log('========================================');
-        
+
+        // Exit with error code if there were failures
+        if (result && result.hasErrors) {
+            console.error('\n❌ Process completed with errors. See details above.');
+            process.exit(1);
+        }
+
     } catch (error) {
         console.error('\n❌ Fatal error:', error);
         process.exit(1);

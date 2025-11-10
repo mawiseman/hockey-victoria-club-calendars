@@ -25,31 +25,62 @@ export async function downloadCalendar(competitionTeamId, outputPath) {
             teamId = `${urlParts[teamIndex + 1]}/${urlParts[teamIndex + 2]}`;
         }
     }
-    
+
     const url = `${ICAL_BASE_URL}${teamId}`;
-    
+
     logInfo(`Downloading calendar from: ${url}`);
-    
+
     try {
-        const response = await fetch(url);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        const response = await fetch(url, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'text/calendar,*/*',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Referer': 'https://www.hockeyvictoria.org.au/'
+            }
+        });
+
+        // Check for specific HTTP status codes
+        if (response.status === 202) {
+            const wafAction = response.headers.get('x-amzn-waf-action');
+            if (wafAction === 'challenge') {
+                throw new Error(`Download blocked by WAF (Web Application Firewall). The server is challenging the request. Status: ${response.status}`);
+            }
+            throw new Error(`Server returned 202 Accepted with no content. This may indicate the calendar is being generated or the request was blocked. Status: ${response.status}`);
         }
-        
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
+        }
+
+        // Check content-length header
+        const contentLength = response.headers.get('content-length');
+        if (contentLength && parseInt(contentLength) === 0) {
+            throw new Error(`Server returned empty response (Content-Length: 0). The calendar may not exist or the request was blocked.`);
+        }
+
         const data = await response.text();
-        
+
+        // Validate that we received actual ICS data
+        if (!data || data.trim().length === 0) {
+            throw new Error(`Downloaded file is empty. The server may have returned no data or the calendar may not exist.`);
+        }
+
+        if (!data.includes('BEGIN:VCALENDAR')) {
+            throw new Error(`Downloaded content is not a valid ICS file. Received ${data.length} bytes but no VCALENDAR found. The server may have returned an error page.`);
+        }
+
         // Ensure output directory exists
         await fs.mkdir(path.dirname(outputPath), { recursive: true });
-        
+
         // Save the calendar
         await fs.writeFile(outputPath, data, 'utf8');
-        
-        logSuccess(`Calendar saved to: ${outputPath}`);
-        return true;
+
+        logSuccess(`Calendar saved to: ${outputPath} (${data.length} bytes)`);
+        return { success: true, error: null };
     } catch (error) {
         logWarning(`Error downloading calendar: ${error.message}`);
-        return false;
+        return { success: false, error: error.message };
     }
 }
 
@@ -82,12 +113,13 @@ export async function downloadAllCalendars(competitions, outputDir) {
             continue;
         }
         
-        const success = await downloadCalendar(teamIdOrUrl, outputPath);
-        
+        const result = await downloadCalendar(teamIdOrUrl, outputPath);
+
         results[competition.name] = {
-            success,
-            path: success ? outputPath : null,
-            competition
+            success: result.success,
+            path: result.success ? outputPath : null,
+            competition,
+            error: result.error
         };
     }
     

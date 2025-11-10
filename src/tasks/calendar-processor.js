@@ -283,8 +283,36 @@ export async function processCalendar(inputPath, outputPath, competition) {
     logInfo(`Processing calendar: ${inputPath}`);
 
     const config = await loadConfig();
+
+    // Validate input file exists and has content
+    try {
+        const stats = await fs.stat(inputPath);
+        if (stats.size === 0) {
+            throw new Error(`Input file is empty: ${inputPath}`);
+        }
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            throw new Error(`Input file not found: ${inputPath}`);
+        }
+        throw error;
+    }
+
     const icalData = await fs.readFile(inputPath, 'utf8');
+
+    // Validate that the file contains ICS data
+    if (!icalData.includes('BEGIN:VCALENDAR')) {
+        throw new Error(`Input file is not a valid ICS calendar: ${inputPath}`);
+    }
+
     const parsedCal = ical.parseICS(icalData);
+
+    // Count total events in the input
+    const inputEventCount = Object.values(parsedCal).filter(item => item.type === 'VEVENT').length;
+    if (inputEventCount === 0) {
+        logWarning(`Input calendar contains no events: ${inputPath}`);
+    } else {
+        logInfo(`Found ${inputEventCount} events in input calendar`);
+    }
 
     // Get game duration for this competition (default to 90 minutes if not specified)
     const gameDuration = competition.matchDuration || 90;
@@ -318,13 +346,18 @@ export async function processCalendar(inputPath, outputPath, competition) {
 
     // First pass: find the maximum regular round number
     const maxRegularRound = findMaxRegularRound(parsedCal);
-    
+
+    // Track event processing
+    let processedEventCount = 0;
+    let skippedEventCount = 0;
+
     for (const key in parsedCal) {
         const event = parsedCal[key];
         if (event.type === 'VEVENT') {
             // Validate event has required fields
             if (!event.start || !event.uid) {
                 logWarning(`Skipping event missing required fields: ${event.summary || 'Unknown'}`);
+                skippedEventCount++;
                 continue;
             }
             
@@ -346,6 +379,7 @@ export async function processCalendar(inputPath, outputPath, competition) {
             const rawEvent = rawEvents[event.uid];
             if (!rawEvent || !rawEvent.dtstart) {
                 logWarning(`Skipping event with missing raw datetime: ${summary}`);
+                skippedEventCount++;
                 continue;
             }
 
@@ -387,17 +421,29 @@ export async function processCalendar(inputPath, outputPath, competition) {
             }
 
             processedCal += 'END:VEVENT\n';
+            processedEventCount++;
         }
     }
-    
+
     processedCal += 'END:VCALENDAR\n';
-    
+
+    // Report processing results
+    if (processedEventCount === 0) {
+        if (inputEventCount === 0) {
+            logWarning(`No events to process - input calendar was empty`);
+        } else {
+            logWarning(`No events were successfully processed. ${skippedEventCount} events were skipped.`);
+        }
+    } else {
+        logInfo(`Processed ${processedEventCount} events${skippedEventCount > 0 ? ` (${skippedEventCount} skipped)` : ''}`);
+    }
+
     // Save processed calendar
     await fs.mkdir(path.dirname(outputPath), { recursive: true });
     await fs.writeFile(outputPath, processedCal, 'utf8');
-    
+
     logSuccess(`Processed calendar saved to: ${outputPath}`);
-    return outputPath;
+    return { success: true, outputPath, eventCount: processedEventCount, skippedCount: skippedEventCount };
 }
 
 /**
@@ -412,16 +458,18 @@ export async function processAllCalendars(downloadResults, outputDir) {
             const outputPath = path.join(outputDir, outputFileName);
             
             try {
-                const processedPath = await processCalendar(
+                const processResult = await processCalendar(
                     result.path,
                     outputPath,
                     result.competition
                 );
-                
+
                 results[name] = {
-                    success: true,
-                    processedPath,
-                    competition: result.competition
+                    success: processResult.success,
+                    processedPath: processResult.outputPath,
+                    competition: result.competition,
+                    eventCount: processResult.eventCount,
+                    skippedCount: processResult.skippedCount
                 };
             } catch (error) {
                 logWarning(`Error processing ${name}: ${error.message}`);

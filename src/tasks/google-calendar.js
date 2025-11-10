@@ -178,6 +178,13 @@ export async function importICalToGoogle(calendar, calendarId, icalPath) {
             }
         }
 
+        // Warn if no events were imported
+        if (imported === 0 && failed === 0) {
+            logWarning(`No events found in calendar file. The calendar may be empty or all events were filtered out.`);
+        } else if (imported === 0 && failed > 0) {
+            logWarning(`Failed to import all ${failed} events. Check the errors above for details.`);
+        }
+
         logSuccess(`Imported ${imported} events (${failed} failed)`);
         return { imported, failed };
     } catch (error) {
