@@ -3,7 +3,7 @@ name: Sync Hockey Victoria Calendars
 on:
   schedule:
     # Run daily at 2 AM Melbourne time (adjust as needed)
-    - cron: '0 16 * * *'  # 4 PM UTC = 2 AM AEST/3 AM AEDT
+    # - cron: '0 16 * * *'  # 4 PM UTC = 2 AM AEST/3 AM AEDT
   workflow_dispatch:  # Allow manual triggering
     inputs:
       competition:
