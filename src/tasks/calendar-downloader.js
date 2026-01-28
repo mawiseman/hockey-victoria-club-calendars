@@ -107,18 +107,16 @@ export async function downloadAllCalendars(competitions, outputDir) {
             results[competition.name] = {
                 success: false,
                 path: null,
-                competition,
                 error: 'Missing fixture URL or competition team ID'
             };
             continue;
         }
-        
+
         const result = await downloadCalendar(teamIdOrUrl, outputPath);
 
         results[competition.name] = {
             success: result.success,
             path: result.success ? outputPath : null,
-            competition,
             error: result.error
         };
     }

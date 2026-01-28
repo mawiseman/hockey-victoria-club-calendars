@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import readline from 'readline';
 import ical from 'ical';
 
 // Import shared utilities
@@ -41,7 +42,7 @@ async function getLatestEventDate(icalPath) {
 /**
  * Check if a competition is active based on its processed calendar file
  * @param {Object} competition - Competition object
- * @returns {Promise<boolean>} - True if competition is active
+ * @returns {Promise<{isActive: boolean, missingFile: boolean, latestDate: Date|null, daysDiff: number|null}>}
  */
 async function isCompetitionActive(competition) {
     const processedDir = path.join(TEMP_DIR, 'processed');
@@ -59,7 +60,7 @@ async function isCompetitionActive(competition) {
 
         if (!latestDate) {
             logWarning(`No events found in ${fileName}`);
-            return false; // No events = inactive
+            return { isActive: false, missingFile: false, latestDate: null, daysDiff: null };
         }
 
         const now = new Date();
@@ -71,12 +72,50 @@ async function isCompetitionActive(competition) {
 
         logInfo(`${competition.name}: Latest event ${latestDate.toDateString()}, ${daysDiff} days from now, ${isActive ? 'ACTIVE' : 'INACTIVE'}`);
 
-        return isActive;
+        return { isActive, missingFile: false, latestDate, daysDiff };
 
     } catch (error) {
-        logWarning(`Processed file not found for ${competition.name}: ${fileName}`);
-        return true; // If we can't determine, assume active to be safe
+        // File not found - return special status
+        return { isActive: null, missingFile: true, latestDate: null, daysDiff: null };
     }
+}
+
+/**
+ * Prompt user for confirmation about missing file competitions
+ * @param {Array} competitions - List of competitions with missing files
+ * @returns {Promise<boolean>} - True if user confirms to mark as inactive
+ */
+async function confirmMissingFileInactive(competitions) {
+    console.log('\n========================================');
+    console.log('COMPETITIONS WITH MISSING ICS FILES');
+    console.log('========================================\n');
+
+    console.log('The following competitions have no processed .ics files:');
+    console.log('(This may indicate the competition no longer exists on Hockey Victoria)\n');
+
+    competitions.forEach((comp, index) => {
+        console.log(`  ${index + 1}. ${comp.name}`);
+        if (comp.category) {
+            console.log(`     Category: ${comp.category}`);
+        }
+    });
+
+    console.log('');
+
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    return new Promise((resolve) => {
+        rl.question(
+            `Mark these ${competitions.length} competition(s) as INACTIVE? (yes/no): `,
+            (answer) => {
+                rl.close();
+                resolve(answer.trim().toLowerCase() === 'yes');
+            }
+        );
+    });
 }
 
 /**
@@ -92,22 +131,62 @@ async function updateCompetitionStatus() {
         let updatedCount = 0;
         let activeCount = 0;
         let inactiveCount = 0;
+        const missingFileCompetitions = [];
 
-        // Check each competition's status
+        // First pass: Check each competition's status
         for (const competition of competitionData.competitions) {
-            const wasActive = competition.isActive;
-            const isActive = await isCompetitionActive(competition);
+            const result = await isCompetitionActive(competition);
 
-            if (wasActive !== isActive || competition.isActive === undefined) {
-                competition.isActive = isActive;
-                competition.statusUpdatedAt = new Date().toISOString();
-                updatedCount++;
-            }
-
-            if (isActive) {
-                activeCount++;
+            if (result.missingFile) {
+                // Collect competitions with missing files for later confirmation
+                missingFileCompetitions.push(competition);
             } else {
-                inactiveCount++;
+                // Update status based on calendar data
+                const wasActive = competition.isActive;
+                const isActive = result.isActive;
+
+                if (wasActive !== isActive || competition.isActive === undefined) {
+                    competition.isActive = isActive;
+                    competition.statusUpdatedAt = new Date().toISOString();
+                    updatedCount++;
+                }
+
+                if (isActive) {
+                    activeCount++;
+                } else {
+                    inactiveCount++;
+                }
+            }
+        }
+
+        // Handle competitions with missing files
+        if (missingFileCompetitions.length > 0) {
+            const markInactive = await confirmMissingFileInactive(missingFileCompetitions);
+
+            for (const competition of missingFileCompetitions) {
+                if (markInactive) {
+                    const wasActive = competition.isActive;
+                    if (wasActive !== false) {
+                        competition.isActive = false;
+                        competition.statusUpdatedAt = new Date().toISOString();
+                        updatedCount++;
+                    }
+                    inactiveCount++;
+                    logInfo(`${competition.name}: Marked INACTIVE (missing .ics file)`);
+                } else {
+                    // Keep current status or default to active
+                    if (competition.isActive === undefined) {
+                        competition.isActive = true;
+                        competition.statusUpdatedAt = new Date().toISOString();
+                        updatedCount++;
+                    }
+                    if (competition.isActive) {
+                        activeCount++;
+                    } else {
+                        inactiveCount++;
+                    }
+                    logWarning(`${competition.name}: Kept as ${competition.isActive ? 'ACTIVE' : 'INACTIVE'} (missing .ics file, user declined)`);
+                }
             }
         }
 
@@ -127,7 +206,8 @@ async function updateCompetitionStatus() {
             total: competitionData.competitions.length,
             updated: updatedCount,
             active: activeCount,
-            inactive: inactiveCount
+            inactive: inactiveCount,
+            missingFiles: missingFileCompetitions.length
         };
 
     } catch (error) {
@@ -154,6 +234,9 @@ async function main() {
         console.log(`  Updated statuses: ${results.updated}`);
         console.log(`  Currently active: ${results.active}`);
         console.log(`  Currently inactive: ${results.inactive}`);
+        if (results.missingFiles > 0) {
+            console.log(`  Missing .ics files: ${results.missingFiles}`);
+        }
         console.log('========================================');
 
     } catch (error) {

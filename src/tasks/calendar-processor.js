@@ -448,26 +448,43 @@ export async function processCalendar(inputPath, outputPath, competition) {
 
 /**
  * Process all downloaded calendars
+ * @param {Object} downloadResults - Results from download step
+ * @param {string} outputDir - Directory to save processed calendars
+ * @param {Array} competitions - Fresh competition data from competitions.json
  */
-export async function processAllCalendars(downloadResults, outputDir) {
+export async function processAllCalendars(downloadResults, outputDir, competitions) {
     const results = {};
-    
+
+    // Create a map for quick competition lookup by name
+    const competitionMap = new Map(competitions.map(c => [c.name, c]));
+
     for (const [name, result] of Object.entries(downloadResults)) {
+        // Look up fresh competition data
+        const competition = competitionMap.get(name);
+
+        if (!competition) {
+            logWarning(`Competition not found in competitions.json: ${name}`);
+            results[name] = {
+                success: false,
+                error: 'Competition not found in competitions.json'
+            };
+            continue;
+        }
+
         if (result.success && result.path) {
             const outputFileName = `${name.replace(/[^a-z0-9]/gi, '_')}_processed.ics`;
             const outputPath = path.join(outputDir, outputFileName);
-            
+
             try {
                 const processResult = await processCalendar(
                     result.path,
                     outputPath,
-                    result.competition
+                    competition
                 );
 
                 results[name] = {
                     success: processResult.success,
                     processedPath: processResult.outputPath,
-                    competition: result.competition,
                     eventCount: processResult.eventCount,
                     skippedCount: processResult.skippedCount
                 };
@@ -475,18 +492,16 @@ export async function processAllCalendars(downloadResults, outputDir) {
                 logWarning(`Error processing ${name}: ${error.message}`);
                 results[name] = {
                     success: false,
-                    error: error.message,
-                    competition: result.competition
+                    error: error.message
                 };
             }
         } else {
             results[name] = {
                 success: false,
-                error: 'Download failed',
-                competition: result.competition
+                error: 'Download failed'
             };
         }
     }
-    
+
     return results;
 }

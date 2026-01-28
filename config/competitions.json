@@ -1,256 +1,58 @@
 {
+  "scrapedAt": "2026-01-28T01:45:28.989Z",
+  "lastUpdated": "2026-01-28T01:45:28.990Z",
+  "clubName": "Footscray Hockey Club",
+  "totalCompetitions": 3,
+  "totalProcessed": 3,
+  "totalLinksFound": 5,
   "competitions": [
     {
-      "name": "League 1 Womens",
-      "category": "2025 Senior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375029",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39696",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39696",
-      "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:22.428Z",
-      "googleCalendar": {
-        "calendarId": "de176a7d8a94cda770a6c10467e10dffc86ac14f6762693b195d002bb13895e1@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=de176a7d8a94cda770a6c10467e10dffc86ac14f6762693b195d002bb13895e1%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/de176a7d8a94cda770a6c10467e10dffc86ac14f6762693b195d002bb13895e1%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC League 1 Womens",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.298Z"
-    },
-    {
-      "name": "League 1 Mens",
-      "category": "2025 Senior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375022",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39698",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39698",
-      "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:22.636Z",
-      "googleCalendar": {
-        "calendarId": "d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/d1b49e075ba05119dc13e51eba84549f50045b195577beb97286e200dc574dab%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC League 1 Mens",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.347Z"
-    },
-    {
-      "name": "League 2 NW Womens",
-      "category": "2025 Senior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375038",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39699",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39699",
-      "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:22.384Z",
-      "googleCalendar": {
-        "calendarId": "a1dd7d3ae24165be6fc0f2c097f3ab3fab127282c078e0fbe9975da4969f2cfb@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=a1dd7d3ae24165be6fc0f2c097f3ab3fab127282c078e0fbe9975da4969f2cfb%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/a1dd7d3ae24165be6fc0f2c097f3ab3fab127282c078e0fbe9975da4969f2cfb%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC League 2 NW Womens",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.396Z"
-    },
-    {
-      "name": "Under 12 Girls",
-      "category": "2025 Junior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375099",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39708",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39708",
-      "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:25.321Z",
-      "googleCalendar": {
-        "calendarId": "13651278507f211f086c099770b42c3be55552e45816828a669bbb729e660e78@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=13651278507f211f086c099770b42c3be55552e45816828a669bbb729e660e78%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/13651278507f211f086c099770b42c3be55552e45816828a669bbb729e660e78%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 12 Girls",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.431Z"
-    },
-    {
-      "name": "Under 14 Division 1 - Girls",
-      "category": "2025 Junior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375137",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39709",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39709",
-      "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:25.256Z",
-      "googleCalendar": {
-        "calendarId": "9e5e3cdf582696c7dc8d0adf7553a69684a027a22d9be3e84c477b80b2784956@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=9e5e3cdf582696c7dc8d0adf7553a69684a027a22d9be3e84c477b80b2784956%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/9e5e3cdf582696c7dc8d0adf7553a69684a027a22d9be3e84c477b80b2784956%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 14 Division 1 - Girls",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.432Z"
-    },
-    {
-      "name": "35+ Masters NW League - Women's",
-      "category": "2025 Senior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23987/375010",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23987/39697",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23987/39697",
+      "name": "2026 T1 Social 35+ Womens Masters",
+      "category": "2026 Term 1 Competitions",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25009/394992",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25009/41089",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25009/41089",
       "matchDuration": 60,
-      "scrapedAt": "2025-10-02T22:31:24.975Z",
+      "scrapedAt": "2026-01-28T01:45:36.801Z",
       "googleCalendar": {
-        "calendarId": "0c06381c76848567adb2436e32c6705ca890455a25aa8eb54e365ec8cee8ccb7@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=0c06381c76848567adb2436e32c6705ca890455a25aa8eb54e365ec8cee8ccb7%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/0c06381c76848567adb2436e32c6705ca890455a25aa8eb54e365ec8cee8ccb7%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC 35+ Masters NW League - Women's",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.472Z"
+        "calendarId": "c2f15b7474e840f1621f53b1dd16cf89ea1e1037b838052c7b9082267f99a43b@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=c2f15b7474e840f1621f53b1dd16cf89ea1e1037b838052c7b9082267f99a43b%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/c2f15b7474e840f1621f53b1dd16cf89ea1e1037b838052c7b9082267f99a43b%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC 2026 T1 Social 35+ Womens Masters",
+        "createdAt": "2026-01-28T01:47:08.939Z"
+      }
     },
     {
-      "name": "Under 16 Girls",
-      "category": "2025 Junior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375174",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39710",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39710",
+      "name": "JIC Under 14 Mixed",
+      "category": "2026 Junior Indoor Challenge",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24922/395495",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40857",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40857",
       "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:28.577Z",
+      "scrapedAt": "2026-01-28T01:45:36.952Z",
       "googleCalendar": {
-        "calendarId": "9ddee750429d586f84b07edddf58549294fcd283441febffba66ebacebb30421@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=9ddee750429d586f84b07edddf58549294fcd283441febffba66ebacebb30421%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/9ddee750429d586f84b07edddf58549294fcd283441febffba66ebacebb30421%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 16 Girls",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.505Z"
+        "calendarId": "9546fae11d39da1079bdfa41aa958c34be7355e2752313203ca9d3f5909201f1@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=9546fae11d39da1079bdfa41aa958c34be7355e2752313203ca9d3f5909201f1%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/9546fae11d39da1079bdfa41aa958c34be7355e2752313203ca9d3f5909201f1%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC JIC Under 14 Mixed",
+        "createdAt": "2026-01-28T01:47:08.939Z"
+      }
     },
     {
-      "name": "Under 12 Division 2 NW - Mixed",
-      "category": "2025 Junior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375077",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39715",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39715",
+      "name": "JIC Under 12 Mixed",
+      "category": "2026 Junior Indoor Challenge",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24922/395517",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40858",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40858",
       "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:28.142Z",
+      "scrapedAt": "2026-01-28T01:45:36.996Z",
       "googleCalendar": {
-        "calendarId": "c33e9dd54ec3a5885dd2f32b281f22b2d7b0cb40f9ddf0ca5a396e6de679551d@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=c33e9dd54ec3a5885dd2f32b281f22b2d7b0cb40f9ddf0ca5a396e6de679551d%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/c33e9dd54ec3a5885dd2f32b281f22b2d7b0cb40f9ddf0ca5a396e6de679551d%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 12 Division 2 NW - Mixed",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.543Z"
-    },
-    {
-      "name": "Under 12 Division 1 - Mixed",
-      "category": "2025 Junior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375065",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39704",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39704",
-      "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:28.143Z",
-      "googleCalendar": {
-        "calendarId": "faabe77e1b1b35c7245c461583e63d5e1f7f284b00dbd58157772063dbb232eb@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=faabe77e1b1b35c7245c461583e63d5e1f7f284b00dbd58157772063dbb232eb%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/faabe77e1b1b35c7245c461583e63d5e1f7f284b00dbd58157772063dbb232eb%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 12 Division 1 - Mixed",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.578Z"
-    },
-    {
-      "name": "Under 16 Division 1 - Mixed",
-      "category": "2025 Junior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375148",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39706",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39706",
-      "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:32.057Z",
-      "googleCalendar": {
-        "calendarId": "bfc22559d697640ebfdbebcc36db42dd75b02decfa3d6bd4677a69f764c63d99@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=bfc22559d697640ebfdbebcc36db42dd75b02decfa3d6bd4677a69f764c63d99%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/bfc22559d697640ebfdbebcc36db42dd75b02decfa3d6bd4677a69f764c63d99%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 16 Division 1 - Mixed",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.620Z"
-    },
-    {
-      "name": "Under 14 Division 2 NW - Mixed",
-      "category": "2025 Junior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375119",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39716",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39716",
-      "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:32.104Z",
-      "googleCalendar": {
-        "calendarId": "b55ff8ee1a8ee8fded1d4a4baeb888626050055e1aee21873ff6766d56ff6932@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=b55ff8ee1a8ee8fded1d4a4baeb888626050055e1aee21873ff6766d56ff6932%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/b55ff8ee1a8ee8fded1d4a4baeb888626050055e1aee21873ff6766d56ff6932%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 14 Division 2 NW - Mixed",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.653Z"
-    },
-    {
-      "name": "Under 14 Division 1 - Mixed",
-      "category": "2025 Junior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375108",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39705",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39705",
-      "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:32.335Z",
-      "googleCalendar": {
-        "calendarId": "d48c4091c7dd1b5316d7edce7a7ba8b6265beb806b7038c69f2a3c1e7a312fe4@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=d48c4091c7dd1b5316d7edce7a7ba8b6265beb806b7038c69f2a3c1e7a312fe4%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/d48c4091c7dd1b5316d7edce7a7ba8b6265beb806b7038c69f2a3c1e7a312fe4%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 14 Division 1 - Mixed",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.682Z"
-    },
-    {
-      "name": "Under 16 Division 2 NW - Mixed",
-      "category": "2025 Junior Indoor League",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/23988/375159",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/23988/39717",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/23988/39717",
-      "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:37.373Z",
-      "googleCalendar": {
-        "calendarId": "0a44fcc6122969f2c8183416e52b602b48292d9c0e19e449d5a1d867948ce644@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=0a44fcc6122969f2c8183416e52b602b48292d9c0e19e449d5a1d867948ce644%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/0a44fcc6122969f2c8183416e52b602b48292d9c0e19e449d5a1d867948ce644%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC Under 16 Division 2 NW - Mixed",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.758Z"
-    },
-    {
-      "name": "2025 T4 35+ Womens Footscray Wednesday",
-      "category": "2025 Term 4 Summer Competition",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24044/376315",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24044/39773",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24044/39773",
-      "matchDuration": 90,
-      "scrapedAt": "2025-10-02T22:31:42.353Z",
-      "googleCalendar": {
-        "calendarId": "15353587bd4dd21c88b7479be13e5daf847d6ed6a834eee0c433d03fe37fcca4@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=15353587bd4dd21c88b7479be13e5daf847d6ed6a834eee0c433d03fe37fcca4%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/15353587bd4dd21c88b7479be13e5daf847d6ed6a834eee0c433d03fe37fcca4%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC 2025 T4 35+ Womens Footscray Wednesday",
-        "createdAt": "2025-09-30T05:42:42.148Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2025-10-08T09:45:55.796Z"
+        "calendarId": "178076b2ac6fd92c02062c0c85eb9a8b37762a20fbb1637eeea005f229a121e2@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=178076b2ac6fd92c02062c0c85eb9a8b37762a20fbb1637eeea005f229a121e2%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/178076b2ac6fd92c02062c0c85eb9a8b37762a20fbb1637eeea005f229a121e2%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC JIC Under 12 Mixed",
+        "createdAt": "2026-01-28T01:47:08.939Z"
+      }
     }
   ]
 }

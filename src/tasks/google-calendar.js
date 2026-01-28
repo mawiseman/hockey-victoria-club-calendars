@@ -232,31 +232,48 @@ export async function uploadToGoogleCalendars(processedPath, calendarIds) {
 
 /**
  * Process and upload all calendars
+ * @param {Object} processResults - Results from process step
+ * @param {Array} competitions - Fresh competition data from competitions.json
  */
-export async function uploadAllCalendars(processResults) {
+export async function uploadAllCalendars(processResults, competitions) {
     const uploadResults = {};
-    
+
+    // Create a map for quick competition lookup by name
+    const competitionMap = new Map(competitions.map(c => [c.name, c]));
+
     for (const [name, result] of Object.entries(processResults)) {
-        // Extract calendar IDs from the competition data
-        let calendarIds = null;
-        
-        if (result.competition.calendars) {
-            // Legacy format: array of calendar IDs
-            calendarIds = result.competition.calendars;
-        } else if (result.competition.googleCalendar && result.competition.googleCalendar.calendarId) {
-            // New format: single googleCalendar object
-            calendarIds = [result.competition.googleCalendar.calendarId];
+        // Look up fresh competition data
+        const competition = competitionMap.get(name);
+
+        if (!competition) {
+            console.error(`${name}: Upload failed: competition not found in competitions.json`);
+            uploadResults[name] = {
+                success: false,
+                error: 'Upload failed: competition not found in competitions.json'
+            };
+            continue;
         }
-        
+
+        // Extract calendar IDs from fresh competition data
+        let calendarIds = null;
+
+        if (competition.calendars) {
+            // Legacy format: array of calendar IDs
+            calendarIds = competition.calendars;
+        } else if (competition.googleCalendar && competition.googleCalendar.calendarId) {
+            // New format: single googleCalendar object
+            calendarIds = [competition.googleCalendar.calendarId];
+        }
+
         if (result.success && result.processedPath && calendarIds) {
             logInfo(`Uploading: ${name}`);
-            
+
             try {
                 const uploadResult = await uploadToGoogleCalendars(
                     result.processedPath,
                     calendarIds
                 );
-                
+
                 uploadResults[name] = {
                     success: true,
                     calendars: uploadResult
@@ -281,7 +298,7 @@ export async function uploadAllCalendars(processResults) {
             } else {
                 errorMsg += 'unknown error';
             }
-            
+
             console.error(`${name}: ${errorMsg}`);
             uploadResults[name] = {
                 success: false,
@@ -289,6 +306,6 @@ export async function uploadAllCalendars(processResults) {
             };
         }
     }
-    
+
     return uploadResults;
 }

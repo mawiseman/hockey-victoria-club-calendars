@@ -193,7 +193,7 @@ export async function runProcessStep(downloadResults, competitions, options) {
     const processedDir = path.join(TEMP_DIR, 'processed');
     await fs.mkdir(processedDir, { recursive: true });
     
-    const processResults = await processAllCalendars(actualDownloadResults, processedDir);
+    const processResults = await processAllCalendars(actualDownloadResults, processedDir, competitions);
     
     // Check process results
     const processedCount = Object.values(processResults).filter(r => r.success).length;
@@ -255,7 +255,7 @@ export async function runUploadStep(processResults, competitions, options) {
         }
     }
     
-    const uploadResults = await uploadAllCalendars(actualProcessResults);
+    const uploadResults = await uploadAllCalendars(actualProcessResults, competitions);
     
     // Save results
     await saveStepResults('upload', uploadResults, competitions);
@@ -314,13 +314,12 @@ export async function processFixtures(competitions, options) {
     // Step 1: Download
     if (options.steps.includes('download')) {
         downloadResults = await runDownloadStep(competitions, options);
-        const failedDownloads = Object.values(downloadResults).filter(r => !r.success);
+        const failedDownloads = Object.entries(downloadResults).filter(([, r]) => !r.success);
         if (failedDownloads.length > 0) {
             hasErrors = true;
             console.log(`\n⚠️  ${failedDownloads.length} download(s) failed:`);
-            for (const result of failedDownloads) {
-                const competitionName = result.competition?.name || 'Unknown';
-                console.log(`   - ${competitionName}: ${result.error || 'Unknown error'}`);
+            for (const [name, result] of failedDownloads) {
+                console.log(`   - ${name}: ${result.error || 'Unknown error'}`);
             }
         }
     }
@@ -328,24 +327,22 @@ export async function processFixtures(competitions, options) {
     // Step 2: Process
     if (options.steps.includes('process')) {
         processResults = await runProcessStep(downloadResults, competitions, options);
-        const failedProcessing = Object.values(processResults).filter(r => !r.success);
+        const failedProcessing = Object.entries(processResults).filter(([, r]) => !r.success);
         if (failedProcessing.length > 0) {
             hasErrors = true;
             console.log(`\n⚠️  ${failedProcessing.length} processing failure(s):`);
-            for (const result of failedProcessing) {
-                const competitionName = result.competition?.name || 'Unknown';
-                console.log(`   - ${competitionName}: ${result.error || 'Unknown error'}`);
+            for (const [name, result] of failedProcessing) {
+                console.log(`   - ${name}: ${result.error || 'Unknown error'}`);
             }
         }
 
         // Also warn about empty calendars (success but 0 events)
-        const emptyCalendars = Object.values(processResults).filter(r => r.success && r.eventCount === 0);
+        const emptyCalendars = Object.entries(processResults).filter(([, r]) => r.success && r.eventCount === 0);
         if (emptyCalendars.length > 0) {
             hasErrors = true;
             console.log(`\n⚠️  ${emptyCalendars.length} calendar(s) have no events:`);
-            for (const result of emptyCalendars) {
-                const competitionName = result.competition?.name || 'Unknown';
-                console.log(`   - ${competitionName}: Calendar is empty or all events were filtered out`);
+            for (const [name] of emptyCalendars) {
+                console.log(`   - ${name}: Calendar is empty or all events were filtered out`);
             }
         }
     }
@@ -353,13 +350,12 @@ export async function processFixtures(competitions, options) {
     // Step 3: Upload
     if (options.steps.includes('upload')) {
         uploadResults = await runUploadStep(processResults, competitions, options);
-        const failedUploads = Object.values(uploadResults).filter(r => !r.success);
+        const failedUploads = Object.entries(uploadResults).filter(([, r]) => !r.success);
         if (failedUploads.length > 0) {
             hasErrors = true;
             console.log(`\n⚠️  ${failedUploads.length} upload(s) failed:`);
-            for (const result of failedUploads) {
-                const competitionName = result.competition?.name || 'Unknown';
-                console.log(`   - ${competitionName}: ${result.error || 'Unknown error'}`);
+            for (const [name, result] of failedUploads) {
+                console.log(`   - ${name}: ${result.error || 'Unknown error'}`);
             }
         }
     }
