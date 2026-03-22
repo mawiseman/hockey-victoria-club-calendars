@@ -1,6 +1,6 @@
 # Hockey Victoria Improved Club Calendars
 
-This project contains scripts for improving Hockey Victoria competition calendars. 
+This project contains scripts for improving Hockey Victoria competition calendars.
 
 [![Sync Hockey Victoria Calendars](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml/badge.svg)](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml)
 
@@ -9,7 +9,7 @@ This project contains scripts for improving Hockey Victoria competition calendar
 Improvements:
 * Fixtures in Google Calendar, updated daily to capture any scheduling changes (time, location, etc)
 * Simplified Calendar names i.e. `FHC Men - PL`
-* Simplified Round names i.e. 
+* Simplified Round names i.e.
   * From: `2025 Senior Competition Men's Premier League - 2025 Round 18 - Footscray Hockey Club vs Camberwell Hockey Club`
   * To: `PL - FHC vs CAM`
 * Links to relevant HV pages: Full Fixture, Ladder, Current Round
@@ -34,34 +34,19 @@ Improvements:
 |--------|---------|-------------|
 | **Process All Competitions** | `npm run process-all-competitions` | Process all competitions: download, process, and upload calendars |
 | **Process Competition** | `npm run process-competition` | Process a single competition's calendar |
+| **Cleanup Inactive** | `npm run cleanup-inactive` | Remove inactive competitions from tracking |
 
-## 🚀 Quick Start
+## 🎯 Usage Guide
 
-### Prerequisites
+### First Time Setup
 
-1. **Configuration Setup**
-   - Edit `config/settings.json` to configure your club:
-     ```json
-     {
-       "clubName": "Footscray Hockey Club",
-       "calendarPrefix": "FHC "
-     }
-     ```
-   - **clubName**: Full name of your hockey club (used for scraping competitions)
-   - **calendarPrefix**: Prefix for Google Calendar names (keeps calendars organized)
+Complete these steps when setting up the project for the first time.
 
-2. **Google Calendar API Setup**
-   - Create a Google Cloud Project
-   - Enable Google Calendar API
-   - Create a Service Account
-   - Download service account key as `service-account-key.json` in project root
+#### Prerequisites
 
-3. **Node.js Dependencies**
-   ```bash
-   npm install
-   ```
+See [Setup Guide](./docs/setup.md) for detailed setup instructions including Google Calendar API configuration and service account setup.
 
-### Basic Workflow
+#### Initial Data Collection
 
 1. **Scrape Competitions**
    ```bash
@@ -75,9 +60,11 @@ Improvements:
    ```bash
    npm run update-mappings-club-names
    ```
-   - Discovers all Clubs names for you competitions
+   - Discovers all club names for your competitions
    - Saves results to `config/mappings-club-names.json`
-   - Review the file for new nmes and abbreviations
+   - Review the file for new names and abbreviations
+
+#### Calendar Setup
 
 3. **Create Google Calendars**
    ```bash
@@ -87,13 +74,9 @@ Improvements:
    - Updates `competitions.json` with calendar IDs
    - Skips existing calendars
 
-4. **Process and Upload Fixtures**
+4. **Initial Processing**
    ```bash
-   # Process all competitions
    npm run process-all-competitions -- --all
-   
-   # Or process a single competition
-   npm run process-competition -- "Men's Premier League - 2025"
    ```
    - Downloads iCal files from Hockey Victoria
    - Processes and enhances calendar events
@@ -105,6 +88,95 @@ Improvements:
    ```
    - Creates `docs/competitions.md` with calendar subscribe links
    - Organized by category (Men's, Women's, Midweek, Juniors)
+
+### Competition Updates
+
+Use these commands to update existing competitions with new fixtures and schedule changes.
+
+#### Update All Competitions
+```bash
+npm run process-all-competitions
+```
+- Interactive menu to choose update steps
+- Downloads latest fixtures from Hockey Victoria
+- Updates Google Calendars with changes
+
+#### Update Single Competition
+```bash
+# Interactive selection
+npm run process-competition
+
+# Or specify competition name
+npm run process-competition -- "Men's Premier League - 2025"
+```
+- Fix individual competition issues
+- Test changes on specific competitions
+- Update newly added competitions
+
+#### Check Calendar Status
+```bash
+npm run list-calendars -- --stats
+```
+- View calendar statistics
+- Check for update status
+- Identify any issues
+
+### New Season Setup
+
+When a new season begins, follow these steps to clean up old data and set up for the new season.
+
+#### Cleanup Tasks
+
+1. **Remove Inactive Competitions**
+   ```bash
+   npm run cleanup-inactive
+   ```
+   - Identifies competitions that are no longer active
+   - Removes them from tracking
+   - Cleans up associated data
+
+2. **Archive Old Calendars (Optional)**
+   ```bash
+   npm run export-calendars -- --all
+   ```
+   - Export calendar data for backup before cleanup
+   - Save historical competition data
+
+#### Fresh Season Setup
+
+3. **Scrape New Season Competitions**
+   ```bash
+   npm run scrape-competitions
+   ```
+   - Discover competitions for the new season
+   - Update `config/competitions.json`
+
+4. **Update Club Mappings**
+   ```bash
+   npm run update-mappings-club-names
+   ```
+   - Add any new clubs from the season
+   - Update abbreviations as needed
+
+5. **Create New Calendars**
+   ```bash
+   npm run create-calendars
+   ```
+   - Create calendars for new competitions
+   - Skip existing calendars
+
+6. **Process New Season Data**
+   ```bash
+   npm run process-all-competitions -- --all
+   ```
+   - Load all fixtures for the new season
+   - Update Google Calendars
+
+7. **Update Documentation**
+   ```bash
+   npm run generate-docs
+   ```
+   - Refresh calendar links and documentation
 
 ## 📖 Script Documentation
 

@@ -1,57 +1,43 @@
 {
-  "scrapedAt": "2026-01-28T01:45:28.989Z",
-  "lastUpdated": "2026-01-28T01:45:28.990Z",
+  "scrapedAt": "2026-03-22T09:54:57.443Z",
+  "lastUpdated": "2026-03-22T09:54:57.444Z",
   "clubName": "Footscray Hockey Club",
-  "totalCompetitions": 3,
-  "totalProcessed": 3,
-  "totalLinksFound": 5,
+  "totalCompetitions": 12,
+  "totalProcessed": 12,
+  "totalLinksFound": 24,
   "competitions": [
     {
-      "name": "2026 T1 Social 35+ Womens Masters",
-      "category": "2026 Term 1 Competitions",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25009/394992",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25009/41089",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25009/41089",
-      "matchDuration": 60,
-      "scrapedAt": "2026-01-28T01:45:36.801Z",
+      "name": "Mens Premier League - 2026",
+      "category": "2026 Senior Competition",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25879/409884",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42156",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42156",
+      "matchDuration": 90,
+      "scrapedAt": "2026-03-22T09:55:06.161Z",
+      "isActive": true,
       "googleCalendar": {
-        "calendarId": "c2f15b7474e840f1621f53b1dd16cf89ea1e1037b838052c7b9082267f99a43b@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=c2f15b7474e840f1621f53b1dd16cf89ea1e1037b838052c7b9082267f99a43b%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/c2f15b7474e840f1621f53b1dd16cf89ea1e1037b838052c7b9082267f99a43b%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC 2026 T1 Social 35+ Womens Masters",
-        "createdAt": "2026-01-28T01:47:08.939Z"
+        "calendarId": "2d079383e95b00adc476d3359d042b68e4d37c247457908669efb5e848b959aa@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=2d079383e95b00adc476d3359d042b68e4d37c247457908669efb5e848b959aa%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/2d079383e95b00adc476d3359d042b68e4d37c247457908669efb5e848b959aa%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Mens Premier League - 2026",
+        "createdAt": "2026-03-22T09:59:21.112Z"
       }
     },
     {
-      "name": "JIC Under 14 Mixed",
-      "category": "2026 Junior Indoor Challenge",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24922/395495",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40857",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40857",
+      "name": "Womens Premier League - 2026",
+      "category": "2026 Senior Competition",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25879/409885",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42158",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42158",
       "matchDuration": 90,
-      "scrapedAt": "2026-01-28T01:45:36.952Z",
+      "scrapedAt": "2026-03-22T09:55:06.141Z",
+      "isActive": true,
       "googleCalendar": {
-        "calendarId": "9546fae11d39da1079bdfa41aa958c34be7355e2752313203ca9d3f5909201f1@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=9546fae11d39da1079bdfa41aa958c34be7355e2752313203ca9d3f5909201f1%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/9546fae11d39da1079bdfa41aa958c34be7355e2752313203ca9d3f5909201f1%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC JIC Under 14 Mixed",
-        "createdAt": "2026-01-28T01:47:08.939Z"
-      }
-    },
-    {
-      "name": "JIC Under 12 Mixed",
-      "category": "2026 Junior Indoor Challenge",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24922/395517",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40858",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40858",
-      "matchDuration": 90,
-      "scrapedAt": "2026-01-28T01:45:36.996Z",
-      "googleCalendar": {
-        "calendarId": "178076b2ac6fd92c02062c0c85eb9a8b37762a20fbb1637eeea005f229a121e2@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=178076b2ac6fd92c02062c0c85eb9a8b37762a20fbb1637eeea005f229a121e2%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/178076b2ac6fd92c02062c0c85eb9a8b37762a20fbb1637eeea005f229a121e2%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC JIC Under 12 Mixed",
-        "createdAt": "2026-01-28T01:47:08.939Z"
+        "calendarId": "1c43e26d0003481d88f03aca244c2ddd110db5c266c246a0f2194a8564137fc2@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=1c43e26d0003481d88f03aca244c2ddd110db5c266c246a0f2194a8564137fc2%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/1c43e26d0003481d88f03aca244c2ddd110db5c266c246a0f2194a8564137fc2%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Womens Premier League - 2026",
+        "createdAt": "2026-03-22T09:59:21.112Z"
       }
     }
   ]
