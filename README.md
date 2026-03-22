@@ -42,7 +42,7 @@ Improvements:
 
 Complete these steps when setting up the project for the first time.
 
-#### Prerequisites
+P#### Prerequisites
 
 See [Setup Guide](./docs/setup.md) for detailed setup instructions including Google Calendar API configuration and service account setup.
 
