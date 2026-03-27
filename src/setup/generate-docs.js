@@ -282,31 +282,6 @@ async function getLatestEventDate(competitionName) {
 }
 
 /**
- * Group competitions by their category from the website
- */
-function groupByCategory(competitions) {
-    const grouped = {};
-
-    competitions.forEach(comp => {
-        const category = comp.category || 'Uncategorized';
-
-        if (!grouped[category]) {
-            grouped[category] = [];
-        }
-
-        grouped[category].push(comp);
-    });
-
-    // Sort categories alphabetically
-    const sortedCategories = {};
-    Object.keys(grouped).sort().forEach(key => {
-        sortedCategories[key] = grouped[key];
-    });
-
-    return sortedCategories;
-}
-
-/**
  * Filter competitions to only those with events in the future
  */
 async function filterActiveCompetitions(competitions) {
@@ -349,8 +324,13 @@ async function generateDocs() {
     activeCompetitions = await filterActiveCompetitions(activeCompetitions);
     logInfo(`Filtered to ${activeCompetitions.length} competitions with current or future events`);
 
-    // Group competitions by their actual category from the website
-    const categories = groupByCategory(activeCompetitions);
+    // Group competitions by name prefix (Men's, Women's, Midweek, Juniors)
+    const categorized = categorizeCompetitions(activeCompetitions);
+    const categories = {};
+    if (categorized.mens.length > 0) categories["Men's"] = categorized.mens;
+    if (categorized.womens.length > 0) categories["Women's"] = categorized.womens;
+    if (categorized.midweek.length > 0) categories["Midweek"] = categorized.midweek;
+    if (categorized.juniors.length > 0) categories["Juniors"] = categorized.juniors;
 
     // Print category summary
     logInfo(`Found competitions by category:`);

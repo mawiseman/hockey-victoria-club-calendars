@@ -5,7 +5,7 @@ import { dirname } from 'path';
 // Import shared utilities
 import { initializeCalendarClient } from '../lib/google-auth.js';
 import { loadCompetitionData, getCompetitionsWithoutCalendars } from '../lib/competition-utils.js';
-import { getCalendarPrefix, getClubName, COMPETITIONS_FILE, getCurrentTimestamp, getSettings } from '../lib/config.js';
+import { getCalendarPrefix, getClubName, COMPETITIONS_FILE, getCurrentTimestamp, getSettings, COMPETITION_CATEGORIES } from '../lib/config.js';
 import { withErrorHandling, logSuccess, logWarning, logInfo, retryWithBackoff } from '../lib/error-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -105,22 +105,21 @@ async function getExistingCalendars(calendar) {
 }
 
 /**
- * Get the category for a competition name
+ * Get the category for a competition name using shared COMPETITION_CATEGORIES
  */
 function getCompetitionCategory(competitionName) {
     const nameLower = competitionName.toLowerCase();
-    
-    if (nameLower.includes('midweek')) {
+
+    if (COMPETITION_CATEGORIES.MIDWEEK.some(term => nameLower.includes(term))) {
         return 'midweek';
-    } else if (nameLower.includes('u16') || nameLower.includes('u14') || nameLower.includes('u12') || 
-               nameLower.includes('u10') || nameLower.includes('junior')) {
+    } else if (COMPETITION_CATEGORIES.JUNIORS.some(term => nameLower.includes(term))) {
         return 'juniors';
-    } else if (nameLower.includes("women's")) {
+    } else if (COMPETITION_CATEGORIES.WOMENS.some(term => nameLower.includes(term))) {
         return 'womens';
-    } else if (nameLower.includes("men's")) {
+    } else if (COMPETITION_CATEGORIES.MENS.some(term => nameLower.includes(term))) {
         return 'mens';
     }
-    
+
     return null;
 }
 
@@ -165,7 +164,7 @@ async function createCalendar(calendar, title, description, competitionName = nu
                 const colorId = getCategoryColorId(category);
                 try {
                     await retryWithBackoff(async () => {
-                        await calendar.calendarList.update({
+                        await calendar.calendarList.patch({
                             calendarId: calendarId,
                             resource: {
                                 colorId: colorId
@@ -294,7 +293,7 @@ async function createGoogleCalendars() {
                         const colorId = getCategoryColorId(category);
                         try {
                             await retryWithBackoff(async () => {
-                                await calendar.calendarList.update({
+                                await calendar.calendarList.patch({
                                     calendarId: competition.googleCalendar.calendarId,
                                     resource: {
                                         colorId: colorId
@@ -355,7 +354,7 @@ async function createGoogleCalendars() {
                         const colorId = getCategoryColorId(category);
                         try {
                             await retryWithBackoff(async () => {
-                                await calendar.calendarList.update({
+                                await calendar.calendarList.patch({
                                     calendarId: existingCalendar.id,
                                     resource: {
                                         colorId: colorId

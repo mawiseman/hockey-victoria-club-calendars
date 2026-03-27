@@ -89,6 +89,10 @@
       "replacement": ""
     },
     {
+      "pattern": "{{YEAR}} Senior Competition ",
+      "replacement": ""
+    },
+    {
       "pattern": "{{YEAR}} Junior Competition",
       "replacement": ""
     },
