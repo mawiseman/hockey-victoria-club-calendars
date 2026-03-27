@@ -365,7 +365,8 @@ npm run export-calendars [-- options]
 
 **Usage:**
 ```bash
-npm run delete-calendars [-- options]
+# Note: npm can intercept flags like --pattern. Use node directly for reliability:
+node src/setup/delete-google-calendars.js [options]
 ```
 
 **Options:**
@@ -373,6 +374,18 @@ npm run delete-calendars [-- options]
 - `--pattern <pattern>` - Delete calendars matching pattern
 - `--name <name>` - Delete specific calendar by name
 - `--help, -h` - Show help
+
+**Examples:**
+```bash
+# Delete all FHC calendars
+node src/setup/delete-google-calendars.js --all
+
+# Delete calendars matching a pattern
+node src/setup/delete-google-calendars.js --pattern 2025
+
+# Delete a specific calendar
+node src/setup/delete-google-calendars.js --name "FHC Test Cal"
+```
 
 **Safety Features:**
 - Interactive confirmation required

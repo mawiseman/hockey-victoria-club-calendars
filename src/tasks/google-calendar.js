@@ -172,6 +172,11 @@ export async function importICalToGoogle(calendar, calendarId, icalPath) {
                     });
 
                     imported++;
+
+                    // Brief delay to avoid rate limiting
+                    if (imported % 5 === 0) {
+                        await new Promise(resolve => setTimeout(resolve, 200));
+                    }
                 } catch (insertError) {
                     logWarning(`Failed to import event: ${getDetailedError(insertError)}`);
                     failed++;

@@ -281,6 +281,9 @@ export function generateSummaryReport(uploadResults) {
     let totalFailed = 0;
     
     for (const [name, result] of Object.entries(uploadResults)) {
+        // Skip internal metadata keys
+        if (name.startsWith('_')) continue;
+
         if (result.success) {
             totalSuccess++;
             console.log(`✅ ${name}: Successfully uploaded`);
@@ -298,7 +301,21 @@ export function generateSummaryReport(uploadResults) {
             console.log(`❌ ${name}: Failed - ${result.error}`);
         }
     }
-    
+
+    // Report category calendar results
+    if (uploadResults._categoryCalendars) {
+        console.log('\nCategory Calendars:');
+        for (const [key, result] of Object.entries(uploadResults._categoryCalendars)) {
+            if (result.skipped) {
+                console.log(`  ⏭️  ${key}: skipped (no competitions)`);
+            } else if (result.success) {
+                console.log(`  ✅ ${key}: ${result.imported} events${result.failed ? ` (${result.failed} failed)` : ''}`);
+            } else {
+                console.log(`  ❌ ${key}: ${result.error}`);
+            }
+        }
+    }
+
     console.log('\n----------------------------------------');
     console.log(`Total: ${totalSuccess} succeeded, ${totalFailed} failed`);
 }
@@ -352,7 +369,7 @@ export async function processFixtures(competitions, options) {
     // Step 3: Upload
     if (options.steps.includes('upload')) {
         uploadResults = await runUploadStep(processResults, competitions, options);
-        const failedUploads = Object.entries(uploadResults).filter(([, r]) => !r.success);
+        const failedUploads = Object.entries(uploadResults).filter(([name, r]) => !name.startsWith('_') && !r.success);
         if (failedUploads.length > 0) {
             hasErrors = true;
             console.log(`\n⚠️  ${failedUploads.length} upload(s) failed:`);
