@@ -59,12 +59,11 @@ function sortSeniorCompetitions(competitions) {
                 return { type: 'premier', level: 2, name };
             } else if (name.includes('premier league')) {
                 return { type: 'premier', level: 1, name };
-            } else if (name.includes('pennant a')) {
-                return { type: 'pennant', level: 1, name };
-            } else if (name.includes('pennant b')) {
-                return { type: 'pennant', level: 2, name };
-            } else if (name.includes('pennant c')) {
-                return { type: 'pennant', level: 3, name };
+            } else if (name.includes('pennant')) {
+                // Extract pennant letter (A=1, B=2, C=3, D=4, etc.)
+                const pennantMatch = name.match(/pennant\s+([a-z])/);
+                const pennantLevel = pennantMatch ? pennantMatch[1].charCodeAt(0) - 96 : 1;
+                return { type: 'pennant', level: pennantLevel, name };
             } else if (name.includes('metro')) {
                 // Extract metro number if present (e.g., "Metro 1", "Metro 2")
                 const metroMatch = name.match(/metro\s*(\d+)/);
@@ -92,6 +91,21 @@ function sortSeniorCompetitions(competitions) {
         // Finally sort alphabetically if same type and level
         return nameA.localeCompare(nameB);
     });
+}
+
+/**
+ * Sort all competitions: by gender group (Men's, Women's, Midweek, Juniors) then by competition weight
+ * @param {Array} competitions - Array of competition objects
+ * @returns {Array} - Sorted competitions (new array)
+ */
+export function sortCompetitions(competitions) {
+    const categorized = categorizeCompetitions([...competitions]);
+    return [
+        ...categorized.mens,
+        ...categorized.womens,
+        ...categorized.midweek,
+        ...categorized.juniors
+    ];
 }
 
 /**

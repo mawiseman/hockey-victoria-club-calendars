@@ -6,6 +6,7 @@ import { dirname } from 'path';
 
 // Import shared utilities
 import { getClubName, BASE_URL, COMPETITIONS_FILE, getDurationConfig } from '../lib/config.js';
+import { sortCompetitions } from '../lib/competition-utils.js';
 
 let CLUB_NAME = null;
 
@@ -169,7 +170,7 @@ async function saveCompetitionResult(progress, competitionData) {
         totalCompetitions: progress.totalWithClub,
         totalProcessed: progress.totalProcessed,
         totalLinksFound: progress.totalLinksFound,
-        competitions: progress.foundCompetitions
+        competitions: sortCompetitions(progress.foundCompetitions)
     };
 
     await fs.writeFile(OUTPUT_FILE, JSON.stringify(outputData, null, 2), 'utf8');

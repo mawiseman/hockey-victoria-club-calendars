@@ -12,6 +12,7 @@ import { withErrorHandling, logSuccess, logInfo } from '../lib/error-utils.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'competitions.md');
+const OUTPUT_FILE_MOBILE = path.join(OUTPUT_DIR, 'competitions-mobile.md');
 
 /**
  * Build combined calendar URL with club calendar first and category-specific color
@@ -174,6 +175,96 @@ async function generateIndexMarkdown(competitionsData, categories, activeCompeti
 }
 
 /**
+ * Generate mobile-friendly markdown with card-style layout
+ */
+async function generateMobileMarkdown(competitionsData, categories, activeCompetitions) {
+    const clubName = await getClubName();
+    const lastUpdated = competitionsData.lastUpdated || competitionsData.scrapedAt || new Date().toISOString();
+
+    let md = `# ${clubName}\n\n`;
+    md += `**${activeCompetitions.length} Active Competitions** | Updated ${new Date(lastUpdated).toLocaleDateString()}\n\n`;
+
+    // Combined calendar link
+    const combinedUrl = await buildCombinedCalendarUrlWithMixedColors(categories);
+    if (combinedUrl) {
+        md += `> **<a href="${combinedUrl}" target="_blank">View All Competitions Calendar</a>**\n\n`;
+    }
+
+    // Table of contents
+    for (const [categoryName, competitions] of Object.entries(categories)) {
+        if (competitions.length === 0) continue;
+        const anchor = categoryName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '');
+        md += `**[${categoryName}](#${anchor})**  \n`;
+        const sorted = competitions;
+        for (const comp of sorted) {
+            const compAnchor = comp.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '');
+            md += `- [${comp.name}](#${compAnchor})  \n`;
+        }
+        md += `\n`;
+    }
+
+    md += `---\n\n`;
+
+    let categoryIndex = 0;
+    for (const [categoryName, competitions] of Object.entries(categories)) {
+        if (competitions.length === 0) continue;
+
+        md += `## ${categoryName}\n\n`;
+
+        // Combined category calendar link
+        const categoryUrl = await buildCombinedCalendarUrl(competitions, categoryIndex);
+        if (categoryUrl) {
+            md += `> 📅 **<a href="${categoryUrl}" target="_blank">View All ${categoryName} Fixtures</a>**\n\n`;
+        }
+
+        // Sort competitions by name
+        const sorted = competitions;
+
+        for (const comp of sorted) {
+            md += `### ${comp.name}\n\n`;
+
+            // Links line
+            const links = [];
+            if (comp.fixtureUrl) {
+                links.push(`<a href="${comp.fixtureUrl}" target="_blank">🏑 Fixture</a>`);
+            }
+            if (comp.competitionUrl) {
+                links.push(`<a href="${comp.competitionUrl}" target="_blank">🏆 Competition</a>`);
+            }
+            if (comp.googleCalendar?.publicUrl) {
+                links.push(`<a href="${comp.googleCalendar.publicUrl}" target="_blank">📅 Google Calendar</a>`);
+            }
+            if (links.length > 0) {
+                md += links.join(' | ') + '\n\n';
+            }
+
+            // Subscribe link with instructions
+            if (comp.googleCalendar?.icalUrl) {
+                md += `<details><summary>Subscribe using iOS Calendar</summary>\n\n`;
+                md += `1. Go to **Settings > Calendar > Accounts**\n`;
+                md += `2. Tap **Add Account > Other**\n`;
+                md += `3. Tap **Add Subscribed Calendar**\n`;
+                md += `4. Paste the URL below and tap **Next**\n\n`;
+                md += `\`\`\`\n${comp.googleCalendar.icalUrl}\n\`\`\`\n\n`;
+                md += `</details>\n\n`;
+                md += `<details><summary>Subscribe using Google Calendar</summary>\n\n`;
+                md += `1. Open the <a href="${comp.googleCalendar.publicUrl}" target="_blank">Google Calendar link</a>\n`;
+                md += `2. On mobile, tap the **+** button in the bottom right corner\n`;
+                md += `3. On desktop, click **Add to Google Calendar** at the bottom of the page\n\n`;
+                md += `</details>\n\n`;
+            }
+        }
+
+        md += `---\n\n`;
+        categoryIndex++;
+    }
+
+    md += `*Automatically generated from competitions.json*\n`;
+
+    return md;
+}
+
+/**
  * Format competitions as a table with combined calendar link
  */
 async function formatCompetitionTable(competitions, categoryName, categoryIndex = 0) {
@@ -195,13 +286,10 @@ async function formatCompetitionTable(competitions, categoryName, categoryIndex 
     }
 
     // Add individual competitions table
-    let table = `| Competition | Fixture | Competition | Google Calendar | iCal Subscribe |\n`;
+    let table = `| Competition | Fixture | Competition | Google Calendar | Subscribe |\n`;
     table += `|-------------|----------|-------------|----------|----------------|\n`;
 
-    // Sort competitions by name alphabetically
-    const sortedCompetitions = [...competitions].sort((a, b) => a.name.localeCompare(b.name));
-
-    for (const competition of sortedCompetitions) {
+    for (const competition of competitions) {
         const name = competition.name;
 
         // Fixture and Competition URL columns
@@ -215,7 +303,7 @@ async function formatCompetitionTable(competitions, categoryName, categoryIndex 
 
         // Google Calendar columns
         let webViewCol;
-        let icalCol;
+        let subscribeCol;
         if (competition.googleCalendar) {
             if (competition.googleCalendar.publicUrl) {
                 webViewCol = `<a href="${competition.googleCalendar.publicUrl}" target="_blank">📅 View</a>`;
@@ -223,19 +311,27 @@ async function formatCompetitionTable(competitions, categoryName, categoryIndex 
                 webViewCol = `*Not available*`;
             }
 
-            if (competition.googleCalendar.icalUrl) {
-                icalCol = `<details><summary>📲 Subscribe</summary>Copy this link and paste it into your preferred calendar: ${competition.googleCalendar.icalUrl}</details>`;
+            if (competition.googleCalendar.publicUrl || competition.googleCalendar.icalUrl) {
+                let subscribeHtml = `<details><summary>📲 Subscribe</summary>`;
+                if (competition.googleCalendar.publicUrl) {
+                    subscribeHtml += `<br><b>Google Calendar:</b><br>1. Open the <a href="${competition.googleCalendar.publicUrl}" target="_blank">Google Calendar link</a><br>2. On mobile, tap the <b>+</b> button in the bottom right corner<br>3. On desktop, click <b>Add to Google Calendar</b> at the bottom of the page<br>`;
+                }
+                if (competition.googleCalendar.icalUrl) {
+                    subscribeHtml += `<br><b>iOS Calendar:</b><br>1. Go to <b>Settings > Calendar > Accounts</b><br>2. Tap <b>Add Account > Other</b><br>3. Tap <b>Add Subscribed Calendar</b><br>4. Paste the URL below and tap <b>Next</b><br><code>${competition.googleCalendar.icalUrl}</code><br>`;
+                }
+                subscribeHtml += `</details>`;
+                subscribeCol = subscribeHtml;
             } else {
-                icalCol = `*Not available*`;
+                subscribeCol = `*Not available*`;
             }
         } else {
             webViewCol = `*Not configured*`;
-            icalCol = `*Not configured*`;
+            subscribeCol = `*Not configured*`;
         }
 
-        table += `| ${name} | ${fixtureCol} | ${competitionCol} | ${webViewCol} | ${icalCol} |\n`;
+        table += `| ${name} | ${fixtureCol} | ${competitionCol} | ${webViewCol} | ${subscribeCol} |\n`;
     }
-    
+
     content += table + `\n`;
     return content;
 }
@@ -348,8 +444,13 @@ async function generateDocs() {
     // Write index markdown file
     await fs.writeFile(OUTPUT_FILE, indexMarkdown, 'utf8');
     logSuccess(`Index documentation generated: ${OUTPUT_FILE}`);
-    
-    
+
+    // Generate mobile-friendly markdown
+    logInfo('Generating mobile-friendly markdown...');
+    const mobileMarkdown = await generateMobileMarkdown(competitionsData, categories, activeCompetitions);
+    await fs.writeFile(OUTPUT_FILE_MOBILE, mobileMarkdown, 'utf8');
+    logSuccess(`Mobile documentation generated: ${OUTPUT_FILE_MOBILE}`);
+
     logInfo(`Total active competitions documented: ${activeCompetitions.length}`);
 }
 
