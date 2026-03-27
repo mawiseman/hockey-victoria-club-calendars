@@ -1,7 +1,7 @@
-# undefined - Competition Calendars
+# Footscray Hockey Club - Competition Calendars
 
 **Active Competitions:** 14  
-**Last Updated:** Invalid Date  
+**Last Updated:** 27/03/2026, 12:34:23 pm  
 
 ---
 

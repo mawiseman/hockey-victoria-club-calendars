@@ -6,7 +6,7 @@ import ical from 'ical';
 
 // Import shared utilities
 import { loadCompetitionData, categorizeCompetitions } from '../lib/competition-utils.js';
-import { OUTPUT_DIR, COMPETITIONS_FILE, getSettings } from '../lib/config.js';
+import { OUTPUT_DIR, COMPETITIONS_FILE, getSettings, getClubName } from '../lib/config.js';
 import { withErrorHandling, logSuccess, logInfo } from '../lib/error-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -122,7 +122,8 @@ async function buildCombinedCalendarUrlWithMixedColors(categories) {
  * Generate index markdown content with all calendars
  */
 async function generateIndexMarkdown(competitionsData, categories, activeCompetitions) {
-    const { clubName, lastUpdated } = competitionsData;
+    const clubName = await getClubName();
+    const lastUpdated = competitionsData.lastUpdated || competitionsData.scrapedAt || new Date().toISOString();
 
     let markdown = `# ${clubName} - Competition Calendars\n\n`;
     markdown += `**Active Competitions:** ${activeCompetitions.length}  \n`;
