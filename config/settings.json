@@ -6,6 +6,36 @@
     "calendarId": "e5b4e34ae8aa71f8f86178b195b908ccdc38cd5694eb4a468b467aa8d67f4f0a@group.calendar.google.com",
     "publicUrl": "https://calendar.google.com/calendar/embed?src=e5b4e34ae8aa71f8f86178b195b908ccdc38cd5694eb4a468b467aa8d67f4f0a%40group.calendar.google.com",
     "icalUrl": "https://calendar.google.com/calendar/ical/e5b4e34ae8aa71f8f86178b195b908ccdc38cd5694eb4a468b467aa8d67f4f0a%40group.calendar.google.com/public/basic.ics",
-    "createdAt": "2026-03-27T02:57:30.344Z"
+    "createdAt": "2026-03-27T06:19:24.917Z"
+  },
+  "categoryCalendars": {
+    "mens": {
+      "calendarId": "b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6@group.calendar.google.com",
+      "publicUrl": "https://calendar.google.com/calendar/embed?src=b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6%40group.calendar.google.com",
+      "icalUrl": "https://calendar.google.com/calendar/ical/b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6%40group.calendar.google.com/public/basic.ics",
+      "title": "FHC Men's",
+      "createdAt": "2026-03-27T06:19:34.048Z"
+    },
+    "womens": {
+      "calendarId": "45c236109820085226cabd0f84c97574e25fe27183d8155d6ce9fe89e1b486a9@group.calendar.google.com",
+      "publicUrl": "https://calendar.google.com/calendar/embed?src=45c236109820085226cabd0f84c97574e25fe27183d8155d6ce9fe89e1b486a9%40group.calendar.google.com",
+      "icalUrl": "https://calendar.google.com/calendar/ical/45c236109820085226cabd0f84c97574e25fe27183d8155d6ce9fe89e1b486a9%40group.calendar.google.com/public/basic.ics",
+      "title": "FHC Women's",
+      "createdAt": "2026-03-27T06:19:44.859Z"
+    },
+    "midweek": {
+      "calendarId": "fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e@group.calendar.google.com",
+      "publicUrl": "https://calendar.google.com/calendar/embed?src=fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e%40group.calendar.google.com",
+      "icalUrl": "https://calendar.google.com/calendar/ical/fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e%40group.calendar.google.com/public/basic.ics",
+      "title": "FHC Midweek",
+      "createdAt": "2026-03-27T06:19:56.185Z"
+    },
+    "juniors": {
+      "calendarId": "a621fd9b3e4a3996c8ea70697cab4198ad5605847234af74be60fc91345c08c9@group.calendar.google.com",
+      "publicUrl": "https://calendar.google.com/calendar/embed?src=a621fd9b3e4a3996c8ea70697cab4198ad5605847234af74be60fc91345c08c9%40group.calendar.google.com",
+      "icalUrl": "https://calendar.google.com/calendar/ical/a621fd9b3e4a3996c8ea70697cab4198ad5605847234af74be60fc91345c08c9%40group.calendar.google.com/public/basic.ics",
+      "title": "FHC Juniors",
+      "createdAt": "2026-03-27T06:20:06.159Z"
+    }
   }
 }

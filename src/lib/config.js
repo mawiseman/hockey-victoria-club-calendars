@@ -29,6 +29,11 @@ export async function getClubName() {
     return settings.clubName;
 }
 
+export async function getCategoryCalendars() {
+    const settings = await loadSettings();
+    return settings.categoryCalendars || {};
+}
+
 // File paths
 export const COMPETITIONS_FILE = 'config/competitions.json';
 export const SERVICE_ACCOUNT_KEY = 'service-account-key.json';
@@ -55,6 +60,14 @@ export const COMPETITION_CATEGORIES = {
     JUNIORS: ['u12', 'u14', 'u16', 'u18', 'under 12', 'under 14', 'under 16', 'under 18', 'mixed', 'girls'],
     WOMENS: ["women's", 'women ', 'womens'],
     MENS: ["men's", 'men ', 'mens']
+};
+
+// Category display labels
+export const CATEGORY_LABELS = {
+    mens: "Men's",
+    womens: "Women's",
+    midweek: "Midweek",
+    juniors: "Juniors"
 };
 
 // Default timeouts

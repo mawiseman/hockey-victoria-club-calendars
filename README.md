@@ -24,7 +24,7 @@ Improvements:
 | **Update Competition Status** | `npm run update-competition-status` | Checks processed calendars and marks competitions as active/inactive |
 | **Cleanup Inactive** | `npm run cleanup-inactive` | Remove inactive competitions from tracking |
 | **Competition Scraper** | `npm run scrape-competitions` | Scrapes Hockey Victoria for competitions containing Footscray Hockey Club |
-| **Calendar Creator** | `npm run create-calendars` | Creates Google Calendars for each competition |
+| **Calendar Creator** | `npm run create-calendars` | Creates Google Calendars for each competition and combined category calendars (Men's, Women's, etc.) |
 | **Club Mappings Updater** | `npm run update-mappings-club-names` | Updates club name mappings from ladder data |
 | **Documentation Generator** | `npm run generate-docs` | Generates markdown documentation with calendar links |
 
@@ -32,7 +32,7 @@ Improvements:
 
 | Script | Command | Description |
 |--------|---------|-------------|
-| **Process All Competitions** | `npm run process-all-competitions` | Process all competitions: download, process, and upload calendars |
+| **Process All Competitions** | `npm run process-all-competitions` | Process all competitions: download, process, and upload to individual + category calendars |
 | **Process Competition** | `npm run process-competition` | Process a single competition's calendar |
 
 ### Calendar Utilities Scripts

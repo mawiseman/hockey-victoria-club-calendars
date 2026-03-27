@@ -255,7 +255,9 @@ export async function runUploadStep(processResults, competitions, options) {
         }
     }
     
-    const uploadResults = await uploadAllCalendars(actualProcessResults, competitions);
+    const uploadResults = await uploadAllCalendars(actualProcessResults, competitions, {
+        skipCategoryCalendars: options.skipCategoryCalendars || false
+    });
     
     // Save results
     await saveStepResults('upload', uploadResults, competitions);

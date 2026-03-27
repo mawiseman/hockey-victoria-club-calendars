@@ -311,7 +311,8 @@ async function main() {
         // Create temp directory
         await fs.mkdir(TEMP_DIR, { recursive: true });
         
-        // Process only the selected competition
+        // Process only the selected competition (skip category calendars to avoid clearing them)
+        options.skipCategoryCalendars = true;
         const result = await processFixtures([selectedCompetition], options);
 
         console.log('\n========================================');

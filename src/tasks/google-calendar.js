@@ -4,6 +4,7 @@ import ical from 'ical';
 // Import shared utilities
 import { authenticateGoogle } from '../lib/google-auth.js';
 import { getDetailedError, isApiLimitError, logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
+import { getCategoryCalendars, CATEGORY_LABELS, COMPETITION_CATEGORIES } from '../lib/config.js';
 
 /**
  * Delete all events from a Google Calendar
@@ -231,11 +232,85 @@ export async function uploadToGoogleCalendars(processedPath, calendarIds) {
 }
 
 /**
+ * Get the category key for a competition name
+ */
+function getCompetitionCategoryKey(competitionName) {
+    const nameLower = competitionName.toLowerCase();
+    if (COMPETITION_CATEGORIES.MIDWEEK.some(t => nameLower.includes(t))) return 'midweek';
+    if (COMPETITION_CATEGORIES.JUNIORS.some(t => nameLower.includes(t))) return 'juniors';
+    if (COMPETITION_CATEGORIES.WOMENS.some(t => nameLower.includes(t))) return 'womens';
+    if (COMPETITION_CATEGORIES.MENS.some(t => nameLower.includes(t))) return 'mens';
+    return null;
+}
+
+/**
+ * Upload events to combined category calendars
+ */
+async function uploadToCategoryCalendars(processResults, competitions) {
+    const categoryCalendars = await getCategoryCalendars();
+    if (Object.keys(categoryCalendars).length === 0) {
+        logWarning('No category calendars configured in settings.json. Run npm run create-calendars first.');
+        return {};
+    }
+
+    const calendar = await authenticateGoogle();
+    const categoryResults = {};
+
+    // Group successful process results by category
+    const categoryFiles = {};
+    for (const [name, result] of Object.entries(processResults)) {
+        if (!result.success || !result.processedPath) continue;
+        const categoryKey = getCompetitionCategoryKey(name);
+        if (!categoryKey) continue;
+        if (!categoryFiles[categoryKey]) categoryFiles[categoryKey] = [];
+        categoryFiles[categoryKey].push({ name, path: result.processedPath });
+    }
+
+    for (const [categoryKey, calendarInfo] of Object.entries(categoryCalendars)) {
+        const files = categoryFiles[categoryKey] || [];
+        const label = CATEGORY_LABELS[categoryKey] || categoryKey;
+
+        if (files.length === 0) {
+            logInfo(`No processed files for ${label} category, skipping`);
+            categoryResults[categoryKey] = { success: true, imported: 0, skipped: true };
+            continue;
+        }
+
+        logInfo(`Uploading ${files.length} competitions to ${label} category calendar...`);
+
+        try {
+            // Clear the category calendar first
+            await deleteAllEvents(calendar, calendarInfo.calendarId);
+
+            let totalImported = 0;
+            let totalFailed = 0;
+
+            // Import events from each competition in this category
+            for (const file of files) {
+                logInfo(`  Adding ${file.name} to ${label} calendar`);
+                const result = await importICalToGoogle(calendar, calendarInfo.calendarId, file.path);
+                totalImported += result.imported;
+                totalFailed += result.failed;
+            }
+
+            logSuccess(`${label} category calendar: ${totalImported} events imported (${totalFailed} failed)`);
+            categoryResults[categoryKey] = { success: true, imported: totalImported, failed: totalFailed };
+        } catch (error) {
+            const detailedError = getDetailedError(error);
+            logWarning(`Failed to upload to ${label} category calendar: ${detailedError}`);
+            categoryResults[categoryKey] = { success: false, error: detailedError };
+        }
+    }
+
+    return categoryResults;
+}
+
+/**
  * Process and upload all calendars
  * @param {Object} processResults - Results from process step
  * @param {Array} competitions - Fresh competition data from competitions.json
  */
-export async function uploadAllCalendars(processResults, competitions) {
+export async function uploadAllCalendars(processResults, competitions, { skipCategoryCalendars = false } = {}) {
     const uploadResults = {};
 
     // Create a map for quick competition lookup by name
@@ -305,6 +380,13 @@ export async function uploadAllCalendars(processResults, competitions) {
                 error: errorMsg
             };
         }
+    }
+
+    // Upload to combined category calendars (skip for single competition updates)
+    if (!skipCategoryCalendars) {
+        logInfo('Uploading to combined category calendars...');
+        const categoryResults = await uploadToCategoryCalendars(processResults, competitions);
+        uploadResults._categoryCalendars = categoryResults;
     }
 
     return uploadResults;

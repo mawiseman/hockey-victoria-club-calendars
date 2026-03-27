@@ -5,7 +5,7 @@ import ical from 'ical';
 
 // Import shared utilities
 import { loadCompetitionData, categorizeCompetitions } from '../lib/competition-utils.js';
-import { OUTPUT_DIR, COMPETITIONS_FILE, getSettings, getClubName } from '../lib/config.js';
+import { OUTPUT_DIR, COMPETITIONS_FILE, getSettings, getClubName, getCategoryCalendars, CATEGORY_LABELS } from '../lib/config.js';
 import { withErrorHandling, logSuccess, logInfo } from '../lib/error-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -80,6 +80,17 @@ function googleCalendarSubscribeHtml(publicUrl) {
  */
 function iosCalendarSubscribeHtml(icalUrl) {
     return `<b>iOS Calendar:</b><br>1. Go to <b>Settings > Calendar > Accounts</b><br>2. Tap <b>Add Account > Other</b><br>3. Tap <b>Add Subscribed Calendar</b><br>4. Paste the <a href="${icalUrl}">iCal link</a> and tap <b>Next</b><br>`;
+}
+
+/**
+ * Generate category subscribe block (shared between desktop and mobile)
+ */
+function formatCategorySubscribeHtml(categoryCal, categoryName) {
+    let html = `<details><summary>📲 Subscribe to all ${categoryName} fixtures</summary>`;
+    html += `<br><b>Google Calendar:</b><br>1. Open the <a href="${categoryCal.publicUrl}" target="_blank">Google Calendar link</a><br>2. On mobile, tap the <b>+</b> button in the bottom right corner<br>3. On desktop, click <b>Add to Google Calendar</b> at the bottom of the page<br>`;
+    html += `<br><b>iOS Calendar:</b><br>1. Go to <b>Settings > Calendar > Accounts</b><br>2. Tap <b>Add Account > Other</b><br>3. Tap <b>Add Subscribed Calendar</b><br>4. Paste the <a href="${categoryCal.icalUrl}">iCal link</a> and tap <b>Next</b><br>`;
+    html += `</details>\n\n`;
+    return html;
 }
 
 // ─── Calendar URL builders ───────────────────────────────────────────
@@ -166,10 +177,11 @@ async function generateIndexMarkdown(competitionsData, categories, activeCompeti
 
     // Add individual competition sections for each category
     let categoryIndex = 0;
-    for (const [categoryName, competitions] of Object.entries(categories)) {
+    for (const [categoryKey, competitions] of Object.entries(categories)) {
+        const categoryName = CATEGORY_LABELS[categoryKey] || categoryKey;
         if (competitions.length > 0) {
             markdown += `## ${categoryName}\n\n`;
-            markdown += await formatCompetitionTable(competitions, categoryName, categoryIndex);
+            markdown += await formatCompetitionTable(competitions, categoryKey, categoryIndex);
             markdown += `\n`;
             categoryIndex++;
         }
@@ -186,7 +198,8 @@ async function generateIndexMarkdown(competitionsData, categories, activeCompeti
 /**
  * Format competitions as a table with combined calendar link
  */
-async function formatCompetitionTable(competitions, categoryName, categoryIndex = 0) {
+async function formatCompetitionTable(competitions, categoryKey, categoryIndex = 0) {
+    const categoryName = CATEGORY_LABELS[categoryKey] || categoryKey;
     const competitionsWithCalendars = competitions.filter(comp =>
         comp.googleCalendar && comp.googleCalendar.calendarId
     );
@@ -199,6 +212,13 @@ async function formatCompetitionTable(competitions, categoryName, categoryIndex 
             content += `📅 **<a href="${combinedCalendarUrl}" target="_blank">View All ${categoryName} Fixtures</a>**\n\n`;
             content += `*Opens Google Calendar with all ${competitionsWithCalendars.length} competition calendars in one view.*\n\n`;
         }
+    }
+
+    // Category calendar subscribe link
+    const categoryCalendars = await getCategoryCalendars();
+    const categoryCal = categoryCalendars[categoryKey];
+    if (categoryCal) {
+        content += formatCategorySubscribeHtml(categoryCal, categoryName);
     }
 
     let table = `| Competition | Fixture | Competition | Google Calendar | Subscribe |\n`;
@@ -263,8 +283,9 @@ async function generateMobileMarkdown(competitionsData, categories, activeCompet
     }
 
     // Table of contents
-    for (const [categoryName, competitions] of Object.entries(categories)) {
+    for (const [categoryKey, competitions] of Object.entries(categories)) {
         if (competitions.length === 0) continue;
+        const categoryName = CATEGORY_LABELS[categoryKey] || categoryKey;
         const anchor = categoryName.toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/ /g, '-');
         md += `**[${categoryName}](#${anchor})**  \n`;
         for (const comp of competitions) {
@@ -276,15 +297,23 @@ async function generateMobileMarkdown(competitionsData, categories, activeCompet
 
     md += `---\n\n`;
 
+    const categoryCalendars = await getCategoryCalendars();
     let categoryIndex = 0;
-    for (const [categoryName, competitions] of Object.entries(categories)) {
+    for (const [categoryKey, competitions] of Object.entries(categories)) {
         if (competitions.length === 0) continue;
+        const categoryName = CATEGORY_LABELS[categoryKey] || categoryKey;
 
         md += `## ${categoryName}\n\n`;
 
         const categoryUrl = await buildCombinedCalendarUrl(competitions, categoryIndex);
         if (categoryUrl) {
             md += `> 📅 **<a href="${categoryUrl}" target="_blank">View All ${categoryName} Fixtures</a>**\n\n`;
+        }
+
+        // Category calendar subscribe link
+        const categoryCal = categoryCalendars[categoryKey];
+        if (categoryCal) {
+            md += formatCategorySubscribeHtml(categoryCal, categoryName);
         }
 
         for (const comp of competitions) {
@@ -395,13 +424,13 @@ async function generateDocs() {
     activeCompetitions = await filterActiveCompetitions(activeCompetitions);
     logInfo(`Filtered to ${activeCompetitions.length} competitions with current or future events`);
 
-    // Group competitions by name prefix (Men's, Women's, Midweek, Juniors)
+    // Group competitions by category key (mens, womens, midweek, juniors)
     const categorized = categorizeCompetitions(activeCompetitions);
     const categories = {};
-    if (categorized.mens.length > 0) categories["Men's"] = categorized.mens;
-    if (categorized.womens.length > 0) categories["Women's"] = categorized.womens;
-    if (categorized.midweek.length > 0) categories["Midweek"] = categorized.midweek;
-    if (categorized.juniors.length > 0) categories["Juniors"] = categorized.juniors;
+    if (categorized.mens.length > 0) categories.mens = categorized.mens;
+    if (categorized.womens.length > 0) categories.womens = categorized.womens;
+    if (categorized.midweek.length > 0) categories.midweek = categorized.midweek;
+    if (categorized.juniors.length > 0) categories.juniors = categorized.juniors;
 
     logInfo(`Found competitions by category:`);
     Object.keys(categories).forEach(category => {

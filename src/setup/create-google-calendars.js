@@ -5,7 +5,7 @@ import { dirname } from 'path';
 // Import shared utilities
 import { initializeCalendarClient } from '../lib/google-auth.js';
 import { loadCompetitionData, getCompetitionsWithoutCalendars } from '../lib/competition-utils.js';
-import { getCalendarPrefix, getClubName, COMPETITIONS_FILE, getCurrentTimestamp, getSettings, COMPETITION_CATEGORIES } from '../lib/config.js';
+import { getCalendarPrefix, getClubName, COMPETITIONS_FILE, getCurrentTimestamp, getSettings, COMPETITION_CATEGORIES, CATEGORY_LABELS } from '../lib/config.js';
 import { withErrorHandling, logSuccess, logWarning, logInfo, retryWithBackoff } from '../lib/error-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -85,6 +85,100 @@ async function ensureClubCalendar(calendar, existingCalendars) {
             existed: false
         };
     }
+}
+
+/**
+ * Update settings.json with category calendar information
+ */
+async function updateSettingsWithCategoryCalendar(category, calendarId, publicUrl, icalUrl, title) {
+    try {
+        const settings = await getSettings();
+        if (!settings.categoryCalendars) {
+            settings.categoryCalendars = {};
+        }
+        settings.categoryCalendars[category] = {
+            calendarId,
+            publicUrl,
+            icalUrl,
+            title,
+            createdAt: getCurrentTimestamp()
+        };
+
+        await fs.writeFile(SETTINGS_FILE, JSON.stringify(settings, null, 2), 'utf8');
+        logSuccess(`Updated settings.json with ${category} category calendar`);
+    } catch (error) {
+        logWarning(`Failed to update settings.json for ${category}: ${error.message}`);
+    }
+}
+
+/**
+ * Create or verify category-level calendars (Men's, Women's, Midweek, Juniors)
+ */
+async function ensureCategoryCalendars(calendar, existingCalendars) {
+    const calendarPrefix = await getCalendarPrefix();
+    const clubName = await getClubName();
+    const results = {};
+
+    logInfo('Checking for category-level calendars...');
+
+    for (const [categoryKey, label] of Object.entries(CATEGORY_LABELS)) {
+        const calendarTitle = `${calendarPrefix}${label}`;
+
+        const existing = existingCalendars.find(cal => cal.summary === calendarTitle);
+
+        if (existing) {
+            logInfo(`Category calendar already exists: ${calendarTitle}`);
+
+            const publicUrl = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(existing.id)}`;
+            const icalUrl = `https://calendar.google.com/calendar/ical/${encodeURIComponent(existing.id)}/public/basic.ics`;
+
+            // Update color
+            const colorId = getCategoryColorId(categoryKey);
+            try {
+                await retryWithBackoff(async () => {
+                    await calendar.calendarList.patch({
+                        calendarId: existing.id,
+                        resource: { colorId }
+                    });
+                });
+            } catch (error) {
+                logWarning(`Failed to update color for ${calendarTitle}: ${error.message}`);
+            }
+
+            await updateSettingsWithCategoryCalendar(categoryKey, existing.id, publicUrl, icalUrl, calendarTitle);
+            results[categoryKey] = { calendarId: existing.id, publicUrl, icalUrl, title: calendarTitle, existed: true };
+        } else {
+            logInfo(`Creating category calendar: ${calendarTitle}`);
+
+            const calendarData = await createCalendar(
+                calendar,
+                calendarTitle,
+                `${clubName} - All ${label} competition fixtures`
+            );
+
+            // Set color
+            const colorId = getCategoryColorId(categoryKey);
+            try {
+                await retryWithBackoff(async () => {
+                    await calendar.calendarList.patch({
+                        calendarId: calendarData.calendarId,
+                        resource: { colorId }
+                    });
+                });
+            } catch (error) {
+                logWarning(`Failed to set color for ${calendarTitle}: ${error.message}`);
+            }
+
+            await updateSettingsWithCategoryCalendar(categoryKey, calendarData.calendarId, calendarData.publicUrl, calendarData.icalUrl, calendarTitle);
+            results[categoryKey] = { ...calendarData, existed: false };
+            logSuccess(`Created category calendar: ${calendarTitle}`);
+        }
+
+        // Delay between API calls
+        await new Promise(resolve => setTimeout(resolve, 2000));
+    }
+
+    return results;
 }
 
 /**
@@ -261,6 +355,12 @@ async function createGoogleCalendars() {
         logSuccess(`Club calendar created: ${clubCalendarInfo.title}`);
     }
     
+    // Ensure category-level calendars exist
+    const categoryCalendarResults = await ensureCategoryCalendars(calendar, existingCalendars);
+    const newCategories = Object.values(categoryCalendarResults).filter(r => !r.existed).length;
+    const existingCategories = Object.values(categoryCalendarResults).filter(r => r.existed).length;
+    logSuccess(`Category calendars: ${newCategories} created, ${existingCategories} verified`);
+
     // Process all competitions to ensure they have calendar details
     const competitionsToProcess = competitions;
     
