@@ -4,7 +4,8 @@ This project contains scripts for improving Hockey Victoria competition calendar
 
 [![Sync Hockey Victoria Calendars](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml/badge.svg)](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml)
 
-[View Avaliable Calendars](./docs/competitions.md)
+- [View Avaliable Calendars](./docs/competitions.md)
+- [View Avaliable Calendars (Mobile Friendly)](./docs/competitions.md)
 
 Improvements:
 * Fixtures in Google Calendar, updated daily to capture any scheduling changes (time, location, etc)

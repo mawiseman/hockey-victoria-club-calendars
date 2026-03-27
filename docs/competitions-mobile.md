@@ -37,11 +37,7 @@
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -62,11 +58,7 @@ https://calendar.google.com/calendar/ical/ecb36ecdb4ab985e3d46cd8795ecb7d861e772
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -87,11 +79,7 @@ https://calendar.google.com/calendar/ical/aa2dee5510376276aadc05f32901e1a88c674c
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -112,11 +100,7 @@ https://calendar.google.com/calendar/ical/f17ab206b611a64df491c6f52c5a0262ba1c07
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -137,11 +121,7 @@ https://calendar.google.com/calendar/ical/4d4a7e478d4f47e337fa31225987715f1a0ff4
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -162,11 +142,7 @@ https://calendar.google.com/calendar/ical/029751390b69302d004a5fe963185a0c696811
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -187,11 +163,7 @@ https://calendar.google.com/calendar/ical/bd04998dc318875fdcdbd0e28797bed0cae69f
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -218,11 +190,7 @@ https://calendar.google.com/calendar/ical/2713467ca6e08aa82ad159ebf7eca12ec7d376
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -243,11 +211,7 @@ https://calendar.google.com/calendar/ical/38a189497d13abc2aec155b82f101d4ff59075
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -268,11 +232,7 @@ https://calendar.google.com/calendar/ical/ac65c3c15591774ad09b0a4285a79cfc3e7b37
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -293,11 +253,7 @@ https://calendar.google.com/calendar/ical/fe5fa72aaee7f8950e4d41ff5e095c5afb29a1
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -318,11 +274,7 @@ https://calendar.google.com/calendar/ical/b966f1661113fb96ecb688b354edfa7f481b57
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -343,11 +295,7 @@ https://calendar.google.com/calendar/ical/8fcc15b1cfeb4d07e785ac1f4a778edf14c336
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -368,11 +316,7 @@ https://calendar.google.com/calendar/ical/43f73614eb007f0e04b2e0a85bee3ce3b503d8
 1. Go to **Settings > Calendar > Accounts**
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
-4. Paste the URL below and tap **Next**
-
-```
-https://calendar.google.com/calendar/ical/5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61%40group.calendar.google.com/public/basic.ics
-```
+4. Paste the <a href="https://calendar.google.com/calendar/ical/5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
