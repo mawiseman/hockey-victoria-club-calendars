@@ -20,11 +20,12 @@ Improvements:
 
 | Script | Command | Description |
 |--------|---------|-------------|
+| **Update Competition Status** | `npm run update-competition-status` | Checks processed calendars and marks competitions as active/inactive |
+| **Cleanup Inactive** | `npm run cleanup-inactive` | Remove inactive competitions from tracking |
 | **Competition Scraper** | `npm run scrape-competitions` | Scrapes Hockey Victoria for competitions containing Footscray Hockey Club |
 | **Calendar Creator** | `npm run create-calendars` | Creates Google Calendars for each competition |
 | **Club Mappings Updater** | `npm run update-mappings-club-names` | Updates club name mappings from ladder data |
 | **Documentation Generator** | `npm run generate-docs` | Generates markdown documentation with calendar links |
-| **Cleanup Inactive** | `npm run cleanup-inactive` | Remove inactive competitions from tracking |
 
 ### Workflow Scripts
 
@@ -40,6 +41,12 @@ Improvements:
 | **Calendar Lister** | `npm run list-calendars` | Lists existing Google Calendars |
 | **Calendar Exporter** | `npm run export-calendars` | Exports calendar data to JSON |
 | **Calendar Deleter** | `npm run delete-calendars` | Deletes Google Calendars (with safety prompts) |
+
+### Test Scripts
+
+| Script | Command | Description |
+|--------|---------|-------------|
+| **Calendar Summary Test** | `npm run test-calendar-summary-processing` | Tests calendar summary name processing against downloaded ICS files |
 
 ## 🎯 Usage Guide
 
@@ -460,7 +467,10 @@ src/
 │   ├── delete-google-calendars.js  # Calendar deletion
 │   ├── list-google-calendars.js    # Calendar listing/export
 │   ├── generate-docs.js           # Documentation generation
-│   └── update-mappings-club-names.js # Club mappings updater
+│   ├── update-mappings-club-names.js # Club mappings updater
+│   └── update-competition-status.js # Competition active/inactive checker
+├── tests/                           # Test scripts
+│   └── calendar-summary-processing.js # Calendar summary name processing tests
 └── tasks/                           # Task workflow scripts
     ├── index.js                    # Main workflow orchestration
     ├── process-competition.js      # Single competition processor

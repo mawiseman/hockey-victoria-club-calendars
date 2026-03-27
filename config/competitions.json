@@ -1,10 +1,4 @@
 {
-  "scrapedAt": "2026-03-26T23:52:20.026Z",
-  "lastUpdated": "2026-03-26T23:52:20.026Z",
-  "clubName": "Footscray Hockey Club",
-  "totalCompetitions": 22,
-  "totalProcessed": 22,
-  "totalLinksFound": 59,
   "competitions": [
     {
       "name": "Mens Premier League - 2026",
@@ -54,7 +48,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Premier League Reserves - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "Womens Premier League Reserves - 2026",
@@ -70,7 +66,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Premier League Reserves - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "Womens Pennant A - 2026",
@@ -86,7 +84,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant A - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "Womens Pennant C - 2026",
@@ -102,7 +102,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant C - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "Mens Pennant B - 2026",
@@ -118,7 +120,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Pennant B - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "Mens Pennant A - 2026",
@@ -134,7 +138,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Pennant A - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "Womens Pennant B - 2026",
@@ -150,7 +156,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant B - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "Mens Pennant D North West - 2026",
@@ -166,7 +174,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Pennant D North West - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "Womens Pennant D North West - 2026",
@@ -182,7 +192,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant D North West - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "Womens Metro 1 North West - 2026",
@@ -198,7 +210,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Metro 1 North West - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "Mens Metro 1 North West - 2026",
@@ -214,7 +228,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Metro 1 North West - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "Mens Metro 2 North West - 2026",
@@ -230,119 +246,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Metro 2 North West - 2026",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
-    },
-    {
-      "name": "ICC Under 14 Boys",
-      "category": "2026 Indoor Club Championship",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/399456",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40854",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40854",
-      "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:53:02.213Z",
-      "googleCalendar": {
-        "calendarId": "75dcdc1111f5d76f922c820fc23dba9624118922ec635398e45cc9e7ff5fba8d@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=75dcdc1111f5d76f922c820fc23dba9624118922ec635398e45cc9e7ff5fba8d%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/75dcdc1111f5d76f922c820fc23dba9624118922ec635398e45cc9e7ff5fba8d%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC ICC Under 14 Boys",
-        "createdAt": "2026-03-26T23:54:33.017Z"
-      }
-    },
-    {
-      "name": "ICC Under 16 Girls",
-      "category": "2026 Indoor Club Championship",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/399433",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40849",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40849",
-      "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:53:02.268Z",
-      "googleCalendar": {
-        "calendarId": "0579fd945bc3df7564e01d79881dcf947b2103f7d72c6ef6d59d6c2fcd55563e@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=0579fd945bc3df7564e01d79881dcf947b2103f7d72c6ef6d59d6c2fcd55563e%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/0579fd945bc3df7564e01d79881dcf947b2103f7d72c6ef6d59d6c2fcd55563e%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC ICC Under 16 Girls",
-        "createdAt": "2026-03-26T23:54:33.017Z"
-      }
-    },
-    {
-      "name": "ICC 35+ Womens Masters",
-      "category": "2026 Indoor Club Championship",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/404410",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40847",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40847",
-      "matchDuration": 60,
-      "scrapedAt": "2026-03-26T23:53:02.417Z",
-      "googleCalendar": {
-        "calendarId": "8da0e8bf273adf4ef00bea297a7da9d3a4a4e8179c5f0094b0b212b9154cb838@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=8da0e8bf273adf4ef00bea297a7da9d3a4a4e8179c5f0094b0b212b9154cb838%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/8da0e8bf273adf4ef00bea297a7da9d3a4a4e8179c5f0094b0b212b9154cb838%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC ICC 35+ Womens Masters",
-        "createdAt": "2026-03-26T23:54:33.017Z"
-      }
-    },
-    {
-      "name": "JIC Under 14 Mixed",
-      "category": "2026 Junior Indoor Challenge",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24922/395495",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40857",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40857",
-      "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:53:05.291Z",
-      "googleCalendar": {
-        "calendarId": "d384c121e94b35ee1803c36c65a982e05a82b2037c618ccc6c5bad2e87ac8e75@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=d384c121e94b35ee1803c36c65a982e05a82b2037c618ccc6c5bad2e87ac8e75%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/d384c121e94b35ee1803c36c65a982e05a82b2037c618ccc6c5bad2e87ac8e75%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC JIC Under 14 Mixed",
-        "createdAt": "2026-03-26T23:54:33.017Z"
-      }
-    },
-    {
-      "name": "ICC Under 12 Girls",
-      "category": "2026 Indoor Club Championship",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/404397",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40850",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40850",
-      "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:53:06.018Z",
-      "googleCalendar": {
-        "calendarId": "9fd49496c30e290fb32e9ab68b46b2209a486235241aa842b14748a05af74475@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=9fd49496c30e290fb32e9ab68b46b2209a486235241aa842b14748a05af74475%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/9fd49496c30e290fb32e9ab68b46b2209a486235241aa842b14748a05af74475%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC ICC Under 12 Girls",
-        "createdAt": "2026-03-26T23:54:33.017Z"
-      }
-    },
-    {
-      "name": "JIC Under 12 Mixed",
-      "category": "2026 Junior Indoor Challenge",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24922/395517",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40858",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40858",
-      "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:53:06.105Z",
-      "googleCalendar": {
-        "calendarId": "013fa56b17d62e9215be6e42ee21a38c2ce3ebbedc8972e6d954b0306dcb9df8@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=013fa56b17d62e9215be6e42ee21a38c2ce3ebbedc8972e6d954b0306dcb9df8%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/013fa56b17d62e9215be6e42ee21a38c2ce3ebbedc8972e6d954b0306dcb9df8%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC JIC Under 12 Mixed",
-        "createdAt": "2026-03-26T23:54:33.017Z"
-      }
-    },
-    {
-      "name": "ICC Under 14 Girls",
-      "category": "2026 Indoor Club Championship",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/399449",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40851",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40851",
-      "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:53:06.179Z",
-      "googleCalendar": {
-        "calendarId": "23af0c19a21a200645559b5c6277ed674c1482090afaaa7d165f155d6c8aae2b@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=23af0c19a21a200645559b5c6277ed674c1482090afaaa7d165f155d6c8aae2b%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/23af0c19a21a200645559b5c6277ed674c1482090afaaa7d165f155d6c8aae2b%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC ICC Under 14 Girls",
-        "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
     },
     {
       "name": "ICC Under 12 Mixed",
@@ -358,7 +264,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/19ac5a6e592c19e9c955548955ae2aff4c00eab7759ab4080ed78137c1c77c69%40group.calendar.google.com/public/basic.ics",
         "title": "FHC ICC Under 12 Mixed",
         "createdAt": "2026-03-26T23:54:33.017Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-03-27T01:27:04.686Z"
     }
   ]
 }
