@@ -290,10 +290,10 @@ async function generateMobileMarkdown(competitionsData, categories, activeCompet
     // Table of contents
     for (const [categoryName, competitions] of Object.entries(categories)) {
         if (competitions.length === 0) continue;
-        const anchor = categoryName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '');
+        const anchor = categoryName.toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/ /g, '-');
         md += `**[${categoryName}](#${anchor})**  \n`;
         for (const comp of competitions) {
-            const compAnchor = comp.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '');
+            const compAnchor = comp.name.toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/ /g, '-');
             md += `- [${comp.name}](#${compAnchor})  \n`;
         }
         md += `\n`;
