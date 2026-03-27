@@ -82,31 +82,6 @@ function iosCalendarSubscribeHtml(icalUrl) {
     return `<b>iOS Calendar:</b><br>1. Go to <b>Settings > Calendar > Accounts</b><br>2. Tap <b>Add Account > Other</b><br>3. Tap <b>Add Subscribed Calendar</b><br>4. Paste the <a href="${icalUrl}">iCal link</a> and tap <b>Next</b><br>`;
 }
 
-/**
- * Generate subscribe instructions for Google Calendar (markdown, multi-line)
- */
-function googleCalendarSubscribeMd(publicUrl) {
-    let md = `<details><summary>Subscribe using Google Calendar</summary>\n\n`;
-    md += `1. Open the <a href="${publicUrl}" target="_blank">Google Calendar link</a>\n`;
-    md += `2. On mobile, tap the **+** button in the bottom right corner\n`;
-    md += `3. On desktop, click **Add to Google Calendar** at the bottom of the page\n\n`;
-    md += `</details>\n\n`;
-    return md;
-}
-
-/**
- * Generate subscribe instructions for iOS Calendar (markdown, multi-line)
- */
-function iosCalendarSubscribeMd(icalUrl) {
-    let md = `<details><summary>Subscribe using iOS Calendar</summary>\n\n`;
-    md += `1. Go to **Settings > Calendar > Accounts**\n`;
-    md += `2. Tap **Add Account > Other**\n`;
-    md += `3. Tap **Add Subscribed Calendar**\n`;
-    md += `4. Paste the <a href="${icalUrl}">iCal link</a> and tap **Next**\n\n`;
-    md += `</details>\n\n`;
-    return md;
-}
-
 // ─── Calendar URL builders ───────────────────────────────────────────
 
 /**
@@ -321,12 +296,23 @@ async function generateMobileMarkdown(competitionsData, categories, activeCompet
                 md += links.map(l => `<a href="${l.url}" target="_blank">${l.icon} ${l.label}</a>`).join(' | ') + '\n\n';
             }
 
-            // Subscribe sections
-            if (comp.googleCalendar?.icalUrl) {
-                md += iosCalendarSubscribeMd(comp.googleCalendar.icalUrl);
-            }
-            if (comp.googleCalendar?.publicUrl) {
-                md += googleCalendarSubscribeMd(comp.googleCalendar.publicUrl);
+            // Subscribe section
+            if (comp.googleCalendar?.icalUrl || comp.googleCalendar?.publicUrl) {
+                md += `<details><summary>📲 Subscribe</summary>\n\n`;
+                if (comp.googleCalendar?.publicUrl) {
+                    md += `**Google Calendar**\n\n`;
+                    md += `1. Open the <a href="${comp.googleCalendar.publicUrl}" target="_blank">Google Calendar link</a>\n`;
+                    md += `2. On mobile, tap the **+** button in the bottom right corner\n`;
+                    md += `3. On desktop, click **Add to Google Calendar** at the bottom of the page\n\n`;
+                }
+                if (comp.googleCalendar?.icalUrl) {
+                    md += `**iOS Calendar**\n\n`;
+                    md += `1. Go to **Settings > Calendar > Accounts**\n`;
+                    md += `2. Tap **Add Account > Other**\n`;
+                    md += `3. Tap **Add Subscribed Calendar**\n`;
+                    md += `4. Paste the <a href="${comp.googleCalendar.icalUrl}">iCal link</a> and tap **Next**\n\n`;
+                }
+                md += `</details>\n\n`;
             }
         }
 
