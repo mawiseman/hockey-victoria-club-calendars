@@ -16,17 +16,15 @@ Improvements:
 
 ## 📋 Available Scripts
 
-### Core Scripts
+### Setup / New Season Scripts
 
 | Script | Command | Description |
 |--------|---------|-------------|
 | **Competition Scraper** | `npm run scrape-competitions` | Scrapes Hockey Victoria for competitions containing Footscray Hockey Club |
 | **Calendar Creator** | `npm run create-calendars` | Creates Google Calendars for each competition |
-| **Documentation Generator** | `npm run generate-docs` | Generates markdown documentation with calendar links |
-| **Calendar Lister** | `npm run list-calendars` | Lists existing Google Calendars |
-| **Calendar Exporter** | `npm run export-calendars` | Exports calendar data to JSON |
-| **Calendar Deleter** | `npm run delete-calendars` | Deletes Google Calendars (with safety prompts) |
 | **Club Mappings Updater** | `npm run update-mappings-club-names` | Updates club name mappings from ladder data |
+| **Documentation Generator** | `npm run generate-docs` | Generates markdown documentation with calendar links |
+| **Cleanup Inactive** | `npm run cleanup-inactive` | Remove inactive competitions from tracking |
 
 ### Workflow Scripts
 
@@ -34,7 +32,14 @@ Improvements:
 |--------|---------|-------------|
 | **Process All Competitions** | `npm run process-all-competitions` | Process all competitions: download, process, and upload calendars |
 | **Process Competition** | `npm run process-competition` | Process a single competition's calendar |
-| **Cleanup Inactive** | `npm run cleanup-inactive` | Remove inactive competitions from tracking |
+
+### Calendar Utilities Scripts
+
+| Script | Command | Description |
+|--------|---------|-------------|
+| **Calendar Lister** | `npm run list-calendars` | Lists existing Google Calendars |
+| **Calendar Exporter** | `npm run export-calendars` | Exports calendar data to JSON |
+| **Calendar Deleter** | `npm run delete-calendars` | Deletes Google Calendars (with safety prompts) |
 
 ## 🎯 Usage Guide
 
