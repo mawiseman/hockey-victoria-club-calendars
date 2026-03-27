@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "WebFetch(domain:www.hockeyvictoria.org.au)"
     ],
     "deny": [],
     "ask": []

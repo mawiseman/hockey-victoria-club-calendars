@@ -249,24 +249,6 @@
       },
       "isActive": true,
       "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
-    },
-    {
-      "name": "ICC Under 12 Mixed",
-      "category": "2026 Indoor Club Championship",
-      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/404401",
-      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40855",
-      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40855",
-      "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:53:06.198Z",
-      "googleCalendar": {
-        "calendarId": "19ac5a6e592c19e9c955548955ae2aff4c00eab7759ab4080ed78137c1c77c69@group.calendar.google.com",
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=19ac5a6e592c19e9c955548955ae2aff4c00eab7759ab4080ed78137c1c77c69%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/19ac5a6e592c19e9c955548955ae2aff4c00eab7759ab4080ed78137c1c77c69%40group.calendar.google.com/public/basic.ics",
-        "title": "FHC ICC Under 12 Mixed",
-        "createdAt": "2026-03-26T23:54:33.017Z"
-      },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.686Z"
     }
   ]
 }
