@@ -1,7 +1,7 @@
 # Footscray Hockey Club - Competition Calendars
 
 **Active Competitions:** 14  
-**Last Updated:** 27/03/2026, 5:22:43 pm  
+[![Sync Status](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml/badge.svg)](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml)  
 
 ---
 

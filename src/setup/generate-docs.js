@@ -150,13 +150,12 @@ async function buildCombinedCalendarUrlWithMixedColors(categories) {
 /**
  * Generate index markdown content with all calendars
  */
-async function generateIndexMarkdown(competitionsData, categories, activeCompetitions) {
+async function generateIndexMarkdown(categories, activeCompetitions) {
     const clubName = await getClubName();
-    const lastUpdated = competitionsData.lastUpdated || competitionsData.scrapedAt || new Date().toISOString();
 
     let markdown = `# ${clubName} - Competition Calendars\n\n`;
     markdown += `**Active Competitions:** ${activeCompetitions.length}  \n`;
-    markdown += `**Last Updated:** ${new Date(lastUpdated).toLocaleString()}  \n\n`;
+    markdown += `[![Sync Status](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml/badge.svg)](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml)  \n\n`;
     markdown += `---\n\n`;
 
     // Combined calendar view of ALL competitions
@@ -269,12 +268,12 @@ async function formatCompetitionTable(competitions, categoryKey, categoryIndex =
 /**
  * Generate mobile-friendly markdown with card-style layout
  */
-async function generateMobileMarkdown(competitionsData, categories, activeCompetitions) {
+async function generateMobileMarkdown(categories, activeCompetitions) {
     const clubName = await getClubName();
-    const lastUpdated = competitionsData.lastUpdated || competitionsData.scrapedAt || new Date().toISOString();
 
     let md = `# ${clubName}\n\n`;
-    md += `**${activeCompetitions.length} Active Competitions** | Updated ${new Date(lastUpdated).toLocaleDateString()}\n\n`;
+    md += `**${activeCompetitions.length} Active Competitions**  \n`;
+    md += `[![Sync Status](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml/badge.svg)](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml)  \n\n`;
 
     // Combined calendar link
     const combinedUrl = await buildCombinedCalendarUrlWithMixedColors(categories);
@@ -442,13 +441,13 @@ async function generateDocs() {
 
     // Generate desktop markdown
     logInfo('Generating index markdown...');
-    const indexMarkdown = await generateIndexMarkdown(competitionsData, categories, activeCompetitions);
+    const indexMarkdown = await generateIndexMarkdown(categories, activeCompetitions);
     await fs.writeFile(OUTPUT_FILE, indexMarkdown, 'utf8');
     logSuccess(`Index documentation generated: ${OUTPUT_FILE}`);
 
     // Generate mobile-friendly markdown
     logInfo('Generating mobile-friendly markdown...');
-    const mobileMarkdown = await generateMobileMarkdown(competitionsData, categories, activeCompetitions);
+    const mobileMarkdown = await generateMobileMarkdown(categories, activeCompetitions);
     await fs.writeFile(OUTPUT_FILE_MOBILE, mobileMarkdown, 'utf8');
     logSuccess(`Mobile documentation generated: ${OUTPUT_FILE_MOBILE}`);
 

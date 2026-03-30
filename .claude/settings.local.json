@@ -8,7 +8,9 @@
       "Bash(node -e \"import\\(''./src/setup/create-google-calendars.js''\\).then\\(\\(\\) => console.log\\(''Module loads OK''\\)\\).catch\\(e => console.error\\(e.message\\)\\)\")",
       "Bash(node -e \"import\\(''./src/tasks/google-calendar.js''\\).then\\(\\(\\) => console.log\\(''Module loads OK''\\)\\).catch\\(e => console.error\\(e.message\\)\\)\")",
       "Bash(node -e \"import\\(''./src/tasks/process-competition.js''\\).then\\(\\(\\) => console.log\\(''OK''\\)\\).catch\\(e => console.error\\(e.message\\)\\)\")",
-      "Bash(node -e \"import\\(''./src/tasks/fixture-processor.js''\\).then\\(\\(\\) => console.log\\(''OK''\\)\\).catch\\(e => console.error\\(e.message\\)\\)\")"
+      "Bash(node -e \"import\\(''./src/tasks/fixture-processor.js''\\).then\\(\\(\\) => console.log\\(''OK''\\)\\).catch\\(e => console.error\\(e.message\\)\\)\")",
+      "Bash(gh release:*)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": [],
     "ask": []
