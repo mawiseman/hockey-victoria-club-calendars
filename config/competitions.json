@@ -1,4 +1,10 @@
 {
+  "scrapedAt": "2026-04-10T11:32:38.512Z",
+  "lastUpdated": "2026-04-10T11:32:38.513Z",
+  "clubName": "Footscray Hockey Club",
+  "totalCompetitions": 22,
+  "totalProcessed": 19,
+  "totalLinksFound": 76,
   "competitions": [
     {
       "name": "Mens Premier League - 2026",
@@ -7,13 +13,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42156",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42156",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:29.945Z",
+      "scrapedAt": "2026-04-10T11:32:47.217Z",
       "googleCalendar": {
         "calendarId": "ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Premier League - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
       "isActive": true
     },
@@ -24,16 +30,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42243",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42243",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:29.818Z",
+      "scrapedAt": "2026-04-10T11:32:47.041Z",
       "googleCalendar": {
         "calendarId": "aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Premier League Reserves - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
     },
     {
       "name": "Mens Pennant A - 2026",
@@ -42,16 +47,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42236",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42236",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:43.417Z",
+      "scrapedAt": "2026-04-10T11:32:56.578Z",
       "googleCalendar": {
         "calendarId": "f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Pennant A - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
     },
     {
       "name": "Mens Pennant B - 2026",
@@ -60,16 +64,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42237",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42237",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:43.417Z",
+      "scrapedAt": "2026-04-10T11:32:56.364Z",
       "googleCalendar": {
         "calendarId": "4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Pennant B - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
     },
     {
       "name": "Mens Pennant D North West - 2026",
@@ -78,16 +81,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42239",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42239",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:47.306Z",
+      "scrapedAt": "2026-04-10T11:33:00.180Z",
       "googleCalendar": {
         "calendarId": "029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Pennant D North West - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
     },
     {
       "name": "Mens Metro 1 North West - 2026",
@@ -96,16 +98,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42231",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42231",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:54.748Z",
+      "scrapedAt": "2026-04-10T11:33:08.084Z",
       "googleCalendar": {
         "calendarId": "bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Metro 1 North West - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
     },
     {
       "name": "Mens Metro 2 North West - 2026",
@@ -114,16 +115,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42234",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42234",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:54.795Z",
+      "scrapedAt": "2026-04-10T11:33:07.887Z",
       "googleCalendar": {
         "calendarId": "2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Metro 2 North West - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
     },
     {
       "name": "Womens Premier League - 2026",
@@ -132,13 +132,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42158",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42158",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:29.945Z",
+      "scrapedAt": "2026-04-10T11:32:47.370Z",
       "googleCalendar": {
         "calendarId": "38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Premier League - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
       "isActive": true
     },
@@ -149,16 +149,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42258",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42258",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:29.946Z",
+      "scrapedAt": "2026-04-10T11:32:47.370Z",
       "googleCalendar": {
         "calendarId": "ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Premier League Reserves - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
     },
     {
       "name": "Womens Pennant A - 2026",
@@ -167,16 +166,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42251",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42251",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:39.082Z",
+      "scrapedAt": "2026-04-10T11:32:52.701Z",
       "googleCalendar": {
         "calendarId": "fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant A - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
     },
     {
       "name": "Womens Pennant B - 2026",
@@ -185,16 +183,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42252",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42252",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:43.418Z",
+      "scrapedAt": "2026-04-10T11:32:56.473Z",
       "googleCalendar": {
         "calendarId": "b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant B - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
     },
     {
       "name": "Womens Pennant C - 2026",
@@ -203,16 +200,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42253",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42253",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:43.415Z",
+      "scrapedAt": "2026-04-10T11:32:56.173Z",
       "googleCalendar": {
         "calendarId": "8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant C - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
     },
     {
       "name": "Womens Pennant D North West - 2026",
@@ -221,16 +217,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42254",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42254",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:47.472Z",
+      "scrapedAt": "2026-04-10T11:33:00.290Z",
       "googleCalendar": {
         "calendarId": "43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant D North West - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
     },
     {
       "name": "Womens Metro 1 North West - 2026",
@@ -239,16 +234,95 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42249",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42249",
       "matchDuration": 90,
-      "scrapedAt": "2026-03-26T23:52:50.701Z",
+      "scrapedAt": "2026-04-10T11:33:03.662Z",
       "googleCalendar": {
         "calendarId": "5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Metro 1 North West - 2026",
-        "createdAt": "2026-03-27T06:20:44.477Z"
+        "createdAt": "2026-04-10T11:38:11.346Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-03-27T01:27:04.685Z"
+      "isActive": true
+    },
+    {
+      "name": "2026 Midweek Women's 35+ B - 2026",
+      "category": "2026 Midweek Competition",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416500",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42450",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42450",
+      "matchDuration": 60,
+      "scrapedAt": "2026-04-10T11:33:22.307Z",
+      "googleCalendar": {
+        "calendarId": "52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC 2026 Midweek Women's 35+ B - 2026",
+        "createdAt": "2026-04-10T11:38:11.346Z"
+      }
+    },
+    {
+      "name": "2026 Midweek Women's 45+ - 2026",
+      "category": "2026 Midweek Competition",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416501",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42451",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42451",
+      "matchDuration": 60,
+      "scrapedAt": "2026-04-10T11:33:22.306Z",
+      "googleCalendar": {
+        "calendarId": "e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC 2026 Midweek Women's 45+ - 2026",
+        "createdAt": "2026-04-10T11:38:11.346Z"
+      }
+    },
+    {
+      "name": "Midweek Men's 40+ NW - 2026",
+      "category": "2026 Midweek Competition",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416498",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42441",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42441",
+      "matchDuration": 60,
+      "scrapedAt": "2026-04-10T11:20:40.966Z",
+      "googleCalendar": {
+        "calendarId": "0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Midweek Men's 40+ NW - 2026",
+        "createdAt": "2026-04-10T11:38:11.346Z"
+      }
+    },
+    {
+      "name": "Midweek Men's 50+ NW - 2026",
+      "category": "2026 Midweek Competition",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416499",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42444",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42444",
+      "matchDuration": 60,
+      "scrapedAt": "2026-04-10T11:20:44.218Z",
+      "googleCalendar": {
+        "calendarId": "a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Midweek Men's 50+ NW - 2026",
+        "createdAt": "2026-04-10T11:38:11.346Z"
+      }
+    },
+    {
+      "name": "Midweek Women's 55+ (Monday) - 2026",
+      "category": "2026 Midweek Competition",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416502",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42452",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42452",
+      "matchDuration": 60,
+      "scrapedAt": "2026-04-10T11:20:47.462Z",
+      "googleCalendar": {
+        "calendarId": "415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC Midweek Women's 55+ (Monday) - 2026",
+        "createdAt": "2026-04-10T11:38:11.346Z"
+      }
     }
   ]
 }

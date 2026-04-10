@@ -132,21 +132,22 @@ async function loadProgressWithSet() {
  */
 async function saveCompetitionResult(progress, competitionData) {
     if (competitionData) {
-        // Check if competition already exists
+        // Check if competition already exists (match by fixtureUrl to allow name changes)
         const existingIndex = progress.foundCompetitions.findIndex(
-            comp => comp.name === competitionData.name
+            comp => comp.fixtureUrl === competitionData.fixtureUrl
         );
 
         if (existingIndex >= 0) {
-            // Merge with existing competition - preserve googleCalendar data
+            // Merge with existing competition - preserve user customizations
             const existing = progress.foundCompetitions[existingIndex];
             progress.foundCompetitions[existingIndex] = {
                 ...competitionData,
+                // Preserve custom name if it was changed from the scraped name
+                name: existing.name || competitionData.name,
                 googleCalendar: existing.googleCalendar || competitionData.googleCalendar,
-                // Preserve isActive flag if it was set
                 isActive: existing.isActive !== undefined ? existing.isActive : competitionData.isActive
             };
-            console.log(`✅ Updated competition: ${competitionData.name}`);
+            console.log(`✅ Updated competition: ${existing.name}`);
         } else {
             // New competition
             progress.foundCompetitions.push(competitionData);
