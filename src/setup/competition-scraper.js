@@ -7,6 +7,7 @@ import { dirname } from 'path';
 // Import shared utilities
 import { getClubName, BASE_URL, COMPETITIONS_FILE, getDurationConfig } from '../lib/config.js';
 import { sortCompetitions } from '../lib/competition-utils.js';
+import { HttpError, safeGoto } from '../lib/puppeteer-utils.js';
 
 let CLUB_NAME = null;
 
@@ -17,6 +18,7 @@ async function getClubNameCached() {
     }
     return CLUB_NAME;
 }
+
 const OUTPUT_DIR = 'temp';
 const OUTPUT_FILE = COMPETITIONS_FILE; // Use the centralized path from config
 const PROGRESS_FILE = 'temp/scraper-progress.json';
@@ -225,12 +227,18 @@ async function processCompetitionsInParallel(browser, competitionLinks, progress
                 return competitionData;
                 
             } catch (error) {
+                if (error instanceof HttpError) {
+                    console.error(`🚫 HTTP ${error.status} for ${link.text} (${error.url}) — not marking as processed, will retry on next run`);
+                    await saveProgress(progress);
+                    return null;
+                }
+
                 console.error(`❌ Error processing ${link.text}: ${error.message}`);
-                
-                // Still mark as processed to avoid retrying
+
+                // Mark non-HTTP errors as processed to avoid retry loops
                 progress.processedLinks.add(link.url);
                 await saveProgress(progress);
-                
+
                 return null;
             } finally {
                 await page.close();
@@ -266,10 +274,7 @@ async function scrapeCompetitions() {
         console.log(`📊 Previous session: ${progress.totalProcessed} processed, ${progress.totalWithClub}`);
         
         console.log('\n🌐 Navigating to Hockey Victoria games page...');
-        await page.goto(BASE_URL, { 
-            waitUntil: 'domcontentloaded',
-            timeout: 30000 
-        });
+        await safeGoto(page, BASE_URL);
         
         // Wait a bit more for dynamic content to load
         await new Promise(resolve => setTimeout(resolve, 3000));
@@ -425,10 +430,7 @@ async function checkCompetition(page, competitionLink) {
         console.log(`  → Visiting competition page: ${competitionLink.url}`);
         
         // Step 1: Navigate to the competition page
-        await page.goto(competitionLink.url, { 
-            waitUntil: 'domcontentloaded',
-            timeout: 30000 
-        });
+        await safeGoto(page, competitionLink.url);
         
         // Wait for content to load
         // await new Promise(resolve => setTimeout(resolve, 2000));
@@ -449,10 +451,7 @@ async function checkCompetition(page, competitionLink) {
             
             try {
                 // Navigate to the ladder page
-                await page.goto(ladderLink.url, { 
-                    waitUntil: 'domcontentloaded',
-                    timeout: 30000 
-                });
+                await safeGoto(page, ladderLink.url);
                 
                 // Wait for content to load
                 // await new Promise(resolve => setTimeout(resolve, 2000));
@@ -527,13 +526,19 @@ async function checkCompetition(page, competitionLink) {
                 }
                 
             } catch (ladderError) {
+                if (ladderError instanceof HttpError) {
+                    throw ladderError;
+                }
                 console.error(`      Error checking ladder ${ladderLink.url}: ${ladderError.message}`);
             }
         }
-        
+
         return null; // No ladders contained the club name
-        
+
     } catch (error) {
+        if (error instanceof HttpError) {
+            throw error;
+        }
         console.error(`  Error processing competition ${competitionLink.url}: ${error.message}`);
         return null;
     }
@@ -547,17 +552,17 @@ function parseArguments() {
     const args = process.argv.slice(2);
     const options = {
         help: false,
-        useProgress: false
+        fresh: false
     };
-    
+
     for (const arg of args) {
         if (arg === '--help' || arg === '-h') {
             options.help = true;
-        } else if (arg === '--use-progress' || arg === '-p') {
-            options.useProgress = true;
+        } else if (arg === '--fresh' || arg === '-f') {
+            options.fresh = true;
         }
     }
-    
+
     return options;
 }
 
@@ -571,13 +576,13 @@ function showHelp() {
 npm run scrape-competitions [-- options]
 
 Options:
-  --use-progress, -p    Resume from saved progress if available
+  --fresh, -f           Clear saved progress and start from scratch
   --help, -h            Show this help message
 
 Examples:
-  npm run scrape-competitions                         # Start fresh (default)
-  npm run scrape-competitions -- --use-progress      # Resume from saved progress
-  npm run scrape-competitions -- --help              # Show this help
+  npm run scrape-competitions                  # Resume from saved progress (default)
+  npm run scrape-competitions -- --fresh      # Clear progress and start fresh
+  npm run scrape-competitions -- --help       # Show this help
 
 Process:
   1. Scrapes all competition links from ${BASE_URL}
@@ -604,9 +609,8 @@ async function main() {
     }
     
     try {
-        if (!options.useProgress) {
-            console.log('🔄 Starting fresh (default behavior)');
-            // Delete progress file to start fresh
+        if (options.fresh) {
+            console.log('🔄 --fresh specified: clearing saved progress');
             try {
                 await fs.unlink(PROGRESS_FILE);
                 console.log('📝 Cleared previous progress');
@@ -614,9 +618,9 @@ async function main() {
                 // File doesn't exist, which is fine
             }
         } else {
-            console.log('📂 Using saved progress if available');
+            console.log('📂 Resuming from saved progress if available (use --fresh to start over)');
         }
-        
+
         await scrapeCompetitions();
     } catch (error) {
         console.error('Script failed:', error.message);

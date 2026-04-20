@@ -203,13 +203,14 @@ npm run scrape-competitions [-- options]
 ```
 
 **Options:**
-- `--use-progress, -p` - Resume from saved progress if available
+- `--fresh, -f` - Clear saved progress and start from scratch
 - `--help, -h` - Show help
 
 **Features:**
 - **3-layer navigation**: Games page → Competition page → Ladder page
 - **Parallel processing**: Up to 5 competitions simultaneously
-- **Progress tracking**: Resume from interruptions
+- **Progress tracking**: Resumes from `temp/scraper-progress.json` by default; already-processed competitions are skipped
+- **HTTP error detection**: Non-2xx responses (e.g. 403 rate-limit blocks) are logged and *not* marked as processed, so a rerun retries just those competitions
 - **Smart filtering**: Only includes pages with your configured club
 
 **Output:**

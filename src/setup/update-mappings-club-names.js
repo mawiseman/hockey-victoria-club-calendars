@@ -4,6 +4,7 @@ import puppeteer from 'puppeteer';
 // Import shared utilities
 import { COMPETITIONS_FILE, MAPPINGS_CLUB_FILE } from '../lib/config.js';
 import { logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
+import { HttpError, safeGoto } from '../lib/puppeteer-utils.js';
 
 /**
  * Parse command line arguments
@@ -135,16 +136,13 @@ function generateAbbreviation(clubName, existingAbbreviations) {
  */
 async function scrapeClubNamesFromLadder(ladderUrl, browser) {
     const page = await browser.newPage();
-    
+
     try {
         logInfo(`Scraping clubs from: ${ladderUrl}`);
-        
-        // Navigate to the ladder page
-        await page.goto(ladderUrl, { 
-            waitUntil: 'networkidle2',
-            timeout: 30000 
-        });
-        
+
+        // Navigate to the ladder page (throws HttpError on non-2xx)
+        await safeGoto(page, ladderUrl, { waitUntil: 'networkidle2' });
+
         // Wait for the ladder table to load
         await page.waitForSelector('table, .ladder-table, .points-table', { timeout: 10000 });
         
@@ -190,10 +188,7 @@ async function scrapeClubNamesFromLadder(ladderUrl, browser) {
         
         logInfo(`Found ${clubNames.length} potential club names`);
         return clubNames;
-        
-    } catch (error) {
-        logWarning(`Failed to scrape ${ladderUrl}: ${error.message}`);
-        return [];
+
     } finally {
         await page.close();
     }
@@ -244,11 +239,16 @@ async function updateClubMappings(newClubs, existingMappings, dryRun = false) {
     updates.forEach(({ clubName, abbreviation }) => {
         existingMappings.clubMappings[clubName] = abbreviation;
     });
-    
+
+    // Sort clubMappings alphabetically by club name (case-insensitive)
+    const sortedEntries = Object.entries(existingMappings.clubMappings)
+        .sort(([a], [b]) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+    existingMappings.clubMappings = Object.fromEntries(sortedEntries);
+
     // Write back to file
     await fs.writeFile(MAPPINGS_CLUB_FILE, JSON.stringify(existingMappings, null, 2), 'utf8');
-    
-    logSuccess(`Added ${updates.length} new club mappings to ${MAPPINGS_CLUB_FILE}`);
+
+    logSuccess(`Added ${updates.length} new club mappings to ${MAPPINGS_CLUB_FILE} (sorted alphabetically)`);
 }
 
 /**
@@ -300,33 +300,55 @@ async function main() {
         // Collect all unique club names
         const allClubNames = new Set();
         let processedCount = 0;
-        
+        const httpFailures = [];
+        const otherFailures = [];
+
         for (const competition of competitionsWithLadders) {
             try {
                 logInfo(`Processing: ${competition.name}`);
-                
+
                 const clubNames = await scrapeClubNamesFromLadder(competition.ladderUrl, browser);
-                
+
                 clubNames.forEach(name => allClubNames.add(name));
                 processedCount++;
-                
+
                 // Add delay between requests to be respectful
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                
+
             } catch (error) {
-                logWarning(`Failed to process ${competition.name}: ${error.message}`);
+                if (error instanceof HttpError) {
+                    console.error(`🚫 HTTP ${error.status} for ${competition.name} (${error.url})`);
+                    httpFailures.push({ competition: competition.name, url: error.url, status: error.status });
+                } else {
+                    logWarning(`Failed to process ${competition.name}: ${error.message}`);
+                    otherFailures.push({ competition: competition.name, message: error.message });
+                }
             }
         }
-        
-        logInfo(`Processed ${processedCount} competitions`);
+
+        logInfo(`Processed ${processedCount}/${competitionsWithLadders.length} competitions`);
         logInfo(`Found ${allClubNames.size} unique club names total`);
-        
+
+        if (httpFailures.length > 0) {
+            console.error(`\n🚫 ${httpFailures.length} competition(s) failed with HTTP errors:`);
+            httpFailures.forEach(f => console.error(`   - [${f.status}] ${f.competition}: ${f.url}`));
+        }
+        if (otherFailures.length > 0) {
+            console.error(`\n⚠️  ${otherFailures.length} competition(s) failed with other errors:`);
+            otherFailures.forEach(f => console.error(`   - ${f.competition}: ${f.message}`));
+        }
+
         // Update mappings
         await updateClubMappings(Array.from(allClubNames), existingMappings, options.dryRun);
-        
+
         console.log('\n========================================');
         console.log(`Completed at: ${new Date().toISOString()}`);
         console.log('========================================');
+
+        // Exit non-zero if any HTTP failures — caller should know not every ladder was checked
+        if (httpFailures.length > 0) {
+            process.exitCode = 1;
+        }
         
     } catch (error) {
         console.error(`❌ Fatal error: ${error.message}`);

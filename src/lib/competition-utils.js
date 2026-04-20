@@ -94,6 +94,35 @@ function sortSeniorCompetitions(competitions) {
 }
 
 /**
+ * Custom sort for Juniors: oldest age group first (U18 → U12), then alphabetically within the group.
+ * Competitions without a recognisable U-number sort last, alphabetically.
+ * @param {Array} competitions - Array of competition objects
+ * @returns {Array} - Sorted competitions (mutates and returns input)
+ */
+function sortJuniorCompetitions(competitions) {
+    const getAge = (name) => {
+        const lower = name.toLowerCase();
+        const match = lower.match(/u(\d+)/) || lower.match(/under\s+(\d+)/);
+        return match ? parseInt(match[1], 10) : -1;
+    };
+
+    return competitions.sort((a, b) => {
+        const ageA = getAge(a.name);
+        const ageB = getAge(b.name);
+
+        // Unknown ages sort last
+        if (ageA === -1 && ageB !== -1) return 1;
+        if (ageB === -1 && ageA !== -1) return -1;
+
+        // Oldest first (descending age)
+        if (ageA !== ageB) return ageB - ageA;
+
+        // Same age group: alphabetical
+        return a.name.localeCompare(b.name);
+    });
+}
+
+/**
  * Sort all competitions: by gender group (Men's, Women's, Midweek, Juniors) then by competition weight
  * @param {Array} competitions - Array of competition objects
  * @returns {Array} - Sorted competitions (new array)
@@ -142,9 +171,9 @@ export function categorizeCompetitions(competitions) {
     categories.mens = sortSeniorCompetitions(categories.mens);
     categories.womens = sortSeniorCompetitions(categories.womens);
     
-    // Sort midweek and juniors alphabetically
+    // Sort midweek alphabetically; juniors oldest-first (U18 → U12)
     categories.midweek.sort((a, b) => a.name.localeCompare(b.name));
-    categories.juniors.sort((a, b) => a.name.localeCompare(b.name));
+    categories.juniors = sortJuniorCompetitions(categories.juniors);
     
     return categories;
 }
