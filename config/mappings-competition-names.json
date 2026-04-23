@@ -49,6 +49,14 @@
       "replacement": ""
     },
     {
+      "pattern": "Half Field Mixed ",
+      "replacement": ""
+    },
+    {
+      "pattern": "\\s*-\\s*T\\d+\\b",
+      "replacement": ""
+    },
+    {
       "pattern": "Premier League Reserves",
       "replacement": "PLR"
     },

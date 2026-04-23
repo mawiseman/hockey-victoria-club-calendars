@@ -581,11 +581,35 @@ body {
     .card {
         border-radius: 0;
         box-shadow: none;
+        overflow: visible;
     }
+    /* Red wave accent relies on card's overflow clipping; hide on mobile
+       now that the card doesn't clip, so it can't cause horizontal scroll. */
+    .card::after { display: none; }
+
+    /* Drop card-content's own gutters so the sticky header can sit flush
+       against the card edges without negative margins (which cause a
+       pixel-level jump at the sticky boundary). Children own their gutters. */
+    .card-content { padding: 0 0 20px; }
+
+    /* Pin the title block + filter tabs to the top so fixtures scroll under. */
+    .sticky-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 22px 12px 8px;
+        background: var(--navy-1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+    }
+    .sticky-header .view-tabs { margin-top: 10px; margin-bottom: 0; }
+
+    /* Re-apply the horizontal gutter that card-content used to provide. */
+    .fixtures,
+    .subscribe-cta,
+    .card-footer { padding-left: 12px; padding-right: 12px; }
 }
 
 @media (max-width: 480px) {
-    .card-content { padding: 22px 12px 20px; }
     .view-title { font-size: 30px; }
 
     .fixture-row {

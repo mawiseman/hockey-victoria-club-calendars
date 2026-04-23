@@ -75,6 +75,8 @@ function classifyView(comp, feedCategory) {
 function buildShortCode(comp, feedCategory) {
     let c = comp.replace(/\s+NW$/i, '').trim();        // strip trailing region
     c = c.replace(/\s+\d{4}$/, '').trim();             // strip trailing year
+    c = c.replace(/\s*\([^)]*\)/g, '').trim();         // strip parentheticals like "(Monday)"
+    c = c.replace(/\s+/g, ' ');                        // collapse doubled spaces
 
     // Seniors — "Men PL" / "Women PEN A" / "Men M1" / etc.
     const seniorMatch = c.match(/^(Men|Women)\s+(.+)$/i);
