@@ -1,0 +1,362 @@
+/* ───────────────────────────────────────────────────────────────────
+   Weekly Fixture — one responsive layout, no player photo.
+   Rows are full-width; text right-aligns so long team names can't push
+   neighbouring columns.
+   ─────────────────────────────────────────────────────────────────── */
+
+:root {
+    --navy-1:   #0b1a3a;
+    --navy-2:   #1b3a76;
+    --red:      #d90b2d;
+    --red-dark: #9d0820;
+    --white:    #ffffff;
+    --ink:      #0e1836;
+    --card-w:   640px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: var(--white);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+}
+
+/* ─── View Tabs ─────────────────────────────────────────────────── */
+
+.view-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--card-w);
+}
+
+.view-tab {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.view-tab:hover  { background: rgba(255, 255, 255, 0.14); }
+.view-tab.active {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+}
+
+/* ─── Card ──────────────────────────────────────────────────────── */
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: var(--card-w);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    color: var(--white);
+}
+
+.card-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(1200px 600px at 30% 20%, rgba(255,255,255,0.05), transparent 60%),
+        radial-gradient(800px 600px at 85% 90%, rgba(217, 11, 45, 0.35), transparent 60%),
+        linear-gradient(160deg, var(--navy-1) 0%, var(--navy-2) 55%, var(--navy-1) 100%);
+    z-index: 0;
+}
+
+.card-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 70% 40%, rgba(255,255,255,0.08), transparent 50%),
+        radial-gradient(ellipse at 20% 80%, rgba(0,0,0,0.45), transparent 60%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Red wave accent in the bottom-right corner */
+.card::after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    bottom: -50px;
+    width: 260px;
+    height: 160px;
+    background: var(--red);
+    transform: rotate(-14deg);
+    border-radius: 120px 30px 80px 40px;
+    z-index: 1;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    padding: 28px 20px 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Header ────────────────────────────────────────────────────── */
+
+.tagline {
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.chevrons {
+    color: var(--red);
+    letter-spacing: -2px;
+    margin-left: 6px;
+    font-weight: 900;
+}
+
+.view-title {
+    margin: 10px 0 0;
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+/* ─── Fixtures list ─────────────────────────────────────────────── */
+
+.fixtures {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    margin-top: 18px;
+    margin-bottom: auto;
+}
+
+/* Day-grouping banner */
+.day-banner {
+    align-self: flex-start;
+    background: var(--navy-1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 12px;
+    margin: 12px 0 4px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.day-banner:first-child { margin-top: 0; }
+
+/* ─── Fixture row ───────────────────────────────────────────────── */
+
+/* Fixed-width columns for logos + grade + time; flexible team columns
+   that can shrink to 0 and truncate. Home text right-aligns so it hugs
+   the VS chevron; away text left-aligns for the same reason. */
+.fixture-row {
+    display: grid;
+    grid-template-columns:
+        28px                  /* FHC logo */
+        56px                  /* grade */
+        50px                  /* time */
+        minmax(0, 1fr)        /* home team */
+        auto                  /* VS */
+        minmax(0, 1fr)        /* away team */
+        28px;                 /* opponent logo */
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--ink);
+    padding: 6px 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    position: relative;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    min-height: 36px;
+}
+
+.fixture-row.is-home::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--red);
+    border-radius: 4px 0 0 4px;
+}
+
+/* Finished games — faded so upcoming rows stand out. */
+.fixture-row.is-past {
+    opacity: 0.45;
+    filter: grayscale(0.5);
+}
+
+.grade {
+    font-style: italic;
+    font-weight: 900;
+    font-size: 14px;
+    padding-right: 6px;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.time {
+    font-weight: 700;
+    font-size: 12px;
+    color: #2b2b2b;
+    text-align: left;
+}
+
+/* Team names — truncate with ellipsis if too long. Home hugs the VS
+   chevron from the left, away hugs it from the right. */
+.team {
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+.team.home { text-align: right; }
+.team.away { text-align: left; }
+
+.team.is-fhc { color: var(--red); }
+
+.vs {
+    background: var(--red);
+    color: var(--white);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 11px;
+    padding: 3px 12px;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    letter-spacing: 1px;
+}
+
+/* Logos */
+
+.logo {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-fallback {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 900;
+    color: #444;
+    text-align: center;
+    padding: 2px;
+    line-height: 1;
+}
+
+/* ─── Footer ────────────────────────────────────────────────────── */
+
+.card-footer {
+    margin-top: 24px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.card-footer img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.card-footer strong { font-weight: 900; color: var(--white); }
+
+/* ─── States ────────────────────────────────────────────────────── */
+
+.loading, .empty-state {
+    padding: 30px 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ─── Small-screen tweaks ───────────────────────────────────────── */
+
+@media (max-width: 480px) {
+    body { padding: 8px; }
+    .card { border-radius: 0; }
+    .card-content { padding: 22px 12px 20px; }
+    .view-title { font-size: 30px; }
+
+    .fixture-row {
+        grid-template-columns:
+            24px
+            48px
+            44px
+            minmax(0, 1fr)
+            auto
+            minmax(0, 1fr)
+            24px;
+        font-size: 11px;
+        padding: 5px 8px;
+        min-height: 32px;
+        gap: 6px;
+    }
+    .grade { font-size: 12px; padding-right: 4px; }
+    .time { font-size: 11px; }
+    .team { font-size: 11px; }
+    .vs { font-size: 10px; padding: 2px 8px; }
+    .logo { width: 24px; height: 24px; }
+
+    .day-banner { font-size: 12px; padding: 5px 10px; }
+    .card-footer { font-size: 11px; letter-spacing: 1.5px; }
+}

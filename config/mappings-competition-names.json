@@ -33,6 +33,10 @@
       "replacement": ""
     },
     {
+      "pattern": "\\s*\\((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\\)",
+      "replacement": ""
+    },
+    {
       "pattern": "Under",
       "replacement": ""
     },
