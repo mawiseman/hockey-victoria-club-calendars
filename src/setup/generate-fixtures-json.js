@@ -9,10 +9,11 @@ import { getCategoryCalendars } from '../lib/config.js';
 
 const OUTPUT = 'weekly-fixture/data/fixtures.json';
 
-// Roll forward a little past this week so users don't hit the site on
-// Monday morning (before the daily GitHub Action has re-run) and see last
-// week's data. The client filters by current Mon–Sun regardless.
-const LOOKBACK_DAYS = 2;
+// Window sizes: always capture the whole current Mon–Sun no matter what day
+// the generator runs (so Thursday-run doesn't trim Monday's games), plus two
+// weeks ahead so users browsing late Sunday still see the next round. The
+// client filters by current Mon–Sun regardless.
+const LOOKBACK_DAYS = 8;
 const LOOKAHEAD_DAYS = 14;
 
 // ─── iCal parsing ──────────────────────────────────────────────────

@@ -570,9 +570,21 @@ body {
 
 /* ─── Small-screen tweaks ───────────────────────────────────────── */
 
+/* Once the card would hit its natural width, drop the body padding and
+   flatten the card so the navy gradient runs edge-to-edge. Fixes the
+   "lopsided black frame when a scrollbar appears" look on mobile. */
+@media (max-width: 640px) {
+    body {
+        padding: 0;
+        background: var(--navy-1);
+    }
+    .card {
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
 @media (max-width: 480px) {
-    body { padding: 8px; }
-    .card { border-radius: 0; }
     .card-content { padding: 22px 12px 20px; }
     .view-title { font-size: 30px; }
 
