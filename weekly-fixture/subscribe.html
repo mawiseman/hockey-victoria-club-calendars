@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FHC Weekly Fixture</title>
-    <meta name="description" content="This week's Footscray Hockey Club fixtures across Premier League, Seniors, Midweek and Juniors." />
+    <title>FHC Subscribe to Calendars</title>
+    <meta name="description" content="Subscribe to Footscray Hockey Club competition calendars in Google Calendar or iOS Calendar." />
     <meta name="theme-color" content="#0b1a3a" />
 
     <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96" />
@@ -14,10 +14,9 @@
     <meta name="apple-mobile-web-app-title" content="FHC Fixture" />
     <link rel="manifest" href="/icons/site.webmanifest" />
 
-    <!-- Open Graph / social previews -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="FHC Weekly Fixture" />
-    <meta property="og:description" content="This week's Footscray Hockey Club fixtures." />
+    <meta property="og:title" content="FHC Subscribe to Calendars" />
+    <meta property="og:description" content="Subscribe to Footscray Hockey Club competition calendars." />
     <meta property="og:image" content="/images/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -29,23 +28,22 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <nav class="view-tabs" id="viewTabs"></nav>
-
-    <div class="card" id="card">
+    <div class="card">
         <div class="card-bg"></div>
         <div class="card-vignette"></div>
 
         <div class="card-content">
-            <p class="tagline">DON'T MISS THE ACTION <span class="chevrons">«««</span></p>
-            <h1 class="view-title" id="viewTitle">FIXTURES</h1>
+            <p class="tagline">SUBSCRIBE TO THE ACTION <span class="chevrons">«««</span></p>
+            <h1 class="view-title" id="pageTitle">SUBSCRIBE</h1>
+            <p class="subtitle" id="pageSubtitle">Add Footscray Hockey Club fixtures to your calendar.</p>
 
-            <div class="fixtures" id="fixtures">
-                <div class="loading">Loading fixtures…</div>
+            <div class="subscribe-all" id="subscribeAll"></div>
+
+            <div id="categoryList">
+                <div class="loading">Loading…</div>
             </div>
 
-            <div class="subscribe-cta">
-                <a href="subscribe.html">📅 Subscribe to the calendar</a>
-            </div>
+            <a class="back-link" href="index.html">← Back to fixtures</a>
 
             <footer class="card-footer">
                 <img src="/images/logos/FHC.png" alt="FHC" />
@@ -54,6 +52,6 @@
         </div>
     </div>
 
-    <script src="/js/app.js"></script>
+    <script src="/js/subscribe.js"></script>
 </body>
 </html>

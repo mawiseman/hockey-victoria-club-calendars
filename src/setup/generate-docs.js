@@ -11,6 +11,7 @@ import { withErrorHandling, logSuccess, logInfo } from '../lib/error-utils.js';
 const __filename = fileURLToPath(import.meta.url);
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'competitions.md');
 const OUTPUT_FILE_MOBILE = path.join(OUTPUT_DIR, 'competitions-mobile.md');
+const OUTPUT_FILE_SUBSCRIBE_DATA = 'weekly-fixture/data/subscribe-data.json';
 
 // Calendar embed colors for different categories
 const CALENDAR_COLORS = [
@@ -409,6 +410,47 @@ async function filterActiveCompetitions(competitions) {
     return results.filter(comp => comp !== null);
 }
 
+// ─── Subscribe data (for weekly-fixture/subscribe.html) ─────────────
+
+/**
+ * Build a compact JSON payload describing every active competition's
+ * subscribe URLs, grouped by category — consumed by weekly-fixture/subscribe.html.
+ */
+async function generateSubscribeData(categories, activeCompetitions) {
+    const clubName = await getClubName();
+    const categoryCalendars = await getCategoryCalendars();
+
+    const categoriesOut = [];
+    let categoryIndex = 0;
+    for (const [key, comps] of Object.entries(categories)) {
+        const combinedEmbedUrl = await buildCombinedCalendarUrl(comps, categoryIndex);
+        categoriesOut.push({
+            key,
+            label: CATEGORY_LABELS[key] || key,
+            combinedEmbedUrl,
+            categoryCalendar: categoryCalendars[key]
+                ? { publicUrl: categoryCalendars[key].publicUrl, icalUrl: categoryCalendars[key].icalUrl }
+                : null,
+            competitions: comps.map(c => ({
+                name: c.name,
+                fixtureUrl: c.fixtureUrl || null,
+                competitionUrl: c.competitionUrl || null,
+                publicUrl: c.googleCalendar?.publicUrl || null,
+                icalUrl: c.googleCalendar?.icalUrl || null,
+            })),
+        });
+        categoryIndex++;
+    }
+
+    return {
+        clubName,
+        generatedAt: new Date().toISOString(),
+        totalCompetitions: activeCompetitions.length,
+        allCompetitionsEmbedUrl: await buildCombinedCalendarUrlWithMixedColors(categories),
+        categories: categoriesOut,
+    };
+}
+
 // ─── Main ────────────────────────────────────────────────────────────
 
 async function generateDocs() {
@@ -450,6 +492,12 @@ async function generateDocs() {
     const mobileMarkdown = await generateMobileMarkdown(categories, activeCompetitions);
     await fs.writeFile(OUTPUT_FILE_MOBILE, mobileMarkdown, 'utf8');
     logSuccess(`Mobile documentation generated: ${OUTPUT_FILE_MOBILE}`);
+
+    // Generate subscribe-data.json for weekly-fixture/subscribe.html
+    logInfo('Generating subscribe data for weekly-fixture...');
+    const subscribeData = await generateSubscribeData(categories, activeCompetitions);
+    await fs.writeFile(OUTPUT_FILE_SUBSCRIBE_DATA, JSON.stringify(subscribeData, null, 2) + '\n', 'utf8');
+    logSuccess(`Subscribe data generated: ${OUTPUT_FILE_SUBSCRIBE_DATA}`);
 
     logInfo(`Total active competitions documented: ${activeCompetitions.length}`);
 }

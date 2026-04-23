@@ -22,8 +22,22 @@ const LOGO_EXTENSIONS = {
 
 const CORS_PROXY = 'https://corsproxy.io/?url=';
 
+const ACTIVE_VIEW_KEY = 'fhc.weeklyFixture.activeView';
+
 let allFixtures = [];
-let activeView = 'all';
+let activeView = loadActiveView();
+
+function loadActiveView() {
+    try {
+        const stored = localStorage.getItem(ACTIVE_VIEW_KEY);
+        if (stored && Object.prototype.hasOwnProperty.call(VIEWS, stored)) return stored;
+    } catch { /* localStorage unavailable (private mode, etc.) */ }
+    return 'all';
+}
+
+function saveActiveView(view) {
+    try { localStorage.setItem(ACTIVE_VIEW_KEY, view); } catch { /* ignore */ }
+}
 
 // ─── iCal Parsing ────────────────────────────────────────────────────
 
@@ -174,7 +188,7 @@ function formatDayBanner(date) {
 
 function getLogoPath(abbr) {
     const ext = LOGO_EXTENSIONS[abbr] || 'png';
-    return `logos/${abbr}.${ext}`;
+    return `/images/logos/${abbr}.${ext}`;
 }
 
 function createLogo(abbr) {
@@ -205,6 +219,7 @@ function renderViewTabs() {
         btn.textContent = cfg.label;
         btn.onclick = () => {
             activeView = key;
+            saveActiveView(key);
             renderActiveView();
         };
         container.appendChild(btn);

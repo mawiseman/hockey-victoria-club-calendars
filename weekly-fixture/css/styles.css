@@ -295,6 +295,164 @@ body {
     line-height: 1;
 }
 
+/* ─── Subscribe-page specifics ──────────────────────────────────── */
+
+.subtitle {
+    margin: 12px 0 4px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.big-link {
+    display: block;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    padding: 12px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 10px 0;
+    transition: background 0.15s, border-color 0.15s;
+}
+.big-link:hover { background: rgba(255, 255, 255, 0.14); border-color: var(--red); }
+
+.category {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.category-heading {
+    margin: 0 0 8px;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.comp {
+    margin: 10px 0 0;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+}
+
+.comp-name {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--white);
+}
+
+.comp-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.pill {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+}
+.pill:hover { background: rgba(255, 255, 255, 0.14); border-color: var(--red); }
+
+.subscribe-details {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    padding: 6px 10px;
+}
+
+.subscribe-details summary {
+    cursor: pointer;
+    list-style: none;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 4px 0;
+    user-select: none;
+}
+.subscribe-details summary::-webkit-details-marker { display: none; }
+
+.subscribe-body { padding: 6px 0 10px; }
+
+.instruction { margin-top: 8px; }
+.instruction-title {
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 3px;
+}
+.instruction p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+}
+.instruction a { color: var(--white); text-decoration: underline; }
+.instruction strong { color: var(--white); }
+
+.back-link {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 8px 12px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    align-self: flex-start;
+}
+.back-link:hover { border-color: var(--red); }
+
+/* 404 page */
+.not-found { min-height: 70vh; }
+.not-found .view-title { font-size: 96px; letter-spacing: -4px; }
+.not-found-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 24px 0;
+    max-width: 320px;
+}
+
+/* Subscribe link anchored in the fixtures-page footer area */
+.subscribe-cta {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 4px;
+}
+.subscribe-cta a {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background 0.15s;
+}
+.subscribe-cta a:hover { background: var(--red-dark); }
+
 /* ─── Footer ────────────────────────────────────────────────────── */
 
 .card-footer {
