@@ -22,6 +22,8 @@ on:
 jobs:
   sync-calendars:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # needed to commit fixtures.json / subscribe-data.json / docs back to main
 
     steps:
       - name: Checkout repository
@@ -63,6 +65,25 @@ jobs:
             npm run process-competition -- --competition "${{ github.event.inputs.competition }}" --include-inactive
           fi
       
+      - name: Regenerate fixtures.json + subscribe-data + docs
+        if: success()
+        run: |
+          npm run generate-fixtures-json
+          npm run generate-docs
+
+      - name: Commit generated files
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add weekly-fixture/data/fixtures.json weekly-fixture/data/subscribe-data.json docs/competitions.md docs/competitions-mobile.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: auto-sync fixtures + docs"
+            git push
+          fi
+
       - name: Cleanup service account key
         if: always()
         run: rm -f service-account-key.json

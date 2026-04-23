@@ -1,29 +1,3 @@
-// Google Calendar iCal feed IDs (public feeds). The actual fetch URL is
-// built by `feedUrl()` below so we can route through Netlify in production
-// and only fall back to a public CORS proxy for `npm run dev`.
-const CALENDAR_IDS = {
-    mens:    'b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6@group.calendar.google.com',
-    womens:  '45c236109820085226cabd0f84c97574e25fe27183d8155d6ce9fe89e1b486a9@group.calendar.google.com',
-    midweek: 'fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e@group.calendar.google.com',
-    juniors: 'a621fd9b3e4a3996c8ea70697cab4198ad5605847234af74be60fc91345c08c9@group.calendar.google.com',
-};
-
-const IS_LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
-
-/**
- * Build the URL to fetch an iCal feed:
- *  - Production (Netlify): /proxy/calendar/ical/... — rewritten to
- *    calendar.google.com by netlify.toml. Same-origin, no CORS.
- *  - Local dev: corsproxy.io, to avoid needing Netlify CLI locally.
- */
-function feedUrl(calendarId) {
-    const path = `/calendar/ical/${encodeURIComponent(calendarId)}/public/basic.ics`;
-    if (IS_LOCAL) {
-        return `https://corsproxy.io/?url=${encodeURIComponent('https://calendar.google.com' + path)}`;
-    }
-    return `/proxy${path}`;
-}
-
 // The views shown as tabs, in order
 const VIEWS = {
     all:     { label: 'All', title: 'WEEKLY FIXTURES' },
@@ -55,53 +29,6 @@ function saveActiveView(view) {
     try { localStorage.setItem(ACTIVE_VIEW_KEY, view); } catch { /* ignore */ }
 }
 
-// ─── iCal Parsing ────────────────────────────────────────────────────
-
-function parseICS(icsText) {
-    const events = [];
-    const blocks = icsText.split('BEGIN:VEVENT');
-
-    for (let i = 1; i < blocks.length; i++) {
-        const block = blocks[i].split('END:VEVENT')[0];
-        const event = {};
-
-        // Unfold long lines (RFC 5545 line folding)
-        const unfolded = block.replace(/\r?\n[ \t]/g, '');
-
-        for (const line of unfolded.split(/\r?\n/)) {
-            if (line.startsWith('SUMMARY:')) {
-                event.summary = line.substring(8).trim();
-            } else if (line.startsWith('DTSTART')) {
-                event.dtstart = extractDateTime(line);
-            } else if (line.startsWith('DTEND')) {
-                event.dtend = extractDateTime(line);
-            } else if (line.startsWith('LOCATION:')) {
-                event.location = line.substring(9).trim();
-            }
-        }
-
-        if (event.summary && event.dtstart) {
-            events.push(event);
-        }
-    }
-
-    return events;
-}
-
-function extractDateTime(line) {
-    const value = line.split(':').pop().trim();
-    if (value.length >= 15) {
-        const y = value.substring(0, 4);
-        const m = value.substring(4, 6);
-        const d = value.substring(6, 8);
-        const h = value.substring(9, 11);
-        const min = value.substring(11, 13);
-        const sec = value.substring(13, 15);
-        const isUTC = value.endsWith('Z');
-        return new Date(`${y}-${m}-${d}T${h}:${min}:${sec}${isUTC ? 'Z' : ''}`);
-    }
-    return new Date(value);
-}
 
 // ─── Fixture Parsing + Classification ────────────────────────────────
 
@@ -340,32 +267,34 @@ function renderFixtures(fixtures) {
 
 // ─── Data Loading ────────────────────────────────────────────────────
 
-async function fetchCalendar(url) {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return response.text();
-}
-
+// Loads pre-built fixture data from /data/fixtures.json. That file is
+// regenerated daily by `npm run generate-fixtures-json` (run from the
+// sync-calendars GitHub Action), so there's no runtime call to Google.
 async function loadFixtures() {
     const { monday, sunday } = getWeekBounds();
     const fixtures = [];
 
-    const fetchPromises = Object.entries(CALENDAR_IDS).map(async ([feedCategory, calendarId]) => {
-        try {
-            const icsText = await fetchCalendar(feedUrl(calendarId));
-            const events = parseICS(icsText);
-            for (const event of events) {
-                if (event.dtstart >= monday && event.dtstart <= sunday) {
-                    const fixture = parseFixture(event, feedCategory);
-                    if (fixture) fixtures.push(fixture);
-                }
-            }
-        } catch (err) {
-            console.warn(`Failed to load ${feedCategory} calendar:`, err.message);
-        }
-    });
+    try {
+        const res = await fetch('/data/fixtures.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
 
-    await Promise.all(fetchPromises);
+        for (const event of data.events || []) {
+            const dtstart = new Date(event.dtstart);
+            if (dtstart < monday || dtstart > sunday) continue;
+
+            const fixture = parseFixture({
+                summary: event.summary,
+                dtstart,
+                dtend: event.dtend ? new Date(event.dtend) : undefined,
+                location: event.location,
+            }, event.category);
+
+            if (fixture) fixtures.push(fixture);
+        }
+    } catch (err) {
+        console.warn('Failed to load fixtures:', err.message);
+    }
 
     allFixtures = fixtures.sort((a, b) => a.time - b.time);
     renderActiveView();
