@@ -12,7 +12,7 @@ Views, switched via the tabs at the top:
 | **Midweek** | All midweek competitions |
 | **Juniors** | All junior competitions |
 
-Data comes from the four public Google Calendar iCal feeds defined at `js/app.js` (`CALENDAR_FEEDS`).
+Data comes from the four public Google Calendar iCal feeds defined at `js/app.js` (`CALENDAR_IDS`).
 
 ## Folder layout
 
@@ -58,7 +58,7 @@ The generator (see [src/setup/generate-docs.js](../src/setup/generate-docs.js) â
 
 ## How the data is parsed
 
-- `js/app.js` fetches each iCal feed via the `corsproxy.io` public CORS proxy.
+- `js/app.js` fetches each iCal feed. In production the request goes through a Netlify redirect (`/proxy/calendar/*` â†’ `calendar.google.com/calendar/*`, configured in `netlify.toml`) so the browser sees a same-origin response. Local dev falls back to `corsproxy.io` since `npm run dev` doesn't honour Netlify rewrites.
 - Only events with `DTSTART` in the current Monâ€“Sun window are kept.
 - Each event's `SUMMARY` is parsed as `"<COMP> - <HOME> vs <AWAY>"`.
 - The competition string is classified into one of the four views:
@@ -68,12 +68,12 @@ The generator (see [src/setup/generate-docs.js](../src/setup/generate-docs.js) â
 
 ## Updating
 
-- **Calendar IDs**: if a category calendar is recreated, update the iCal URL in `js/app.js` (`CALENDAR_FEEDS`).
+- **Calendar IDs**: if a category calendar is recreated, update the iCal URL in `js/app.js` (`CALENDAR_IDS`).
 - **Logos**: drop a new `<ABBR>.png` into `images/logos/`. Abbreviations come from `config/mappings-club-names.json`. Non-PNG extensions can be registered in `LOGO_EXTENSIONS` in `js/app.js`.
 - **Styling**: edit `css/styles.css`.
 - **OG image**: edit `src/og-card.html`, then run `npm run generate-og-image` from the repo root.
 
 ## Notes
 
-- The CORS proxy is a shared public service â€” fine for personal use but don't rely on it for production without your own proxy.
 - Fixtures are filtered client-side against Melbourne time, so visitors in other timezones still see the correct week.
+- For `npm run dev` to fetch fixtures, `corsproxy.io` must be reachable; this is only used locally.

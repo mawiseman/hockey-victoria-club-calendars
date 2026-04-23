@@ -1,10 +1,28 @@
-// Google Calendar iCal feed URLs (public feeds)
-const CALENDAR_FEEDS = {
-    mens: 'https://calendar.google.com/calendar/ical/b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6%40group.calendar.google.com/public/basic.ics',
-    womens: 'https://calendar.google.com/calendar/ical/45c236109820085226cabd0f84c97574e25fe27183d8155d6ce9fe89e1b486a9%40group.calendar.google.com/public/basic.ics',
-    midweek: 'https://calendar.google.com/calendar/ical/fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e%40group.calendar.google.com/public/basic.ics',
-    juniors: 'https://calendar.google.com/calendar/ical/a621fd9b3e4a3996c8ea70697cab4198ad5605847234af74be60fc91345c08c9%40group.calendar.google.com/public/basic.ics',
+// Google Calendar iCal feed IDs (public feeds). The actual fetch URL is
+// built by `feedUrl()` below so we can route through Netlify in production
+// and only fall back to a public CORS proxy for `npm run dev`.
+const CALENDAR_IDS = {
+    mens:    'b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6@group.calendar.google.com',
+    womens:  '45c236109820085226cabd0f84c97574e25fe27183d8155d6ce9fe89e1b486a9@group.calendar.google.com',
+    midweek: 'fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e@group.calendar.google.com',
+    juniors: 'a621fd9b3e4a3996c8ea70697cab4198ad5605847234af74be60fc91345c08c9@group.calendar.google.com',
 };
+
+const IS_LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
+
+/**
+ * Build the URL to fetch an iCal feed:
+ *  - Production (Netlify): /proxy/calendar/ical/... — rewritten to
+ *    calendar.google.com by netlify.toml. Same-origin, no CORS.
+ *  - Local dev: corsproxy.io, to avoid needing Netlify CLI locally.
+ */
+function feedUrl(calendarId) {
+    const path = `/calendar/ical/${encodeURIComponent(calendarId)}/public/basic.ics`;
+    if (IS_LOCAL) {
+        return `https://corsproxy.io/?url=${encodeURIComponent('https://calendar.google.com' + path)}`;
+    }
+    return `/proxy${path}`;
+}
 
 // The views shown as tabs, in order
 const VIEWS = {
@@ -19,8 +37,6 @@ const VIEWS = {
 const LOGO_EXTENSIONS = {
     FAL: 'png',
 };
-
-const CORS_PROXY = 'https://corsproxy.io/?url=';
 
 const ACTIVE_VIEW_KEY = 'fhc.weeklyFixture.activeView';
 
@@ -325,8 +341,7 @@ function renderFixtures(fixtures) {
 // ─── Data Loading ────────────────────────────────────────────────────
 
 async function fetchCalendar(url) {
-    const proxyUrl = CORS_PROXY + encodeURIComponent(url);
-    const response = await fetch(proxyUrl);
+    const response = await fetch(url);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.text();
 }
@@ -335,9 +350,9 @@ async function loadFixtures() {
     const { monday, sunday } = getWeekBounds();
     const fixtures = [];
 
-    const fetchPromises = Object.entries(CALENDAR_FEEDS).map(async ([feedCategory, url]) => {
+    const fetchPromises = Object.entries(CALENDAR_IDS).map(async ([feedCategory, calendarId]) => {
         try {
-            const icsText = await fetchCalendar(url);
+            const icsText = await fetchCalendar(feedUrl(calendarId));
             const events = parseICS(icsText);
             for (const event of events) {
                 if (event.dtstart >= monday && event.dtstart <= sunday) {

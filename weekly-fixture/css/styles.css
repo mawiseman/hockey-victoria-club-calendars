@@ -298,26 +298,50 @@ body {
 /* ─── Subscribe-page specifics ──────────────────────────────────── */
 
 .subtitle {
-    margin: 12px 0 4px;
+    margin: 12px 0 16px;
     color: rgba(255, 255, 255, 0.75);
     font-size: 14px;
     font-weight: 500;
 }
 
-.big-link {
-    display: block;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+/* Filter tabs inside a card (used on both index.html and subscribe.html).
+   Pinned to the left so they align with the title and the fixture rows. */
+.card-content .view-tabs {
+    justify-content: flex-start;
+    margin: 18px 0 4px;
+    width: 100%;
+    max-width: none;
+}
+
+/* LINK BUTTONS — solid accent with an external-link arrow. These clearly
+   "go somewhere else" vs the dashed subscribe-details accordions below. */
+.link-button, .big-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--red);
     color: var(--white);
     padding: 12px 14px;
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 14px;
+    letter-spacing: 0.3px;
     margin: 10px 0;
-    transition: background 0.15s, border-color 0.15s;
+    box-shadow: 0 4px 12px rgba(217, 11, 45, 0.25);
+    transition: background 0.15s, transform 0.05s;
 }
-.big-link:hover { background: rgba(255, 255, 255, 0.14); border-color: var(--red); }
+.link-button:hover, .big-link:hover { background: var(--red-dark); }
+.link-button:active { transform: scale(0.99); }
+
+.link-button-icon { font-size: 18px; line-height: 1; }
+.link-button-label { flex: 1; }
+.link-button-arrow {
+    opacity: 0.85;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 900;
+}
 
 .category {
     margin-top: 24px;
@@ -343,7 +367,7 @@ body {
 }
 
 .comp-name {
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     font-size: 14px;
     font-weight: 800;
     letter-spacing: 0.5px;
@@ -353,50 +377,99 @@ body {
 .comp-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 8px;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 
+/* PILL LINKS — outbound, pill-shaped, with an external-link arrow so they
+   clearly read as "go somewhere" rather than "expand". */
 .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     color: var(--white);
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 999px;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
     transition: background 0.15s, border-color 0.15s;
 }
-.pill:hover { background: rgba(255, 255, 255, 0.14); border-color: var(--red); }
+.pill:hover { background: rgba(255, 255, 255, 0.16); border-color: var(--red); }
+.pill-arrow { opacity: 0.6; font-size: 11px; font-weight: 900; }
 
+/* EXPANDABLE BLOCKS — styled distinctly from links. Dashed border, muted
+   background, caret that rotates open, "Tap" hint — all signalling that
+   this reveals more content in place rather than navigating away. */
 .subscribe-details {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 4px;
-    padding: 6px 10px;
+    background: rgba(11, 26, 58, 0.55);
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    padding: 0;
+    overflow: hidden;
+    transition: border-color 0.15s, background 0.15s;
+}
+.subscribe-details[open] {
+    background: rgba(11, 26, 58, 0.8);
+    border-style: solid;
+    border-color: rgba(217, 11, 45, 0.5);
 }
 
 .subscribe-details summary {
     cursor: pointer;
     list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
     font-weight: 700;
     font-size: 13px;
-    padding: 4px 0;
+    color: var(--white);
     user-select: none;
 }
 .subscribe-details summary::-webkit-details-marker { display: none; }
+.subscribe-details summary::marker { display: none; }
+.subscribe-details summary:hover { background: rgba(255, 255, 255, 0.04); }
 
-.subscribe-body { padding: 6px 0 10px; }
+.summary-label { flex: 1; }
 
-.instruction { margin-top: 8px; }
+.summary-hint {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+.subscribe-details[open] .summary-hint { display: none; }
+
+.summary-caret {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--red);
+    transition: transform 0.2s;
+}
+.subscribe-details[open] .summary-caret { transform: rotate(180deg); }
+
+.subscribe-body {
+    padding: 4px 12px 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.instruction { margin-top: 12px; }
 .instruction-title {
     font-weight: 800;
     font-size: 12px;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--red);
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 .instruction p {
     margin: 0;
@@ -410,7 +483,7 @@ body {
 .back-link {
     display: inline-block;
     margin-top: 24px;
-    padding: 8px 12px;
+    padding: 8px 14px;
     color: var(--white);
     text-decoration: none;
     font-size: 13px;
@@ -418,8 +491,16 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 999px;
     align-self: flex-start;
+    transition: border-color 0.15s, background 0.15s;
 }
-.back-link:hover { border-color: var(--red); }
+.back-link:hover { border-color: var(--red); background: rgba(255, 255, 255, 0.06); }
+
+/* Top-of-card variant: compact, sits above the tagline. */
+.back-link-top {
+    margin: 0 0 18px;
+    padding: 6px 12px;
+    font-size: 12px;
+}
 
 /* 404 page */
 .not-found { min-height: 70vh; }
