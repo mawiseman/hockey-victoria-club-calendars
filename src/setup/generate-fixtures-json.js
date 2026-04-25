@@ -5,9 +5,10 @@
 
 import fs from 'fs/promises';
 import path from 'path';
-import { getCategoryCalendars } from '../lib/config.js';
+import { getCategoryCalendars, TEMP_DIR } from '../lib/config.js';
 
 const OUTPUT = 'weekly-fixture/data/fixtures.json';
+const SCORES_FILE = path.join(TEMP_DIR, 'scores.json');
 
 // Window sizes: always capture the whole current Mon–Sun no matter what day
 // the generator runs (so Thursday-run doesn't trim Monday's games), plus two
@@ -71,6 +72,69 @@ async function fetchCalendar(calendarId) {
     return res.text();
 }
 
+// ─── Score merging ──────────────────────────────────────────────────
+
+// Build a "2026-04-18T15:30|DON" key for an event so it can be looked up
+// against scraper output, which is keyed in Melbourne local time and venue
+// abbreviation. Both fields are stable across DST since we ask Intl for the
+// rendered Melbourne wall-clock, and venues come straight from the iCal.
+function melbourneLocalKey(utcIso, venueAbbr) {
+    const fmt = new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Australia/Melbourne',
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', hour12: false
+    });
+    const parts = Object.fromEntries(fmt.formatToParts(new Date(utcIso)).map(p => [p.type, p.value]));
+    // en-CA uses h23, but some runtimes still emit "24" for midnight — normalise.
+    const hour = parts.hour === '24' ? '00' : parts.hour;
+    return `${parts.year}-${parts.month}-${parts.day}T${hour}:${parts.minute}|${venueAbbr}`;
+}
+
+// Pulls "ASF" from "Footscray Hockey Club - ASF". Allows hyphenated codes
+// like "H-2".
+function extractVenueAbbr(location) {
+    if (!location) return null;
+    const m = location.match(/-\s+([A-Za-z0-9-]+)\s*$/);
+    return m ? m[1] : null;
+}
+
+async function loadScores() {
+    try {
+        const raw = await fs.readFile(SCORES_FILE, 'utf8');
+        return JSON.parse(raw);
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            console.log(`No ${SCORES_FILE} found, skipping score merge.`);
+        } else {
+            console.warn(`Could not read ${SCORES_FILE}: ${err.message}`);
+        }
+        return null;
+    }
+}
+
+function mergeScores(events, scoresPayload) {
+    if (!scoresPayload || !Array.isArray(scoresPayload.games)) return 0;
+
+    // Index played-and-scored games for O(1) lookup.
+    const index = new Map();
+    for (const g of scoresPayload.games) {
+        if (g.status !== 'Played' || !g.score || !g.dtstartLocal || !g.venueAbbr) continue;
+        index.set(`${g.dtstartLocal}|${g.venueAbbr}`, g.score);
+    }
+
+    let merged = 0;
+    for (const event of events) {
+        const venueAbbr = extractVenueAbbr(event.location);
+        if (!venueAbbr) continue;
+        const score = index.get(melbourneLocalKey(event.dtstart, venueAbbr));
+        if (score) {
+            event.score = score;
+            merged++;
+        }
+    }
+    return merged;
+}
+
 // ─── Main ───────────────────────────────────────────────────────────
 
 async function main() {
@@ -107,6 +171,14 @@ async function main() {
         }
     }
     allEvents.sort((a, b) => a.dtstart.localeCompare(b.dtstart));
+
+    // Merge scraped scores. Skipped silently if temp/scores.json is absent
+    // (e.g. local dev runs that didn't run npm run scrape-scores first).
+    const scoresPayload = await loadScores();
+    const merged = mergeScores(allEvents, scoresPayload);
+    if (scoresPayload) {
+        console.log(`Merged scores into ${merged}/${allEvents.length} events`);
+    }
 
     await fs.mkdir(path.dirname(OUTPUT), { recursive: true });
     const payload = {

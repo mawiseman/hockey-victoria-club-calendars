@@ -67,6 +67,21 @@ The generator (see [src/setup/generate-docs.js](../src/setup/generate-docs.js) �
   - `mens` / `womens` split on whether the comp contains `PL` / `PLR` (→ `pl` tab) or not (→ `club` tab)
 - A short grade code is derived for display (`Men PEN A` → `MPA`, `Women M1 NW` → `WM1`, etc.) — see `buildShortCode()` in `js/app.js`.
 - The `generatedAt` timestamp from `fixtures.json` is rendered as a small version-tag-style stamp at the bottom of the page (e.g. `v2026.04.25-1659`, UTC). Use it to spot stale data at a glance.
+- If an event has a `score` field (string like `"3-1"`, home-then-away), the row's `VS` chevron is replaced with the score. Source: `npm run scrape-scores` (see [Scores](#scores) below).
+
+## Scores
+
+Scores live on each competition's HV team page (the same URL as `competition.fixtureUrl`). They're **not** in the iCal feed.
+
+`npm run scrape-scores` fetches each active competition's page once, parses the round cards, and writes `temp/scores.json`. `generate-fixtures-json` then merges the played scores into the matching events using `(Melbourne local datetime, venue abbreviation)` as the join key — both sides have these reliably:
+
+- iCal `LOCATION` ends with `- ABBR` (e.g. `Doncaster Hockey Centre - DON`).
+- Scraped cards include `<div>{ABBR}</div>` next to the venue link.
+- DST is handled via `Intl.DateTimeFormat` with `timeZone: 'Australia/Melbourne'`.
+
+Matching by `(datetime, venue)` rather than competition name keeps the merger independent of comp-name normalisation rules. Two FHC teams in the same comp would only collide if they played each other at the same venue at the same time — not possible today (FHC fields one team per comp), and unlikely even then.
+
+The scrape step in [`sync-calendars.yml`](../.github/workflows/sync-calendars.yml) is wrapped in `continue-on-error: true` — if HV's WAF blocks the scrape one day, fixtures.json still ships without score updates rather than failing the whole sync.
 
 ## Hosting and data flow
 
@@ -77,11 +92,11 @@ GitHub Action (daily)              Netlify                          Browser
 ──────────────────────             ───────                          ───────
 sync-calendars.yml runs            netlify.toml `ignore` script:    On localhost:
   → npm run process-...            skip build when only files in      fetch /data/fixtures.json
-  → npm run generate-fixtures-json `weekly-fixture/data/` changed.  In production:
-  → git commit + push to main      Code commits still deploy          fetch cdn.jsdelivr.net/gh/...
-  → curl purge.jsdelivr.net/...    normally.                          (jsDelivr mirrors the file
-                                                                       from GitHub; purge step keeps
-                                                                       it fresh within seconds.)
+  → npm run scrape-scores          `weekly-fixture/data/` changed.  In production:
+  → npm run generate-fixtures-json Code commits still deploy          fetch cdn.jsdelivr.net/gh/...
+  → npm run generate-docs          normally.                          (jsDelivr mirrors the file
+  → git commit + push to main                                          from GitHub; purge step keeps
+  → curl purge.jsdelivr.net/...                                        it fresh within seconds.)
 ```
 
 Key files:

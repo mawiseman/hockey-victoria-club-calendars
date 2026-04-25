@@ -266,6 +266,15 @@ body {
     padding: 3px 12px;
     clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
     letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* Score chip — takes the place of the VS chevron once a result is known.
+   Same parallelogram shape, slightly wider padding for two digits + dash. */
+.vs.has-score {
+    padding: 3px 14px;
+    letter-spacing: 0.5px;
+    background: var(--ink);
 }
 
 /* Logos */

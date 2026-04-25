@@ -19,7 +19,8 @@
     "test-calendar-summary-processing": "node src/tests/calendar-summary-processing.js",
     "dev": "npx --yes serve weekly-fixture -l 3000",
     "generate-og-image": "node src/setup/generate-og-image.js",
-    "generate-fixtures-json": "node src/setup/generate-fixtures-json.js"
+    "generate-fixtures-json": "node src/setup/generate-fixtures-json.js",
+    "scrape-scores": "node src/tasks/score-scraper.js"
   },
   "keywords": [
     "hockey",

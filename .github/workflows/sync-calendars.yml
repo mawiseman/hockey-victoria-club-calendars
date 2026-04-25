@@ -65,6 +65,14 @@ jobs:
             npm run process-competition -- --competition "${{ github.event.inputs.competition }}" --include-inactive
           fi
       
+      # Scrape match scores from each active competition's HV team page so
+      # generate-fixtures-json can merge them into events. Failures here are
+      # tolerated — events ship without scores rather than blocking the sync.
+      - name: Scrape scores
+        if: success()
+        continue-on-error: true
+        run: npm run scrape-scores
+
       - name: Regenerate fixtures.json + subscribe-data + docs
         if: success()
         run: |

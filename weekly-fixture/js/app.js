@@ -53,6 +53,7 @@ function parseFixture(event, feedCategory) {
         time: event.dtstart,
         endTime: event.dtend,
         location: event.location || '',
+        score: event.score || null,
     };
 }
 
@@ -242,9 +243,16 @@ function renderFixtures(fixtures) {
             home.className = 'team home' + (f.home.startsWith('FHC') ? ' is-fhc' : '');
             home.textContent = f.home;
 
+            // Show the score in the VS chevron slot once a result exists,
+            // otherwise the usual VS marker. Score format is "home-away".
             const vs = document.createElement('span');
-            vs.className = 'vs';
-            vs.textContent = 'VS';
+            if (f.score) {
+                vs.className = 'vs has-score';
+                vs.textContent = f.score.replace('-', ' – ');
+            } else {
+                vs.className = 'vs';
+                vs.textContent = 'VS';
+            }
 
             const away = document.createElement('span');
             away.className = 'team away' + (f.away.startsWith('FHC') ? ' is-fhc' : '');
@@ -297,6 +305,7 @@ async function loadFixtures() {
                 dtstart,
                 dtend: event.dtend ? new Date(event.dtend) : undefined,
                 location: event.location,
+                score: event.score,
             }, event.category);
 
             if (fixture) fixtures.push(fixture);
