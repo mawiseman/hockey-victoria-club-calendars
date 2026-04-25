@@ -548,7 +548,11 @@ body {
     text-transform: uppercase;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.15s, border-top-color 0.15s;
 }
+
+a.card-footer:hover { color: var(--white); border-top-color: var(--red); }
 
 .card-footer img {
     width: 28px;
@@ -557,6 +561,17 @@ body {
 }
 
 .card-footer strong { font-weight: 900; color: var(--white); }
+
+/* Subtle build/version stamp at the very bottom — sourced from
+   fixtures.json `generatedAt` so visitors can spot stale data. */
+.build-info {
+    margin-top: 10px;
+    text-align: center;
+    font-family: ui-monospace, 'SF Mono', Consolas, 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.3);
+}
 
 /* ─── States ────────────────────────────────────────────────────── */
 

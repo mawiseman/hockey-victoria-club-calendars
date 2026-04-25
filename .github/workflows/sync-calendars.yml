@@ -72,6 +72,7 @@ jobs:
           npm run generate-docs
 
       - name: Commit generated files
+        id: commit
         if: success()
         run: |
           git config user.name "github-actions[bot]"
@@ -79,10 +80,21 @@ jobs:
           git add weekly-fixture/data/fixtures.json weekly-fixture/data/subscribe-data.json docs/competitions.md docs/competitions-mobile.md
           if git diff --cached --quiet; then
             echo "No changes to commit"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "chore: auto-sync fixtures + docs"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # The browser fetches fixtures.json + subscribe-data.json directly from
+      # jsDelivr, which mirrors GitHub but caches @main refs for ~12h. Purge
+      # so users see the new data within seconds instead of overnight.
+      - name: Purge jsDelivr cache
+        if: steps.commit.outputs.pushed == 'true'
+        run: |
+          curl -fsS "https://purge.jsdelivr.net/gh/mawiseman/hockey-victoria-club-calendars@main/weekly-fixture/data/fixtures.json" || true
+          curl -fsS "https://purge.jsdelivr.net/gh/mawiseman/hockey-victoria-club-calendars@main/weekly-fixture/data/subscribe-data.json" || true
 
       - name: Cleanup service account key
         if: always()

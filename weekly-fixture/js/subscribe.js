@@ -26,11 +26,17 @@ function saveActiveView(view) {
     try { localStorage.setItem(ACTIVE_VIEW_KEY, view); } catch { /* ignore */ }
 }
 
+// In production read from jsDelivr (mirrors GitHub) so data refreshes don't
+// require a Netlify rebuild. Localhost keeps the same-origin path for dev.
+const SUBSCRIBE_URL = ['localhost', '127.0.0.1'].includes(location.hostname)
+    ? '/data/subscribe-data.json'
+    : 'https://cdn.jsdelivr.net/gh/mawiseman/hockey-victoria-club-calendars@main/weekly-fixture/data/subscribe-data.json';
+
 // ─── Boot ────────────────────────────────────────────────────────────
 
 async function load() {
     try {
-        const res = await fetch('/data/subscribe-data.json', { cache: 'no-cache' });
+        const res = await fetch(SUBSCRIBE_URL, { cache: 'no-cache' });
         data = await res.json();
     } catch (err) {
         document.getElementById('categoryList').innerHTML =

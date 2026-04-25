@@ -269,17 +269,24 @@ function renderFixtures(fixtures) {
 
 // ─── Data Loading ────────────────────────────────────────────────────
 
-// Loads pre-built fixture data from /data/fixtures.json. That file is
-// regenerated daily by `npm run generate-fixtures-json` (run from the
-// sync-calendars GitHub Action), so there's no runtime call to Google.
+// Loads pre-built fixture data. The file is regenerated daily by the
+// sync-calendars GitHub Action and committed to main. In production we read
+// it from jsDelivr (mirrors GitHub) so a data refresh doesn't require a
+// Netlify rebuild — locally we keep using the same-origin path for `npm run dev`.
+const FIXTURES_URL = ['localhost', '127.0.0.1'].includes(location.hostname)
+    ? '/data/fixtures.json'
+    : 'https://cdn.jsdelivr.net/gh/mawiseman/hockey-victoria-club-calendars@main/weekly-fixture/data/fixtures.json';
+
 async function loadFixtures() {
     const { monday, sunday } = getWeekBounds();
     const fixtures = [];
 
     try {
-        const res = await fetch('/data/fixtures.json', { cache: 'no-cache' });
+        const res = await fetch(FIXTURES_URL, { cache: 'no-cache' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
+
+        renderBuildInfo(data.generatedAt);
 
         for (const event of data.events || []) {
             const dtstart = new Date(event.dtstart);
@@ -300,6 +307,21 @@ async function loadFixtures() {
 
     allFixtures = fixtures.sort((a, b) => a.time - b.time);
     renderActiveView();
+}
+
+// Show fixtures.json's generatedAt as a version-tag-style stamp
+// (e.g. "v2026.04.23-1739"). UTC so it matches the JSON source verbatim.
+function renderBuildInfo(generatedAt) {
+    const el = document.getElementById('buildInfo');
+    if (!el || !generatedAt) return;
+    const d = new Date(generatedAt);
+    if (Number.isNaN(d.getTime())) return;
+    const yyyy = d.getUTCFullYear();
+    const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+    const dd = String(d.getUTCDate()).padStart(2, '0');
+    const hh = String(d.getUTCHours()).padStart(2, '0');
+    const mn = String(d.getUTCMinutes()).padStart(2, '0');
+    el.textContent = `v${yyyy}.${mm}.${dd}-${hh}${mn}`;
 }
 
 // ─── Init ────────────────────────────────────────────────────────────
