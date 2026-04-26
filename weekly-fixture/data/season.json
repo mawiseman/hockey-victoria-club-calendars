@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-26T00:31:17.973Z",
-  "sourcesGeneratedAt": "2026-04-25T23:38:33.684Z",
+  "generatedAt": "2026-04-26T17:01:47.719Z",
+  "sourcesGeneratedAt": "2026-04-26T17:01:44.135Z",
   "teams": [
     {
       "slug": "men-m1-nw",
@@ -424,7 +424,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Doncaster Hockey Centre - DON",
-          "gameId": "2493005"
+          "gameId": "2493005",
+          "score": "3-1"
         },
         {
           "round": 4,
@@ -821,7 +822,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Melton Hockey Ground - MEL",
-          "gameId": "2504970"
+          "gameId": "2504970",
+          "score": "2-1"
         },
         {
           "round": 4,
@@ -1041,7 +1043,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Hedley Hull Field - HHF",
-          "gameId": "2488132"
+          "gameId": "2488132",
+          "score": "3-5"
         },
         {
           "round": 4,
@@ -1259,7 +1262,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Hedley Hull Field - HHF",
-          "gameId": "2493078"
+          "gameId": "2493078",
+          "score": "4-2"
         },
         {
           "round": 4,
@@ -2822,7 +2826,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Brunswick Secondary College - BRU",
-          "gameId": "2513071"
+          "gameId": "2513071",
+          "score": "1-0"
         },
         {
           "round": 4,
@@ -3777,7 +3782,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Hedley Hull Field - HHF",
-          "gameId": "2488133"
+          "gameId": "2488133",
+          "score": "2-0"
         },
         {
           "round": 4,
@@ -3995,7 +4001,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Hedley Hull Field - HHF",
-          "gameId": "2493079"
+          "gameId": "2493079",
+          "score": "0-2"
         },
         {
           "round": 4,
