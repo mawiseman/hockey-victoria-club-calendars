@@ -220,13 +220,6 @@
     },
     {
       "category": "mens",
-      "summary": "Men PLR - WAV vs FHC",
-      "dtstart": "2026-04-26T02:30:00.000Z",
-      "dtend": "2026-04-26T04:00:00.000Z",
-      "location": "Hedley Hull Field - HHF"
-    },
-    {
-      "category": "mens",
       "summary": "Men PL - WAV vs FHC",
       "dtstart": "2026-04-26T04:00:00.000Z",
       "dtend": "2026-04-26T05:30:00.000Z",
@@ -241,6 +234,7 @@
     },
     {
       "category": "womens",
+      "summary": "Women PL - WAV vs FHC",
       "summary": "Women PL - WAV vs FHC",
       "dtstart": "2026-04-26T05:30:00.000Z",
       "dtend": "2026-04-26T07:00:00.000Z",
@@ -360,17 +354,17 @@
     },
     {
       "category": "juniors",
-      "summary": "U12 Girls Shield - FHC vs KBH",
-      "dtstart": "2026-05-02T00:00:00.000Z",
-      "dtend": "2026-05-02T01:00:00.000Z",
-      "location": "State Sport Centres\\, Parkville - P-1"
-    },
-    {
-      "category": "juniors",
       "summary": "U12 Mixed Shield - PEGS vs FHC",
       "dtstart": "2026-05-02T00:00:00.000Z",
       "dtend": "2026-05-02T01:00:00.000Z",
       "location": "PEGS Sporting Fields - PSF2"
+    },
+    {
+      "category": "juniors",
+      "summary": "U12 Girls Shield - FHC vs KBH",
+      "dtstart": "2026-05-02T00:00:00.000Z",
+      "dtend": "2026-05-02T01:00:00.000Z",
+      "location": "State Sport Centres\\, Parkville - P-1"
     },
     {
       "category": "womens",
@@ -448,13 +442,6 @@
       "dtstart": "2026-05-03T04:00:00.000Z",
       "dtend": "2026-05-03T05:30:00.000Z",
       "location": "Southern United Hockey Club - MBN"
-    },
-    {
-      "category": "mens",
-      "summary": "Men PEN D NW - FHC vs LAT",
-      "dtstart": "2026-05-03T04:00:00.000Z",
-      "dtend": "2026-05-03T05:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "womens",
