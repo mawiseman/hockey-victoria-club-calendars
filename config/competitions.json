@@ -258,7 +258,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2026 Midweek Women's 35+ B - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:05.275Z"
     },
     {
       "name": "Midweek Women's 45+ - 2026",
@@ -274,7 +276,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2026 Midweek Women's 45+ - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:05.969Z"
     },
     {
       "name": "T1 Social 35+ Womens Masters",
@@ -307,7 +311,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Midweek Men's 40+ NW - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:06.790Z"
     },
     {
       "name": "Midweek Men's 50+ NW - 2026",
@@ -323,7 +329,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Midweek Men's 50+ NW - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:07.431Z"
     },
     {
       "name": "Midweek Women's 55+ (Monday) - 2026",
@@ -339,7 +347,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Midweek Women's 55+ (Monday) - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:08.031Z"
     },
     {
       "name": "U12 District Half Field Mixed NW - T2 - 2026",
@@ -355,7 +365,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/3fdd292f8209d122388947894ff389fa305bb982e383b60fd621486bcaa64d1f%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U12 District Half Field Mixed NW - T2 - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:08.222Z"
     },
     {
       "name": "U12 Girls Shield - 2026",
@@ -371,7 +383,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/bbfaaee971a66c95705543b23c1df1b595b307865e9e48dd7c98388418cd80fa%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U12 Girls Shield - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:08.357Z"
     },
     {
       "name": "U12 Mixed Shield - 2026",
@@ -387,7 +401,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/be8b36bdf408d50b313b89fef5a9e250f456459718259975858496678f770e5f%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U12 Mixed Shield - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:08.481Z"
     },
     {
       "name": "U14 Boys Shield - 2026",
@@ -403,7 +419,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/c529a366efbbed18466d9ad85ea004e4d79c8616a90c33e50557d85390a16849%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U14 Boys Shield - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:08.573Z"
     },
     {
       "name": "U14 Girls Pennant NW - 2026",
@@ -419,7 +437,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/39df3c47f565f74db1af11b264da6a13ec0fc2af32e871baecd1f74733887008%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U14 Girls Pennant NW - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:08.679Z"
     },
     {
       "name": "U14 Mixed District NW - 2026",
@@ -435,7 +455,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/74c3859064feb3d560dac470bf3429845d7938eadea3888f64b936c080f7ee53%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U14 Mixed District NW - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:08.825Z"
     },
     {
       "name": "U16 Boys Pennant NW - 2026",
@@ -451,7 +473,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/e722dc6d07d206f8e36152ad83658d047b6cb3493043a9f8f3a25f495624f482%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U16 Boys Pennant NW - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:08.939Z"
     },
     {
       "name": "U16 Boys Shield - 2026",
@@ -467,7 +491,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/96d7ce395385e71a26b648db419bb449ef502bc24781602017f659e4bb410073%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U16 Boys Shield - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:09.142Z"
     },
     {
       "name": "U16 Girls Pennant NW - 2026",
@@ -483,7 +509,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/703ae3bb535e156bbf7648f4888693523ad26f9e9f07719621d764b3a1167986%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U16 Girls Pennant NW - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:09.288Z"
     },
     {
       "name": "U16 Girls Shield - 2026",
@@ -499,7 +527,9 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/e11cc1c5ec43ad5d914841b0ac37f27065b7fe9be0c885f2f6daadba863e7cf6%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U16 Girls Shield - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:09.541Z"
     },
     {
       "name": "U18 Mixed District NW - 2026",
@@ -515,7 +545,12 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/47b4896026dd4bc5db64dcbbeb6b3003f6500f1511912c02177869af81ac69a4%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U18 Mixed District NW - 2026",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": true,
+      "statusUpdatedAt": "2026-04-26T00:25:09.724Z"
     }
-  ]
+  ],
+  "lastStatusUpdate": "2026-04-26T00:25:09.724Z",
+  "activeCompetitions": 30,
+  "inactiveCompetitions": 1
 }

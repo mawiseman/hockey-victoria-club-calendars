@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T00:06:20.807Z",
+  "generatedAt": "2026-04-26T00:15:25.712Z",
   "sourcesGeneratedAt": "2026-04-25T23:38:33.684Z",
   "teams": [
     {
@@ -1849,7 +1849,7 @@
           "round": 5,
           "dtstart": "2026-05-13T09:00:00.000Z",
           "dtend": "2026-05-13T10:00:00.000Z",
-          "home": "Knox",
+          "home": "KNO",
           "away": "FHC",
           "isHome": false,
           "location": "Wantirna Reserve - KNX",
@@ -1930,7 +1930,7 @@
           "dtstart": "2026-07-29T10:00:00.000Z",
           "dtend": "2026-07-29T11:00:00.000Z",
           "home": "FHC",
-          "away": "Knox",
+          "away": "KNO",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2532947"
@@ -2058,7 +2058,7 @@
           "dtstart": "2026-06-17T10:00:00.000Z",
           "dtend": "2026-06-17T11:00:00.000Z",
           "home": "FHC",
-          "away": "OM",
+          "away": "OEMHC",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2532797"
@@ -2137,7 +2137,7 @@
           "round": 18,
           "dtstart": "2026-08-26T10:00:00.000Z",
           "dtend": "2026-08-26T11:00:00.000Z",
-          "home": "OM",
+          "home": "OEMHC",
           "away": "FHC",
           "isHome": false,
           "location": "Hawthorn Malvern Hockey Centre - H-1",

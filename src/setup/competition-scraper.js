@@ -152,7 +152,10 @@ async function saveCompetitionResult(progress, competitionData) {
             console.log(`✅ Updated competition: ${existing.name}`);
         } else {
             // New competition
-            progress.foundCompetitions.push(competitionData);
+            // Default new competitions to active. The dedicated
+            // `update-competition-status` script will flip this to false later
+            // once a season's iCal shows no upcoming games.
+            progress.foundCompetitions.push({ ...competitionData, isActive: true });
             progress.totalWithClub++;
             console.log(`✅ Added new competition: ${competitionData.name}`);
         }

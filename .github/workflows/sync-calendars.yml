@@ -65,6 +65,14 @@ jobs:
             npm run process-competition -- --competition "${{ github.event.inputs.competition }}" --include-inactive
           fi
       
+      # Refresh isActive on every competition so finished seasons drop off
+      # the published views automatically. Run before scraping scores so
+      # the score scraper can skip inactive comps.
+      - name: Update competition active/inactive status
+        if: success()
+        continue-on-error: true
+        run: npm run update-competition-status
+
       # Scrape match scores from each active competition's HV team page so
       # generate-fixtures-json can merge them into events. Failures here are
       # tolerated — events ship without scores rather than blocking the sync.
@@ -86,7 +94,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add weekly-fixture/data/fixtures.json weekly-fixture/data/season.json weekly-fixture/data/subscribe-data.json docs/competitions.md docs/competitions-mobile.md
+          git add config/competitions.json weekly-fixture/data/fixtures.json weekly-fixture/data/season.json weekly-fixture/data/subscribe-data.json docs/competitions.md docs/competitions-mobile.md
           if git diff --cached --quiet; then
             echo "No changes to commit"
             echo "pushed=false" >> "$GITHUB_OUTPUT"
