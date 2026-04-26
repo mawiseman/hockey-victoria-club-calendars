@@ -51,3 +51,11 @@
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Service worker must be revalidated every navigation so users pick up new
+# versions on next visit. Browsers also refuse SWs served with a long max-age.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Service-Worker-Allowed = "/"

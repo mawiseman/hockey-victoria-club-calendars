@@ -1,4 +1,16 @@
-// The views shown as tabs, in order
+// ───────────────────────────────────────────────────────────────────
+// Weekly Fixture page logic.
+//
+// Data source: season.json — a per-team grouped fixture file built daily by
+// `npm run generate-season-json`. We read it once (cached in memory) and
+// derive whichever view the user is on.
+//
+// Routing: hash-based.
+//   ` ` / `#`              → current week, week view
+//   `#/week/2026-04-20`    → week starting that Monday (any tab still filters)
+//   `#/team/men-pl`        → that team's full season (added in a later phase)
+// ───────────────────────────────────────────────────────────────────
+
 const VIEWS = {
     all:     { label: 'All', title: 'WEEKLY FIXTURES' },
     pl:      { label: 'Premier League', title: 'PREMIER LEAGUE' },
@@ -14,8 +26,8 @@ const LOGO_EXTENSIONS = {
 
 const ACTIVE_VIEW_KEY = 'fhc.weeklyFixture.activeView';
 
-let allFixtures = [];
 let activeView = loadActiveView();
+let seasonCache = null;
 
 function loadActiveView() {
     try {
@@ -29,94 +41,80 @@ function saveActiveView(view) {
     try { localStorage.setItem(ACTIVE_VIEW_KEY, view); } catch { /* ignore */ }
 }
 
+// ─── Data loading ────────────────────────────────────────────────────
 
-// ─── Fixture Parsing + Classification ────────────────────────────────
+const SEASON_URL = ['localhost', '127.0.0.1'].includes(location.hostname)
+    ? '/data/season.json'
+    : 'https://cdn.jsdelivr.net/gh/mawiseman/hockey-victoria-club-calendars@main/weekly-fixture/data/season.json';
 
-function parseFixture(event, feedCategory) {
-    const summary = event.summary || '';
-    // Expected: "Men PL - FHC vs MCC" / "Women PEN A - ALT vs FHC" / "U12 ... - FHC vs X"
-    const m = summary.match(/^(.+?)\s*-\s*(.+?)\s+vs\s+(.+)$/i);
-    if (!m) return null;
+async function getSeason() {
+    if (seasonCache) return seasonCache;
+    const res = await fetch(SEASON_URL, { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    seasonCache = await res.json();
+    renderBuildInfo(seasonCache.generatedAt);
+    return seasonCache;
+}
 
-    const comp = m[1].trim();
-    const home = m[2].trim();
-    const away = m[3].trim();
-
+// Convert one season.json event + its team metadata into the fixture shape
+// the renderer expects. Decoupling lets us reuse renderFixtures() across
+// week view and team view.
+function eventToFixture(event, team) {
     return {
-        comp,
-        shortCode: buildShortCode(comp, feedCategory),
-        view: classifyView(comp, feedCategory),
-        home,
-        away,
-        isHome: home.startsWith('FHC'),
-        isFhcGame: home.startsWith('FHC') || away.startsWith('FHC'),
-        time: event.dtstart,
-        endTime: event.dtend,
+        comp: team.name,
+        shortCode: team.label,
+        view: team.view,
+        slug: team.slug,
+        home: event.home,
+        away: event.away,
+        isHome: event.isHome,
+        time: new Date(event.dtstart),
+        endTime: event.dtend ? new Date(event.dtend) : null,
         location: event.location || '',
         score: event.score || null,
     };
 }
 
-/**
- * Which tab does this fixture belong to?
- */
-function classifyView(comp, feedCategory) {
-    if (feedCategory === 'midweek') return 'midweek';
-    if (feedCategory === 'juniors') return 'juniors';
+// ─── Date helpers ────────────────────────────────────────────────────
 
-    // Seniors — split into PL vs Club
-    // Match "PL" or "PLR" as a whole word (e.g. "Men PL - ...", "Women PLR - ...")
-    if (/\b(PL|PLR)\b/i.test(comp)) return 'pl';
-    return 'club';
+// Mon 00:00 (local) of the week containing `date`.
+function startOfWeek(date) {
+    const d = new Date(date);
+    const dow = d.getDay();
+    d.setDate(d.getDate() - ((dow + 6) % 7));
+    d.setHours(0, 0, 0, 0);
+    return d;
 }
 
-/**
- * Build a short grade code for display, e.g. "Men PL" → "MPL", "Women PEN A" → "WPA".
- */
-function buildShortCode(comp, feedCategory) {
-    let c = comp.replace(/\s+NW$/i, '').trim();        // strip trailing region
-    c = c.replace(/\s+\d{4}$/, '').trim();             // strip trailing year
-    c = c.replace(/\s*\([^)]*\)/g, '').trim();         // strip parentheticals like "(Monday)"
-    c = c.replace(/\s+/g, ' ');                        // collapse doubled spaces
-
-    // Seniors — "Men PL" / "Women PEN A" / "Men M1" / etc.
-    const seniorMatch = c.match(/^(Men|Women)\s+(.+)$/i);
-    if (seniorMatch) {
-        const prefix = seniorMatch[1][0].toUpperCase();            // M or W
-        const rest = seniorMatch[2]
-            .replace(/PEN\s+([A-Z])/i, 'P$1')                       // "PEN A" → "PA"
-            .replace(/\s+/g, '')                                    // collapse spaces
-            .toUpperCase();
-        return prefix + rest;                                       // WPA, MM1, MPL, MPLR
-    }
-
-    if (feedCategory === 'juniors') {
-        const u = c.match(/U\s*(\d{2})/i) || c.match(/Under\s*(\d{2})/i);
-        if (u) return `U${u[1]}`;
-    }
-
-    if (feedCategory === 'midweek') {
-        const m = c.match(/(\d{2}\+|Masters|Wednesday|Tuesday|Monday|Thursday|Friday)/i);
-        if (m) return m[1].toUpperCase();
-    }
-
-    return c.toUpperCase().substring(0, 8);
-}
-
-// ─── Week / Date Formatting ──────────────────────────────────────────
-
-function getWeekBounds() {
-    const now = new Date();
-    const dayOfWeek = now.getDay();
-    const monday = new Date(now);
-    monday.setDate(now.getDate() - ((dayOfWeek + 6) % 7));
-    monday.setHours(0, 0, 0, 0);
-
+// Bounds for a week, given any date in that week.
+function getWeekBounds(weekStart) {
+    const monday = startOfWeek(weekStart);
     const sunday = new Date(monday);
     sunday.setDate(monday.getDate() + 6);
     sunday.setHours(23, 59, 59, 999);
-
     return { monday, sunday };
+}
+
+// "2026-04-20" for use in URL hashes — local Mon date, no TZ.
+function formatWeekKey(date) {
+    const m = startOfWeek(date);
+    const yyyy = m.getFullYear();
+    const mm = String(m.getMonth() + 1).padStart(2, '0');
+    const dd = String(m.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+}
+
+function parseWeekKey(key) {
+    const m = key && key.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!m) return null;
+    const d = new Date(+m[1], +m[2] - 1, +m[3]);
+    return Number.isNaN(d.getTime()) ? null : startOfWeek(d);
+}
+
+function shiftWeek(date, weeks) {
+    const d = new Date(date);
+    d.setDate(d.getDate() + weeks * 7);
+    return startOfWeek(d);
 }
 
 function formatTimeSimple(date) {
@@ -130,11 +128,35 @@ function formatDayBanner(date) {
     return `${dayName} ${dayNum} ${month}`;
 }
 
-// ─── Logo Handling ───────────────────────────────────────────────────
+// "WED 22 APR 19:00" — date + time inline for the team-season view.
+function formatDateTime(date) {
+    const day = date.toLocaleDateString('en-AU', { weekday: 'short', timeZone: 'Australia/Melbourne' }).toUpperCase();
+    const dayNum = date.toLocaleDateString('en-AU', { day: 'numeric', timeZone: 'Australia/Melbourne' });
+    const month = date.toLocaleDateString('en-AU', { month: 'short', timeZone: 'Australia/Melbourne' }).toUpperCase();
+    const time = date.toLocaleTimeString('en-AU', { hour: 'numeric', minute: '2-digit', hour12: false, timeZone: 'Australia/Melbourne' });
+    return `${day} ${dayNum} ${month} ${time}`;
+}
+
+// "20 – 26 APR" for the week navigation label.
+function formatWeekRange(monday, sunday) {
+    const mDay = monday.toLocaleDateString('en-AU', { day: 'numeric', timeZone: 'Australia/Melbourne' });
+    const sDay = sunday.toLocaleDateString('en-AU', { day: 'numeric', timeZone: 'Australia/Melbourne' });
+    const mMonth = monday.toLocaleDateString('en-AU', { month: 'short', timeZone: 'Australia/Melbourne' }).toUpperCase();
+    const sMonth = sunday.toLocaleDateString('en-AU', { month: 'short', timeZone: 'Australia/Melbourne' }).toUpperCase();
+    if (mMonth === sMonth) return `${mDay} – ${sDay} ${mMonth}`;
+    return `${mDay} ${mMonth} – ${sDay} ${sMonth}`;
+}
+
+// ─── Logo handling ───────────────────────────────────────────────────
 
 function getLogoPath(abbr) {
-    const ext = LOGO_EXTENSIONS[abbr] || 'png';
-    return `/images/logos/${abbr}.${ext}`;
+    // Multi-word abbreviations (e.g. "ESS Jets", "BRU B", "PEGS M") are
+    // team-name suffixes appended to the base club abbr. Use the first
+    // whitespace-separated token for the logo file so all teams from one
+    // club share the same image.
+    const baseAbbr = abbr.split(/\s+/)[0];
+    const ext = LOGO_EXTENSIONS[baseAbbr] || 'png';
+    return `/images/logos/${baseAbbr}.${ext}`;
 }
 
 function createLogo(abbr) {
@@ -154,7 +176,7 @@ function createLogo(abbr) {
     return wrap;
 }
 
-// ─── Rendering ───────────────────────────────────────────────────────
+// ─── Rendering: tabs, week nav, fixture rows ─────────────────────────
 
 function renderViewTabs() {
     const container = document.getElementById('viewTabs');
@@ -166,31 +188,67 @@ function renderViewTabs() {
         btn.onclick = () => {
             activeView = key;
             saveActiveView(key);
-            renderActiveView();
+            renderRoute();
         };
         container.appendChild(btn);
     }
 }
 
-function renderActiveView() {
-    renderViewTabs();
+function renderWeekNav(monday, sunday) {
+    const container = document.getElementById('fixtures');
+    const nav = document.createElement('div');
+    nav.className = 'week-nav';
 
-    const cfg = VIEWS[activeView];
-    document.getElementById('viewTitle').textContent = cfg.title;
+    const currentMonday = startOfWeek(new Date());
+    const isCurrent = monday.getTime() === currentMonday.getTime();
 
-    const fixtures = allFixtures
-        .filter(f => activeView === 'all' || f.view === activeView)
-        .sort((a, b) => a.time - b.time);
+    const prev = document.createElement('button');
+    prev.className = 'week-nav-btn';
+    prev.setAttribute('aria-label', 'Previous week');
+    prev.textContent = '‹';
+    prev.onclick = () => {
+        const prevWeek = shiftWeek(monday, -1);
+        location.hash = `#/week/${formatWeekKey(prevWeek)}`;
+    };
 
-    renderFixtures(fixtures);
+    const label = document.createElement('span');
+    label.className = 'week-nav-label';
+    label.textContent = formatWeekRange(monday, sunday);
+
+    const next = document.createElement('button');
+    next.className = 'week-nav-btn';
+    next.setAttribute('aria-label', 'Next week');
+    next.textContent = '›';
+    next.onclick = () => {
+        const nextWeek = shiftWeek(monday, 1);
+        location.hash = `#/week/${formatWeekKey(nextWeek)}`;
+    };
+
+    nav.appendChild(prev);
+    nav.appendChild(label);
+    nav.appendChild(next);
+
+    // Standalone "this week" pill — only present when we're not already on it.
+    if (!isCurrent) {
+        const today = document.createElement('button');
+        today.className = 'week-nav-today';
+        today.textContent = 'This Week';
+        today.setAttribute('aria-label', 'Jump to this week');
+        today.onclick = () => { location.hash = ''; };
+        nav.appendChild(today);
+    }
+
+    container.appendChild(nav);
 }
 
-function renderFixtures(fixtures) {
+function renderFixtures(fixtures, linkContext = null) {
     const container = document.getElementById('fixtures');
-    container.innerHTML = '';
 
     if (fixtures.length === 0) {
-        container.innerHTML = '<div class="empty-state">No fixtures this week</div>';
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.textContent = 'No fixtures this week';
+        container.appendChild(empty);
         return;
     }
 
@@ -208,6 +266,7 @@ function renderFixtures(fixtures) {
         groups.get(a)[0].time - groups.get(b)[0].time
     );
 
+    const now = new Date();
     for (const key of sortedKeys) {
         const dayFixtures = groups.get(key);
 
@@ -216,110 +275,295 @@ function renderFixtures(fixtures) {
         banner.textContent = formatDayBanner(dayFixtures[0].time);
         container.appendChild(banner);
 
-        const now = new Date();
         for (const f of dayFixtures) {
-            // Treat as "past" once the end time has gone (fall back to a 90-min
-            // window when DTEND is absent).
-            const endsAt = f.endTime || new Date(f.time.getTime() + 90 * 60 * 1000);
-            const isPast = endsAt < now;
-
-            const row = document.createElement('div');
-            row.className = 'fixture-row'
-                + (f.isHome ? ' is-home' : '')
-                + (isPast ? ' is-past' : '');
-
-            const fhcLogo = createLogo('FHC');
-            fhcLogo.classList.add('logo-fhc');
-
-            const grade = document.createElement('span');
-            grade.className = 'grade';
-            grade.textContent = f.shortCode;
-
-            const time = document.createElement('span');
-            time.className = 'time';
-            time.textContent = formatTimeSimple(f.time);
-
-            const home = document.createElement('span');
-            home.className = 'team home' + (f.home.startsWith('FHC') ? ' is-fhc' : '');
-            home.textContent = f.home;
-
-            // Show the score in the VS chevron slot once a result exists,
-            // otherwise the usual VS marker. Score format is "home-away".
-            const vs = document.createElement('span');
-            if (f.score) {
-                vs.className = 'vs has-score';
-                vs.textContent = f.score.replace('-', ' – ');
-            } else {
-                vs.className = 'vs';
-                vs.textContent = 'VS';
-            }
-
-            const away = document.createElement('span');
-            away.className = 'team away' + (f.away.startsWith('FHC') ? ' is-fhc' : '');
-            away.textContent = f.away;
-
-            const oppAbbr = f.home.startsWith('FHC') ? f.away : f.home;
-            const oppLogo = createLogo(oppAbbr);
-            oppLogo.classList.add('logo-opp');
-
-            row.appendChild(fhcLogo);
-            row.appendChild(grade);
-            row.appendChild(time);
-            row.appendChild(home);
-            row.appendChild(vs);
-            row.appendChild(away);
-            row.appendChild(oppLogo);
-
-            container.appendChild(row);
+            container.appendChild(buildFixtureRow(f, now, 'week', linkContext));
         }
     }
 }
 
-// ─── Data Loading ────────────────────────────────────────────────────
+function buildFixtureRow(f, now, mode = 'week', linkContext = null) {
+    // Treat as "past" once the end time has gone (fall back to a 90-min
+    // window when DTEND is absent).
+    const endsAt = f.endTime || new Date(f.time.getTime() + 90 * 60 * 1000);
+    const isPast = endsAt < now;
 
-// Loads pre-built fixture data. The file is regenerated daily by the
-// sync-calendars GitHub Action and committed to main. In production we read
-// it from jsDelivr (mirrors GitHub) so a data refresh doesn't require a
-// Netlify rebuild — locally we keep using the same-origin path for `npm run dev`.
-const FIXTURES_URL = ['localhost', '127.0.0.1'].includes(location.hostname)
-    ? '/data/fixtures.json'
-    : 'https://cdn.jsdelivr.net/gh/mawiseman/hockey-victoria-club-calendars@main/weekly-fixture/data/fixtures.json';
+    // Week-view rows are anchor links into the team's season. Team-view rows
+    // are plain divs (you're already there).
+    const row = document.createElement(mode === 'team' ? 'div' : 'a');
+    row.className = 'fixture-row'
+        + (mode === 'team' ? ' team-view' : '')
+        + (f.isHome ? ' is-home' : '')
+        + (isPast ? ' is-past' : '');
+    if (mode !== 'team' && f.slug) {
+        row.href = `#/team/${f.slug}${buildReturnQuery(linkContext)}`;
+    }
 
-async function loadFixtures() {
-    const { monday, sunday } = getWeekBounds();
-    const fixtures = [];
+    const fhcLogo = createLogo('FHC');
+    fhcLogo.classList.add('logo-fhc');
+    row.appendChild(fhcLogo);
 
+    if (mode === 'team') {
+        // Date + time take the place of grade + time; the user is already
+        // looking at one team so the grade chip would be redundant.
+        const when = document.createElement('span');
+        when.className = 'team-when';
+        when.textContent = formatDateTime(f.time);
+        row.appendChild(when);
+    } else {
+        const grade = document.createElement('span');
+        grade.className = 'grade';
+        grade.textContent = f.shortCode;
+        row.appendChild(grade);
+
+        const time = document.createElement('span');
+        time.className = 'time';
+        time.textContent = formatTimeSimple(f.time);
+        row.appendChild(time);
+    }
+
+    const home = document.createElement('span');
+    home.className = 'team home' + (f.home.startsWith('FHC') ? ' is-fhc' : '');
+    home.textContent = f.home;
+    row.appendChild(home);
+
+    // Score chip in the VS slot when a result exists; otherwise the usual VS marker.
+    const vs = document.createElement('span');
+    if (f.score) {
+        vs.className = 'vs has-score';
+        vs.textContent = f.score.replace('-', ' – ');
+    } else {
+        vs.className = 'vs';
+        vs.textContent = 'VS';
+    }
+    row.appendChild(vs);
+
+    const away = document.createElement('span');
+    away.className = 'team away' + (f.away.startsWith('FHC') ? ' is-fhc' : '');
+    away.textContent = f.away;
+    row.appendChild(away);
+
+    const oppAbbr = f.home.startsWith('FHC') ? f.away : f.home;
+    const oppLogo = createLogo(oppAbbr);
+    oppLogo.classList.add('logo-opp');
+    row.appendChild(oppLogo);
+
+    if (mode !== 'team' && f.slug) {
+        const chev = document.createElement('span');
+        chev.className = 'row-chev';
+        chev.textContent = '›';
+        chev.setAttribute('aria-hidden', 'true');
+        row.appendChild(chev);
+    }
+
+    return row;
+}
+
+// ─── Routes ──────────────────────────────────────────────────────────
+
+function parseRoute() {
+    const hash = location.hash || '';
+    const [path, queryStr] = hash.split('?');
+    const params = new URLSearchParams(queryStr || '');
+
+    const teamMatch = path.match(/^#?\/team\/([a-z0-9-]+)/);
+    if (teamMatch) {
+        return {
+            mode: 'team',
+            slug: teamMatch[1],
+            // Optional return-state — set by the chevron-row link so that the
+            // "‹ Fixtures" affordance can land the user back where they were.
+            returnWeek: params.get('w') || null,
+            returnTab: params.get('t') || null,
+        };
+    }
+
+    const weekMatch = path.match(/^#?\/week\/(\d{4}-\d{2}-\d{2})/);
+    if (weekMatch) {
+        const start = parseWeekKey(weekMatch[1]);
+        if (start) return { mode: 'week', weekStart: start };
+    }
+    return { mode: 'week', weekStart: startOfWeek(new Date()) };
+}
+
+async function renderRoute() {
+    let season;
     try {
-        const res = await fetch(FIXTURES_URL, { cache: 'no-cache' });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-
-        renderBuildInfo(data.generatedAt);
-
-        for (const event of data.events || []) {
-            const dtstart = new Date(event.dtstart);
-            if (dtstart < monday || dtstart > sunday) continue;
-
-            const fixture = parseFixture({
-                summary: event.summary,
-                dtstart,
-                dtend: event.dtend ? new Date(event.dtend) : undefined,
-                location: event.location,
-                score: event.score,
-            }, event.category);
-
-            if (fixture) fixtures.push(fixture);
-        }
+        season = await getSeason();
     } catch (err) {
-        console.warn('Failed to load fixtures:', err.message);
+        console.warn('Failed to load season:', err.message);
+        document.getElementById('fixtures').innerHTML =
+            '<div class="empty-state">Could not load fixtures.</div>';
+        return;
     }
 
-    allFixtures = fixtures.sort((a, b) => a.time - b.time);
-    renderActiveView();
+    const route = parseRoute();
+    if (route.mode === 'team') {
+        // If the route carried a remembered tab, restore it before rendering
+        // so the back-link comes out to the same filter.
+        if (route.returnTab && Object.prototype.hasOwnProperty.call(VIEWS, route.returnTab)) {
+            activeView = route.returnTab;
+            saveActiveView(route.returnTab);
+        }
+        renderTeamView(season, route.slug, {
+            returnWeek: route.returnWeek,
+            returnTab: route.returnTab,
+        });
+    } else {
+        renderWeekView(season, route.weekStart);
+    }
 }
 
-// Show fixtures.json's generatedAt as a version-tag-style stamp
-// (e.g. "v2026.04.23-1739"). UTC so it matches the JSON source verbatim.
+function renderWeekView(season, weekStart) {
+    // Tabs only matter when we're showing a list of teams' fixtures.
+    setViewTabsVisible(true);
+    setSubscribeCtaVisible(true);
+    renderViewTabs();
+
+    const cfg = VIEWS[activeView];
+    document.getElementById('viewTitle').textContent = cfg.title;
+
+    const { monday, sunday } = getWeekBounds(weekStart);
+
+    const fixtures = [];
+    for (const team of season.teams) {
+        for (const event of team.events) {
+            const t = new Date(event.dtstart);
+            if (t < monday || t > sunday) continue;
+            fixtures.push(eventToFixture(event, team));
+        }
+    }
+    fixtures.sort((a, b) => a.time - b.time);
+
+    const visible = activeView === 'all'
+        ? fixtures
+        : fixtures.filter(f => f.view === activeView);
+
+    const container = document.getElementById('fixtures');
+    container.innerHTML = '';
+    renderWeekNav(monday, sunday);
+    // Pass current week + tab so the chevron links remember where to return.
+    const linkContext = {
+        returnWeek: formatWeekKey(monday),
+        returnTab: activeView,
+    };
+    renderFixtures(visible, linkContext);
+}
+
+function renderTeamView(season, slug, returnState = {}) {
+    // Hide the tabs and the homepage subscribe CTA — neither makes sense
+    // when scoped to one team. The team-specific subscribe block is rendered
+    // inline at the bottom of the team's fixtures.
+    setViewTabsVisible(false);
+    setSubscribeCtaVisible(false);
+
+    const team = season.teams.find(t => t.slug === slug);
+    const container = document.getElementById('fixtures');
+    container.innerHTML = '';
+
+    if (!team) {
+        document.getElementById('viewTitle').textContent = 'TEAM NOT FOUND';
+        container.appendChild(makeBackToFixtures(null, returnState));
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.textContent = 'No team matches that link.';
+        container.appendChild(empty);
+        return;
+    }
+
+    document.getElementById('viewTitle').textContent = team.label;
+    container.appendChild(makeBackToFixtures(team, returnState));
+
+    if (team.events.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.textContent = 'No fixtures yet for this team.';
+        container.appendChild(empty);
+        return;
+    }
+
+    // Continuous list: no day grouping, full date+time on each row.
+    const now = new Date();
+    for (const event of team.events) {
+        const f = eventToFixture(event, team);
+        container.appendChild(buildFixtureRow(f, now, 'team'));
+    }
+
+    // Subscribe accordion specific to this team (replacing the homepage CTA).
+    // Use the full competition name in the label rather than the short code —
+    // "Subscribe to 40+ fixtures" is too cryptic; "Subscribe to Midweek Men's
+    // 40+ NW - 2026 fixtures" makes the scope explicit.
+    if (team.googleCalendar && (team.googleCalendar.publicUrl || team.googleCalendar.icalUrl)
+        && typeof window.subscribeBlock === 'function') {
+        container.appendChild(window.subscribeBlock(
+            `Subscribe to ${team.name} fixtures`,
+            team.googleCalendar.publicUrl,
+            team.googleCalendar.icalUrl
+        ));
+    }
+}
+
+function makeBackToFixtures(team, returnState = {}) {
+    const wrap = document.createElement('div');
+    wrap.className = 'team-header';
+
+    const back = document.createElement('a');
+    back.className = 'team-back';
+    // If we know the originating week, send the user back there. Otherwise
+    // empty hash → current week (with the user's stored tab).
+    back.href = returnState && returnState.returnWeek
+        ? `#/week/${returnState.returnWeek}`
+        : '#';
+    back.textContent = '‹ Fixtures';
+    wrap.appendChild(back);
+
+    if (team) {
+        const links = document.createElement('div');
+        links.className = 'team-header-links';
+        if (team.fixtureUrl) {
+            const a = document.createElement('a');
+            a.className = 'team-header-link';
+            a.href = team.fixtureUrl;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.textContent = 'HV';
+            links.appendChild(a);
+        }
+        if (team.ladderUrl) {
+            const a = document.createElement('a');
+            a.className = 'team-header-link';
+            a.href = team.ladderUrl;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.textContent = 'Ladder';
+            links.appendChild(a);
+        }
+        if (links.childNodes.length > 0) wrap.appendChild(links);
+    }
+    return wrap;
+}
+
+function setViewTabsVisible(visible) {
+    const el = document.getElementById('viewTabs');
+    if (el) el.style.display = visible ? '' : 'none';
+}
+
+function setSubscribeCtaVisible(visible) {
+    const el = document.querySelector('.subscribe-cta');
+    if (el) el.style.display = visible ? '' : 'none';
+}
+
+// Build "?w=...&t=..." for chevron-row team links so the team page knows
+// which week + tab to return the user to. Empty string when context is null.
+function buildReturnQuery(linkContext) {
+    if (!linkContext) return '';
+    const params = new URLSearchParams();
+    if (linkContext.returnWeek) params.set('w', linkContext.returnWeek);
+    if (linkContext.returnTab) params.set('t', linkContext.returnTab);
+    const q = params.toString();
+    return q ? `?${q}` : '';
+}
+
+// Show season.json's generatedAt as a small version-tag-style stamp.
 function renderBuildInfo(generatedAt) {
     const el = document.getElementById('buildInfo');
     if (!el || !generatedAt) return;
@@ -333,6 +577,20 @@ function renderBuildInfo(generatedAt) {
     el.textContent = `v${yyyy}.${mm}.${dd}-${hh}${mn}`;
 }
 
+// ─── PWA service worker ──────────────────────────────────────────────
+
+// Register the service worker once the page has loaded so its install/
+// fetch handlers don't compete with the initial render. Skipped on
+// localhost dev — the cached assets get in the way of file edits.
+if ('serviceWorker' in navigator && !['localhost', '127.0.0.1'].includes(location.hostname)) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(err => {
+            console.warn('Service worker registration failed:', err.message);
+        });
+    });
+}
+
 // ─── Init ────────────────────────────────────────────────────────────
 
-loadFixtures();
+window.addEventListener('hashchange', renderRoute);
+renderRoute();

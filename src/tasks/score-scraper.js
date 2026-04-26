@@ -39,6 +39,37 @@ function sleep(ms) {
     return new Promise(r => setTimeout(r, ms));
 }
 
+// Decode the HTML entities HV sprinkles in (apostrophes especially:
+// `&#039;` for the curly ones in midweek comp names like "Men's 40+").
+function decodeEntities(text) {
+    if (!text) return text;
+    return text
+        .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(parseInt(n, 10)))
+        .replace(/&amp;/g, '&')
+        .replace(/&apos;/g, "'")
+        .replace(/&quot;/g, '"')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>');
+}
+
+// HV's team-page link text wraps the comp name around the opponent club:
+//   • Seniors: "{comp.name} {opponent}"  e.g. "Mens Premier League - 2026 Altona Hockey Club"
+//   • Midweek/Juniors: "{year} {comp-without-year} {opponent}"  e.g. "2026 Midweek Men's 40+ NW Essendon Hockey"
+// Try the senior shape (comp.name as exact prefix) first, then fall back to a
+// year-stripped substring search that handles the other layout.
+function stripCompPrefix(linkText, compName) {
+    if (!compName) return linkText || null;
+    if (linkText.startsWith(compName)) {
+        return linkText.substring(compName.length).trim() || null;
+    }
+    const yearStripped = compName.replace(/\s*-\s*\d{4}$/, '').trim();
+    const idx = linkText.indexOf(yearStripped);
+    if (idx !== -1) {
+        return linkText.substring(idx + yearStripped.length).trim() || null;
+    }
+    return linkText;
+}
+
 function parseDateLocal(dayStr, dayNum, monthStr, yearStr, hourStr, minuteStr) {
     const monthIdx = MONTHS[monthStr];
     if (monthIdx === undefined) return null;
@@ -52,7 +83,7 @@ function parseDateLocal(dayStr, dayNum, monthStr, yearStr, hourStr, minuteStr) {
     return `${yyyy}-${MM}-${dd}T${HH}:${mn}`;
 }
 
-function parseCard(blockText) {
+function parseCard(blockText, compName) {
     // Round number — anchor on <b>Round N</b>.
     const roundMatch = blockText.match(/<b>Round\s+(\d+)<\/b>/i);
     if (!roundMatch) return null;
@@ -72,6 +103,21 @@ function parseCard(blockText) {
         /href="[^"]*\/venues\/[^"]*"[^>]*>\s*([^<]+?)\s*<\/a>\s*<div>\s*([A-Za-z0-9-]+)\s*<\/div>/
     );
     const venueAbbr = venueMatch ? venueMatch[2] : null;
+    const venueName = venueMatch ? decodeEntities(venueMatch[1].replace(/\s+/g, ' ').trim()) : null;
+
+    // Opponent team link — text format is "{compName} {OpponentClubName}".
+    // Stripping the comp prefix yields the opponent. The link href is the
+    // opponent's team page on HV (handy for future "view opponent" features).
+    const teamLinkMatch = blockText.match(
+        /<a\s+href="([^"]*\/games\/team\/[^"]*)"[^>]*>\s*([^<]+?)\s*<\/a>/
+    );
+    let opponentName = null;
+    let opponentTeamUrl = null;
+    if (teamLinkMatch) {
+        opponentTeamUrl = teamLinkMatch[1];
+        const linkText = decodeEntities(teamLinkMatch[2].replace(/\s+/g, ' ').trim());
+        opponentName = stripCompPrefix(linkText, compName);
+    }
 
     // Status / score / badge live in the centre column. Slicing from the
     // status div onward avoids the "Round N" <b> matching as the score.
@@ -92,16 +138,27 @@ function parseCard(blockText) {
     const gameIdMatch = blockText.match(/\/game\/(\d+)/);
     const gameId = gameIdMatch ? gameIdMatch[1] : null;
 
-    return { round, dtstartLocal, venueAbbr, status, score, result, gameId };
+    return {
+        round,
+        dtstartLocal,
+        venueAbbr,
+        venueName,
+        opponentName,
+        opponentTeamUrl,
+        status,
+        score,
+        result,
+        gameId
+    };
 }
 
-function parseScoresHtml(html) {
+function parseScoresHtml(html, compName) {
     const games = [];
     // Each card opens with this exact class set; split-and-skip-first strips
     // page chrome above the first card.
     const blocks = html.split(/<div\s+class="card card-hover mb-4">/);
     for (let i = 1; i < blocks.length; i++) {
-        const game = parseCard(blocks[i]);
+        const game = parseCard(blocks[i], compName);
         if (game) games.push(game);
     }
     return games;
@@ -125,7 +182,7 @@ async function scrapeCompetition(competition) {
             throw new Error(`HTTP ${res.status} ${res.statusText}`);
         }
         const html = await res.text();
-        const games = parseScoresHtml(html);
+        const games = parseScoresHtml(html, competition.name);
 
         const played = games.filter(g => g.status === 'Played' && g.score).length;
         logSuccess(`  ${competition.name}: ${games.length} cards parsed (${played} with scores)`);

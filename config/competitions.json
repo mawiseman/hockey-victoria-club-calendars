@@ -290,7 +290,8 @@
         "icalUrl": "https://calendar.google.com/calendar/ical/2e6f3aa51e15745181efaf4570f49e5998224d0d636fc25d3d070193d3a0fc84%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2026 T1 Social 35+ Womens Masters",
         "createdAt": "2026-04-20T07:02:23.184Z"
-      }
+      },
+      "isActive": false
     },
     {
       "name": "Midweek Men's 40+ NW - 2026",

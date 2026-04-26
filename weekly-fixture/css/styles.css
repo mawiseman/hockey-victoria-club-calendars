@@ -161,6 +161,69 @@ body {
     margin-bottom: auto;
 }
 
+/* Week navigation — sits above the day banners on the homepage.
+   Left-aligned so it sits flush with the day banners and fixture rows. */
+.week-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin: 0 0 6px;
+    padding: 2px 0 6px;
+}
+
+.week-nav-btn {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.week-nav-btn:hover { background: rgba(255, 255, 255, 0.16); border-color: var(--red); }
+.week-nav-btn:disabled { opacity: 0.35; cursor: default; }
+.week-nav-btn:disabled:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); }
+
+.week-nav-label {
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    min-width: 130px;
+    text-align: center;
+    color: var(--white);
+}
+
+/* "This Week" jump-back pill — only rendered when the user is on a different
+   week, so its presence itself signals "you've drifted, tap to come back". */
+.week-nav-today {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-left: 4px;
+    transition: background 0.15s, border-color 0.15s;
+}
+.week-nav-today:hover { background: rgba(255, 255, 255, 0.16); border-color: var(--red); }
+
 /* Day-grouping banner */
 .day-banner {
     align-self: flex-start;
@@ -179,19 +242,22 @@ body {
 
 /* ─── Fixture row ───────────────────────────────────────────────── */
 
-/* Fixed-width columns for logos + grade + time; flexible team columns
-   that can shrink to 0 and truncate. Home text right-aligns so it hugs
-   the VS chevron; away text left-aligns for the same reason. */
+/* Fixed-width columns so VS chips line up across rows regardless of grade
+   length. Grade column is sized for the longest label we emit
+   ("M U12 District" — 14 chars in italic 900). Team columns are flexible
+   (minmax 0 1fr) and truncate as needed. Home text right-aligns to hug
+   the VS chevron; away text left-aligns. */
 .fixture-row {
     display: grid;
     grid-template-columns:
         28px                  /* FHC logo */
-        56px                  /* grade */
+        80px                  /* grade — fixed so rows align (longest label ~7 chars) */
         50px                  /* time */
         minmax(0, 1fr)        /* home team */
-        auto                  /* VS */
+        auto                  /* VS / score */
         minmax(0, 1fr)        /* away team */
-        28px;                 /* opponent logo */
+        28px                  /* opponent logo */
+        14px;                 /* row-chev affordance */
     align-items: center;
     gap: 8px;
     background: var(--white);
@@ -206,6 +272,84 @@ body {
     text-transform: uppercase;
     min-height: 36px;
 }
+
+/* Anchor variant — week-view rows are <a> links to the team's season page.
+   Strip default link styling so they look identical to the original divs. */
+a.fixture-row {
+    text-decoration: none;
+    color: var(--ink);
+}
+a.fixture-row:hover { background: #f6f8fb; }
+
+/* Team-season view drops the grade chip and widens the time cell to fit a
+   "WED 22 APR 19:00" stamp. No chevron column either. */
+.fixture-row.team-view {
+    grid-template-columns:
+        28px                  /* FHC logo */
+        minmax(120px, auto)   /* date + time */
+        minmax(0, 1fr)        /* home team */
+        auto                  /* VS / score */
+        minmax(0, 1fr)        /* away team */
+        28px;                 /* opponent logo */
+}
+
+.team-when {
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: #2b2b2b;
+    white-space: nowrap;
+}
+
+.row-chev {
+    text-align: right;
+    color: #b6b6b6;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1;
+    transition: color 0.15s, transform 0.15s;
+}
+a.fixture-row:hover .row-chev { color: var(--red); transform: translateX(2px); }
+
+/* Team-page header — back link plus optional external links to HV. */
+.team-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 0 10px;
+}
+
+.team-back {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    transition: border-color 0.15s, color 0.15s;
+}
+.team-back:hover { color: var(--white); border-color: var(--red); }
+
+.team-header-links { display: flex; gap: 6px; }
+
+.team-header-link {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    transition: background 0.15s, border-color 0.15s;
+}
+.team-header-link:hover { background: rgba(255, 255, 255, 0.14); border-color: var(--red); }
 
 .fixture-row.is-home::before {
     content: '';
@@ -227,10 +371,14 @@ body {
 .grade {
     font-style: italic;
     font-weight: 900;
-    font-size: 14px;
+    font-size: 13px;
     padding-right: 6px;
     border-right: 1px solid rgba(0,0,0,0.1);
     text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
 }
 
 .time {
@@ -614,23 +762,35 @@ a.card-footer:hover { color: var(--white); border-top-color: var(--red); }
 
     .fixture-row {
         grid-template-columns:
-            24px
-            48px
-            44px
-            minmax(0, 1fr)
-            auto
-            minmax(0, 1fr)
-            24px;
+            24px                  /* FHC logo */
+            68px                  /* grade — fixed for cross-row alignment */
+            44px                  /* time */
+            minmax(0, 1fr)        /* home team */
+            auto                  /* VS / score */
+            minmax(0, 1fr)        /* away team */
+            24px                  /* opponent logo */
+            12px;                 /* row-chev */
         font-size: 11px;
         padding: 5px 8px;
         min-height: 32px;
         gap: 6px;
     }
+    .fixture-row.team-view {
+        grid-template-columns:
+            24px
+            minmax(110px, auto)
+            minmax(0, 1fr)
+            auto
+            minmax(0, 1fr)
+            24px;
+    }
     .grade { font-size: 12px; padding-right: 4px; }
     .time { font-size: 11px; }
     .team { font-size: 11px; }
+    .team-when { font-size: 10px; }
     .vs { font-size: 10px; padding: 2px 8px; }
     .logo { width: 24px; height: 24px; }
+    .row-chev { font-size: 16px; }
 
     .day-banner { font-size: 12px; padding: 5px 10px; }
     .card-footer { font-size: 11px; letter-spacing: 1.5px; }
