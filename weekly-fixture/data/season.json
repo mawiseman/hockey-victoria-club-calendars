@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-26T17:01:47.719Z",
-  "sourcesGeneratedAt": "2026-04-26T17:01:44.135Z",
+  "generatedAt": "2026-04-27T17:42:18.717Z",
+  "sourcesGeneratedAt": "2026-04-27T17:42:17.444Z",
   "teams": [
     {
       "slug": "men-m1-nw",
@@ -1461,7 +1461,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Hume Hockey Centre - HUM",
-          "gameId": "2530604"
+          "gameId": "2530604",
+          "score": "5-6"
         },
         {
           "round": 4,
@@ -3119,8 +3120,8 @@
         },
         {
           "round": 17,
-          "dtstart": "2026-08-16T04:00:00.000Z",
-          "dtend": "2026-08-16T05:30:00.000Z",
+          "dtstart": "2026-08-16T03:30:00.000Z",
+          "dtend": "2026-08-16T05:00:00.000Z",
           "home": "MCC",
           "away": "FHC",
           "isHome": false,
@@ -3517,8 +3518,8 @@
         },
         {
           "round": 17,
-          "dtstart": "2026-08-16T02:30:00.000Z",
-          "dtend": "2026-08-16T04:00:00.000Z",
+          "dtstart": "2026-08-16T02:00:00.000Z",
+          "dtend": "2026-08-16T03:30:00.000Z",
           "home": "MCC",
           "away": "FHC",
           "isHome": false,
