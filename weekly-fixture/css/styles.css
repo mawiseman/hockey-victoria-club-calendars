@@ -351,6 +351,20 @@ a.fixture-row:hover .row-chev { color: var(--red); transform: translateX(2px); }
 }
 .team-header-link:hover { background: rgba(255, 255, 255, 0.14); border-color: var(--red); }
 
+/* Favourite toggle on the team page. Inactive uses the standard chip look so
+   it slots in beside HV / Ladder. Active gets a red fill so the user
+   immediately sees the team is favourited. */
+button.team-fav {
+    cursor: pointer;
+    font-family: inherit;
+}
+button.team-fav.is-favourite {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+}
+button.team-fav.is-favourite:hover { background: var(--red-dark); border-color: var(--red-dark); }
+
 .fixture-row.is-home::before {
     content: '';
     position: absolute;

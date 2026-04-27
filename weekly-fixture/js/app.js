@@ -12,11 +12,12 @@
 // ───────────────────────────────────────────────────────────────────
 
 const VIEWS = {
-    all:     { label: 'All', title: 'WEEKLY FIXTURES' },
-    pl:      { label: 'Premier League', title: 'PREMIER LEAGUE' },
-    club:    { label: 'Seniors', title: 'SENIOR FIXTURES' },
-    midweek: { label: 'Midweek', title: 'MIDWEEK FIXTURES' },
-    juniors: { label: 'Juniors', title: 'JUNIOR FIXTURES' },
+    all:        { label: 'All', title: 'WEEKLY FIXTURES' },
+    pl:         { label: 'Premier League', title: 'PREMIER LEAGUE' },
+    club:       { label: 'Seniors', title: 'SENIOR FIXTURES' },
+    midweek:    { label: 'Midweek', title: 'MIDWEEK FIXTURES' },
+    juniors:    { label: 'Juniors', title: 'JUNIOR FIXTURES' },
+    favourites: { label: 'FAV', title: 'FAVOURITES' },
 };
 
 // Logo file extensions (most are .png, exceptions listed here)
@@ -39,6 +40,42 @@ function loadActiveView() {
 
 function saveActiveView(view) {
     try { localStorage.setItem(ACTIVE_VIEW_KEY, view); } catch { /* ignore */ }
+}
+
+// ─── Favourites (per-team starred grades) ────────────────────────────
+//
+// Stored as a JSON array of team slugs. Powers:
+//   • The star button on the team-season page.
+//   • The "Favourites" tab on the homepage, which is hidden when empty
+//     and filters fixtures to just the user's starred grades.
+
+const FAVOURITES_KEY = 'fhc.weeklyFixture.favourites';
+
+function loadFavourites() {
+    try {
+        const raw = localStorage.getItem(FAVOURITES_KEY);
+        if (raw) {
+            const arr = JSON.parse(raw);
+            if (Array.isArray(arr)) return new Set(arr);
+        }
+    } catch { /* localStorage unavailable */ }
+    return new Set();
+}
+
+function saveFavourites(set) {
+    try { localStorage.setItem(FAVOURITES_KEY, JSON.stringify([...set])); } catch { /* ignore */ }
+}
+
+function isFavourite(slug) {
+    return loadFavourites().has(slug);
+}
+
+function toggleFavourite(slug) {
+    const favs = loadFavourites();
+    if (favs.has(slug)) favs.delete(slug);
+    else favs.add(slug);
+    saveFavourites(favs);
+    return favs.has(slug);
 }
 
 // ─── Data loading ────────────────────────────────────────────────────
@@ -181,7 +218,12 @@ function createLogo(abbr) {
 function renderViewTabs() {
     const container = document.getElementById('viewTabs');
     container.innerHTML = '';
+    const favCount = loadFavourites().size;
     for (const [key, cfg] of Object.entries(VIEWS)) {
+        // Favourites tab is conditional — only meaningful once there's at least
+        // one starred grade.
+        if (key === 'favourites' && favCount === 0) continue;
+
         const btn = document.createElement('button');
         btn.className = 'view-tab' + (key === activeView ? ' active' : '');
         btn.textContent = cfg.label;
@@ -417,6 +459,15 @@ function renderWeekView(season, weekStart) {
     // Tabs only matter when we're showing a list of teams' fixtures.
     setViewTabsVisible(true);
     setSubscribeCtaVisible(true);
+
+    // If the user lands on `favourites` with nothing starred (e.g. they cleared
+    // browser data, or unfavourited the last grade on a different page), fall
+    // back to `all` so they don't see an empty page or stale title.
+    if (activeView === 'favourites' && loadFavourites().size === 0) {
+        activeView = 'all';
+        saveActiveView('all');
+    }
+
     renderViewTabs();
 
     const cfg = VIEWS[activeView];
@@ -434,9 +485,15 @@ function renderWeekView(season, weekStart) {
     }
     fixtures.sort((a, b) => a.time - b.time);
 
-    const visible = activeView === 'all'
-        ? fixtures
-        : fixtures.filter(f => f.view === activeView);
+    let visible;
+    if (activeView === 'all') {
+        visible = fixtures;
+    } else if (activeView === 'favourites') {
+        const favs = loadFavourites();
+        visible = fixtures.filter(f => favs.has(f.slug));
+    } else {
+        visible = fixtures.filter(f => f.view === activeView);
+    }
 
     const container = document.getElementById('fixtures');
     container.innerHTML = '';
@@ -519,13 +576,18 @@ function makeBackToFixtures(team, returnState = {}) {
     if (team) {
         const links = document.createElement('div');
         links.className = 'team-header-links';
+
+        // Favourite toggle — leftmost so it's the most prominent action.
+        // Star fills when active; aria-pressed reflects state for screen readers.
+        links.appendChild(makeFavouriteButton(team.slug));
+
         if (team.fixtureUrl) {
             const a = document.createElement('a');
             a.className = 'team-header-link';
             a.href = team.fixtureUrl;
             a.target = '_blank';
             a.rel = 'noopener noreferrer';
-            a.textContent = 'HV';
+            a.textContent = 'Fixture';
             links.appendChild(a);
         }
         if (team.ladderUrl) {
@@ -540,6 +602,29 @@ function makeBackToFixtures(team, returnState = {}) {
         if (links.childNodes.length > 0) wrap.appendChild(links);
     }
     return wrap;
+}
+
+function makeFavouriteButton(slug) {
+    const btn = document.createElement('button');
+    btn.className = 'team-header-link team-fav';
+    btn.type = 'button';
+
+    function render() {
+        const fav = isFavourite(slug);
+        btn.classList.toggle('is-favourite', fav);
+        btn.setAttribute('aria-pressed', fav ? 'true' : 'false');
+        btn.title = fav ? 'Remove from favourites' : 'Add to favourites';
+        // Star glyph + label so the action is unambiguous on first sight.
+        btn.textContent = fav ? '★ Fav' : '☆ Fav';
+    }
+
+    btn.onclick = () => {
+        toggleFavourite(slug);
+        render();
+    };
+
+    render();
+    return btn;
 }
 
 function setViewTabsVisible(visible) {
