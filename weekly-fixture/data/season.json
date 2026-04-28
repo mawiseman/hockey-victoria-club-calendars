@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-27T17:42:18.717Z",
-  "sourcesGeneratedAt": "2026-04-27T17:42:17.444Z",
+  "generatedAt": "2026-04-28T18:08:13.967Z",
+  "sourcesGeneratedAt": "2026-04-28T18:08:12.574Z",
   "teams": [
     {
       "slug": "men-m1-nw",
@@ -2194,7 +2194,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Brunswick Secondary College - BRU",
-          "gameId": "2530583"
+          "gameId": "2530583",
+          "score": "1-1"
         },
         {
           "round": 4,
@@ -2551,16 +2552,6 @@
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2525252"
-        },
-        {
-          "round": 3,
-          "dtstart": "2026-05-15T09:30:00.000Z",
-          "dtend": "2026-05-15T10:30:00.000Z",
-          "home": "BRU",
-          "away": "FHC",
-          "isHome": false,
-          "location": "Brunswick Secondary College - BRU",
-          "gameId": "2525339"
         }
       ]
     },
@@ -2672,8 +2663,8 @@
       "events": [
         {
           "round": 1,
-          "dtstart": "2026-05-01T09:00:00.000Z",
-          "dtend": "2026-05-01T10:00:00.000Z",
+          "dtstart": "2026-05-01T09:30:00.000Z",
+          "dtend": "2026-05-01T10:30:00.000Z",
           "home": "MEL",
           "away": "FHC",
           "isHome": false,
