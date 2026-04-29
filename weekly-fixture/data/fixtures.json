@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-04-28T18:08:12.706Z",
-  "windowStart": "2026-04-20T18:08:12.706Z",
-  "windowEnd": "2026-05-12T18:08:12.706Z",
+  "generatedAt": "2026-04-29T17:59:08.743Z",
+  "windowStart": "2026-04-21T17:59:08.743Z",
+  "windowEnd": "2026-05-13T17:59:08.743Z",
   "events": [
-    {
-      "category": "midweek",
-      "summary": "Men 50+ NW - FHC vs YAR",
-      "dtstart": "2026-04-22T09:00:00.000Z",
-      "dtend": "2026-04-22T10:00:00.000Z",
-      "location": "Footscray Hockey Club - BSF",
-      "score": "5-0"
-    },
     {
       "category": "midweek",
       "summary": "Women 45+ - FHC vs GRN",
       "dtstart": "2026-04-22T09:00:00.000Z",
       "dtend": "2026-04-22T10:00:00.000Z",
       "location": "Footscray Hockey Club - ASF",
+      "score": "5-0"
+    },
+    {
+      "category": "midweek",
+      "summary": "Men 50+ NW - FHC vs YAR",
+      "dtstart": "2026-04-22T09:00:00.000Z",
+      "dtend": "2026-04-22T10:00:00.000Z",
+      "location": "Footscray Hockey Club - BSF",
       "score": "5-0"
     },
     {
@@ -29,14 +29,6 @@
     },
     {
       "category": "mens",
-      "summary": "Men M1 NW - FHC vs ALT",
-      "dtstart": "2026-04-25T02:30:00.000Z",
-      "dtend": "2026-04-25T04:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF",
-      "score": "1-1"
-    },
-    {
-      "category": "mens",
       "summary": "Men M2 NW - WHI vs FHC",
       "dtstart": "2026-04-25T02:30:00.000Z",
       "dtend": "2026-04-25T04:00:00.000Z",
@@ -44,12 +36,12 @@
       "score": "2-1"
     },
     {
-      "category": "womens",
-      "summary": "Women PEN D NW - ESS vs FHC",
+      "category": "mens",
+      "summary": "Men M1 NW - FHC vs ALT",
       "dtstart": "2026-04-25T02:30:00.000Z",
       "dtend": "2026-04-25T04:00:00.000Z",
-      "location": "Essendon Hockey Centre - ESS1",
-      "score": "5-1"
+      "location": "Footscray Hockey Club - ASF",
+      "score": "1-1"
     },
     {
       "category": "womens",
@@ -58,6 +50,14 @@
       "dtend": "2026-04-25T04:00:00.000Z",
       "location": "Camberwell Hockey Club - CAM",
       "score": "3-0"
+    },
+    {
+      "category": "womens",
+      "summary": "Women PEN D NW - ESS vs FHC",
+      "dtstart": "2026-04-25T02:30:00.000Z",
+      "dtend": "2026-04-25T04:00:00.000Z",
+      "location": "Essendon Hockey Centre - ESS1",
+      "score": "5-1"
     },
     {
       "category": "mens",
@@ -157,31 +157,26 @@
     },
     {
       "category": "midweek",
-      "summary": "Women 45+ - CAM vs FHC",
-      "dtstart": "2026-04-29T10:00:00.000Z",
-      "dtend": "2026-04-29T11:00:00.000Z",
-      "location": "Koonung Secondary College - KNG"
-    },
-    {
-      "category": "midweek",
-      "summary": "Women 35+ B - MUHC vs FHC",
-      "dtstart": "2026-04-29T10:00:00.000Z",
-      "dtend": "2026-04-29T11:00:00.000Z",
-      "location": "Essendon Hockey Centre - ESS1"
-    },
-    {
-      "category": "midweek",
       "summary": "Men 50+ NW - LAT vs FHC",
       "dtstart": "2026-04-29T10:00:00.000Z",
       "dtend": "2026-04-29T11:00:00.000Z",
       "location": "La Trobe Hockey Centre - LAT"
     },
     {
-      "category": "juniors",
-      "summary": "U14 Mixed District NW - WER vs FHC",
-      "dtstart": "2026-05-01T09:00:00.000Z",
-      "dtend": "2026-05-01T10:00:00.000Z",
-      "location": "Werribee Hockey Club - WER"
+      "category": "midweek",
+      "summary": "Women 35+ B - MUHC vs FHC",
+      "dtstart": "2026-04-29T10:00:00.000Z",
+      "dtend": "2026-04-29T11:00:00.000Z",
+      "location": "Essendon Hockey Centre - ESS1",
+      "score": "0-1"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 45+ - CAM vs FHC",
+      "dtstart": "2026-04-29T10:00:00.000Z",
+      "dtend": "2026-04-29T11:00:00.000Z",
+      "location": "Koonung Secondary College - KNG",
+      "score": "0-1"
     },
     {
       "category": "juniors",
@@ -189,6 +184,13 @@
       "dtstart": "2026-05-01T09:00:00.000Z",
       "dtend": "2026-05-01T10:00:00.000Z",
       "location": "Footscray Hockey Club - BSF"
+    },
+    {
+      "category": "juniors",
+      "summary": "U14 Mixed District NW - WER vs FHC",
+      "dtstart": "2026-05-01T09:00:00.000Z",
+      "dtend": "2026-05-01T10:00:00.000Z",
+      "location": "Werribee Hockey Club - WER"
     },
     {
       "category": "juniors",
@@ -325,17 +327,17 @@
     },
     {
       "category": "mens",
-      "summary": "Men PEN B - SUHC vs FHC",
-      "dtstart": "2026-05-03T04:00:00.000Z",
-      "dtend": "2026-05-03T05:30:00.000Z",
-      "location": "Southern United Hockey Club - MBN"
-    },
-    {
-      "category": "mens",
       "summary": "Men PEN D NW - FHC vs LAT",
       "dtstart": "2026-05-03T04:00:00.000Z",
       "dtend": "2026-05-03T05:30:00.000Z",
       "location": "Footscray Hockey Club - ASF"
+    },
+    {
+      "category": "mens",
+      "summary": "Men PEN B - SUHC vs FHC",
+      "dtstart": "2026-05-03T04:00:00.000Z",
+      "dtend": "2026-05-03T05:30:00.000Z",
+      "location": "Southern United Hockey Club - MBN"
     },
     {
       "category": "womens",
@@ -367,17 +369,17 @@
     },
     {
       "category": "midweek",
-      "summary": "Women 35+ B - FHC vs CAM",
-      "dtstart": "2026-05-06T09:00:00.000Z",
-      "dtend": "2026-05-06T10:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
-    },
-    {
-      "category": "midweek",
       "summary": "Men 50+ NW - PEGS vs FHC",
       "dtstart": "2026-05-06T09:00:00.000Z",
       "dtend": "2026-05-06T10:00:00.000Z",
       "location": "PEGS Sporting Fields - PSF1"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 35+ B - FHC vs CAM",
+      "dtstart": "2026-05-06T09:00:00.000Z",
+      "dtend": "2026-05-06T10:00:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "midweek",
@@ -388,17 +390,17 @@
     },
     {
       "category": "juniors",
-      "summary": "U16 Girls PEN NW - FHC vs PEGS",
-      "dtstart": "2026-05-08T08:00:00.000Z",
-      "dtend": "2026-05-08T09:00:00.000Z",
-      "location": "State Sport Centres\\, Parkville - P-2"
-    },
-    {
-      "category": "juniors",
       "summary": "U18 Mixed District NW - ALT vs FHC",
       "dtstart": "2026-05-08T08:00:00.000Z",
       "dtend": "2026-05-08T09:00:00.000Z",
       "location": "Altona Hockey Club - ALT"
+    },
+    {
+      "category": "juniors",
+      "summary": "U16 Girls PEN NW - FHC vs PEGS",
+      "dtstart": "2026-05-08T08:00:00.000Z",
+      "dtend": "2026-05-08T09:00:00.000Z",
+      "location": "State Sport Centres\\, Parkville - P-2"
     },
     {
       "category": "juniors",
@@ -493,13 +495,6 @@
     },
     {
       "category": "womens",
-      "summary": "Women PEN D NW - BRU vs FHC",
-      "dtstart": "2026-05-09T04:00:00.000Z",
-      "dtend": "2026-05-09T05:30:00.000Z",
-      "location": "Brunswick Secondary College - BRU"
-    },
-    {
-      "category": "womens",
       "summary": "Women M1 NW - FHC vs SUN",
       "dtstart": "2026-05-09T04:00:00.000Z",
       "dtend": "2026-05-09T05:30:00.000Z",
@@ -511,6 +506,13 @@
       "dtstart": "2026-05-09T04:00:00.000Z",
       "dtend": "2026-05-09T05:30:00.000Z",
       "location": "Greensborough Hockey Centre - GRN1"
+    },
+    {
+      "category": "womens",
+      "summary": "Women PEN D NW - BRU vs FHC",
+      "dtstart": "2026-05-09T04:00:00.000Z",
+      "dtend": "2026-05-09T05:30:00.000Z",
+      "location": "Brunswick Secondary College - BRU"
     },
     {
       "category": "mens",
@@ -574,6 +576,20 @@
       "dtstart": "2026-05-11T11:15:00.000Z",
       "dtend": "2026-05-11T12:15:00.000Z",
       "location": "State Sport Centres\\, Parkville - P-1"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 35+ B - KNO vs FHC",
+      "dtstart": "2026-05-13T09:00:00.000Z",
+      "dtend": "2026-05-13T10:00:00.000Z",
+      "location": "Wantirna Reserve - KNX"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 45+ - ESS vs FHC",
+      "dtstart": "2026-05-13T10:00:00.000Z",
+      "dtend": "2026-05-13T11:00:00.000Z",
+      "location": "Essendon Hockey Centre - ESS1"
     }
   ]
 }

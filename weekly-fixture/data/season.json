@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-28T18:08:13.967Z",
-  "sourcesGeneratedAt": "2026-04-28T18:08:12.574Z",
+  "generatedAt": "2026-04-29T17:59:09.994Z",
+  "sourcesGeneratedAt": "2026-04-29T17:59:08.597Z",
   "teams": [
     {
       "slug": "men-m1-nw",
@@ -1838,7 +1838,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Essendon Hockey Centre - ESS1",
-          "gameId": "2532621"
+          "gameId": "2532621",
+          "score": "0-1"
         },
         {
           "round": 4,
@@ -2016,7 +2017,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Koonung Secondary College - KNG",
-          "gameId": "2532630"
+          "gameId": "2532630",
+          "score": "0-1"
         },
         {
           "round": 4,
