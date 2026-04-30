@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-29T17:59:09.994Z",
-  "sourcesGeneratedAt": "2026-04-29T17:59:08.597Z",
+  "generatedAt": "2026-04-30T17:40:50.961Z",
+  "sourcesGeneratedAt": "2026-04-30T17:40:49.072Z",
   "teams": [
     {
       "slug": "men-m1-nw",
@@ -1660,7 +1660,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "La Trobe Hockey Centre - LAT",
-          "gameId": "2532632"
+          "gameId": "2532632",
+          "score": "1-5"
         },
         {
           "round": 4,
