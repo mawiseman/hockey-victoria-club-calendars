@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-30T17:40:50.961Z",
-  "sourcesGeneratedAt": "2026-04-30T17:40:49.072Z",
+  "generatedAt": "2026-05-01T17:17:03.312Z",
+  "sourcesGeneratedAt": "2026-05-01T17:17:01.626Z",
   "teams": [
     {
       "slug": "men-m1-nw",
@@ -2452,7 +2452,8 @@
           "away": "FAL",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2525171"
+          "gameId": "2525171",
+          "score": "5-4"
         },
         {
           "round": 2,
@@ -2626,7 +2627,8 @@
           "away": "HAW",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2525172"
+          "gameId": "2525172",
+          "score": "9-0"
         },
         {
           "round": 2,
@@ -2672,7 +2674,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Melton Hockey Ground - MEL",
-          "gameId": "2525214"
+          "gameId": "2525214",
+          "score": "1-1"
         },
         {
           "round": 2,
@@ -2718,7 +2721,8 @@
           "away": "SUHC - MNT",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2525163"
+          "gameId": "2525163",
+          "score": "7-0"
         },
         {
           "round": 2,
