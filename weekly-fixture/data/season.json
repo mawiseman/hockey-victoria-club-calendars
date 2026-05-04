@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-03T17:11:25.437Z",
-  "sourcesGeneratedAt": "2026-05-03T17:11:24.039Z",
+  "generatedAt": "2026-05-04T18:01:05.121Z",
+  "sourcesGeneratedAt": "2026-05-04T18:01:03.759Z",
   "teams": [
     {
       "slug": "men-m1-nw",
@@ -637,7 +637,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Southern United Hockey Club - MBN",
-          "gameId": "2493070"
+          "gameId": "2493070",
+          "score": "2-1"
         },
         {
           "round": 5,
@@ -1478,7 +1479,8 @@
           "away": "GRN",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2530628"
+          "gameId": "2530628",
+          "score": "6-2"
         },
         {
           "round": 5,
@@ -2849,7 +2851,8 @@
           "away": "MEL",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2513074"
+          "gameId": "2513074",
+          "score": "0-2"
         },
         {
           "round": 5,
