@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-04T18:01:05.121Z",
-  "sourcesGeneratedAt": "2026-05-04T18:01:03.759Z",
+  "generatedAt": "2026-05-05T17:44:21.028Z",
+  "sourcesGeneratedAt": "2026-05-05T17:44:19.567Z",
   "teams": [
     {
       "slug": "men-m1-nw",
@@ -2216,7 +2216,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Melbourne High School - MHS",
-          "gameId": "2530643"
+          "gameId": "2530643",
+          "score": "0-1"
         },
         {
           "round": 5,
@@ -2340,7 +2341,7 @@
           "dtstart": "2026-05-16T00:00:00.000Z",
           "dtend": "2026-05-16T01:00:00.000Z",
           "home": "FHC",
-          "away": "ESS Flyers",
+          "away": "HHC",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2525496"
