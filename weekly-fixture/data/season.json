@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-05T17:44:21.028Z",
-  "sourcesGeneratedAt": "2026-05-05T17:44:19.567Z",
+  "generatedAt": "2026-05-06T18:02:24.115Z",
+  "sourcesGeneratedAt": "2026-05-06T18:02:22.636Z",
   "teams": [
     {
       "slug": "men-m1-nw",
@@ -1679,7 +1679,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "PEGS Sporting Fields - PSF1",
-          "gameId": "2532664"
+          "gameId": "2532664",
+          "score": "2-2"
         },
         {
           "round": 6,
@@ -1858,7 +1859,8 @@
           "away": "CAM",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2532643"
+          "gameId": "2532643",
+          "score": "4-0"
         },
         {
           "round": 5,
@@ -2037,7 +2039,8 @@
           "away": "HAW",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2532644"
+          "gameId": "2532644",
+          "score": "2-0"
         },
         {
           "round": 5,
