@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-07T18:08:23.061Z",
-  "sourcesGeneratedAt": "2026-05-07T18:08:21.522Z",
+  "generatedAt": "2026-05-08T17:37:47.645Z",
+  "sourcesGeneratedAt": "2026-05-08T17:37:46.306Z",
   "teams": [
     {
       "slug": "men-m1-nw",
@@ -2609,7 +2609,8 @@
           "away": "ESS",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2525250"
+          "gameId": "2525250",
+          "score": "0-5"
         },
         {
           "round": 3,
@@ -2656,7 +2657,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Melbourne High School - MHS",
-          "gameId": "2525300"
+          "gameId": "2525300",
+          "score": "3-6"
         },
         {
           "round": 3,
@@ -2703,7 +2705,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - P-2",
-          "gameId": "2525310"
+          "gameId": "2525310",
+          "score": "5-0"
         },
         {
           "round": 3,
@@ -2750,7 +2753,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Brunswick Secondary College - BRU",
-          "gameId": "2525257"
+          "gameId": "2525257",
+          "score": "1-2"
         },
         {
           "round": 3,
@@ -2797,7 +2801,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Altona Hockey Club - ALT",
-          "gameId": "2525246"
+          "gameId": "2525246",
+          "score": "0-5"
         },
         {
           "round": 3,
