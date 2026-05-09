@@ -677,7 +677,7 @@ button.team-fav.is-favourite:hover { background: var(--red-dark); border-color: 
 .ladder-table th,
 .ladder-table td {
     padding: 6px 6px;
-    text-align: right;
+    text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 .ladder-table th {
@@ -688,10 +688,14 @@ button.team-fav.is-favourite:hover { background: var(--red-dark); border-color: 
     color: rgba(255, 255, 255, 0.55);
 }
 .ladder-table th.col-pos,
-.ladder-table td.col-pos { width: 28px; text-align: center; color: rgba(255, 255, 255, 0.5); }
+.ladder-table td.col-pos { width: 28px; color: rgba(255, 255, 255, 0.5); }
 .ladder-table th.col-team,
 .ladder-table td.col-team { text-align: left; }
 .ladder-table td.col-team { font-weight: 600; color: var(--white); }
+/* W-D-L is three numbers + two hyphens — keep it on one line so the
+   header and the cells can't wrap on narrow screens. */
+.ladder-table th.col-wdl,
+.ladder-table td.col-wdl { white-space: nowrap; }
 .ladder-table td.col-pts { font-weight: 800; color: var(--white); }
 .ladder-table tr.is-club td {
     background: rgba(217, 11, 45, 0.18);

@@ -671,7 +671,7 @@ function buildLadderBlock(team) {
 
         const cells = [
             ['col-pos', row.pos],
-            ['col-team', row.team],
+            ['col-team', shortenClubName(row.team)],
             ['col-p', row.p],
             ['col-wdl', `${row.w}-${row.d}-${row.l}`],
             ['col-pts', row.pts],
@@ -689,6 +689,20 @@ function buildLadderBlock(team) {
     details.appendChild(body);
 
     return details;
+}
+
+// Drop the "Hockey Club" / "Hockey Association" / "Hockey" boilerplate from
+// ladder team names so the column stays compact: "Footscray Hockey Club" →
+// "Footscray", "Geelong Hockey Association" → "Geelong", "Essendon Hockey" →
+// "Essendon", "Footscray Hockey Club 2" → "Footscray 2". The two-word forms
+// are stripped first so "Footscray Hockey Club" doesn't pass through the
+// single-word rule as "Footscray Club".
+function shortenClubName(name) {
+    return name
+        .replace(/\s*Hockey (?:Club|Association)\s*/g, ' ')
+        .replace(/\s*Hockey\s*/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
 }
 
 // "1st" / "2nd" / "3rd" / "4th"… English ordinal for the ladder summary.
