@@ -419,6 +419,15 @@ button.team-fav.is-favourite:hover { background: var(--red-dark); border-color: 
 
 .team.is-fhc { color: var(--red); }
 
+/* Wrapper around the VS chip + small venue line below it. Keeps the chip
+   centered in its grid column while letting the ground code sit underneath. */
+.vs-cell {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
 .vs {
     background: var(--red);
     color: var(--white);
@@ -428,6 +437,17 @@ button.team-fav.is-favourite:hover { background: var(--red-dark); border-color: 
     padding: 3px 12px;
     clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
     letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* Venue/ground code under the VS chip. Deliberately tiny + de-emphasised so
+   it reads as ambient context, not part of the headline matchup. */
+.venue {
+    font-size: 9px;
+    font-weight: 500;
+    color: rgba(14, 24, 54, 0.5);
+    letter-spacing: 0.3px;
+    line-height: 1;
     white-space: nowrap;
 }
 
@@ -573,8 +593,11 @@ button.team-fav.is-favourite:hover { background: var(--red-dark); border-color: 
 
 /* EXPANDABLE BLOCKS — styled distinctly from links. Dashed border, muted
    background, caret that rotates open, "Tap" hint — all signalling that
-   this reveals more content in place rather than navigating away. */
-.subscribe-details {
+   this reveals more content in place rather than navigating away.
+   Shared between the subscribe accordion and the ladder accordion on the
+   team-season page. */
+.subscribe-details,
+.ladder-details {
     background: rgba(11, 26, 58, 0.55);
     border: 1px dashed rgba(255, 255, 255, 0.25);
     border-radius: 6px;
@@ -582,13 +605,15 @@ button.team-fav.is-favourite:hover { background: var(--red-dark); border-color: 
     overflow: hidden;
     transition: border-color 0.15s, background 0.15s;
 }
-.subscribe-details[open] {
+.subscribe-details[open],
+.ladder-details[open] {
     background: rgba(11, 26, 58, 0.8);
     border-style: solid;
     border-color: rgba(217, 11, 45, 0.5);
 }
 
-.subscribe-details summary {
+.subscribe-details summary,
+.ladder-details summary {
     cursor: pointer;
     list-style: none;
     display: flex;
@@ -600,9 +625,12 @@ button.team-fav.is-favourite:hover { background: var(--red-dark); border-color: 
     color: var(--white);
     user-select: none;
 }
-.subscribe-details summary::-webkit-details-marker { display: none; }
-.subscribe-details summary::marker { display: none; }
-.subscribe-details summary:hover { background: rgba(255, 255, 255, 0.04); }
+.subscribe-details summary::-webkit-details-marker,
+.ladder-details summary::-webkit-details-marker { display: none; }
+.subscribe-details summary::marker,
+.ladder-details summary::marker { display: none; }
+.subscribe-details summary:hover,
+.ladder-details summary:hover { background: rgba(255, 255, 255, 0.04); }
 
 .summary-label { flex: 1; }
 
@@ -617,7 +645,8 @@ button.team-fav.is-favourite:hover { background: var(--red-dark); border-color: 
     padding: 2px 8px;
     border-radius: 999px;
 }
-.subscribe-details[open] .summary-hint { display: none; }
+.subscribe-details[open] .summary-hint,
+.ladder-details[open] .summary-hint { display: none; }
 
 .summary-caret {
     display: inline-block;
@@ -626,12 +655,50 @@ button.team-fav.is-favourite:hover { background: var(--red-dark); border-color: 
     color: var(--red);
     transition: transform 0.2s;
 }
-.subscribe-details[open] .summary-caret { transform: rotate(180deg); }
+.subscribe-details[open] .summary-caret,
+.ladder-details[open] .summary-caret { transform: rotate(180deg); }
 
-.subscribe-body {
+.subscribe-body,
+.ladder-body {
     padding: 4px 12px 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+/* LADDER — compact 5-column table on the team-season page. Pos | Team |
+   P | W-D-L | Pts. The FHC row gets a red-tinted background and bold
+   weight so the team's standing is unmissable at a glance. */
+.ladder-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+}
+.ladder-table th,
+.ladder-table td {
+    padding: 6px 6px;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.ladder-table th {
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+.ladder-table th.col-pos,
+.ladder-table td.col-pos { width: 28px; text-align: center; color: rgba(255, 255, 255, 0.5); }
+.ladder-table th.col-team,
+.ladder-table td.col-team { text-align: left; }
+.ladder-table td.col-team { font-weight: 600; color: var(--white); }
+.ladder-table td.col-pts { font-weight: 800; color: var(--white); }
+.ladder-table tr.is-club td {
+    background: rgba(217, 11, 45, 0.18);
+    color: var(--white);
+}
+.ladder-table tr.is-club td.col-team { font-weight: 800; }
+.ladder-table tr:last-child td { border-bottom: none; }
 
 .instruction { margin-top: 12px; }
 .instruction-title {
@@ -803,6 +870,7 @@ a.card-footer:hover { color: var(--white); border-top-color: var(--red); }
     .team { font-size: 11px; }
     .team-when { font-size: 10px; }
     .vs { font-size: 10px; padding: 2px 8px; }
+    .venue { font-size: 8px; letter-spacing: 0.2px; }
     .logo { width: 24px; height: 24px; }
     .row-chev { font-size: 16px; }
 

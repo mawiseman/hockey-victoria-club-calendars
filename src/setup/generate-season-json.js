@@ -20,6 +20,7 @@ import {
 import { categorizeCompetitions } from '../lib/competition-utils.js';
 
 const SCORES_FILE = path.join(TEMP_DIR, 'scores.json');
+const LADDERS_FILE = path.join(TEMP_DIR, 'ladders.json');
 const OUTPUT = 'weekly-fixture/data/season.json';
 const FHC_ABBR = 'FHC';
 const DEFAULT_MATCH_MINUTES = 90;
@@ -245,11 +246,27 @@ function buildEvent(card, competition, clubName, clubLookup) {
 
 // ─── Main ───────────────────────────────────────────────────────────
 
+// Optional file read — returns null + a warning if the file is missing.
+// Lets us tolerate a skipped scrape (continue-on-error in CI) without
+// failing the season build.
+async function readOptional(filePath, label) {
+    try {
+        return await fs.readFile(filePath, 'utf8');
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            console.warn(`⚠️  ${label} not found at ${filePath} — continuing without it`);
+            return null;
+        }
+        throw err;
+    }
+}
+
 async function main() {
-    const [scoresRaw, compsRaw, clubMappingsRaw, clubName] = await Promise.all([
+    const [scoresRaw, compsRaw, clubMappingsRaw, laddersRaw, clubName] = await Promise.all([
         fs.readFile(SCORES_FILE, 'utf8'),
         fs.readFile(COMPETITIONS_FILE, 'utf8'),
         fs.readFile(MAPPINGS_CLUB_FILE, 'utf8'),
+        readOptional(LADDERS_FILE, 'ladders.json'),
         getClubName()
     ]);
 
@@ -257,6 +274,8 @@ async function main() {
     const allCompetitions = JSON.parse(compsRaw).competitions;
     const clubMappings = JSON.parse(clubMappingsRaw);
     const clubLookup = buildClubAbbrLookup(clubMappings);
+    const laddersPayload = laddersRaw ? JSON.parse(laddersRaw) : null;
+    const ladders = laddersPayload?.ladders || {};
 
     // Reuse the project's category logic so views match the rest of the site.
     const activeComps = allCompetitions.filter(c => c.fixtureUrl && c.isActive !== false);
@@ -293,7 +312,7 @@ async function main() {
         usedSlugs.add(slug);
 
         const calendar = comp.googleCalendar || {};
-        teams.push({
+        const team = {
             slug,
             label: buildShortCode(comp.name, category),
             name: comp.name,
@@ -309,7 +328,14 @@ async function main() {
                   }
                 : null,
             events
-        });
+        };
+        // Attach the ladder when scraped — front-end skips the section
+        // entirely when this field is absent.
+        const ladderRows = ladders[comp.name];
+        if (ladderRows && ladderRows.length > 0) {
+            team.ladder = ladderRows;
+        }
+        teams.push(team);
     }
 
     disambiguateLabels(teams);
@@ -324,13 +350,15 @@ async function main() {
     const payload = {
         generatedAt: new Date().toISOString(),
         sourcesGeneratedAt: scoresPayload.generatedAt || null,
+        laddersGeneratedAt: laddersPayload?.generatedAt || null,
         teams
     };
 
     await fs.mkdir(path.dirname(OUTPUT), { recursive: true });
     await fs.writeFile(OUTPUT, JSON.stringify(payload, null, 2) + '\n', 'utf8');
 
-    console.log(`✅ Wrote ${teams.length} teams (${totalEvents} events, ${totalScored} scored) to ${OUTPUT}`);
+    const teamsWithLadder = teams.filter(t => t.ladder).length;
+    console.log(`✅ Wrote ${teams.length} teams (${totalEvents} events, ${totalScored} scored, ${teamsWithLadder} with ladders) to ${OUTPUT}`);
 }
 
 main().catch(err => {

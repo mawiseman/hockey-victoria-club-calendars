@@ -154,6 +154,21 @@ function shiftWeek(date, weeks) {
     return startOfWeek(d);
 }
 
+// "Footscray Hockey Club - ASF" → "FHC-ASF". Drops anything after a comma in
+// the prefix (e.g. ", Parkville"), takes word-initials, joins to the suffix
+// with the suffix's internal dashes stripped ("P-1" → "P1"). Returns the raw
+// string when there's no " - " separator to split on.
+function formatLocationMedium(location) {
+    if (!location) return '';
+    const parts = location.split(' - ');
+    if (parts.length < 2) return location;
+    const suffix = parts[parts.length - 1];
+    const prefix = parts.slice(0, -1).join(' - ').split(',')[0].trim();
+    const abbr = prefix.split(/\s+/).filter(Boolean).map(w => w[0]).join('').toUpperCase();
+    const suffixCompact = suffix.replace(/-/g, '');
+    return abbr ? `${abbr}-${suffixCompact}` : suffixCompact;
+}
+
 function formatTimeSimple(date) {
     return date.toLocaleTimeString('en-AU', { hour: 'numeric', minute: '2-digit', hour12: false, timeZone: 'Australia/Melbourne' });
 }
@@ -368,7 +383,12 @@ function buildFixtureRow(f, now, mode = 'week', linkContext = null) {
     home.textContent = f.home;
     row.appendChild(home);
 
-    // Score chip in the VS slot when a result exists; otherwise the usual VS marker.
+    // VS chip + small venue label stacked vertically. Wrapper keeps the chip
+    // visually centered in its grid column while letting a tiny ground code
+    // sit underneath without nudging the team names.
+    const vsCell = document.createElement('span');
+    vsCell.className = 'vs-cell';
+
     const vs = document.createElement('span');
     if (f.score) {
         vs.className = 'vs has-score';
@@ -377,7 +397,17 @@ function buildFixtureRow(f, now, mode = 'week', linkContext = null) {
         vs.className = 'vs';
         vs.textContent = 'VS';
     }
-    row.appendChild(vs);
+    vsCell.appendChild(vs);
+
+    if (f.location) {
+        const venue = document.createElement('span');
+        venue.className = 'venue';
+        venue.textContent = formatLocationMedium(f.location);
+        venue.title = f.location;
+        vsCell.appendChild(venue);
+    }
+
+    row.appendChild(vsCell);
 
     const away = document.createElement('span');
     away.className = 'team away' + (f.away.startsWith('FHC') ? ' is-fhc' : '');
@@ -428,6 +458,13 @@ function parseRoute() {
 }
 
 async function renderRoute() {
+    // Reset scroll on every navigation. Hash-only changes don't trigger the
+    // browser's default top-of-page scroll, so a user clicking a chevron at
+    // the bottom of the week list would otherwise land mid-page on the team
+    // view. `instant` skips the smooth-scroll animation — the new view is
+    // about to render, an animated scroll over old content reads as jank.
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
     let season;
     try {
         season = await getSeason();
@@ -530,6 +567,14 @@ function renderTeamView(season, slug, returnState = {}) {
     document.getElementById('viewTitle').textContent = team.label;
     container.appendChild(makeBackToFixtures(team, returnState));
 
+    // Ladder accordion sits above the fixture list so the team's standing
+    // is the first thing the user sees. Collapsed by default. Skipped
+    // entirely when the generator didn't attach ladder data (e.g. a comp
+    // HV doesn't publish a pointscore for, or a scrape failure).
+    if (Array.isArray(team.ladder) && team.ladder.length > 0) {
+        container.appendChild(buildLadderBlock(team));
+    }
+
     if (team.events.length === 0) {
         const empty = document.createElement('div');
         empty.className = 'empty-state';
@@ -557,6 +602,100 @@ function renderTeamView(season, slug, returnState = {}) {
             team.googleCalendar.icalUrl
         ));
     }
+}
+
+// ─── Ladder block ────────────────────────────────────────────────────
+//
+// Collapsed by default. Compact 5-column layout (Pos, Team, P, W-D-L, Pts)
+// designed to fit a phone without horizontal scroll. The FHC row(s) get
+// the `is-club` class so they're visually pinned in red. Full HV columns
+// (BP/PP/GF/GA/GD/WR) are intentionally hidden behind the external
+// "Ladder" link in the team header — keep this view glanceable.
+function buildLadderBlock(team) {
+    const details = document.createElement('details');
+    details.className = 'ladder-details';
+
+    const sum = document.createElement('summary');
+
+    const label = document.createElement('span');
+    label.className = 'summary-label';
+    // Surface the team's standing in the closed-state label so users get
+    // value without having to expand. Falls back to the generic title when
+    // the comp has no FHC row (shouldn't happen, but guarded).
+    const clubRow = team.ladder.find(r => r.isClub);
+    label.textContent = clubRow
+        ? `🏆 Ladder · ${ordinal(clubRow.pos)} of ${team.ladder.length}`
+        : '🏆 Ladder';
+    sum.appendChild(label);
+
+    const hint = document.createElement('span');
+    hint.className = 'summary-hint';
+    hint.textContent = 'Tap';
+    sum.appendChild(hint);
+
+    const caret = document.createElement('span');
+    caret.className = 'summary-caret';
+    caret.setAttribute('aria-hidden', 'true');
+    caret.textContent = '▾';
+    sum.appendChild(caret);
+
+    details.appendChild(sum);
+
+    const body = document.createElement('div');
+    body.className = 'ladder-body';
+
+    const table = document.createElement('table');
+    table.className = 'ladder-table';
+
+    const thead = document.createElement('thead');
+    const headRow = document.createElement('tr');
+    for (const [cls, text] of [
+        ['col-pos', '#'],
+        ['col-team', 'Team'],
+        ['col-p', 'P'],
+        ['col-wdl', 'W-D-L'],
+        ['col-pts', 'Pts'],
+    ]) {
+        const th = document.createElement('th');
+        th.className = cls;
+        th.textContent = text;
+        headRow.appendChild(th);
+    }
+    thead.appendChild(headRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    for (const row of team.ladder) {
+        const tr = document.createElement('tr');
+        if (row.isClub) tr.className = 'is-club';
+
+        const cells = [
+            ['col-pos', row.pos],
+            ['col-team', row.team],
+            ['col-p', row.p],
+            ['col-wdl', `${row.w}-${row.d}-${row.l}`],
+            ['col-pts', row.pts],
+        ];
+        for (const [cls, value] of cells) {
+            const td = document.createElement('td');
+            td.className = cls;
+            td.textContent = value;
+            tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+    body.appendChild(table);
+    details.appendChild(body);
+
+    return details;
+}
+
+// "1st" / "2nd" / "3rd" / "4th"… English ordinal for the ladder summary.
+function ordinal(n) {
+    const s = ['th', 'st', 'nd', 'rd'];
+    const v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
 function makeBackToFixtures(team, returnState = {}) {

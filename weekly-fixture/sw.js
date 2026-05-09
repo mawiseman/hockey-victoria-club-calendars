@@ -11,7 +11,7 @@
 //     the network. We don't try to cache cross-origin opaque responses.
 //   • Anything else: network-first with cache fallback.
 
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v3';
 const APP_SHELL_CACHE = `fhc-shell-${CACHE_VERSION}`;
 const DATA_CACHE = `fhc-data-${CACHE_VERSION}`;
 

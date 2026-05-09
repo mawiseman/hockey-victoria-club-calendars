@@ -81,6 +81,14 @@ jobs:
         continue-on-error: true
         run: npm run scrape-scores
 
+      # Scrape the ladder (pointscore) for each active competition. Same
+      # tolerance as scores — partial data is fine, the generator merges
+      # whatever's available.
+      - name: Scrape ladders
+        if: success()
+        continue-on-error: true
+        run: npm run scrape-ladders
+
       - name: Regenerate fixtures.json + season.json + subscribe-data + docs
         if: success()
         run: |
