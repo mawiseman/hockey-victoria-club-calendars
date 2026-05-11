@@ -269,14 +269,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25009/41089",
       "matchDuration": 60,
       "scrapedAt": "2026-05-11T05:44:11.115Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "79b75e3c1222749b0221c43ec76c69da11728163792392d2a44b929cfd285e78@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=79b75e3c1222749b0221c43ec76c69da11728163792392d2a44b929cfd285e78%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/79b75e3c1222749b0221c43ec76c69da11728163792392d2a44b929cfd285e78%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2026 T1 Social 35+ Womens Masters",
         "createdAt": "2026-05-11T05:48:27.989Z"
-      }
+      },
+      "statusUpdatedAt": "2026-05-11T06:50:26.588Z"
     },
     {
       "name": "35+ Womens Masters Indoor",
@@ -303,14 +304,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40847",
       "matchDuration": 60,
       "scrapedAt": "2026-05-11T05:43:59.775Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "44d170af3c39533ec7d7605249c72b84838793437e625ef8331dd4fa82327634@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=44d170af3c39533ec7d7605249c72b84838793437e625ef8331dd4fa82327634%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/44d170af3c39533ec7d7605249c72b84838793437e625ef8331dd4fa82327634%40group.calendar.google.com/public/basic.ics",
         "title": "FHC ICC 35+ Womens Masters",
         "createdAt": "2026-05-11T05:48:27.989Z"
-      }
+      },
+      "statusUpdatedAt": "2026-05-11T06:50:27.152Z"
     },
     {
       "name": "Midweek Men's 40+ NW - 2026",
@@ -422,14 +424,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40849",
       "matchDuration": 90,
       "scrapedAt": "2026-05-11T05:44:03.280Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "11a4ffa465ace9b758986aedfc0f5d68cb2bb1c12a00542d6eddab88b2148d92@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=11a4ffa465ace9b758986aedfc0f5d68cb2bb1c12a00542d6eddab88b2148d92%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/11a4ffa465ace9b758986aedfc0f5d68cb2bb1c12a00542d6eddab88b2148d92%40group.calendar.google.com/public/basic.ics",
         "title": "FHC ICC Under 16 Girls",
         "createdAt": "2026-05-11T05:48:27.989Z"
-      }
+      },
+      "statusUpdatedAt": "2026-05-11T06:50:32.630Z"
     },
     {
       "name": "JIC Under 16 Mixed",
@@ -439,14 +442,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40856",
       "matchDuration": 90,
       "scrapedAt": "2026-05-11T05:44:05.818Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "c3f60973de716326ce3b687c847b6b8f1c1a3bb394fac7fb8807756903a92a89@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=c3f60973de716326ce3b687c847b6b8f1c1a3bb394fac7fb8807756903a92a89%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/c3f60973de716326ce3b687c847b6b8f1c1a3bb394fac7fb8807756903a92a89%40group.calendar.google.com/public/basic.ics",
         "title": "FHC JIC Under 16 Mixed",
         "createdAt": "2026-05-11T05:48:27.989Z"
-      }
+      },
+      "statusUpdatedAt": "2026-05-11T06:50:32.916Z"
     },
     {
       "name": "U16 Boys Pennant NW - 2026",
@@ -524,14 +528,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40854",
       "matchDuration": 90,
       "scrapedAt": "2026-05-11T05:44:03.260Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "4a8d02e52344dc4f44a8055b770d24dc20f84344b1355aa334aeef7051b625f5@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=4a8d02e52344dc4f44a8055b770d24dc20f84344b1355aa334aeef7051b625f5%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/4a8d02e52344dc4f44a8055b770d24dc20f84344b1355aa334aeef7051b625f5%40group.calendar.google.com/public/basic.ics",
         "title": "FHC ICC Under 14 Boys",
         "createdAt": "2026-05-11T05:48:27.989Z"
-      }
+      },
+      "statusUpdatedAt": "2026-05-11T06:50:34.379Z"
     },
     {
       "name": "ICC Under 14 Girls",
@@ -541,14 +546,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40851",
       "matchDuration": 90,
       "scrapedAt": "2026-05-11T05:44:02.764Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "b49fc5f7d3bd9434d8d0dcef782c680d2fda60d19b82e57f832adc03274d8825@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=b49fc5f7d3bd9434d8d0dcef782c680d2fda60d19b82e57f832adc03274d8825%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/b49fc5f7d3bd9434d8d0dcef782c680d2fda60d19b82e57f832adc03274d8825%40group.calendar.google.com/public/basic.ics",
         "title": "FHC ICC Under 14 Girls",
         "createdAt": "2026-05-11T05:48:27.989Z"
-      }
+      },
+      "statusUpdatedAt": "2026-05-11T06:50:34.883Z"
     },
     {
       "name": "JIC Under 14 Mixed",
@@ -558,14 +564,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40857",
       "matchDuration": 90,
       "scrapedAt": "2026-05-11T05:44:06.227Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "ec02f1c2881e85135c449e234c527050705da2ae3113ddf350d827f0ac86a986@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=ec02f1c2881e85135c449e234c527050705da2ae3113ddf350d827f0ac86a986%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/ec02f1c2881e85135c449e234c527050705da2ae3113ddf350d827f0ac86a986%40group.calendar.google.com/public/basic.ics",
         "title": "FHC JIC Under 14 Mixed",
         "createdAt": "2026-05-11T05:48:27.989Z"
-      }
+      },
+      "statusUpdatedAt": "2026-05-11T06:50:35.156Z"
     },
     {
       "name": "U14 Boys Shield - 2026",
@@ -626,14 +633,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40850",
       "matchDuration": 90,
       "scrapedAt": "2026-05-11T05:44:06.195Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "bf0ac148006a06643da9a58b9c7b7b11f92ae54f4cbef6f1d06257301239f046@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=bf0ac148006a06643da9a58b9c7b7b11f92ae54f4cbef6f1d06257301239f046%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/bf0ac148006a06643da9a58b9c7b7b11f92ae54f4cbef6f1d06257301239f046%40group.calendar.google.com/public/basic.ics",
         "title": "FHC ICC Under 12 Girls",
         "createdAt": "2026-05-11T05:48:27.989Z"
-      }
+      },
+      "statusUpdatedAt": "2026-05-11T06:50:36.587Z"
     },
     {
       "name": "ICC Under 12 Mixed",
@@ -643,14 +651,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40855",
       "matchDuration": 90,
       "scrapedAt": "2026-05-11T05:44:06.262Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "36934ea4ee3167a40efa78410806cc830352e7bdba62f1c130e10f5f52816f99@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=36934ea4ee3167a40efa78410806cc830352e7bdba62f1c130e10f5f52816f99%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/36934ea4ee3167a40efa78410806cc830352e7bdba62f1c130e10f5f52816f99%40group.calendar.google.com/public/basic.ics",
         "title": "FHC ICC Under 12 Mixed",
         "createdAt": "2026-05-11T05:48:27.989Z"
-      }
+      },
+      "statusUpdatedAt": "2026-05-11T06:50:36.853Z"
     },
     {
       "name": "JIC Under 12 Mixed",
@@ -660,14 +669,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40858",
       "matchDuration": 90,
       "scrapedAt": "2026-05-11T05:44:06.147Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "ea11d72afd001c662e455915ec5f0b6eb2301292e79ef1f454268d06d221ac38@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=ea11d72afd001c662e455915ec5f0b6eb2301292e79ef1f454268d06d221ac38%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/ea11d72afd001c662e455915ec5f0b6eb2301292e79ef1f454268d06d221ac38%40group.calendar.google.com/public/basic.ics",
         "title": "FHC JIC Under 12 Mixed",
         "createdAt": "2026-05-11T05:48:27.989Z"
-      }
+      },
+      "statusUpdatedAt": "2026-05-11T06:50:37.299Z"
     },
     {
       "name": "U12 District Half Field Mixed NW - T2 - 2026",
@@ -720,5 +730,8 @@
       },
       "isActive": true
     }
-  ]
+  ],
+  "lastStatusUpdate": "2026-05-11T06:50:38.119Z",
+  "activeCompetitions": 32,
+  "inactiveCompetitions": 10
 }
