@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"import\\('./src/lib/competition-utils.js'\\).then\\(async m => { const d = await m.loadCompetitionData\\(\\); console.log\\('Top-level keys:', Object.keys\\(d\\)\\); }\\)\")",
+      "Bash(git show *)",
+      "Read(//tmp/**)",
+      "Bash(node -e \"const fs = require\\('fs'\\); const d = JSON.parse\\(fs.readFileSync\\('/tmp/orig.json', 'utf8'\\)\\); console.log\\('Original keys:', Object.keys\\(d\\)\\);\")",
+      "Bash(git checkout *)",
+      "Bash(node -e \"import\\('./src/lib/competition-utils.js'\\).then\\(async m => { const d = await m.loadCompetitionData\\(\\); console.log\\('Loaded keys:', Object.keys\\(d\\)\\); console.log\\('Competition count:', d.competitions.length\\); await m.saveCompetitionData\\(d\\); const d2 = await m.loadCompetitionData\\(\\); console.log\\('After save keys:', Object.keys\\(d2\\)\\); }\\)\")",
+      "Bash(node -e \"import\\('./src/lib/competition-utils.js'\\).then\\(async m => { const d = await m.loadCompetitionData\\(\\); d.competitions.forEach\\(\\(c, i\\) => console.log\\(String\\(i+1\\).padStart\\(2\\) + '. ' + c.name + \\(c.isActive === false ? ' [inactive]' : ''\\)\\)\\); }\\)\")",
+      "PowerShell($ua = \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\"; $headers = @{ 'Accept' = 'text/html'; 'Referer' = 'https://www.hockeyvictoria.org.au/' }; $resp = Invoke-WebRequest -Uri \"https://www.hockeyvictoria.org.au/pointscore/26185/42443\" -UseBasicParsing -UserAgent $ua -Headers $headers; $idx = $resp.Content.IndexOf\\('Footscray Blue'\\); $resp.Content.Substring\\([Math]::Max\\(0, $idx - 200\\), 400\\))",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const fs = require\\('fs'\\); const d = JSON.parse\\(fs.readFileSync\\('weekly-fixture/data/season.json', 'utf8'\\)\\); for \\(const t of d.teams\\) { if \\(t.name.includes\\(\\\\\"35+ B\\\\\"\\) || t.name.includes\\(\\\\\"Women's 45+\\\\\"\\)\\) { console.log\\(t.label, '|', t.name, '| view=' + t.view, '| events=' + t.events.length\\); if \\(t.events.length > 0\\) { console.log\\('  first:', t.events[0].dtstart, t.events[0].home, 'vs', t.events[0].away\\); console.log\\('  last: ', t.events[t.events.length-1].dtstart\\); } } }\")",
+      "Bash(node -e \"const fs = require\\('fs'\\); const d = JSON.parse\\(fs.readFileSync\\('temp/scores.json', 'utf8'\\)\\); const targets = new Set\\(\\); for \\(const g of \\(d.games || []\\)\\) targets.add\\(g.competition\\); const list = [...targets].sort\\(\\); console.log\\('Distinct competition names in scores.json:'\\); list.forEach\\(n => console.log\\('  ' + n\\)\\); console.log\\('\\\\\\\\nTotal games:', \\(d.games || []\\).length\\); console.log\\('Generated:', d.generatedAt\\);\")"
+    ]
+  }
+}

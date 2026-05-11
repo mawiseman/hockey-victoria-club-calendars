@@ -54,7 +54,7 @@
           "round": 4,
           "dtstart": "2026-05-06T10:30:00.000Z",
           "dtend": "2026-05-06T11:30:00.000Z",
-          "home": "Southern C",
+          "home": "SUHC C",
           "away": "FHC",
           "isHome": false,
           "location": "Dandenong Hockey Centre - DAN",
@@ -66,7 +66,7 @@
           "dtstart": "2026-05-13T09:00:00.000Z",
           "dtend": "2026-05-13T10:00:00.000Z",
           "home": "FHC",
-          "away": "Southern B",
+          "away": "SUHC B",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2532670"
@@ -186,7 +186,7 @@
           "dtstart": "2026-08-19T09:00:00.000Z",
           "dtend": "2026-08-19T10:00:00.000Z",
           "home": "FHC",
-          "away": "Southern C",
+          "away": "SUHC C",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2535078"
@@ -195,7 +195,7 @@
           "round": 18,
           "dtstart": "2026-08-26T10:00:00.000Z",
           "dtend": "2026-08-26T11:00:00.000Z",
-          "home": "Southern B",
+          "home": "SUHC B",
           "away": "FHC",
           "isHome": false,
           "location": "Dandenong Hockey Centre - DAN",
@@ -205,7 +205,7 @@
       "ladder": [
         {
           "pos": 1,
-          "team": "Southern B",
+          "team": "SUHC B",
           "p": 4,
           "w": 4,
           "d": 0,
@@ -275,7 +275,7 @@
         },
         {
           "pos": 6,
-          "team": "Southern C",
+          "team": "SUHC C",
           "p": 4,
           "w": 2,
           "d": 1,
