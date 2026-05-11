@@ -1,4 +1,10 @@
 {
+  "scrapedAt": "2026-05-11T05:35:03.870Z",
+  "lastUpdated": "2026-05-11T05:42:14.477Z",
+  "clubName": "Footscray",
+  "totalCompetitions": 42,
+  "totalProcessed": 42,
+  "totalLinksFound": 132,
   "competitions": [
     {
       "name": "Mens Premier League - 2026",
@@ -7,13 +13,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42156",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42156",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:22.526Z",
+      "scrapedAt": "2026-05-11T05:35:12.308Z",
       "googleCalendar": {
         "calendarId": "ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Premier League - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -24,13 +30,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42243",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42243",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:22.470Z",
+      "scrapedAt": "2026-05-11T05:35:12.236Z",
       "googleCalendar": {
         "calendarId": "aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Premier League Reserves - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -41,13 +47,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42236",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42236",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:32.260Z",
+      "scrapedAt": "2026-05-11T05:35:21.708Z",
       "googleCalendar": {
         "calendarId": "f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Pennant A - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -58,13 +64,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42237",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42237",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:32.367Z",
+      "scrapedAt": "2026-05-11T05:35:21.784Z",
       "googleCalendar": {
         "calendarId": "4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Pennant B - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -75,13 +81,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42239",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42239",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:35.473Z",
+      "scrapedAt": "2026-05-11T05:35:24.627Z",
       "googleCalendar": {
         "calendarId": "029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Pennant D North West - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -92,13 +98,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42231",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42231",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:42.122Z",
+      "scrapedAt": "2026-05-11T05:35:31.587Z",
       "googleCalendar": {
         "calendarId": "bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Metro 1 North West - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -109,13 +115,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42234",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42234",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:41.844Z",
+      "scrapedAt": "2026-05-11T05:35:31.275Z",
       "googleCalendar": {
         "calendarId": "2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Mens Metro 2 North West - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -126,13 +132,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42158",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42158",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:22.367Z",
+      "scrapedAt": "2026-05-11T05:35:12.214Z",
       "googleCalendar": {
         "calendarId": "38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Premier League - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -143,13 +149,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42258",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42258",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:22.529Z",
+      "scrapedAt": "2026-05-11T05:35:12.276Z",
       "googleCalendar": {
         "calendarId": "ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Premier League Reserves - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -160,13 +166,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42251",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42251",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:28.757Z",
+      "scrapedAt": "2026-05-11T05:35:17.545Z",
       "googleCalendar": {
         "calendarId": "fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant A - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -177,13 +183,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42252",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42252",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:32.302Z",
+      "scrapedAt": "2026-05-11T05:35:21.728Z",
       "googleCalendar": {
         "calendarId": "b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant B - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -194,13 +200,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42253",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42253",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:32.302Z",
+      "scrapedAt": "2026-05-11T05:35:21.629Z",
       "googleCalendar": {
         "calendarId": "8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant C - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -211,13 +217,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42254",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42254",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:35.473Z",
+      "scrapedAt": "2026-05-11T05:35:24.626Z",
       "googleCalendar": {
         "calendarId": "43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Pennant D North West - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -228,13 +234,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42249",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42249",
       "matchDuration": 90,
-      "scrapedAt": "2026-05-11T03:56:38.630Z",
+      "scrapedAt": "2026-05-11T05:35:28.916Z",
       "googleCalendar": {
         "calendarId": "5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Womens Metro 1 North West - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -245,14 +251,65 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42443",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42443",
       "matchDuration": 60,
-      "scrapedAt": "2026-05-11T03:56:53.138Z",
-      "isActive": true,
+      "scrapedAt": "2026-05-11T05:41:32.549Z",
       "googleCalendar": {
         "calendarId": "7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 2026 Midweek Men's 60+ B",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
+      },
+      "isActive": true
+    },
+    {
+      "name": "2026 T1 Social 35+ Womens Masters",
+      "category": "2026 Term 1 Competitions",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25009/394992",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25009/41089",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25009/41089",
+      "matchDuration": 60,
+      "scrapedAt": "2026-05-11T05:44:11.115Z",
+      "isActive": true,
+      "googleCalendar": {
+        "calendarId": "79b75e3c1222749b0221c43ec76c69da11728163792392d2a44b929cfd285e78@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=79b75e3c1222749b0221c43ec76c69da11728163792392d2a44b929cfd285e78%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/79b75e3c1222749b0221c43ec76c69da11728163792392d2a44b929cfd285e78%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC 2026 T1 Social 35+ Womens Masters",
+        "createdAt": "2026-05-11T05:48:27.989Z"
+      }
+    },
+    {
+      "name": "35+ Womens Masters Indoor",
+      "category": "2026 Winter Season Indoor Competitions",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26354/418892",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26354/42646",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26354/42646",
+      "matchDuration": 60,
+      "scrapedAt": "2026-05-11T05:44:00.423Z",
+      "isActive": true,
+      "googleCalendar": {
+        "calendarId": "d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC 35+ Womens Masters Indoor",
+        "createdAt": "2026-05-11T05:48:27.989Z"
+      }
+    },
+    {
+      "name": "ICC 35+ Womens Masters",
+      "category": "2026 Indoor Club Championship",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/404410",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40847",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40847",
+      "matchDuration": 60,
+      "scrapedAt": "2026-05-11T05:43:59.775Z",
+      "isActive": true,
+      "googleCalendar": {
+        "calendarId": "44d170af3c39533ec7d7605249c72b84838793437e625ef8331dd4fa82327634@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=44d170af3c39533ec7d7605249c72b84838793437e625ef8331dd4fa82327634%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/44d170af3c39533ec7d7605249c72b84838793437e625ef8331dd4fa82327634%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC ICC 35+ Womens Masters",
+        "createdAt": "2026-05-11T05:48:27.989Z"
       }
     },
     {
@@ -262,13 +319,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42441",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42441",
       "matchDuration": 60,
-      "scrapedAt": "2026-05-11T03:56:49.151Z",
+      "scrapedAt": "2026-05-11T05:35:37.963Z",
       "googleCalendar": {
         "calendarId": "0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Midweek Men's 40+ NW - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -279,13 +336,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42444",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42444",
       "matchDuration": 60,
-      "scrapedAt": "2026-05-11T03:56:53.141Z",
+      "scrapedAt": "2026-05-11T05:41:32.530Z",
       "googleCalendar": {
         "calendarId": "a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Midweek Men's 50+ NW - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -296,13 +353,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42450",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42450",
       "matchDuration": 60,
-      "scrapedAt": "2026-05-11T03:56:56.721Z",
+      "scrapedAt": "2026-05-11T05:41:32.387Z",
       "googleCalendar": {
         "calendarId": "52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Midweek Women's 35+ B - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -313,13 +370,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42451",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42451",
       "matchDuration": 60,
-      "scrapedAt": "2026-05-11T03:56:56.603Z",
+      "scrapedAt": "2026-05-11T05:41:31.962Z",
       "googleCalendar": {
         "calendarId": "e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Midweek Women's 45+ - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -330,13 +387,13 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42452",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42452",
       "matchDuration": 60,
-      "scrapedAt": "2026-05-11T03:56:56.604Z",
+      "scrapedAt": "2026-05-11T05:41:35.437Z",
       "googleCalendar": {
         "calendarId": "415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7%40group.calendar.google.com/public/basic.ics",
         "title": "FHC Midweek Women's 55+ (Monday) - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
       "isActive": true
     },
@@ -347,16 +404,49 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42587",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42587",
       "matchDuration": 60,
-      "scrapedAt": "2026-04-20T06:57:00.221Z",
+      "scrapedAt": "2026-05-11T05:41:54.366Z",
       "googleCalendar": {
         "calendarId": "47b4896026dd4bc5db64dcbbeb6b3003f6500f1511912c02177869af81ac69a4@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=47b4896026dd4bc5db64dcbbeb6b3003f6500f1511912c02177869af81ac69a4%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/47b4896026dd4bc5db64dcbbeb6b3003f6500f1511912c02177869af81ac69a4%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U18 Mixed District NW - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
+      "isActive": true
+    },
+    {
+      "name": "ICC Under 16 Girls",
+      "category": "2026 Indoor Club Championship",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/399433",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40849",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40849",
+      "matchDuration": 90,
+      "scrapedAt": "2026-05-11T05:44:03.280Z",
       "isActive": true,
-      "statusUpdatedAt": "2026-04-26T00:25:09.724Z"
+      "googleCalendar": {
+        "calendarId": "11a4ffa465ace9b758986aedfc0f5d68cb2bb1c12a00542d6eddab88b2148d92@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=11a4ffa465ace9b758986aedfc0f5d68cb2bb1c12a00542d6eddab88b2148d92%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/11a4ffa465ace9b758986aedfc0f5d68cb2bb1c12a00542d6eddab88b2148d92%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC ICC Under 16 Girls",
+        "createdAt": "2026-05-11T05:48:27.989Z"
+      }
+    },
+    {
+      "name": "JIC Under 16 Mixed",
+      "category": "2026 Junior Indoor Challenge",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24922/396419",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40856",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40856",
+      "matchDuration": 90,
+      "scrapedAt": "2026-05-11T05:44:05.818Z",
+      "isActive": true,
+      "googleCalendar": {
+        "calendarId": "c3f60973de716326ce3b687c847b6b8f1c1a3bb394fac7fb8807756903a92a89@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=c3f60973de716326ce3b687c847b6b8f1c1a3bb394fac7fb8807756903a92a89%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/c3f60973de716326ce3b687c847b6b8f1c1a3bb394fac7fb8807756903a92a89%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC JIC Under 16 Mixed",
+        "createdAt": "2026-05-11T05:48:27.989Z"
+      }
     },
     {
       "name": "U16 Boys Pennant NW - 2026",
@@ -365,16 +455,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42583",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42583",
       "matchDuration": 60,
-      "scrapedAt": "2026-04-20T06:56:57.670Z",
+      "scrapedAt": "2026-05-11T05:41:51.057Z",
       "googleCalendar": {
         "calendarId": "e722dc6d07d206f8e36152ad83658d047b6cb3493043a9f8f3a25f495624f482@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=e722dc6d07d206f8e36152ad83658d047b6cb3493043a9f8f3a25f495624f482%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/e722dc6d07d206f8e36152ad83658d047b6cb3493043a9f8f3a25f495624f482%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U16 Boys Pennant NW - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-04-26T00:25:08.939Z"
+      "isActive": true
     },
     {
       "name": "U16 Boys Shield - 2026",
@@ -383,16 +472,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42582",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42582",
       "matchDuration": 60,
-      "scrapedAt": "2026-04-20T06:56:57.670Z",
+      "scrapedAt": "2026-05-11T05:41:51.433Z",
       "googleCalendar": {
         "calendarId": "96d7ce395385e71a26b648db419bb449ef502bc24781602017f659e4bb410073@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=96d7ce395385e71a26b648db419bb449ef502bc24781602017f659e4bb410073%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/96d7ce395385e71a26b648db419bb449ef502bc24781602017f659e4bb410073%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U16 Boys Shield - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-04-26T00:25:09.142Z"
+      "isActive": true
     },
     {
       "name": "U16 Girls Pennant NW - 2026",
@@ -401,16 +489,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42580",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42580",
       "matchDuration": 60,
-      "scrapedAt": "2026-04-20T06:56:54.995Z",
+      "scrapedAt": "2026-05-11T05:41:51.504Z",
       "googleCalendar": {
         "calendarId": "703ae3bb535e156bbf7648f4888693523ad26f9e9f07719621d764b3a1167986@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=703ae3bb535e156bbf7648f4888693523ad26f9e9f07719621d764b3a1167986%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/703ae3bb535e156bbf7648f4888693523ad26f9e9f07719621d764b3a1167986%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U16 Girls Pennant NW - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-04-26T00:25:09.288Z"
+      "isActive": true
     },
     {
       "name": "U16 Girls Shield - 2026",
@@ -419,16 +506,66 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42579",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42579",
       "matchDuration": 60,
-      "scrapedAt": "2026-04-20T06:56:55.108Z",
+      "scrapedAt": "2026-05-11T05:41:44.502Z",
       "googleCalendar": {
         "calendarId": "e11cc1c5ec43ad5d914841b0ac37f27065b7fe9be0c885f2f6daadba863e7cf6@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=e11cc1c5ec43ad5d914841b0ac37f27065b7fe9be0c885f2f6daadba863e7cf6%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/e11cc1c5ec43ad5d914841b0ac37f27065b7fe9be0c885f2f6daadba863e7cf6%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U16 Girls Shield - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
+      "isActive": true
+    },
+    {
+      "name": "ICC Under 14 Boys",
+      "category": "2026 Indoor Club Championship",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/399456",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40854",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40854",
+      "matchDuration": 90,
+      "scrapedAt": "2026-05-11T05:44:03.260Z",
       "isActive": true,
-      "statusUpdatedAt": "2026-04-26T00:25:09.541Z"
+      "googleCalendar": {
+        "calendarId": "4a8d02e52344dc4f44a8055b770d24dc20f84344b1355aa334aeef7051b625f5@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=4a8d02e52344dc4f44a8055b770d24dc20f84344b1355aa334aeef7051b625f5%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/4a8d02e52344dc4f44a8055b770d24dc20f84344b1355aa334aeef7051b625f5%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC ICC Under 14 Boys",
+        "createdAt": "2026-05-11T05:48:27.989Z"
+      }
+    },
+    {
+      "name": "ICC Under 14 Girls",
+      "category": "2026 Indoor Club Championship",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/399449",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40851",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40851",
+      "matchDuration": 90,
+      "scrapedAt": "2026-05-11T05:44:02.764Z",
+      "isActive": true,
+      "googleCalendar": {
+        "calendarId": "b49fc5f7d3bd9434d8d0dcef782c680d2fda60d19b82e57f832adc03274d8825@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=b49fc5f7d3bd9434d8d0dcef782c680d2fda60d19b82e57f832adc03274d8825%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/b49fc5f7d3bd9434d8d0dcef782c680d2fda60d19b82e57f832adc03274d8825%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC ICC Under 14 Girls",
+        "createdAt": "2026-05-11T05:48:27.989Z"
+      }
+    },
+    {
+      "name": "JIC Under 14 Mixed",
+      "category": "2026 Junior Indoor Challenge",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24922/395495",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40857",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40857",
+      "matchDuration": 90,
+      "scrapedAt": "2026-05-11T05:44:06.227Z",
+      "isActive": true,
+      "googleCalendar": {
+        "calendarId": "ec02f1c2881e85135c449e234c527050705da2ae3113ddf350d827f0ac86a986@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=ec02f1c2881e85135c449e234c527050705da2ae3113ddf350d827f0ac86a986%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/ec02f1c2881e85135c449e234c527050705da2ae3113ddf350d827f0ac86a986%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC JIC Under 14 Mixed",
+        "createdAt": "2026-05-11T05:48:27.989Z"
+      }
     },
     {
       "name": "U14 Boys Shield - 2026",
@@ -437,16 +574,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42573",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42573",
       "matchDuration": 60,
-      "scrapedAt": "2026-04-20T06:56:52.245Z",
+      "scrapedAt": "2026-05-11T05:41:40.953Z",
       "googleCalendar": {
         "calendarId": "c529a366efbbed18466d9ad85ea004e4d79c8616a90c33e50557d85390a16849@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=c529a366efbbed18466d9ad85ea004e4d79c8616a90c33e50557d85390a16849%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/c529a366efbbed18466d9ad85ea004e4d79c8616a90c33e50557d85390a16849%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U14 Boys Shield - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-04-26T00:25:08.573Z"
+      "isActive": true
     },
     {
       "name": "U14 Girls Pennant NW - 2026",
@@ -455,16 +591,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42571",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42571",
       "matchDuration": 60,
-      "scrapedAt": "2026-04-20T06:56:49.368Z",
+      "scrapedAt": "2026-05-11T05:41:41.120Z",
       "googleCalendar": {
         "calendarId": "39df3c47f565f74db1af11b264da6a13ec0fc2af32e871baecd1f74733887008@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=39df3c47f565f74db1af11b264da6a13ec0fc2af32e871baecd1f74733887008%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/39df3c47f565f74db1af11b264da6a13ec0fc2af32e871baecd1f74733887008%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U14 Girls Pennant NW - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-04-26T00:25:08.679Z"
+      "isActive": true
     },
     {
       "name": "U14 Mixed District NW - 2026",
@@ -473,16 +608,66 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42576",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42576",
       "matchDuration": 60,
-      "scrapedAt": "2026-04-20T06:56:52.016Z",
+      "scrapedAt": "2026-05-11T05:41:46.838Z",
       "googleCalendar": {
         "calendarId": "74c3859064feb3d560dac470bf3429845d7938eadea3888f64b936c080f7ee53@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=74c3859064feb3d560dac470bf3429845d7938eadea3888f64b936c080f7ee53%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/74c3859064feb3d560dac470bf3429845d7938eadea3888f64b936c080f7ee53%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U14 Mixed District NW - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
+      "isActive": true
+    },
+    {
+      "name": "ICC Under 12 Girls",
+      "category": "2026 Indoor Club Championship",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/404397",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40850",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40850",
+      "matchDuration": 90,
+      "scrapedAt": "2026-05-11T05:44:06.195Z",
       "isActive": true,
-      "statusUpdatedAt": "2026-04-26T00:25:08.825Z"
+      "googleCalendar": {
+        "calendarId": "bf0ac148006a06643da9a58b9c7b7b11f92ae54f4cbef6f1d06257301239f046@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=bf0ac148006a06643da9a58b9c7b7b11f92ae54f4cbef6f1d06257301239f046%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/bf0ac148006a06643da9a58b9c7b7b11f92ae54f4cbef6f1d06257301239f046%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC ICC Under 12 Girls",
+        "createdAt": "2026-05-11T05:48:27.989Z"
+      }
+    },
+    {
+      "name": "ICC Under 12 Mixed",
+      "category": "2026 Indoor Club Championship",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24921/404401",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40855",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24921/40855",
+      "matchDuration": 90,
+      "scrapedAt": "2026-05-11T05:44:06.262Z",
+      "isActive": true,
+      "googleCalendar": {
+        "calendarId": "36934ea4ee3167a40efa78410806cc830352e7bdba62f1c130e10f5f52816f99@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=36934ea4ee3167a40efa78410806cc830352e7bdba62f1c130e10f5f52816f99%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/36934ea4ee3167a40efa78410806cc830352e7bdba62f1c130e10f5f52816f99%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC ICC Under 12 Mixed",
+        "createdAt": "2026-05-11T05:48:27.989Z"
+      }
+    },
+    {
+      "name": "JIC Under 12 Mixed",
+      "category": "2026 Junior Indoor Challenge",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/24922/395517",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40858",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/24922/40858",
+      "matchDuration": 90,
+      "scrapedAt": "2026-05-11T05:44:06.147Z",
+      "isActive": true,
+      "googleCalendar": {
+        "calendarId": "ea11d72afd001c662e455915ec5f0b6eb2301292e79ef1f454268d06d221ac38@group.calendar.google.com",
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=ea11d72afd001c662e455915ec5f0b6eb2301292e79ef1f454268d06d221ac38%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/ea11d72afd001c662e455915ec5f0b6eb2301292e79ef1f454268d06d221ac38%40group.calendar.google.com/public/basic.ics",
+        "title": "FHC JIC Under 12 Mixed",
+        "createdAt": "2026-05-11T05:48:27.989Z"
+      }
     },
     {
       "name": "U12 District Half Field Mixed NW - T2 - 2026",
@@ -491,16 +676,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42563",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42563",
       "matchDuration": 60,
-      "scrapedAt": "2026-04-20T06:53:14.587Z",
+      "scrapedAt": "2026-05-11T05:41:35.423Z",
       "googleCalendar": {
         "calendarId": "3fdd292f8209d122388947894ff389fa305bb982e383b60fd621486bcaa64d1f@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=3fdd292f8209d122388947894ff389fa305bb982e383b60fd621486bcaa64d1f%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/3fdd292f8209d122388947894ff389fa305bb982e383b60fd621486bcaa64d1f%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U12 District Half Field Mixed NW - T2 - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-04-26T00:25:08.222Z"
+      "isActive": true
     },
     {
       "name": "U12 Girls Shield - 2026",
@@ -509,16 +693,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42565",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42565",
       "matchDuration": 60,
-      "scrapedAt": "2026-04-20T06:53:14.618Z",
+      "scrapedAt": "2026-05-11T05:41:34.985Z",
       "googleCalendar": {
         "calendarId": "bbfaaee971a66c95705543b23c1df1b595b307865e9e48dd7c98388418cd80fa@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=bbfaaee971a66c95705543b23c1df1b595b307865e9e48dd7c98388418cd80fa%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/bbfaaee971a66c95705543b23c1df1b595b307865e9e48dd7c98388418cd80fa%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U12 Girls Shield - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-04-26T00:25:08.357Z"
+      "isActive": true
     },
     {
       "name": "U12 Mixed Shield - 2026",
@@ -527,16 +710,15 @@
       "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42567",
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42567",
       "matchDuration": 60,
-      "scrapedAt": "2026-04-20T06:53:14.188Z",
+      "scrapedAt": "2026-05-11T05:41:38.406Z",
       "googleCalendar": {
         "calendarId": "be8b36bdf408d50b313b89fef5a9e250f456459718259975858496678f770e5f@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=be8b36bdf408d50b313b89fef5a9e250f456459718259975858496678f770e5f%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/be8b36bdf408d50b313b89fef5a9e250f456459718259975858496678f770e5f%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U12 Mixed Shield - 2026",
-        "createdAt": "2026-05-11T04:00:11.519Z"
+        "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-04-26T00:25:08.481Z"
+      "isActive": true
     }
   ]
 }

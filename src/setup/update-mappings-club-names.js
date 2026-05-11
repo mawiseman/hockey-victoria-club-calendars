@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import puppeteer from 'puppeteer';
 
 // Import shared utilities
-import { COMPETITIONS_FILE, MAPPINGS_CLUB_FILE } from '../lib/config.js';
+import { COMPETITIONS_FILE, MAPPINGS_CLUB_FILE, MAX_CONCURRENT } from '../lib/config.js';
 import { logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
 import { HttpError, safeGoto } from '../lib/puppeteer-utils.js';
 
@@ -297,33 +297,38 @@ async function main() {
             args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
         
-        // Collect all unique club names
+        // Collect all unique club names. Process in concurrent batches matching
+        // competition-scraper.js — MAX_CONCURRENT ladders in flight at once,
+        // sharing one browser instance.
         const allClubNames = new Set();
         let processedCount = 0;
         const httpFailures = [];
         const otherFailures = [];
 
-        for (const competition of competitionsWithLadders) {
-            try {
-                logInfo(`Processing: ${competition.name}`);
+        for (let i = 0; i < competitionsWithLadders.length; i += MAX_CONCURRENT) {
+            const batch = competitionsWithLadders.slice(i, i + MAX_CONCURRENT);
+            const batchEnd = Math.min(i + MAX_CONCURRENT, competitionsWithLadders.length);
 
-                const clubNames = await scrapeClubNamesFromLadder(competition.ladderUrl, browser);
+            console.log(`\n🔄 Processing batch ${Math.floor(i / MAX_CONCURRENT) + 1}: competitions ${i + 1}-${batchEnd}`);
 
-                clubNames.forEach(name => allClubNames.add(name));
-                processedCount++;
+            await Promise.all(batch.map(async (competition, index) => {
+                try {
+                    logInfo(`[${i + index + 1}/${competitionsWithLadders.length}] Processing: ${competition.name}`);
 
-                // Add delay between requests to be respectful
-                await new Promise(resolve => setTimeout(resolve, 1000));
+                    const clubNames = await scrapeClubNamesFromLadder(competition.ladderUrl, browser);
 
-            } catch (error) {
-                if (error instanceof HttpError) {
-                    console.error(`🚫 HTTP ${error.status} for ${competition.name} (${error.url})`);
-                    httpFailures.push({ competition: competition.name, url: error.url, status: error.status });
-                } else {
-                    logWarning(`Failed to process ${competition.name}: ${error.message}`);
-                    otherFailures.push({ competition: competition.name, message: error.message });
+                    clubNames.forEach(name => allClubNames.add(name));
+                    processedCount++;
+                } catch (error) {
+                    if (error instanceof HttpError) {
+                        console.error(`🚫 HTTP ${error.status} for ${competition.name} (${error.url})`);
+                        httpFailures.push({ competition: competition.name, url: error.url, status: error.status });
+                    } else {
+                        logWarning(`Failed to process ${competition.name}: ${error.message}`);
+                        otherFailures.push({ competition: competition.name, message: error.message });
+                    }
                 }
-            }
+            }));
         }
 
         logInfo(`Processed ${processedCount}/${competitionsWithLadders.length} competitions`);

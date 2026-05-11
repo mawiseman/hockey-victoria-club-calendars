@@ -1,9 +1,9 @@
-# Footscray Hockey Club
+# Footscray
 
-**29 Active Competitions**  
+**38 Active Competitions**  
 [![Sync Status](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml/badge.svg)](https://github.com/mawiseman/hockey-victoria-club-calendars/actions/workflows/sync-calendars.yml)  
 
-> **<a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=e5b4e34ae8aa71f8f86178b195b908ccdc38cd5694eb4a468b467aa8d67f4f0a%40group.calendar.google.com&src=ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com&src=aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com&src=f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293%40group.calendar.google.com&src=4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com&src=029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com&src=bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com&src=2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com&src=38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com&src=ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com&src=fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com&src=b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com&src=8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a%40group.calendar.google.com&src=43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b%40group.calendar.google.com&src=5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61%40group.calendar.google.com&src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com&src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com&src=415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7%40group.calendar.google.com&src=47b4896026dd4bc5db64dcbbeb6b3003f6500f1511912c02177869af81ac69a4%40group.calendar.google.com&src=e722dc6d07d206f8e36152ad83658d047b6cb3493043a9f8f3a25f495624f482%40group.calendar.google.com&src=96d7ce395385e71a26b648db419bb449ef502bc24781602017f659e4bb410073%40group.calendar.google.com&src=703ae3bb535e156bbf7648f4888693523ad26f9e9f07719621d764b3a1167986%40group.calendar.google.com&src=e11cc1c5ec43ad5d914841b0ac37f27065b7fe9be0c885f2f6daadba863e7cf6%40group.calendar.google.com&src=c529a366efbbed18466d9ad85ea004e4d79c8616a90c33e50557d85390a16849%40group.calendar.google.com&src=39df3c47f565f74db1af11b264da6a13ec0fc2af32e871baecd1f74733887008%40group.calendar.google.com&src=3fdd292f8209d122388947894ff389fa305bb982e383b60fd621486bcaa64d1f%40group.calendar.google.com&src=bbfaaee971a66c95705543b23c1df1b595b307865e9e48dd7c98388418cd80fa%40group.calendar.google.com&src=be8b36bdf408d50b313b89fef5a9e250f456459718259975858496678f770e5f%40group.calendar.google.com&color=%23616161&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00" target="_blank">View All Competitions Calendar</a>**
+> **<a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com&src=aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com&src=f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293%40group.calendar.google.com&src=4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com&src=029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com&src=bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com&src=2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com&src=38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com&src=ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com&src=fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com&src=b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com&src=8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a%40group.calendar.google.com&src=43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b%40group.calendar.google.com&src=5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61%40group.calendar.google.com&src=7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565%40group.calendar.google.com&src=d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052%40group.calendar.google.com&src=44d170af3c39533ec7d7605249c72b84838793437e625ef8331dd4fa82327634%40group.calendar.google.com&src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com&src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com&src=415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7%40group.calendar.google.com&src=47b4896026dd4bc5db64dcbbeb6b3003f6500f1511912c02177869af81ac69a4%40group.calendar.google.com&src=11a4ffa465ace9b758986aedfc0f5d68cb2bb1c12a00542d6eddab88b2148d92%40group.calendar.google.com&src=c3f60973de716326ce3b687c847b6b8f1c1a3bb394fac7fb8807756903a92a89%40group.calendar.google.com&src=e722dc6d07d206f8e36152ad83658d047b6cb3493043a9f8f3a25f495624f482%40group.calendar.google.com&src=96d7ce395385e71a26b648db419bb449ef502bc24781602017f659e4bb410073%40group.calendar.google.com&src=703ae3bb535e156bbf7648f4888693523ad26f9e9f07719621d764b3a1167986%40group.calendar.google.com&src=e11cc1c5ec43ad5d914841b0ac37f27065b7fe9be0c885f2f6daadba863e7cf6%40group.calendar.google.com&src=4a8d02e52344dc4f44a8055b770d24dc20f84344b1355aa334aeef7051b625f5%40group.calendar.google.com&src=b49fc5f7d3bd9434d8d0dcef782c680d2fda60d19b82e57f832adc03274d8825%40group.calendar.google.com&src=c529a366efbbed18466d9ad85ea004e4d79c8616a90c33e50557d85390a16849%40group.calendar.google.com&src=39df3c47f565f74db1af11b264da6a13ec0fc2af32e871baecd1f74733887008%40group.calendar.google.com&src=bf0ac148006a06643da9a58b9c7b7b11f92ae54f4cbef6f1d06257301239f046%40group.calendar.google.com&src=36934ea4ee3167a40efa78410806cc830352e7bdba62f1c130e10f5f52816f99%40group.calendar.google.com&src=3fdd292f8209d122388947894ff389fa305bb982e383b60fd621486bcaa64d1f%40group.calendar.google.com&src=bbfaaee971a66c95705543b23c1df1b595b307865e9e48dd7c98388418cd80fa%40group.calendar.google.com&src=be8b36bdf408d50b313b89fef5a9e250f456459718259975858496678f770e5f%40group.calendar.google.com&color=%23616161&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00" target="_blank">View All Competitions Calendar</a>**
 
 **[Men's](#mens)**  
 - [Mens Premier League - 2026](#mens-premier-league---2026)  
@@ -24,6 +24,9 @@
 - [Womens Metro 1 North West - 2026](#womens-metro-1-north-west---2026)  
 
 **[Midweek](#midweek)**  
+- [2026 Midweek Men's 60+ B](#2026-midweek-mens-60-b)  
+- [35+ Womens Masters Indoor](#35-womens-masters-indoor)  
+- [ICC 35+ Womens Masters](#icc-35-womens-masters)  
 - [Midweek Men's 40+ NW - 2026](#midweek-mens-40-nw---2026)  
 - [Midweek Men's 50+ NW - 2026](#midweek-mens-50-nw---2026)  
 - [Midweek Women's 35+ B - 2026](#midweek-womens-35-b---2026)  
@@ -32,12 +35,18 @@
 
 **[Juniors](#juniors)**  
 - [U18 Mixed District NW - 2026](#u18-mixed-district-nw---2026)  
+- [ICC Under 16 Girls](#icc-under-16-girls)  
+- [JIC Under 16 Mixed](#jic-under-16-mixed)  
 - [U16 Boys Pennant NW - 2026](#u16-boys-pennant-nw---2026)  
 - [U16 Boys Shield - 2026](#u16-boys-shield---2026)  
 - [U16 Girls Pennant NW - 2026](#u16-girls-pennant-nw---2026)  
 - [U16 Girls Shield - 2026](#u16-girls-shield---2026)  
+- [ICC Under 14 Boys](#icc-under-14-boys)  
+- [ICC Under 14 Girls](#icc-under-14-girls)  
 - [U14 Boys Shield - 2026](#u14-boys-shield---2026)  
 - [U14 Girls Pennant NW - 2026](#u14-girls-pennant-nw---2026)  
+- [ICC Under 12 Girls](#icc-under-12-girls)  
+- [ICC Under 12 Mixed](#icc-under-12-mixed)  
 - [U12 District Half Field Mixed NW - T2 - 2026](#u12-district-half-field-mixed-nw---t2---2026)  
 - [U12 Girls Shield - 2026](#u12-girls-shield---2026)  
 - [U12 Mixed Shield - 2026](#u12-mixed-shield---2026)  
@@ -46,7 +55,7 @@
 
 ## Men's
 
-> 📅 **<a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=e5b4e34ae8aa71f8f86178b195b908ccdc38cd5694eb4a468b467aa8d67f4f0a%40group.calendar.google.com&src=ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com&src=aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com&src=f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293%40group.calendar.google.com&src=4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com&src=029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com&src=bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com&src=2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com&color=%23616161&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B" target="_blank">View All Men's Fixtures</a>**
+> 📅 **<a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com&src=aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com&src=f17ab206b611a64df491c6f52c5a0262ba1c0708c4582e40de2be6c5c8918293%40group.calendar.google.com&src=4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com&src=029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com&src=bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com&src=2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com&color=%23616161&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B" target="_blank">View All Men's Fixtures</a>**
 
 <details><summary>📲 Subscribe to all Men's fixtures</summary><br><b>Google Calendar:</b><br>1. Open the <a href="https://calendar.google.com/calendar/embed?src=b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6%40group.calendar.google.com" target="_blank">Google Calendar link</a><br>2. On mobile, tap the <b>+</b> button in the bottom right corner<br>3. On desktop, click <b>Add to Google Calendar</b> at the bottom of the page<br><br><b>iOS Calendar:</b><br>1. Go to <b>Settings > Calendar > Accounts</b><br>2. Tap <b>Add Account > Other</b><br>3. Tap <b>Add Subscribed Calendar</b><br>4. Paste the <a href="https://calendar.google.com/calendar/ical/b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap <b>Next</b><br></details>
 
@@ -201,7 +210,7 @@
 
 ## Women's
 
-> 📅 **<a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=e5b4e34ae8aa71f8f86178b195b908ccdc38cd5694eb4a468b467aa8d67f4f0a%40group.calendar.google.com&src=38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com&src=ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com&src=fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com&src=b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com&src=8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a%40group.calendar.google.com&src=43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b%40group.calendar.google.com&src=5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61%40group.calendar.google.com&color=%23616161&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000" target="_blank">View All Women's Fixtures</a>**
+> 📅 **<a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com&src=ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com&src=fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com&src=b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com&src=8fcc15b1cfeb4d07e785ac1f4a778edf14c336d02cea027e9c1e43fe8f42e12a%40group.calendar.google.com&src=43f73614eb007f0e04b2e0a85bee3ce3b503d8dfd461d961482035764528915b%40group.calendar.google.com&src=5f25ccf3b82afbf2536e242be617a4dec38eab95d0f3940b8f93296f2778dc61%40group.calendar.google.com&color=%23616161&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000" target="_blank">View All Women's Fixtures</a>**
 
 <details><summary>📲 Subscribe to all Women's fixtures</summary><br><b>Google Calendar:</b><br>1. Open the <a href="https://calendar.google.com/calendar/embed?src=45c236109820085226cabd0f84c97574e25fe27183d8155d6ce9fe89e1b486a9%40group.calendar.google.com" target="_blank">Google Calendar link</a><br>2. On mobile, tap the <b>+</b> button in the bottom right corner<br>3. On desktop, click <b>Add to Google Calendar</b> at the bottom of the page<br><br><b>iOS Calendar:</b><br>1. Go to <b>Settings > Calendar > Accounts</b><br>2. Tap <b>Add Account > Other</b><br>3. Tap <b>Add Subscribed Calendar</b><br>4. Paste the <a href="https://calendar.google.com/calendar/ical/45c236109820085226cabd0f84c97574e25fe27183d8155d6ce9fe89e1b486a9%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap <b>Next</b><br></details>
 
@@ -356,9 +365,72 @@
 
 ## Midweek
 
-> 📅 **<a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=e5b4e34ae8aa71f8f86178b195b908ccdc38cd5694eb4a468b467aa8d67f4f0a%40group.calendar.google.com&src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com&src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com&src=415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7%40group.calendar.google.com&color=%23616161&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23008000" target="_blank">View All Midweek Fixtures</a>**
+> 📅 **<a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565%40group.calendar.google.com&src=d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052%40group.calendar.google.com&src=44d170af3c39533ec7d7605249c72b84838793437e625ef8331dd4fa82327634%40group.calendar.google.com&src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com&src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com&src=415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7%40group.calendar.google.com&color=%23616161&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23008000" target="_blank">View All Midweek Fixtures</a>**
 
 <details><summary>📲 Subscribe to all Midweek fixtures</summary><br><b>Google Calendar:</b><br>1. Open the <a href="https://calendar.google.com/calendar/embed?src=fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e%40group.calendar.google.com" target="_blank">Google Calendar link</a><br>2. On mobile, tap the <b>+</b> button in the bottom right corner<br>3. On desktop, click <b>Add to Google Calendar</b> at the bottom of the page<br><br><b>iOS Calendar:</b><br>1. Go to <b>Settings > Calendar > Accounts</b><br>2. Tap <b>Add Account > Other</b><br>3. Tap <b>Add Subscribed Calendar</b><br>4. Paste the <a href="https://calendar.google.com/calendar/ical/fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap <b>Next</b><br></details>
+
+### 2026 Midweek Men's 60+ B
+
+<a href="https://www.hockeyvictoria.org.au/games/team/26185/416497" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/26185/42443" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565%40group.calendar.google.com" target="_blank">📅 Google Calendar</a>
+
+<details><summary>📲 Subscribe</summary>
+
+**Google Calendar**
+
+1. Open the <a href="https://calendar.google.com/calendar/embed?src=7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565%40group.calendar.google.com" target="_blank">Google Calendar link</a>
+2. On mobile, tap the **+** button in the bottom right corner
+3. On desktop, click **Add to Google Calendar** at the bottom of the page
+
+**iOS Calendar**
+
+1. Go to **Settings > Calendar > Accounts**
+2. Tap **Add Account > Other**
+3. Tap **Add Subscribed Calendar**
+4. Paste the <a href="https://calendar.google.com/calendar/ical/7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
+
+</details>
+
+### 35+ Womens Masters Indoor
+
+<a href="https://www.hockeyvictoria.org.au/games/team/26354/418892" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/26354/42646" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052%40group.calendar.google.com" target="_blank">📅 Google Calendar</a>
+
+<details><summary>📲 Subscribe</summary>
+
+**Google Calendar**
+
+1. Open the <a href="https://calendar.google.com/calendar/embed?src=d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052%40group.calendar.google.com" target="_blank">Google Calendar link</a>
+2. On mobile, tap the **+** button in the bottom right corner
+3. On desktop, click **Add to Google Calendar** at the bottom of the page
+
+**iOS Calendar**
+
+1. Go to **Settings > Calendar > Accounts**
+2. Tap **Add Account > Other**
+3. Tap **Add Subscribed Calendar**
+4. Paste the <a href="https://calendar.google.com/calendar/ical/d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
+
+</details>
+
+### ICC 35+ Womens Masters
+
+<a href="https://www.hockeyvictoria.org.au/games/team/24921/404410" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/24921/40847" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=44d170af3c39533ec7d7605249c72b84838793437e625ef8331dd4fa82327634%40group.calendar.google.com" target="_blank">📅 Google Calendar</a>
+
+<details><summary>📲 Subscribe</summary>
+
+**Google Calendar**
+
+1. Open the <a href="https://calendar.google.com/calendar/embed?src=44d170af3c39533ec7d7605249c72b84838793437e625ef8331dd4fa82327634%40group.calendar.google.com" target="_blank">Google Calendar link</a>
+2. On mobile, tap the **+** button in the bottom right corner
+3. On desktop, click **Add to Google Calendar** at the bottom of the page
+
+**iOS Calendar**
+
+1. Go to **Settings > Calendar > Accounts**
+2. Tap **Add Account > Other**
+3. Tap **Add Subscribed Calendar**
+4. Paste the <a href="https://calendar.google.com/calendar/ical/44d170af3c39533ec7d7605249c72b84838793437e625ef8331dd4fa82327634%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
+
+</details>
 
 ### Midweek Men's 40+ NW - 2026
 
@@ -469,7 +541,7 @@
 
 ## Juniors
 
-> 📅 **<a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=e5b4e34ae8aa71f8f86178b195b908ccdc38cd5694eb4a468b467aa8d67f4f0a%40group.calendar.google.com&src=47b4896026dd4bc5db64dcbbeb6b3003f6500f1511912c02177869af81ac69a4%40group.calendar.google.com&src=e722dc6d07d206f8e36152ad83658d047b6cb3493043a9f8f3a25f495624f482%40group.calendar.google.com&src=96d7ce395385e71a26b648db419bb449ef502bc24781602017f659e4bb410073%40group.calendar.google.com&src=703ae3bb535e156bbf7648f4888693523ad26f9e9f07719621d764b3a1167986%40group.calendar.google.com&src=e11cc1c5ec43ad5d914841b0ac37f27065b7fe9be0c885f2f6daadba863e7cf6%40group.calendar.google.com&src=c529a366efbbed18466d9ad85ea004e4d79c8616a90c33e50557d85390a16849%40group.calendar.google.com&src=39df3c47f565f74db1af11b264da6a13ec0fc2af32e871baecd1f74733887008%40group.calendar.google.com&src=3fdd292f8209d122388947894ff389fa305bb982e383b60fd621486bcaa64d1f%40group.calendar.google.com&src=bbfaaee971a66c95705543b23c1df1b595b307865e9e48dd7c98388418cd80fa%40group.calendar.google.com&src=be8b36bdf408d50b313b89fef5a9e250f456459718259975858496678f770e5f%40group.calendar.google.com&color=%23616161&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00" target="_blank">View All Juniors Fixtures</a>**
+> 📅 **<a href="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=47b4896026dd4bc5db64dcbbeb6b3003f6500f1511912c02177869af81ac69a4%40group.calendar.google.com&src=11a4ffa465ace9b758986aedfc0f5d68cb2bb1c12a00542d6eddab88b2148d92%40group.calendar.google.com&src=c3f60973de716326ce3b687c847b6b8f1c1a3bb394fac7fb8807756903a92a89%40group.calendar.google.com&src=e722dc6d07d206f8e36152ad83658d047b6cb3493043a9f8f3a25f495624f482%40group.calendar.google.com&src=96d7ce395385e71a26b648db419bb449ef502bc24781602017f659e4bb410073%40group.calendar.google.com&src=703ae3bb535e156bbf7648f4888693523ad26f9e9f07719621d764b3a1167986%40group.calendar.google.com&src=e11cc1c5ec43ad5d914841b0ac37f27065b7fe9be0c885f2f6daadba863e7cf6%40group.calendar.google.com&src=4a8d02e52344dc4f44a8055b770d24dc20f84344b1355aa334aeef7051b625f5%40group.calendar.google.com&src=b49fc5f7d3bd9434d8d0dcef782c680d2fda60d19b82e57f832adc03274d8825%40group.calendar.google.com&src=c529a366efbbed18466d9ad85ea004e4d79c8616a90c33e50557d85390a16849%40group.calendar.google.com&src=39df3c47f565f74db1af11b264da6a13ec0fc2af32e871baecd1f74733887008%40group.calendar.google.com&src=bf0ac148006a06643da9a58b9c7b7b11f92ae54f4cbef6f1d06257301239f046%40group.calendar.google.com&src=36934ea4ee3167a40efa78410806cc830352e7bdba62f1c130e10f5f52816f99%40group.calendar.google.com&src=3fdd292f8209d122388947894ff389fa305bb982e383b60fd621486bcaa64d1f%40group.calendar.google.com&src=bbfaaee971a66c95705543b23c1df1b595b307865e9e48dd7c98388418cd80fa%40group.calendar.google.com&src=be8b36bdf408d50b313b89fef5a9e250f456459718259975858496678f770e5f%40group.calendar.google.com&color=%23616161&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00" target="_blank">View All Juniors Fixtures</a>**
 
 <details><summary>📲 Subscribe to all Juniors fixtures</summary><br><b>Google Calendar:</b><br>1. Open the <a href="https://calendar.google.com/calendar/embed?src=a621fd9b3e4a3996c8ea70697cab4198ad5605847234af74be60fc91345c08c9%40group.calendar.google.com" target="_blank">Google Calendar link</a><br>2. On mobile, tap the <b>+</b> button in the bottom right corner<br>3. On desktop, click <b>Add to Google Calendar</b> at the bottom of the page<br><br><b>iOS Calendar:</b><br>1. Go to <b>Settings > Calendar > Accounts</b><br>2. Tap <b>Add Account > Other</b><br>3. Tap <b>Add Subscribed Calendar</b><br>4. Paste the <a href="https://calendar.google.com/calendar/ical/a621fd9b3e4a3996c8ea70697cab4198ad5605847234af74be60fc91345c08c9%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap <b>Next</b><br></details>
 
@@ -491,6 +563,48 @@
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
 4. Paste the <a href="https://calendar.google.com/calendar/ical/47b4896026dd4bc5db64dcbbeb6b3003f6500f1511912c02177869af81ac69a4%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
+
+</details>
+
+### ICC Under 16 Girls
+
+<a href="https://www.hockeyvictoria.org.au/games/team/24921/399433" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/24921/40849" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=11a4ffa465ace9b758986aedfc0f5d68cb2bb1c12a00542d6eddab88b2148d92%40group.calendar.google.com" target="_blank">📅 Google Calendar</a>
+
+<details><summary>📲 Subscribe</summary>
+
+**Google Calendar**
+
+1. Open the <a href="https://calendar.google.com/calendar/embed?src=11a4ffa465ace9b758986aedfc0f5d68cb2bb1c12a00542d6eddab88b2148d92%40group.calendar.google.com" target="_blank">Google Calendar link</a>
+2. On mobile, tap the **+** button in the bottom right corner
+3. On desktop, click **Add to Google Calendar** at the bottom of the page
+
+**iOS Calendar**
+
+1. Go to **Settings > Calendar > Accounts**
+2. Tap **Add Account > Other**
+3. Tap **Add Subscribed Calendar**
+4. Paste the <a href="https://calendar.google.com/calendar/ical/11a4ffa465ace9b758986aedfc0f5d68cb2bb1c12a00542d6eddab88b2148d92%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
+
+</details>
+
+### JIC Under 16 Mixed
+
+<a href="https://www.hockeyvictoria.org.au/games/team/24922/396419" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/24922/40856" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=c3f60973de716326ce3b687c847b6b8f1c1a3bb394fac7fb8807756903a92a89%40group.calendar.google.com" target="_blank">📅 Google Calendar</a>
+
+<details><summary>📲 Subscribe</summary>
+
+**Google Calendar**
+
+1. Open the <a href="https://calendar.google.com/calendar/embed?src=c3f60973de716326ce3b687c847b6b8f1c1a3bb394fac7fb8807756903a92a89%40group.calendar.google.com" target="_blank">Google Calendar link</a>
+2. On mobile, tap the **+** button in the bottom right corner
+3. On desktop, click **Add to Google Calendar** at the bottom of the page
+
+**iOS Calendar**
+
+1. Go to **Settings > Calendar > Accounts**
+2. Tap **Add Account > Other**
+3. Tap **Add Subscribed Calendar**
+4. Paste the <a href="https://calendar.google.com/calendar/ical/c3f60973de716326ce3b687c847b6b8f1c1a3bb394fac7fb8807756903a92a89%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
@@ -578,6 +692,48 @@
 
 </details>
 
+### ICC Under 14 Boys
+
+<a href="https://www.hockeyvictoria.org.au/games/team/24921/399456" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/24921/40854" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=4a8d02e52344dc4f44a8055b770d24dc20f84344b1355aa334aeef7051b625f5%40group.calendar.google.com" target="_blank">📅 Google Calendar</a>
+
+<details><summary>📲 Subscribe</summary>
+
+**Google Calendar**
+
+1. Open the <a href="https://calendar.google.com/calendar/embed?src=4a8d02e52344dc4f44a8055b770d24dc20f84344b1355aa334aeef7051b625f5%40group.calendar.google.com" target="_blank">Google Calendar link</a>
+2. On mobile, tap the **+** button in the bottom right corner
+3. On desktop, click **Add to Google Calendar** at the bottom of the page
+
+**iOS Calendar**
+
+1. Go to **Settings > Calendar > Accounts**
+2. Tap **Add Account > Other**
+3. Tap **Add Subscribed Calendar**
+4. Paste the <a href="https://calendar.google.com/calendar/ical/4a8d02e52344dc4f44a8055b770d24dc20f84344b1355aa334aeef7051b625f5%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
+
+</details>
+
+### ICC Under 14 Girls
+
+<a href="https://www.hockeyvictoria.org.au/games/team/24921/399449" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/24921/40851" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=b49fc5f7d3bd9434d8d0dcef782c680d2fda60d19b82e57f832adc03274d8825%40group.calendar.google.com" target="_blank">📅 Google Calendar</a>
+
+<details><summary>📲 Subscribe</summary>
+
+**Google Calendar**
+
+1. Open the <a href="https://calendar.google.com/calendar/embed?src=b49fc5f7d3bd9434d8d0dcef782c680d2fda60d19b82e57f832adc03274d8825%40group.calendar.google.com" target="_blank">Google Calendar link</a>
+2. On mobile, tap the **+** button in the bottom right corner
+3. On desktop, click **Add to Google Calendar** at the bottom of the page
+
+**iOS Calendar**
+
+1. Go to **Settings > Calendar > Accounts**
+2. Tap **Add Account > Other**
+3. Tap **Add Subscribed Calendar**
+4. Paste the <a href="https://calendar.google.com/calendar/ical/b49fc5f7d3bd9434d8d0dcef782c680d2fda60d19b82e57f832adc03274d8825%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
+
+</details>
+
 ### U14 Boys Shield - 2026
 
 <a href="https://www.hockeyvictoria.org.au/games/team/26323/418025" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/26323/42573" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=c529a366efbbed18466d9ad85ea004e4d79c8616a90c33e50557d85390a16849%40group.calendar.google.com" target="_blank">📅 Google Calendar</a>
@@ -617,6 +773,48 @@
 2. Tap **Add Account > Other**
 3. Tap **Add Subscribed Calendar**
 4. Paste the <a href="https://calendar.google.com/calendar/ical/39df3c47f565f74db1af11b264da6a13ec0fc2af32e871baecd1f74733887008%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
+
+</details>
+
+### ICC Under 12 Girls
+
+<a href="https://www.hockeyvictoria.org.au/games/team/24921/404397" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/24921/40850" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=bf0ac148006a06643da9a58b9c7b7b11f92ae54f4cbef6f1d06257301239f046%40group.calendar.google.com" target="_blank">📅 Google Calendar</a>
+
+<details><summary>📲 Subscribe</summary>
+
+**Google Calendar**
+
+1. Open the <a href="https://calendar.google.com/calendar/embed?src=bf0ac148006a06643da9a58b9c7b7b11f92ae54f4cbef6f1d06257301239f046%40group.calendar.google.com" target="_blank">Google Calendar link</a>
+2. On mobile, tap the **+** button in the bottom right corner
+3. On desktop, click **Add to Google Calendar** at the bottom of the page
+
+**iOS Calendar**
+
+1. Go to **Settings > Calendar > Accounts**
+2. Tap **Add Account > Other**
+3. Tap **Add Subscribed Calendar**
+4. Paste the <a href="https://calendar.google.com/calendar/ical/bf0ac148006a06643da9a58b9c7b7b11f92ae54f4cbef6f1d06257301239f046%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
+
+</details>
+
+### ICC Under 12 Mixed
+
+<a href="https://www.hockeyvictoria.org.au/games/team/24921/404401" target="_blank">🏑 Fixture</a> | <a href="https://www.hockeyvictoria.org.au/games/24921/40855" target="_blank">🏆 Competition</a> | <a href="https://calendar.google.com/calendar/embed?src=36934ea4ee3167a40efa78410806cc830352e7bdba62f1c130e10f5f52816f99%40group.calendar.google.com" target="_blank">📅 Google Calendar</a>
+
+<details><summary>📲 Subscribe</summary>
+
+**Google Calendar**
+
+1. Open the <a href="https://calendar.google.com/calendar/embed?src=36934ea4ee3167a40efa78410806cc830352e7bdba62f1c130e10f5f52816f99%40group.calendar.google.com" target="_blank">Google Calendar link</a>
+2. On mobile, tap the **+** button in the bottom right corner
+3. On desktop, click **Add to Google Calendar** at the bottom of the page
+
+**iOS Calendar**
+
+1. Go to **Settings > Calendar > Accounts**
+2. Tap **Add Account > Other**
+3. Tap **Add Subscribed Calendar**
+4. Paste the <a href="https://calendar.google.com/calendar/ical/36934ea4ee3167a40efa78410806cc830352e7bdba62f1c130e10f5f52816f99%40group.calendar.google.com/public/basic.ics">iCal link</a> and tap **Next**
 
 </details>
 
