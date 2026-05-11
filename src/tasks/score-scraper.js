@@ -98,12 +98,34 @@ function parseCard(blockText, compName) {
     if (!dtstartLocal) return null;
 
     // Venue abbreviation — the small <div>ABBR</div> sitting after the venue
-    // link. Hyphens permitted (e.g. "H-2").
+    // link. Hyphens permitted (e.g. "H-2"). The abbr group allows zero chars
+    // so bye cards (which have an empty <div></div> after the venue link)
+    // still match — we detect them below.
     const venueMatch = blockText.match(
-        /href="[^"]*\/venues\/[^"]*"[^>]*>\s*([^<]+?)\s*<\/a>\s*<div>\s*([A-Za-z0-9-]+)\s*<\/div>/
+        /href="[^"]*\/venues\/[^"]*"[^>]*>\s*([^<]+?)\s*<\/a>\s*<div>\s*([A-Za-z0-9-]*)\s*<\/div>/
     );
-    const venueAbbr = venueMatch ? venueMatch[2] : null;
+    const venueAbbr = venueMatch && venueMatch[2] ? venueMatch[2] : null;
     const venueName = venueMatch ? decodeEntities(venueMatch[1].replace(/\s+/g, ' ').trim()) : null;
+
+    // Bye detection — HV's team-page bye cards have venue link text "BYE",
+    // an empty abbreviation div, no opponent link, and no status div. Emit a
+    // tagged record up-front so the downstream pipeline doesn't have to
+    // special-case the missing fields.
+    if (venueName === 'BYE') {
+        return {
+            round,
+            dtstartLocal,
+            isBye: true,
+            venueAbbr: null,
+            venueName: null,
+            opponentName: null,
+            opponentTeamUrl: null,
+            status: 'Bye',
+            score: null,
+            result: null,
+            gameId: null
+        };
+    }
 
     // Opponent team link — text format is "{compName} {OpponentClubName}".
     // Stripping the comp prefix yields the opponent. The link href is the

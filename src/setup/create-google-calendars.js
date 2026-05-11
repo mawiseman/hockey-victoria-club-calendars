@@ -4,7 +4,7 @@ import { dirname } from 'path';
 
 // Import shared utilities
 import { initializeCalendarClient } from '../lib/google-auth.js';
-import { loadCompetitionData, getCompetitionsWithoutCalendars } from '../lib/competition-utils.js';
+import { loadCompetitionData, getCompetitionsWithoutCalendars, saveCompetitionData } from '../lib/competition-utils.js';
 import { getCalendarPrefix, getClubName, COMPETITIONS_FILE, getCurrentTimestamp, getSettings, COMPETITION_CATEGORIES, CATEGORY_LABELS } from '../lib/config.js';
 import { withErrorHandling, logSuccess, logWarning, logInfo, retryWithBackoff } from '../lib/error-utils.js';
 
@@ -323,8 +323,8 @@ async function updateCompetitionData(competitionData, calendarUpdates) {
         }
     });
     
-    // Save updated data
-    await fs.writeFile(COMPETITIONS_FILE, JSON.stringify(competitionData, null, 2), 'utf8');
+    // Save updated data (sorted via shared helper)
+    await saveCompetitionData(competitionData);
 }
 
 /**

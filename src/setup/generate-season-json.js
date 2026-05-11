@@ -210,12 +210,26 @@ function melbourneLocalToUtcIso(localStr) {
 // ─── Per-game build ─────────────────────────────────────────────────
 
 function buildEvent(card, competition, clubName, clubLookup) {
-    // Some cards (cancelled / placeholder rows) might miss either field.
-    if (!card.dtstartLocal || !card.venueAbbr) return null;
+    // Need a date on every emitted row — without it we can't place it on the
+    // calendar. Byes don't need a venue (`venueAbbr` empty/null) so don't
+    // gate on that here.
+    if (!card.dtstartLocal) return null;
+    if (!card.isBye && !card.venueAbbr) return null;
 
     const dtstart = melbourneLocalToUtcIso(card.dtstartLocal);
     const matchMinutes = competition.matchDuration || DEFAULT_MATCH_MINUTES;
     const dtend = new Date(new Date(dtstart).getTime() + matchMinutes * 60 * 1000).toISOString();
+
+    // Byes carry only round + date — no opponent, venue, score, or gameId.
+    // The front-end keys off `isBye` to render a distinct row.
+    if (card.isBye) {
+        return {
+            round: card.round,
+            dtstart,
+            dtend,
+            isBye: true
+        };
+    }
 
     // FHC is at home when the venue belongs to the club. Venue name from the
     // scrape (full, e.g. "Footscray Hockey Club") starts with the configured

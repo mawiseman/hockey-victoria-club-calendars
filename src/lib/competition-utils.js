@@ -179,6 +179,19 @@ export function categorizeCompetitions(competitions) {
 }
 
 /**
+ * Save competition data to disk in canonical sorted order. All writers should
+ * route through this so file ordering stays stable across scrapes, status
+ * updates, and calendar creation. Mutates `competitionData.competitions` in
+ * place by replacing it with the sorted array.
+ * @param {Object} competitionData - Full competitions.json payload
+ * @param {string} filePath - Optional override path
+ */
+export async function saveCompetitionData(competitionData, filePath = COMPETITIONS_FILE) {
+    competitionData.competitions = sortCompetitions(competitionData.competitions || []);
+    await fs.writeFile(filePath, JSON.stringify(competitionData, null, 2) + '\n', 'utf8');
+}
+
+/**
  * Filter competitions that have Google Calendar configured
  * @param {Array} competitions - Array of competition objects
  * @returns {Array} - Competitions with Google Calendar

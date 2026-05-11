@@ -1,11 +1,9 @@
-import fs from 'fs/promises';
 import fetch from 'node-fetch';
 import ical from 'ical';
 
 // Import shared utilities
-import { loadCompetitionData } from '../lib/competition-utils.js';
+import { loadCompetitionData, saveCompetitionData } from '../lib/competition-utils.js';
 import { logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
-import { COMPETITIONS_FILE } from '../lib/config.js';
 
 const ICAL_BASE_URL = 'https://www.hockeyvictoria.org.au/games/team/export/ical/';
 
@@ -134,8 +132,8 @@ async function updateCompetitionStatus() {
         competitionData.activeCompetitions = activeCount;
         competitionData.inactiveCompetitions = inactiveCount;
 
-        // Save the updated competitions file
-        await fs.writeFile(COMPETITIONS_FILE, JSON.stringify(competitionData, null, 2), 'utf8');
+        // Save the updated competitions file (sorted via shared helper)
+        await saveCompetitionData(competitionData);
 
         logSuccess(`Updated ${updatedCount} competition statuses`);
         logInfo(`Active competitions: ${activeCount}`);

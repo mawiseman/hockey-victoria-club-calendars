@@ -109,6 +109,8 @@ function eventToFixture(event, team) {
         endTime: event.dtend ? new Date(event.dtend) : null,
         location: event.location || '',
         score: event.score || null,
+        isBye: !!event.isBye,
+        round: event.round || null,
     };
 }
 
@@ -339,6 +341,11 @@ function renderFixtures(fixtures, linkContext = null) {
 }
 
 function buildFixtureRow(f, now, mode = 'week', linkContext = null) {
+    // Byes are a separate visual shape — no opponent, no score, no venue —
+    // so peel them off into a dedicated renderer rather than threading a
+    // pile of conditionals through the regular row builder.
+    if (f.isBye) return buildByeRow(f, now, mode, linkContext);
+
     // Treat as "past" once the end time has gone (fall back to a 90-min
     // window when DTEND is absent).
     const endsAt = f.endTime || new Date(f.time.getTime() + 90 * 60 * 1000);
@@ -418,6 +425,71 @@ function buildFixtureRow(f, now, mode = 'week', linkContext = null) {
     const oppLogo = createLogo(oppAbbr);
     oppLogo.classList.add('logo-opp');
     row.appendChild(oppLogo);
+
+    if (mode !== 'team' && f.slug) {
+        const chev = document.createElement('span');
+        chev.className = 'row-chev';
+        chev.textContent = '›';
+        chev.setAttribute('aria-hidden', 'true');
+        row.appendChild(chev);
+    }
+
+    return row;
+}
+
+// Render a fixture row for a bye round. Same outer shape as a normal row
+// (FHC logo on the left, chevron on the right in week view) so it slots
+// cleanly into the existing layout, but with the opponent/score/venue
+// collapsed into a single muted "BYE" cell that spans the middle.
+function buildByeRow(f, now, mode = 'week', linkContext = null) {
+    // Past-fade kicks in for byes a calendar day after the placeholder time
+    // — the bye `dtend` is just `dtstart + matchDuration` (a 90-min window
+    // starting at midnight, by HV's convention) which would fade out before
+    // dawn on the bye day itself. Add 24 hours so the bye stays "live"
+    // for the day it's on.
+    const endsAt = f.endTime
+        ? new Date(f.endTime.getTime() + 24 * 60 * 60 * 1000)
+        : new Date(f.time.getTime() + 24 * 60 * 60 * 1000);
+    const isPast = endsAt < now;
+
+    const row = document.createElement(mode === 'team' ? 'div' : 'a');
+    row.className = 'fixture-row is-bye'
+        + (mode === 'team' ? ' team-view' : '')
+        + (isPast ? ' is-past' : '');
+    if (mode !== 'team' && f.slug) {
+        row.href = `#/team/${f.slug}${buildReturnQuery(linkContext)}`;
+    }
+
+    const fhcLogo = createLogo('FHC');
+    fhcLogo.classList.add('logo-fhc');
+    row.appendChild(fhcLogo);
+
+    if (mode === 'team') {
+        // Just the date — the 00:00 placeholder time HV publishes for byes
+        // would be misleading next to the precise kick-off times on real
+        // fixture rows.
+        const when = document.createElement('span');
+        when.className = 'team-when';
+        when.textContent = formatDayBanner(f.time);
+        row.appendChild(when);
+    } else {
+        const grade = document.createElement('span');
+        grade.className = 'grade';
+        grade.textContent = f.shortCode;
+        row.appendChild(grade);
+
+        // Suppress the time on week-view bye rows — the day banner already
+        // tells the user which day this is.
+        const spacer = document.createElement('span');
+        spacer.className = 'time';
+        spacer.textContent = '';
+        row.appendChild(spacer);
+    }
+
+    const label = document.createElement('span');
+    label.className = 'bye-label';
+    label.textContent = f.round ? `BYE · Round ${f.round}` : 'BYE';
+    row.appendChild(label);
 
     if (mode !== 'team' && f.slug) {
         const chev = document.createElement('span');
