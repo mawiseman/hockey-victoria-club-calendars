@@ -146,44 +146,37 @@ async function scrapeClubNamesFromLadder(ladderUrl, browser) {
         // Wait for the ladder table to load
         await page.waitForSelector('table, .ladder-table, .points-table', { timeout: 10000 });
         
-        // Extract club names from the ladder table
+        // Extract every team name from the ladder structurally rather than via
+        // text heuristics. HV ladder rows have the team name as the link text
+        // in the first <td>, prefixed with "N." for position. Pulling the <a>
+        // text directly catches every form — "Footscray Hockey Club", "Southern B",
+        // "Camberwell Tangerine", "OEMHC MUDS" — without false-negative regex gaps.
+        // updateClubMappings() will dedupe against the existing mappings file.
         const clubNames = await page.evaluate(() => {
             const clubs = new Set();
-            
-            // Look for table rows containing club names
-            const tables = document.querySelectorAll('table');
-            
-            for (const table of tables) {
-                const rows = table.querySelectorAll('tr');
-                
-                for (const row of rows) {
-                    const cells = row.querySelectorAll('td, th');
-                    
-                    for (const cell of cells) {
-                        const text = cell.textContent.trim();
-                        
-                        // Look for text that contains "Hockey Club" or similar patterns
-                        if (text.match(/\b\w+.*Hockey Club\b/i) || 
-                            text.match(/\b\w+.*HC\b/i) ||
-                            text.match(/\b[A-Z][a-z]+\s+[A-Z][a-z]+.*\b/)) {
-                            
-                            // Clean up the text - remove leading numbers, dots, and whitespace
-                            const cleanText = text
-                                .replace(/^\d+\.?\s*/, '') // Remove leading numbers with optional dot
-                                .replace(/\s+\d+$/, '')    // Remove trailing numbers
-                                .replace(/\s+$/, '')       // Remove trailing whitespace
-                                .trim();
-                            
-                            // Add if it looks like a club name
-                            if (cleanText.length > 5 && !cleanText.match(/^\d+$/)) {
-                                clubs.add(cleanText);
-                            }
-                        }
-                    }
-                }
+
+            // Match ladder-scraper.js's table selector for consistency.
+            const table = document.querySelector('table.table.table-hover')
+                || document.querySelector('table.table-hover');
+            if (!table) return [];
+
+            const tbody = table.querySelector('tbody') || table;
+            const rows = tbody.querySelectorAll('tr');
+
+            for (const row of rows) {
+                const firstCell = row.querySelector('td');
+                if (!firstCell) continue;
+
+                // Prefer the link text — bye/forfeit rows without a link fall back
+                // to the cell text minus the "N. " position prefix.
+                const link = firstCell.querySelector('a');
+                const raw = link ? link.textContent : firstCell.textContent;
+                const name = raw.replace(/^\s*\d+\.\s*/, '').trim();
+
+                if (name) clubs.add(name);
             }
-            
-            return Array.from(clubs);
+
+            return [...clubs];
         });
         
         logInfo(`Found ${clubNames.length} potential club names`);
