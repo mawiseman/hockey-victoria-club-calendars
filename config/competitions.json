@@ -623,7 +623,8 @@
         "title": "FHC U14 Mixed District NW - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-05-17T17:16:52.412Z"
     },
     {
       "name": "ICC Under 12 Girls",
@@ -731,7 +732,7 @@
       "isActive": true
     }
   ],
-  "lastStatusUpdate": "2026-05-16T17:17:49.000Z",
-  "activeCompetitions": 32,
-  "inactiveCompetitions": 10
+  "lastStatusUpdate": "2026-05-17T17:16:54.069Z",
+  "activeCompetitions": 31,
+  "inactiveCompetitions": 11
 }
