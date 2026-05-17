@@ -251,8 +251,15 @@ function buildEvent(card, competition, clubName, clubLookup) {
         gameId: card.gameId || null
     };
 
-    if (card.status === 'Played' && card.score) {
-        event.score = card.score;
+    // Numeric score takes priority; FF/FL outcome stands in when the game was
+    // a forfeit (no digits on the card). Front-end renders both via the same
+    // score chip so no UI branching is needed.
+    if (card.status === 'Played') {
+        if (card.score) {
+            event.score = card.score;
+        } else if (card.outcomeType) {
+            event.score = card.outcomeType;
+        }
     }
 
     return event;

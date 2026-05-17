@@ -156,6 +156,13 @@ function parseCard(blockText, compName) {
     const badgeMatch = tail.match(/<div class="badge badge-\w+">\s*([^<]+?)\s*<\/div>/);
     const result = badgeMatch ? badgeMatch[1].trim() : null;
 
+    // Forfeit (FF) / Forced Loss (FL) markers — HV puts these in a <span> badge
+    // alongside the "No score" placeholders, while the team's own outcome
+    // (Win/Loss) sits in the <div> badge above. The class attribute can wrap
+    // across whitespace ("badge badge-danger\n align-middle"), so allow that.
+    const outcomeTypeMatch = tail.match(/<span\s+class="badge\s+badge-\w+[^"]*">\s*(FF|FL)\s*<\/span>/i);
+    const outcomeType = outcomeTypeMatch ? outcomeTypeMatch[1].toUpperCase() : null;
+
     // Game ID from /game/<id>.
     const gameIdMatch = blockText.match(/\/game\/(\d+)/);
     const gameId = gameIdMatch ? gameIdMatch[1] : null;
@@ -170,6 +177,7 @@ function parseCard(blockText, compName) {
         status,
         score,
         result,
+        outcomeType,
         gameId
     };
 }
