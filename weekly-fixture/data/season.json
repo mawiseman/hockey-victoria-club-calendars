@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-18T18:21:47.068Z",
-  "sourcesGeneratedAt": "2026-05-18T18:21:07.837Z",
-  "laddersGeneratedAt": "2026-05-18T18:21:45.561Z",
+  "generatedAt": "2026-05-19T18:25:56.527Z",
+  "sourcesGeneratedAt": "2026-05-19T18:25:14.599Z",
+  "laddersGeneratedAt": "2026-05-19T18:25:54.867Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -435,7 +435,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - IND",
-          "gameId": "2533506"
+          "gameId": "2533506",
+          "score": "2-2"
         },
         {
           "round": 3,
@@ -533,20 +534,48 @@
       "ladder": [
         {
           "pos": 1,
+          "team": "Camberwell Hockey Club",
+          "p": 2,
+          "w": 1,
+          "d": 1,
+          "l": 0,
+          "bye": 0,
+          "gf": 4,
+          "ga": 2,
+          "gd": 2,
+          "pts": 4,
+          "isClub": false
+        },
+        {
+          "pos": 2,
           "team": "Footscray Hockey Club",
+          "p": 2,
+          "w": 0,
+          "d": 2,
+          "l": 0,
+          "bye": 0,
+          "gf": 3,
+          "ga": 3,
+          "gd": 0,
+          "pts": 2,
+          "isClub": true
+        },
+        {
+          "pos": 3,
+          "team": "PEGS Hockey Club",
           "p": 1,
           "w": 0,
           "d": 1,
           "l": 0,
-          "bye": 0,
-          "gf": 1,
-          "ga": 1,
+          "bye": 1,
+          "gf": 2,
+          "ga": 2,
           "gd": 0,
           "pts": 1,
-          "isClub": true
+          "isClub": false
         },
         {
-          "pos": 2,
+          "pos": 4,
           "team": "Toorak East Malvern Hockey Club",
           "p": 1,
           "w": 0,
@@ -560,45 +589,17 @@
           "isClub": false
         },
         {
-          "pos": 3,
-          "team": "Camberwell Hockey Club",
-          "p": 1,
-          "w": 0,
-          "d": 1,
-          "l": 0,
-          "bye": 0,
-          "gf": 1,
-          "ga": 1,
-          "gd": 0,
-          "pts": 1,
-          "isClub": false
-        },
-        {
-          "pos": 4,
-          "team": "Essendon Hockey",
-          "p": 1,
-          "w": 0,
-          "d": 1,
-          "l": 0,
-          "bye": 0,
-          "gf": 1,
-          "ga": 1,
-          "gd": 0,
-          "pts": 1,
-          "isClub": false
-        },
-        {
           "pos": 5,
-          "team": "PEGS Hockey Club",
-          "p": 0,
+          "team": "Essendon Hockey",
+          "p": 2,
           "w": 0,
-          "d": 0,
-          "l": 0,
-          "bye": 1,
-          "gf": 0,
-          "ga": 0,
-          "gd": 0,
-          "pts": 0,
+          "d": 1,
+          "l": 1,
+          "bye": 0,
+          "gf": 2,
+          "ga": 4,
+          "gd": -2,
+          "pts": 1,
           "isClub": false
         }
       ]
@@ -822,15 +823,15 @@
         {
           "pos": 2,
           "team": "Hume Hockey Club",
-          "p": 5,
+          "p": 6,
           "w": 3,
-          "d": 2,
+          "d": 3,
           "l": 0,
           "bye": 0,
           "gf": 9,
           "ga": 3,
           "gd": 6,
-          "pts": 11,
+          "pts": 12,
           "isClub": false
         },
         {
@@ -863,20 +864,6 @@
         },
         {
           "pos": 5,
-          "team": "MCC Hockey Section",
-          "p": 5,
-          "w": 2,
-          "d": 0,
-          "l": 3,
-          "bye": 0,
-          "gf": 13,
-          "ga": 16,
-          "gd": -3,
-          "pts": 6,
-          "isClub": false
-        },
-        {
-          "pos": 6,
           "team": "Altona Hockey Club",
           "p": 6,
           "w": 2,
@@ -886,6 +873,20 @@
           "gf": 12,
           "ga": 9,
           "gd": 3,
+          "pts": 7,
+          "isClub": false
+        },
+        {
+          "pos": 6,
+          "team": "MCC Hockey Section",
+          "p": 6,
+          "w": 2,
+          "d": 1,
+          "l": 3,
+          "bye": 0,
+          "gf": 13,
+          "ga": 16,
+          "gd": -3,
           "pts": 7,
           "isClub": false
         },
