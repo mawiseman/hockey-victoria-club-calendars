@@ -1,24 +1,8 @@
 {
-  "generatedAt": "2026-05-25T18:06:19.559Z",
-  "windowStart": "2026-05-17T18:06:19.559Z",
-  "windowEnd": "2026-06-08T18:06:19.559Z",
+  "generatedAt": "2026-05-26T18:48:05.424Z",
+  "windowStart": "2026-05-18T18:48:05.424Z",
+  "windowEnd": "2026-06-09T18:48:05.424Z",
   "events": [
-    {
-      "category": "midweek",
-      "summary": "Men 40+ NW - PEGS vs FHC",
-      "dtstart": "2026-05-18T09:30:00.000Z",
-      "dtend": "2026-05-18T10:30:00.000Z",
-      "location": "PEGS Sporting Fields - PSF1",
-      "score": "2-1"
-    },
-    {
-      "category": "midweek",
-      "summary": "Women 55+ - MCC vs FHC",
-      "dtstart": "2026-05-18T10:15:00.000Z",
-      "dtend": "2026-05-18T11:15:00.000Z",
-      "location": "Brunswick Secondary College - BRU",
-      "score": "2-1"
-    },
     {
       "category": "midweek",
       "summary": "2026 Winter Season Indoor Competitions 35+ Women Indoor - PEGS vs FHC",
@@ -37,19 +21,19 @@
     },
     {
       "category": "midweek",
-      "summary": "Men 60+ B - HAW Hockey Club vs FHC B",
-      "dtstart": "2026-05-20T09:00:00.000Z",
-      "dtend": "2026-05-20T10:00:00.000Z",
-      "location": "Hawthorn Malvern Hockey Centre - H-1",
-      "score": "1-4"
-    },
-    {
-      "category": "midweek",
       "summary": "Women 35+ B - FHC vs HAW",
       "dtstart": "2026-05-20T09:00:00.000Z",
       "dtend": "2026-05-20T10:00:00.000Z",
       "location": "Footscray Hockey Club - ASF",
       "score": "4-0"
+    },
+    {
+      "category": "midweek",
+      "summary": "Men 60+ B - HAW Hockey Club vs FHC B",
+      "dtstart": "2026-05-20T09:00:00.000Z",
+      "dtend": "2026-05-20T10:00:00.000Z",
+      "location": "Hawthorn Malvern Hockey Centre - H-1",
+      "score": "1-4"
     },
     {
       "category": "midweek",
@@ -93,19 +77,19 @@
     },
     {
       "category": "juniors",
-      "summary": "U14 Boys Shield - PEGS Blue vs FHC",
-      "dtstart": "2026-05-22T10:15:00.000Z",
-      "dtend": "2026-05-22T11:15:00.000Z",
-      "location": "PEGS Sporting Fields - PSF1",
-      "score": "4-1"
-    },
-    {
-      "category": "juniors",
       "summary": "U16 Boys PEN NW - FHC vs MEL Hockey Club",
       "dtstart": "2026-05-22T10:15:00.000Z",
       "dtend": "2026-05-22T11:15:00.000Z",
       "location": "Footscray Hockey Club - BSF",
       "score": "3-1"
+    },
+    {
+      "category": "juniors",
+      "summary": "U14 Boys Shield - PEGS Blue vs FHC",
+      "dtstart": "2026-05-22T10:15:00.000Z",
+      "dtend": "2026-05-22T11:15:00.000Z",
+      "location": "PEGS Sporting Fields - PSF1",
+      "score": "4-1"
     },
     {
       "category": "juniors",
@@ -173,22 +157,6 @@
     },
     {
       "category": "mens",
-      "summary": "Men PL - HAW Hockey Club vs FHC",
-      "dtstart": "2026-05-23T04:00:00.000Z",
-      "dtend": "2026-05-23T05:30:00.000Z",
-      "location": "Hawthorn Malvern Hockey Centre - H-1",
-      "score": "4-1"
-    },
-    {
-      "category": "mens",
-      "summary": "Men PEN D NW - MCC vs FHC",
-      "dtstart": "2026-05-23T04:00:00.000Z",
-      "dtend": "2026-05-23T05:30:00.000Z",
-      "location": "Elwood - ELW",
-      "score": "1-2"
-    },
-    {
-      "category": "mens",
       "summary": "Men PEN A - MCC vs FHC",
       "dtstart": "2026-05-23T04:00:00.000Z",
       "dtend": "2026-05-23T05:30:00.000Z",
@@ -202,6 +170,22 @@
       "dtend": "2026-05-23T05:30:00.000Z",
       "location": "PEGS Sporting Fields - PSF2",
       "score": "3-2"
+    },
+    {
+      "category": "mens",
+      "summary": "Men PL - HAW Hockey Club vs FHC",
+      "dtstart": "2026-05-23T04:00:00.000Z",
+      "dtend": "2026-05-23T05:30:00.000Z",
+      "location": "Hawthorn Malvern Hockey Centre - H-1",
+      "score": "4-1"
+    },
+    {
+      "category": "mens",
+      "summary": "Men PEN D NW - MCC vs FHC",
+      "dtstart": "2026-05-23T04:00:00.000Z",
+      "dtend": "2026-05-23T05:30:00.000Z",
+      "location": "Elwood - ELW",
+      "score": "1-2"
     },
     {
       "category": "womens",
@@ -280,7 +264,8 @@
       "summary": "2026 Winter Season Indoor Competitions 35+ Women Indoor - FHC vs TEM",
       "dtstart": "2026-05-26T09:20:00.000Z",
       "dtend": "2026-05-26T10:20:00.000Z",
-      "location": "State Sport Centres\\, Parkville - IND"
+      "location": "State Sport Centres\\, Parkville - IND",
+      "score": "0-4"
     },
     {
       "category": "midweek",
@@ -495,9 +480,9 @@
     {
       "category": "midweek",
       "summary": "Men 60+ B - YAR vs FHC B",
-      "dtstart": "2026-06-03T10:30:00.000Z",
-      "dtend": "2026-06-03T11:30:00.000Z",
-      "location": "Cyril Cummins Reserve - YAR"
+      "dtstart": "2026-06-03T11:00:00.000Z",
+      "dtend": "2026-06-03T12:00:00.000Z",
+      "location": "Essendon Hockey Centre - ESS1"
     },
     {
       "category": "mens",

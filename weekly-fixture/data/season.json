@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-25T18:06:20.971Z",
-  "sourcesGeneratedAt": "2026-05-25T18:05:43.919Z",
-  "laddersGeneratedAt": "2026-05-25T18:06:19.413Z",
+  "generatedAt": "2026-05-26T18:48:07.192Z",
+  "sourcesGeneratedAt": "2026-05-26T18:47:24.774Z",
+  "laddersGeneratedAt": "2026-05-26T18:48:05.267Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -95,12 +95,12 @@
         },
         {
           "round": 8,
-          "dtstart": "2026-06-03T10:30:00.000Z",
-          "dtend": "2026-06-03T11:30:00.000Z",
+          "dtstart": "2026-06-03T11:00:00.000Z",
+          "dtend": "2026-06-03T12:00:00.000Z",
           "home": "YAR",
           "away": "FHC",
           "isHome": false,
-          "location": "Cyril Cummins Reserve - YAR",
+          "location": "Essendon Hockey Centre - ESS1",
           "gameId": "2532788"
         },
         {
@@ -125,12 +125,12 @@
         },
         {
           "round": 11,
-          "dtstart": "2026-07-01T10:00:00.000Z",
-          "dtend": "2026-07-01T11:00:00.000Z",
-          "home": "FHC",
-          "away": "KNX",
-          "isHome": true,
-          "location": "Footscray Hockey Club - ASF",
+          "dtstart": "2026-07-01T11:00:00.000Z",
+          "dtend": "2026-07-01T12:00:00.000Z",
+          "home": "KNX",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Essendon Hockey Centre - ESS2",
           "gameId": "2532858"
         },
         {
@@ -447,7 +447,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - IND",
-          "gameId": "2533502"
+          "gameId": "2533502",
+          "score": "0-4"
         },
         {
           "round": 4,
@@ -535,6 +536,34 @@
       "ladder": [
         {
           "pos": 1,
+          "team": "Toorak East Malvern Hockey Club",
+          "p": 2,
+          "w": 1,
+          "d": 1,
+          "l": 0,
+          "bye": 1,
+          "gf": 5,
+          "ga": 1,
+          "gd": 4,
+          "pts": 4,
+          "isClub": false
+        },
+        {
+          "pos": 2,
+          "team": "PEGS Hockey Club",
+          "p": 2,
+          "w": 1,
+          "d": 1,
+          "l": 0,
+          "bye": 1,
+          "gf": 6,
+          "ga": 4,
+          "gd": 2,
+          "pts": 4,
+          "isClub": false
+        },
+        {
+          "pos": 3,
           "team": "Camberwell Hockey Club",
           "p": 2,
           "w": 1,
@@ -548,58 +577,30 @@
           "isClub": false
         },
         {
-          "pos": 2,
+          "pos": 4,
           "team": "Footscray Hockey Club",
-          "p": 2,
+          "p": 3,
           "w": 0,
           "d": 2,
-          "l": 0,
+          "l": 1,
           "bye": 0,
           "gf": 3,
-          "ga": 3,
-          "gd": 0,
+          "ga": 7,
+          "gd": -4,
           "pts": 2,
           "isClub": true
         },
         {
-          "pos": 3,
-          "team": "PEGS Hockey Club",
-          "p": 1,
-          "w": 0,
-          "d": 1,
-          "l": 0,
-          "bye": 1,
-          "gf": 2,
-          "ga": 2,
-          "gd": 0,
-          "pts": 1,
-          "isClub": false
-        },
-        {
-          "pos": 4,
-          "team": "Toorak East Malvern Hockey Club",
-          "p": 1,
-          "w": 0,
-          "d": 1,
-          "l": 0,
-          "bye": 1,
-          "gf": 1,
-          "ga": 1,
-          "gd": 0,
-          "pts": 1,
-          "isClub": false
-        },
-        {
           "pos": 5,
           "team": "Essendon Hockey",
-          "p": 2,
+          "p": 3,
           "w": 0,
           "d": 1,
-          "l": 1,
+          "l": 2,
           "bye": 0,
-          "gf": 2,
-          "ga": 4,
-          "gd": -2,
+          "gf": 4,
+          "ga": 8,
+          "gd": -4,
           "pts": 1,
           "isClub": false
         }
@@ -3260,15 +3261,15 @@
         {
           "pos": 2,
           "team": "Melbourne University Hockey Club",
-          "p": 6,
-          "w": 5,
+          "p": 7,
+          "w": 6,
           "d": 0,
           "l": 1,
           "bye": 0,
-          "gf": 18,
+          "gf": 23,
           "ga": 8,
-          "gd": 10,
-          "pts": 15,
+          "gd": 15,
+          "pts": 18,
           "isClub": false
         },
         {
@@ -3344,14 +3345,14 @@
         {
           "pos": 8,
           "team": "Melton",
-          "p": 6,
+          "p": 7,
           "w": 0,
           "d": 0,
           "l": 6,
           "bye": 0,
           "gf": 4,
-          "ga": 40,
-          "gd": -36,
+          "ga": 45,
+          "gd": -41,
           "pts": 0,
           "isClub": false
         }
@@ -5384,29 +5385,29 @@
         {
           "pos": 1,
           "team": "North West Lightning",
-          "p": 3,
-          "w": 3,
+          "p": 2,
+          "w": 2,
           "d": 0,
           "l": 0,
-          "bye": 1,
-          "gf": 25,
+          "bye": 2,
+          "gf": 13,
           "ga": 0,
-          "gd": 25,
-          "pts": 9,
+          "gd": 13,
+          "pts": 6,
           "isClub": false
         },
         {
           "pos": 2,
           "team": "Yarra Hockey Club",
-          "p": 4,
-          "w": 3,
+          "p": 3,
+          "w": 2,
           "d": 1,
           "l": 0,
-          "bye": 0,
-          "gf": 14,
-          "ga": 1,
-          "gd": 13,
-          "pts": 10,
+          "bye": 1,
+          "gf": 12,
+          "ga": 0,
+          "gd": 12,
+          "pts": 7,
           "isClub": false
         },
         {
@@ -5453,20 +5454,6 @@
         },
         {
           "pos": 6,
-          "team": "Melton Hockey Club",
-          "p": 4,
-          "w": 2,
-          "d": 0,
-          "l": 2,
-          "bye": 0,
-          "gf": 14,
-          "ga": 8,
-          "gd": 6,
-          "pts": 6,
-          "isClub": false
-        },
-        {
-          "pos": 7,
           "team": "Greensborough Hockey Club",
           "p": 1,
           "w": 0,
@@ -5480,21 +5467,21 @@
           "isClub": false
         },
         {
-          "pos": 8,
-          "team": "Craigieburn Falcons Hockey Club",
-          "p": 4,
+          "pos": 7,
+          "team": "Melton Hockey Club",
+          "p": 3,
           "w": 1,
           "d": 0,
-          "l": 3,
-          "bye": 0,
-          "gf": 5,
-          "ga": 21,
-          "gd": -16,
+          "l": 2,
+          "bye": 1,
+          "gf": 7,
+          "ga": 8,
+          "gd": -1,
           "pts": 3,
           "isClub": false
         },
         {
-          "pos": 9,
+          "pos": 8,
           "team": "Footscray Hockey Club",
           "p": 4,
           "w": 0,
@@ -5508,16 +5495,16 @@
           "isClub": true
         },
         {
-          "pos": 10,
+          "pos": 9,
           "team": "Altona Hockey Club Gold",
-          "p": 4,
+          "p": 3,
           "w": 0,
           "d": 0,
-          "l": 4,
-          "bye": 1,
+          "l": 3,
+          "bye": 2,
           "gf": 0,
-          "ga": 36,
-          "gd": -36,
+          "ga": 32,
+          "gd": -32,
           "pts": 0,
           "isClub": false
         }
@@ -6820,12 +6807,12 @@
         },
         {
           "round": 17,
-          "dtstart": "2026-08-16T05:30:00.000Z",
-          "dtend": "2026-08-16T07:00:00.000Z",
+          "dtstart": "2026-08-16T04:00:00.000Z",
+          "dtend": "2026-08-16T05:30:00.000Z",
           "home": "BRU",
           "away": "FHC",
           "isHome": false,
-          "location": "State Sport Centres, Parkville - P-1",
+          "location": "State Sport Centres, Parkville - P-2",
           "gameId": "2513126"
         },
         {
