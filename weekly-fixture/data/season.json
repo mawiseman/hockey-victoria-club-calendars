@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-27T18:48:53.338Z",
-  "sourcesGeneratedAt": "2026-05-27T18:48:10.937Z",
-  "laddersGeneratedAt": "2026-05-27T18:48:51.590Z",
+  "generatedAt": "2026-05-28T19:02:15.921Z",
+  "sourcesGeneratedAt": "2026-05-28T19:01:33.146Z",
+  "laddersGeneratedAt": "2026-05-28T19:02:14.119Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -256,9 +256,9 @@
           "d": 2,
           "l": 1,
           "bye": 0,
-          "gf": 20,
+          "gf": 19,
           "ga": 6,
-          "gd": 14,
+          "gd": 13,
           "pts": 14,
           "isClub": false
         },
@@ -278,6 +278,20 @@
         },
         {
           "pos": 6,
+          "team": "Bayside Powerhouse Saints Hockey Club",
+          "p": 7,
+          "w": 4,
+          "d": 1,
+          "l": 2,
+          "bye": 0,
+          "gf": 24,
+          "ga": 6,
+          "gd": 18,
+          "pts": 13,
+          "isClub": false
+        },
+        {
+          "pos": 7,
           "team": "Footscray Blue",
           "p": 7,
           "w": 4,
@@ -289,20 +303,6 @@
           "gd": 8,
           "pts": 13,
           "isClub": true
-        },
-        {
-          "pos": 7,
-          "team": "Bayside Powerhouse Saints Hockey Club",
-          "p": 6,
-          "w": 3,
-          "d": 1,
-          "l": 2,
-          "bye": 0,
-          "gf": 16,
-          "ga": 5,
-          "gd": 11,
-          "pts": 10,
-          "isClub": false
         },
         {
           "pos": 8,
@@ -335,14 +335,14 @@
         {
           "pos": 10,
           "team": "Hawthorn Hockey Club",
-          "p": 6,
+          "p": 7,
           "w": 2,
           "d": 0,
-          "l": 4,
+          "l": 5,
           "bye": 0,
-          "gf": 8,
-          "ga": 14,
-          "gd": -6,
+          "gf": 9,
+          "ga": 22,
+          "gd": -13,
           "pts": 6,
           "isClub": false
         },
@@ -383,8 +383,8 @@
           "l": 6,
           "bye": 0,
           "gf": 2,
-          "ga": 32,
-          "gd": -30,
+          "ga": 31,
+          "gd": -29,
           "pts": 1,
           "isClub": false
         },
@@ -2369,8 +2369,8 @@
         },
         {
           "round": 8,
-          "dtstart": "2026-05-31T05:30:00.000Z",
-          "dtend": "2026-05-31T07:00:00.000Z",
+          "dtstart": "2026-05-24T05:30:00.000Z",
+          "dtend": "2026-05-24T07:00:00.000Z",
           "home": "FHC",
           "away": "ESS",
           "isHome": true,
@@ -2762,8 +2762,8 @@
         },
         {
           "round": 8,
-          "dtstart": "2026-05-31T07:00:00.000Z",
-          "dtend": "2026-05-31T08:30:00.000Z",
+          "dtstart": "2026-05-24T07:00:00.000Z",
+          "dtend": "2026-05-24T08:30:00.000Z",
           "home": "FHC",
           "away": "ESS",
           "isHome": true,
@@ -3570,15 +3570,15 @@
         {
           "pos": 2,
           "team": "Hockey Geelong",
-          "p": 5,
-          "w": 4,
+          "p": 6,
+          "w": 5,
           "d": 1,
           "l": 0,
           "bye": 1,
-          "gf": 16,
+          "gf": 19,
           "ga": 2,
-          "gd": 14,
-          "pts": 13,
+          "gd": 17,
+          "pts": 16,
           "isClub": false
         },
         {
@@ -3668,14 +3668,14 @@
         {
           "pos": 9,
           "team": "Essendon Hockey",
-          "p": 5,
+          "p": 6,
           "w": 0,
           "d": 0,
-          "l": 5,
+          "l": 6,
           "bye": 1,
           "gf": 1,
-          "ga": 19,
-          "gd": -18,
+          "ga": 22,
+          "gd": -21,
           "pts": 0,
           "isClub": false
         }
@@ -4228,28 +4228,28 @@
         {
           "pos": 2,
           "team": "Greensborough Hockey Club",
-          "p": 5,
-          "w": 4,
+          "p": 6,
+          "w": 5,
           "d": 0,
           "l": 0,
           "bye": 1,
-          "gf": 17,
-          "ga": 12,
-          "gd": 5,
-          "pts": 12,
+          "gf": 20,
+          "ga": 14,
+          "gd": 6,
+          "pts": 15,
           "isClub": false
         },
         {
           "pos": 3,
-          "team": "Camberwell Hockey Club",
+          "team": "Hawthorn Hockey Club",
           "p": 6,
           "w": 3,
           "d": 1,
           "l": 2,
-          "bye": 0,
-          "gf": 10,
-          "ga": 2,
-          "gd": 8,
+          "bye": 1,
+          "gf": 3,
+          "ga": 6,
+          "gd": -3,
           "pts": 10,
           "isClub": false
         },
@@ -4269,20 +4269,34 @@
         },
         {
           "pos": 5,
-          "team": "Hawthorn Hockey Club",
-          "p": 5,
-          "w": 2,
+          "team": "Camberwell Hockey Club",
+          "p": 7,
+          "w": 3,
           "d": 1,
-          "l": 2,
-          "bye": 1,
-          "gf": 2,
-          "ga": 6,
-          "gd": -4,
-          "pts": 7,
+          "l": 3,
+          "bye": 0,
+          "gf": 12,
+          "ga": 5,
+          "gd": 7,
+          "pts": 10,
           "isClub": false
         },
         {
           "pos": 6,
+          "team": "OEMHC MUDS",
+          "p": 6,
+          "w": 2,
+          "d": 1,
+          "l": 3,
+          "bye": 1,
+          "gf": 9,
+          "ga": 7,
+          "gd": 2,
+          "pts": 7,
+          "isClub": false
+        },
+        {
+          "pos": 7,
           "team": "Brunswick Hockey Club",
           "p": 6,
           "w": 1,
@@ -4296,44 +4310,30 @@
           "isClub": false
         },
         {
-          "pos": 7,
-          "team": "OEMHC MUDS",
-          "p": 5,
-          "w": 1,
-          "d": 1,
-          "l": 3,
-          "bye": 1,
-          "gf": 5,
-          "ga": 7,
-          "gd": -2,
-          "pts": 4,
-          "isClub": false
-        },
-        {
           "pos": 8,
           "team": "Monash University Hockey Club",
-          "p": 5,
+          "p": 6,
           "w": 0,
           "d": 2,
-          "l": 3,
+          "l": 4,
           "bye": 1,
           "gf": 7,
-          "ga": 21,
-          "gd": -14,
+          "ga": 22,
+          "gd": -15,
           "pts": 2,
           "isClub": false
         },
         {
           "pos": 9,
           "team": "Essendon Hockey",
-          "p": 5,
+          "p": 6,
           "w": 0,
           "d": 0,
-          "l": 5,
+          "l": 6,
           "bye": 1,
           "gf": 4,
-          "ga": 12,
-          "gd": -8,
+          "ga": 16,
+          "gd": -12,
           "pts": 0,
           "isClub": false
         }
@@ -4603,6 +4603,36 @@
           "dtstart": "2026-05-29T14:00:00.000Z",
           "dtend": "2026-05-29T15:00:00.000Z",
           "isBye": true
+        },
+        {
+          "round": 6,
+          "dtstart": "2026-06-13T00:00:00.000Z",
+          "dtend": "2026-06-13T01:00:00.000Z",
+          "home": "PEGS",
+          "away": "FHC",
+          "isHome": false,
+          "location": "PEGS Sporting Fields - PSF2",
+          "gameId": "2568894"
+        },
+        {
+          "round": 7,
+          "dtstart": "2026-06-19T22:30:00.000Z",
+          "dtend": "2026-06-19T23:30:00.000Z",
+          "home": "FHC",
+          "away": "CF2",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2568916"
+        },
+        {
+          "round": 8,
+          "dtstart": "2026-06-26T23:30:00.000Z",
+          "dtend": "2026-06-27T00:30:00.000Z",
+          "home": "FHC",
+          "away": "LAT",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2568954"
         }
       ],
       "ladder": [
@@ -4829,6 +4859,96 @@
           "isHome": false,
           "location": "Hedley Hull Field - HHF",
           "gameId": "2566322"
+        },
+        {
+          "round": 6,
+          "dtstart": "2026-06-13T00:30:00.000Z",
+          "dtend": "2026-06-13T01:30:00.000Z",
+          "home": "KBH",
+          "away": "FHC",
+          "isHome": false,
+          "location": "State Sport Centres, Parkville - P-1",
+          "gameId": "2568901"
+        },
+        {
+          "round": 7,
+          "dtstart": "2026-06-19T23:30:00.000Z",
+          "dtend": "2026-06-20T00:30:00.000Z",
+          "home": "FHC",
+          "away": "ESS",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2568917"
+        },
+        {
+          "round": 8,
+          "dtstart": "2026-06-27T00:00:00.000Z",
+          "dtend": "2026-06-27T01:00:00.000Z",
+          "home": "BRU",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Brunswick Secondary College - BRU",
+          "gameId": "2568946"
+        },
+        {
+          "round": 9,
+          "dtstart": "2026-07-18T00:30:00.000Z",
+          "dtend": "2026-07-18T01:30:00.000Z",
+          "home": "FHC",
+          "away": "CAM",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2568987"
+        },
+        {
+          "round": 10,
+          "dtstart": "2026-07-24T23:30:00.000Z",
+          "dtend": "2026-07-25T00:30:00.000Z",
+          "home": "FHC",
+          "away": "WAV",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569011"
+        },
+        {
+          "round": 11,
+          "dtstart": "2026-08-01T00:30:00.000Z",
+          "dtend": "2026-08-01T01:30:00.000Z",
+          "home": "FHC",
+          "away": "KBH",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569035"
+        },
+        {
+          "round": 12,
+          "dtstart": "2026-08-08T00:00:00.000Z",
+          "dtend": "2026-08-08T01:00:00.000Z",
+          "home": "CAM",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Camberwell Hockey Club - CAM",
+          "gameId": "2569057"
+        },
+        {
+          "round": 13,
+          "dtstart": "2026-08-15T00:30:00.000Z",
+          "dtend": "2026-08-15T01:30:00.000Z",
+          "home": "FHC",
+          "away": "BRU",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569085"
+        },
+        {
+          "round": 14,
+          "dtstart": "2026-08-22T00:30:00.000Z",
+          "dtend": "2026-08-22T01:30:00.000Z",
+          "home": "ESS",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Essendon Hockey Centre - ESS1",
+          "gameId": "2569107"
         }
       ],
       "ladder": [
@@ -4985,6 +5105,96 @@
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2566335"
+        },
+        {
+          "round": 6,
+          "dtstart": "2026-06-13T00:00:00.000Z",
+          "dtend": "2026-06-13T01:00:00.000Z",
+          "home": "BRU",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Brunswick Secondary College - BRU",
+          "gameId": "2568870"
+        },
+        {
+          "round": 7,
+          "dtstart": "2026-06-20T00:30:00.000Z",
+          "dtend": "2026-06-20T01:30:00.000Z",
+          "home": "FHC",
+          "away": "ESS",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2568918"
+        },
+        {
+          "round": 8,
+          "dtstart": "2026-06-27T00:30:00.000Z",
+          "dtend": "2026-06-27T01:30:00.000Z",
+          "home": "FHC",
+          "away": "PEGS",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2568955"
+        },
+        {
+          "round": 9,
+          "dtstart": "2026-07-17T23:30:00.000Z",
+          "dtend": "2026-07-18T00:30:00.000Z",
+          "home": "WAV",
+          "away": "FHC",
+          "isHome": false,
+          "location": "State Sport Centres, Parkville - P-2",
+          "gameId": "2568999"
+        },
+        {
+          "round": 10,
+          "dtstart": "2026-07-25T00:30:00.000Z",
+          "dtend": "2026-07-25T01:30:00.000Z",
+          "home": "FHC",
+          "away": "GEL",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569012"
+        },
+        {
+          "round": 11,
+          "dtstart": "2026-08-01T01:15:00.000Z",
+          "dtend": "2026-08-01T02:15:00.000Z",
+          "home": "SUHC",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Southern United Hockey Club - MBN",
+          "gameId": "2569044"
+        },
+        {
+          "round": 12,
+          "dtstart": "2026-08-08T01:00:00.000Z",
+          "dtend": "2026-08-08T02:00:00.000Z",
+          "home": "KBH",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Elgar Park - ELG2",
+          "gameId": "2569060"
+        },
+        {
+          "round": 13,
+          "dtstart": "2026-08-14T23:30:00.000Z",
+          "dtend": "2026-08-15T00:30:00.000Z",
+          "home": "FHC",
+          "away": "BRU",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569084"
+        },
+        {
+          "round": 14,
+          "dtstart": "2026-08-22T01:30:00.000Z",
+          "dtend": "2026-08-22T02:30:00.000Z",
+          "home": "ESS",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Essendon Hockey Centre - ESS1",
+          "gameId": "2569108"
         }
       ],
       "ladder": [
@@ -5169,6 +5379,96 @@
           "isHome": false,
           "location": "State Sport Centres, Parkville - P-1",
           "gameId": "2566229"
+        },
+        {
+          "round": 6,
+          "dtstart": "2026-06-12T09:30:00.000Z",
+          "dtend": "2026-06-12T10:30:00.000Z",
+          "home": "DON",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Doncaster Hockey Centre - DON",
+          "gameId": "2569363"
+        },
+        {
+          "round": 7,
+          "dtstart": "2026-06-19T09:45:00.000Z",
+          "dtend": "2026-06-19T10:45:00.000Z",
+          "home": "FAL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Hume Hockey Centre - HUM",
+          "gameId": "2569333"
+        },
+        {
+          "round": 8,
+          "dtstart": "2026-06-26T08:30:00.000Z",
+          "dtend": "2026-06-26T09:30:00.000Z",
+          "home": "FHC",
+          "away": "PEGS Blue",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569418"
+        },
+        {
+          "round": 9,
+          "dtstart": "2026-07-17T08:30:00.000Z",
+          "dtend": "2026-07-17T09:30:00.000Z",
+          "home": "FHC",
+          "away": "KBH",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569419"
+        },
+        {
+          "round": 10,
+          "dtstart": "2026-07-24T09:45:00.000Z",
+          "dtend": "2026-07-24T10:45:00.000Z",
+          "home": "FHC",
+          "away": "SUHC",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569420"
+        },
+        {
+          "round": 11,
+          "dtstart": "2026-07-31T08:30:00.000Z",
+          "dtend": "2026-07-31T09:30:00.000Z",
+          "home": "FHC",
+          "away": "TEM",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569421"
+        },
+        {
+          "round": 12,
+          "dtstart": "2026-08-07T09:00:00.000Z",
+          "dtend": "2026-08-07T10:00:00.000Z",
+          "home": "WAV",
+          "away": "FHC",
+          "isHome": false,
+          "location": "State Sport Centres, Parkville - P-2",
+          "gameId": "2569807"
+        },
+        {
+          "round": 13,
+          "dtstart": "2026-08-14T09:00:00.000Z",
+          "dtend": "2026-08-14T10:00:00.000Z",
+          "home": "FHC",
+          "away": "GRN",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569422"
+        },
+        {
+          "round": 14,
+          "dtstart": "2026-08-21T08:30:00.000Z",
+          "dtend": "2026-08-21T09:30:00.000Z",
+          "home": "ESS",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Essendon Hockey Centre - ESS1",
+          "gameId": "2569395"
         }
       ],
       "ladder": [
@@ -5381,6 +5681,92 @@
           "isHome": false,
           "location": "Cyril Cummins Reserve - YAR",
           "gameId": "2566235"
+        },
+        {
+          "round": 6,
+          "dtstart": "2026-06-12T08:15:00.000Z",
+          "dtend": "2026-06-12T09:15:00.000Z",
+          "home": "ALT G",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Altona Hockey Club - ALT",
+          "gameId": "2569140"
+        },
+        {
+          "round": 7,
+          "dtstart": "2026-06-19T08:30:00.000Z",
+          "dtend": "2026-06-19T09:30:00.000Z",
+          "home": "FHC",
+          "away": "ALT B",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569423"
+        },
+        {
+          "round": 8,
+          "dtstart": "2026-06-26T09:45:00.000Z",
+          "dtend": "2026-06-26T10:45:00.000Z",
+          "home": "FHC",
+          "away": "GRN",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569424"
+        },
+        {
+          "round": 9,
+          "dtstart": "2026-07-16T14:00:00.000Z",
+          "dtend": "2026-07-16T15:00:00.000Z",
+          "isBye": true
+        },
+        {
+          "round": 10,
+          "dtstart": "2026-07-24T08:00:00.000Z",
+          "dtend": "2026-07-24T09:00:00.000Z",
+          "home": "MEL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "State Sport Centres, Parkville - P-2",
+          "gameId": "2569450"
+        },
+        {
+          "round": 11,
+          "dtstart": "2026-07-31T09:30:00.000Z",
+          "dtend": "2026-07-31T10:30:00.000Z",
+          "home": "NWL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Bendigo Hockey Centre - BEN1",
+          "gameId": "2569685"
+        },
+        {
+          "round": 12,
+          "dtstart": "2026-08-07T09:45:00.000Z",
+          "dtend": "2026-08-07T10:45:00.000Z",
+          "home": "FHC",
+          "away": "GEL",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569425"
+        },
+        {
+          "round": 13,
+          "dtstart": "2026-08-14T08:30:00.000Z",
+          "dtend": "2026-08-14T09:30:00.000Z",
+          "home": "ESS",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Essendon Hockey Centre - ESS1",
+          "gameId": "2569398"
+        },
+        {
+          "round": 14,
+          "dtstart": "2026-08-21T08:30:00.000Z",
+          "dtend": "2026-08-21T09:30:00.000Z",
+          "home": "FHC",
+          "away": "YAR",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569426"
         }
       ],
       "ladder": [
@@ -5574,6 +5960,96 @@
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2566251"
+        },
+        {
+          "round": 6,
+          "dtstart": "2026-06-12T08:30:00.000Z",
+          "dtend": "2026-06-12T09:30:00.000Z",
+          "home": "FHC",
+          "away": "WER",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569427"
+        },
+        {
+          "round": 7,
+          "dtstart": "2026-06-19T08:30:00.000Z",
+          "dtend": "2026-06-19T09:30:00.000Z",
+          "home": "HHC",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Hume Hockey Centre - HUM",
+          "gameId": "2569544"
+        },
+        {
+          "round": 8,
+          "dtstart": "2026-06-26T11:00:00.000Z",
+          "dtend": "2026-06-26T12:00:00.000Z",
+          "home": "UK",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Hume Hockey Centre - HUM",
+          "gameId": "2569772"
+        },
+        {
+          "round": 9,
+          "dtstart": "2026-07-17T08:15:00.000Z",
+          "dtend": "2026-07-17T09:15:00.000Z",
+          "home": "FHC",
+          "away": "PEGS Maroon",
+          "isHome": true,
+          "location": "Footscray Hockey Club - BSF",
+          "gameId": "2569428"
+        },
+        {
+          "round": 10,
+          "dtstart": "2026-07-24T09:30:00.000Z",
+          "dtend": "2026-07-24T10:30:00.000Z",
+          "home": "MEL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Melton Hockey Ground - MEL",
+          "gameId": "2569635"
+        },
+        {
+          "round": 11,
+          "dtstart": "2026-07-31T08:30:00.000Z",
+          "dtend": "2026-07-31T09:30:00.000Z",
+          "home": "WER",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Werribee Hockey Club - WER",
+          "gameId": "2569813"
+        },
+        {
+          "round": 12,
+          "dtstart": "2026-08-07T08:30:00.000Z",
+          "dtend": "2026-08-07T09:30:00.000Z",
+          "home": "FHC",
+          "away": "HHC",
+          "isHome": true,
+          "location": "Footscray Hockey Club - BSF",
+          "gameId": "2569429"
+        },
+        {
+          "round": 13,
+          "dtstart": "2026-08-14T09:00:00.000Z",
+          "dtend": "2026-08-14T10:00:00.000Z",
+          "home": "PEGS Maroon",
+          "away": "FHC",
+          "isHome": false,
+          "location": "PEGS Sporting Fields - PSF1",
+          "gameId": "2569706"
+        },
+        {
+          "round": 14,
+          "dtstart": "2026-08-21T09:45:00.000Z",
+          "dtend": "2026-08-21T10:45:00.000Z",
+          "home": "FHC",
+          "away": "UK",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569430"
         }
       ],
       "ladder": [
@@ -5725,6 +6201,92 @@
           "round": 5,
           "dtstart": "2026-05-28T14:00:00.000Z",
           "dtend": "2026-05-28T15:00:00.000Z",
+          "isBye": true
+        },
+        {
+          "round": 6,
+          "dtstart": "2026-06-12T09:00:00.000Z",
+          "dtend": "2026-06-12T10:00:00.000Z",
+          "home": "GEL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Geelong Hockey Centre - GEL2",
+          "gameId": "2569535"
+        },
+        {
+          "round": 7,
+          "dtstart": "2026-06-19T11:00:00.000Z",
+          "dtend": "2026-06-19T12:00:00.000Z",
+          "home": "FAL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Hume Hockey Centre - HUM",
+          "gameId": "2569338"
+        },
+        {
+          "round": 8,
+          "dtstart": "2026-06-26T11:00:00.000Z",
+          "dtend": "2026-06-26T12:00:00.000Z",
+          "home": "FHC",
+          "away": "WH",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569431"
+        },
+        {
+          "round": 9,
+          "dtstart": "2026-07-17T09:30:00.000Z",
+          "dtend": "2026-07-17T10:30:00.000Z",
+          "home": "FHC",
+          "away": "BRU",
+          "isHome": true,
+          "location": "Footscray Hockey Club - BSF",
+          "gameId": "2569432"
+        },
+        {
+          "round": 10,
+          "dtstart": "2026-07-24T11:30:00.000Z",
+          "dtend": "2026-07-24T12:30:00.000Z",
+          "home": "NWL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "State Sport Centres, Parkville - P-1",
+          "gameId": "2569451"
+        },
+        {
+          "round": 11,
+          "dtstart": "2026-07-31T11:00:00.000Z",
+          "dtend": "2026-07-31T12:00:00.000Z",
+          "home": "ESS",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Essendon Hockey Centre - ESS1",
+          "gameId": "2569404"
+        },
+        {
+          "round": 12,
+          "dtstart": "2026-08-07T09:45:00.000Z",
+          "dtend": "2026-08-07T10:45:00.000Z",
+          "home": "FHC",
+          "away": "YAR",
+          "isHome": true,
+          "location": "Footscray Hockey Club - BSF",
+          "gameId": "2569433"
+        },
+        {
+          "round": 13,
+          "dtstart": "2026-08-14T09:00:00.000Z",
+          "dtend": "2026-08-14T10:00:00.000Z",
+          "home": "MEL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Melton Hockey Ground - MEL",
+          "gameId": "2569640"
+        },
+        {
+          "round": 14,
+          "dtstart": "2026-08-20T14:00:00.000Z",
+          "dtend": "2026-08-20T15:00:00.000Z",
           "isBye": true
         }
       ],
@@ -5924,6 +6486,96 @@
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2566267"
+        },
+        {
+          "round": 6,
+          "dtstart": "2026-06-12T10:45:00.000Z",
+          "dtend": "2026-06-12T11:45:00.000Z",
+          "home": "DON",
+          "away": "FHC",
+          "isHome": false,
+          "location": "State Sport Centres, Parkville - P-1",
+          "gameId": "2569384"
+        },
+        {
+          "round": 7,
+          "dtstart": "2026-06-19T11:00:00.000Z",
+          "dtend": "2026-06-19T12:00:00.000Z",
+          "home": "FHC",
+          "away": "HAW",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569434"
+        },
+        {
+          "round": 8,
+          "dtstart": "2026-06-26T09:30:00.000Z",
+          "dtend": "2026-06-26T10:30:00.000Z",
+          "home": "GRN",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Greensborough Hockey Centre - GRN1",
+          "gameId": "2569491"
+        },
+        {
+          "round": 9,
+          "dtstart": "2026-07-17T09:45:00.000Z",
+          "dtend": "2026-07-17T10:45:00.000Z",
+          "home": "FHC",
+          "away": "KBH",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569435"
+        },
+        {
+          "round": 10,
+          "dtstart": "2026-07-24T09:10:00.000Z",
+          "dtend": "2026-07-24T10:10:00.000Z",
+          "home": "SUHC",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Southern United Hockey Club - MBN",
+          "gameId": "2569724"
+        },
+        {
+          "round": 11,
+          "dtstart": "2026-07-31T09:45:00.000Z",
+          "dtend": "2026-07-31T10:45:00.000Z",
+          "home": "FHC",
+          "away": "MCC",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569436"
+        },
+        {
+          "round": 12,
+          "dtstart": "2026-08-07T10:20:00.000Z",
+          "dtend": "2026-08-07T11:20:00.000Z",
+          "home": "MNT",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Mentone Grammar Playing Fields - MNT",
+          "gameId": "2569664"
+        },
+        {
+          "round": 13,
+          "dtstart": "2026-08-14T08:15:00.000Z",
+          "dtend": "2026-08-14T09:15:00.000Z",
+          "home": "WAV",
+          "away": "FHC",
+          "isHome": false,
+          "location": "State Sport Centres, Parkville - P-1",
+          "gameId": "2569452"
+        },
+        {
+          "round": 14,
+          "dtstart": "2026-08-21T09:30:00.000Z",
+          "dtend": "2026-08-21T10:30:00.000Z",
+          "home": "BPS",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Brighton Secondary College - BTN",
+          "gameId": "2569157"
         }
       ],
       "ladder": [
@@ -6131,6 +6783,92 @@
           "isHome": false,
           "location": "Greensborough Hockey Centre - GRN1",
           "gameId": "2566275"
+        },
+        {
+          "round": 6,
+          "dtstart": "2026-06-12T09:45:00.000Z",
+          "dtend": "2026-06-12T10:45:00.000Z",
+          "home": "FHC",
+          "away": "WH",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569437"
+        },
+        {
+          "round": 7,
+          "dtstart": "2026-06-19T08:15:00.000Z",
+          "dtend": "2026-06-19T09:15:00.000Z",
+          "home": "ALT",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Altona Hockey Club - ALT",
+          "gameId": "2569125"
+        },
+        {
+          "round": 8,
+          "dtstart": "2026-06-26T09:45:00.000Z",
+          "dtend": "2026-06-26T10:45:00.000Z",
+          "home": "FAL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "State Sport Centres, Parkville - P-2",
+          "gameId": "2569453"
+        },
+        {
+          "round": 9,
+          "dtstart": "2026-07-16T14:00:00.000Z",
+          "dtend": "2026-07-16T15:00:00.000Z",
+          "isBye": true
+        },
+        {
+          "round": 10,
+          "dtstart": "2026-07-24T08:30:00.000Z",
+          "dtend": "2026-07-24T09:30:00.000Z",
+          "home": "FHC",
+          "away": "MEL",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569438"
+        },
+        {
+          "round": 11,
+          "dtstart": "2026-07-31T10:15:00.000Z",
+          "dtend": "2026-07-31T11:15:00.000Z",
+          "home": "GEL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Geelong Hockey Centre - GEL2",
+          "gameId": "2569539"
+        },
+        {
+          "round": 12,
+          "dtstart": "2026-08-07T08:30:00.000Z",
+          "dtend": "2026-08-07T09:30:00.000Z",
+          "home": "FHC",
+          "away": "ESS",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569439"
+        },
+        {
+          "round": 13,
+          "dtstart": "2026-08-14T11:30:00.000Z",
+          "dtend": "2026-08-14T12:30:00.000Z",
+          "home": "YAR",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Cyril Cummins Reserve - YAR",
+          "gameId": "2569860"
+        },
+        {
+          "round": 14,
+          "dtstart": "2026-08-21T11:00:00.000Z",
+          "dtend": "2026-08-21T12:00:00.000Z",
+          "home": "GRN",
+          "away": "FHC",
+          "isHome": false,
+          "location": "PEGS Sporting Fields - PSF1",
+          "gameId": "2569449"
         }
       ],
       "ladder": [
@@ -6324,6 +7062,96 @@
           "isHome": false,
           "location": "Elgar Park - ELG1",
           "gameId": "2566282"
+        },
+        {
+          "round": 6,
+          "dtstart": "2026-06-12T11:30:00.000Z",
+          "dtend": "2026-06-12T12:30:00.000Z",
+          "home": "WAV",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Hedley Hull Field - HHF",
+          "gameId": "2569798"
+        },
+        {
+          "round": 7,
+          "dtstart": "2026-06-19T09:45:00.000Z",
+          "dtend": "2026-06-19T10:45:00.000Z",
+          "home": "FHC",
+          "away": "PEGS",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569440"
+        },
+        {
+          "round": 8,
+          "dtstart": "2026-06-26T09:45:00.000Z",
+          "dtend": "2026-06-26T10:45:00.000Z",
+          "home": "SUHC - MNT",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Mentone Grammar Playing Fields - MNT",
+          "gameId": "2569743"
+        },
+        {
+          "round": 9,
+          "dtstart": "2026-07-17T11:00:00.000Z",
+          "dtend": "2026-07-17T12:00:00.000Z",
+          "home": "FHC",
+          "away": "BRU",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569441"
+        },
+        {
+          "round": 10,
+          "dtstart": "2026-07-24T11:00:00.000Z",
+          "dtend": "2026-07-24T12:00:00.000Z",
+          "home": "FHC",
+          "away": "MCC Red",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569442"
+        },
+        {
+          "round": 11,
+          "dtstart": "2026-07-31T09:10:00.000Z",
+          "dtend": "2026-07-31T10:10:00.000Z",
+          "home": "CAM",
+          "away": "FHC",
+          "isHome": false,
+          "location": "State Sport Centres, Parkville - P-1",
+          "gameId": "2569302"
+        },
+        {
+          "round": 12,
+          "dtstart": "2026-08-07T11:00:00.000Z",
+          "dtend": "2026-08-07T12:00:00.000Z",
+          "home": "FHC",
+          "away": "KBH",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569443"
+        },
+        {
+          "round": 13,
+          "dtstart": "2026-08-14T10:15:00.000Z",
+          "dtend": "2026-08-14T11:15:00.000Z",
+          "home": "FHC",
+          "away": "WAV",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569444"
+        },
+        {
+          "round": 14,
+          "dtstart": "2026-08-21T08:30:00.000Z",
+          "dtend": "2026-08-21T09:30:00.000Z",
+          "home": "PEGS",
+          "away": "FHC",
+          "isHome": false,
+          "location": "PEGS Sporting Fields - PSF1",
+          "gameId": "2569695"
         }
       ],
       "ladder": [
@@ -6508,6 +7336,92 @@
           "isHome": false,
           "location": "PEGS Sporting Fields - PSF1",
           "gameId": "2566295"
+        },
+        {
+          "round": 6,
+          "dtstart": "2026-06-12T11:00:00.000Z",
+          "dtend": "2026-06-12T12:00:00.000Z",
+          "home": "FHC",
+          "away": "BRU",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569445"
+        },
+        {
+          "round": 7,
+          "dtstart": "2026-06-19T10:00:00.000Z",
+          "dtend": "2026-06-19T11:00:00.000Z",
+          "home": "GRN",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Greensborough Hockey Centre - GRN2",
+          "gameId": "2569503"
+        },
+        {
+          "round": 8,
+          "dtstart": "2026-06-25T14:00:00.000Z",
+          "dtend": "2026-06-25T15:00:00.000Z",
+          "isBye": true
+        },
+        {
+          "round": 9,
+          "dtstart": "2026-07-17T11:00:00.000Z",
+          "dtend": "2026-07-17T12:00:00.000Z",
+          "home": "FAL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Hume Hockey Centre - HUM",
+          "gameId": "2569346"
+        },
+        {
+          "round": 10,
+          "dtstart": "2026-07-24T10:15:00.000Z",
+          "dtend": "2026-07-24T11:15:00.000Z",
+          "home": "LAT",
+          "away": "FHC",
+          "isHome": false,
+          "location": "La Trobe Hockey Centre - LAT",
+          "gameId": "2569599"
+        },
+        {
+          "round": 11,
+          "dtstart": "2026-07-31T11:00:00.000Z",
+          "dtend": "2026-07-31T12:00:00.000Z",
+          "home": "FHC",
+          "away": "ALT",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569446"
+        },
+        {
+          "round": 12,
+          "dtstart": "2026-08-07T11:00:00.000Z",
+          "dtend": "2026-08-07T12:00:00.000Z",
+          "home": "FHC",
+          "away": "MEL - WER",
+          "isHome": true,
+          "location": "Footscray Hockey Club - BSF",
+          "gameId": "2569447"
+        },
+        {
+          "round": 13,
+          "dtstart": "2026-08-14T11:00:00.000Z",
+          "dtend": "2026-08-14T12:00:00.000Z",
+          "home": "ESS B",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Essendon Hockey Centre - ESS1",
+          "gameId": "2569417"
+        },
+        {
+          "round": 14,
+          "dtstart": "2026-08-21T11:00:00.000Z",
+          "dtend": "2026-08-21T12:00:00.000Z",
+          "home": "FHC",
+          "away": "PEGS",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2569448"
         }
       ],
       "ladder": [
