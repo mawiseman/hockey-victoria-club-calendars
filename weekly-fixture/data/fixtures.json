@@ -1,120 +1,8 @@
 {
-  "generatedAt": "2026-05-30T17:32:37.175Z",
-  "windowStart": "2026-05-22T17:32:37.175Z",
-  "windowEnd": "2026-06-13T17:32:37.175Z",
+  "generatedAt": "2026-05-31T17:30:47.313Z",
+  "windowStart": "2026-05-23T17:30:47.313Z",
+  "windowEnd": "2026-06-14T17:30:47.313Z",
   "events": [
-    {
-      "category": "juniors",
-      "summary": "U12 District NW - FHC vs GRN",
-      "dtstart": "2026-05-23T00:00:00.000Z",
-      "dtend": "2026-05-23T01:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF",
-      "score": "1-5"
-    },
-    {
-      "category": "juniors",
-      "summary": "U12 Girls Shield - ESS Hockey vs FHC",
-      "dtstart": "2026-05-23T00:15:00.000Z",
-      "dtend": "2026-05-23T01:15:00.000Z",
-      "location": "Essendon Hockey Centre - ESS2",
-      "score": "9-0"
-    },
-    {
-      "category": "juniors",
-      "summary": "U12 Mixed Shield - GEL vs FHC",
-      "dtstart": "2026-05-23T00:30:00.000Z",
-      "dtend": "2026-05-23T01:30:00.000Z",
-      "location": "Geelong Hockey Centre - GEL2",
-      "score": "2-2"
-    },
-    {
-      "category": "mens",
-      "summary": "Men PLR - HAW Hockey Club vs FHC",
-      "dtstart": "2026-05-23T02:30:00.000Z",
-      "dtend": "2026-05-23T04:00:00.000Z",
-      "location": "Hawthorn Malvern Hockey Centre - H-1",
-      "score": "2-2"
-    },
-    {
-      "category": "mens",
-      "summary": "Men M2 NW - PEGS vs FHC",
-      "dtstart": "2026-05-23T02:30:00.000Z",
-      "dtend": "2026-05-23T04:00:00.000Z",
-      "location": "PEGS Sporting Fields - PSF2",
-      "score": "1-4"
-    },
-    {
-      "category": "womens",
-      "summary": "Women PEN D NW - FHC vs PEGS",
-      "dtstart": "2026-05-23T02:30:00.000Z",
-      "dtend": "2026-05-23T04:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF",
-      "score": "1-1"
-    },
-    {
-      "category": "mens",
-      "summary": "Men PEN B - PEGS vs FHC",
-      "dtstart": "2026-05-23T04:00:00.000Z",
-      "dtend": "2026-05-23T05:30:00.000Z",
-      "location": "PEGS Sporting Fields - PSF2",
-      "score": "3-2"
-    },
-    {
-      "category": "mens",
-      "summary": "Men PEN D NW - MCC vs FHC",
-      "dtstart": "2026-05-23T04:00:00.000Z",
-      "dtend": "2026-05-23T05:30:00.000Z",
-      "location": "Elwood - ELW",
-      "score": "1-2"
-    },
-    {
-      "category": "mens",
-      "summary": "Men PL - HAW Hockey Club vs FHC",
-      "dtstart": "2026-05-23T04:00:00.000Z",
-      "dtend": "2026-05-23T05:30:00.000Z",
-      "location": "Hawthorn Malvern Hockey Centre - H-1",
-      "score": "4-1"
-    },
-    {
-      "category": "mens",
-      "summary": "Men PEN A - MCC vs FHC",
-      "dtstart": "2026-05-23T04:00:00.000Z",
-      "dtend": "2026-05-23T05:30:00.000Z",
-      "location": "Melbourne High School - MHS",
-      "score": "9-3"
-    },
-    {
-      "category": "womens",
-      "summary": "Women M1 NW - FHC vs LAT",
-      "dtstart": "2026-05-23T04:00:00.000Z",
-      "dtend": "2026-05-23T05:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF",
-      "score": "1-4"
-    },
-    {
-      "category": "womens",
-      "summary": "Women PEN A - ESS Hockey vs FHC",
-      "dtstart": "2026-05-23T04:00:00.000Z",
-      "dtend": "2026-05-23T05:30:00.000Z",
-      "location": "Essendon Hockey Centre - ESS2",
-      "score": "1-5"
-    },
-    {
-      "category": "womens",
-      "summary": "Women PL - HAW Hockey Club vs FHC",
-      "dtstart": "2026-05-23T05:30:00.000Z",
-      "dtend": "2026-05-23T07:00:00.000Z",
-      "location": "Hawthorn Malvern Hockey Centre - H-1",
-      "score": "5-0"
-    },
-    {
-      "category": "womens",
-      "summary": "Women PLR - HAW Hockey Club vs FHC",
-      "dtstart": "2026-05-23T07:00:00.000Z",
-      "dtend": "2026-05-23T08:30:00.000Z",
-      "location": "Hawthorn Malvern Hockey Centre - H-1",
-      "score": "1-3"
-    },
     {
       "category": "womens",
       "summary": "Women PEN C - MUHC vs FHC",
@@ -138,20 +26,6 @@
       "dtend": "2026-05-24T05:00:00.000Z",
       "location": "State Sport Centres\\, Parkville - P-2",
       "score": "3-0"
-    },
-    {
-      "category": "mens",
-      "summary": "Men PL - FHC vs ESS Hockey",
-      "dtstart": "2026-05-24T05:30:00.000Z",
-      "dtend": "2026-05-24T07:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
-    },
-    {
-      "category": "mens",
-      "summary": "Men PLR - FHC vs ESS Hockey",
-      "dtstart": "2026-05-24T07:00:00.000Z",
-      "dtend": "2026-05-24T08:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "midweek",
@@ -238,7 +112,8 @@
       "summary": "U18 Mixed District NW - PEGS vs FHC",
       "dtstart": "2026-05-29T10:15:00.000Z",
       "dtend": "2026-05-29T11:15:00.000Z",
-      "location": "PEGS Sporting Fields - PSF1"
+      "location": "PEGS Sporting Fields - PSF1",
+      "score": "3-0"
     },
     {
       "category": "juniors",
@@ -292,49 +167,71 @@
       "summary": "Women PEN D NW - RMIT vs FHC",
       "dtstart": "2026-05-31T01:00:00.000Z",
       "dtend": "2026-05-31T02:30:00.000Z",
-      "location": "RMIT Bundoora - BUN"
+      "location": "RMIT Bundoora - BUN",
+      "score": "3-2"
     },
     {
       "category": "womens",
       "summary": "Women PLR - FHC vs ESS Hockey",
       "dtstart": "2026-05-31T02:00:00.000Z",
       "dtend": "2026-05-31T03:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
+      "location": "Footscray Hockey Club - ASF",
+      "score": "7-1"
     },
     {
       "category": "mens",
       "summary": "Men PEN B - FHC vs MUHC",
       "dtstart": "2026-05-31T02:30:00.000Z",
       "dtend": "2026-05-31T04:00:00.000Z",
-      "location": "Footscray Hockey Club - BSF"
+      "location": "Footscray Hockey Club - BSF",
+      "score": "4-0"
     },
     {
       "category": "womens",
       "summary": "Women PL - FHC vs ESS Hockey",
       "dtstart": "2026-05-31T03:30:00.000Z",
       "dtend": "2026-05-31T05:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
+      "location": "Footscray Hockey Club - ASF",
+      "score": "2-0"
     },
     {
       "category": "mens",
       "summary": "Men PEN A - FHC vs KBH",
       "dtstart": "2026-05-31T04:00:00.000Z",
       "dtend": "2026-05-31T05:30:00.000Z",
-      "location": "Footscray Hockey Club - BSF"
+      "location": "Footscray Hockey Club - BSF",
+      "score": "1-2"
+    },
+    {
+      "category": "mens",
+      "summary": "Men PL - FHC vs ESS Hockey",
+      "dtstart": "2026-05-31T05:30:00.000Z",
+      "dtend": "2026-05-31T07:00:00.000Z",
+      "location": "Footscray Hockey Club - ASF",
+      "score": "2-3"
     },
     {
       "category": "womens",
       "summary": "Women PEN A - FHC vs MCC",
       "dtstart": "2026-05-31T05:30:00.000Z",
       "dtend": "2026-05-31T07:00:00.000Z",
-      "location": "Footscray Hockey Club - BSF"
+      "location": "Footscray Hockey Club - BSF",
+      "score": "2-2"
+    },
+    {
+      "category": "mens",
+      "summary": "Men PLR - FHC vs ESS Hockey",
+      "dtstart": "2026-05-31T07:00:00.000Z",
+      "dtend": "2026-05-31T08:30:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "womens",
       "summary": "Women PEN B - FHC vs MNT",
       "dtstart": "2026-05-31T07:00:00.000Z",
       "dtend": "2026-05-31T08:30:00.000Z",
-      "location": "Footscray Hockey Club - BSF"
+      "location": "Footscray Hockey Club - BSF",
+      "score": "3-1"
     },
     {
       "category": "midweek",
@@ -552,6 +449,20 @@
       "dtstart": "2026-06-13T07:00:00.000Z",
       "dtend": "2026-06-13T08:30:00.000Z",
       "location": "Camberwell Hockey Club - CAM"
+    },
+    {
+      "category": "womens",
+      "summary": "Women PEN C - KBH vs FHC",
+      "dtstart": "2026-06-14T05:30:00.000Z",
+      "dtend": "2026-06-14T07:00:00.000Z",
+      "location": "Elgar Park - ELG1"
+    },
+    {
+      "category": "womens",
+      "summary": "Women PEN A - KBH vs FHC",
+      "dtstart": "2026-06-14T07:00:00.000Z",
+      "dtend": "2026-06-14T08:30:00.000Z",
+      "location": "Elgar Park - ELG1"
     }
   ]
 }
