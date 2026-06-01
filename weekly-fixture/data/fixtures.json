@@ -1,32 +1,8 @@
 {
-  "generatedAt": "2026-05-31T17:30:47.313Z",
-  "windowStart": "2026-05-23T17:30:47.313Z",
-  "windowEnd": "2026-06-14T17:30:47.313Z",
+  "generatedAt": "2026-06-01T20:43:20.619Z",
+  "windowStart": "2026-05-24T20:43:20.619Z",
+  "windowEnd": "2026-06-15T20:43:20.619Z",
   "events": [
-    {
-      "category": "womens",
-      "summary": "Women PEN C - MUHC vs FHC",
-      "dtstart": "2026-05-24T02:00:00.000Z",
-      "dtend": "2026-05-24T03:30:00.000Z",
-      "location": "State Sport Centres\\, Parkville - P-2",
-      "score": "1-1"
-    },
-    {
-      "category": "mens",
-      "summary": "Men M1 NW - LAT vs FHC",
-      "dtstart": "2026-05-24T02:30:00.000Z",
-      "dtend": "2026-05-24T04:00:00.000Z",
-      "location": "La Trobe Hockey Centre - LAT",
-      "score": "0-2"
-    },
-    {
-      "category": "womens",
-      "summary": "Women PEN B - MUHC vs FHC",
-      "dtstart": "2026-05-24T03:30:00.000Z",
-      "dtend": "2026-05-24T05:00:00.000Z",
-      "location": "State Sport Centres\\, Parkville - P-2",
-      "score": "3-0"
-    },
     {
       "category": "midweek",
       "summary": "Women 55+ - FHC vs BRU",
@@ -144,7 +120,8 @@
       "summary": "Men M1 NW - MCC vs FHC",
       "dtstart": "2026-05-30T02:30:00.000Z",
       "dtend": "2026-05-30T04:00:00.000Z",
-      "location": "Elwood - ELW"
+      "location": "Elwood - ELW",
+      "score": "0-5"
     },
     {
       "category": "womens",
@@ -223,7 +200,8 @@
       "summary": "Men PLR - FHC vs ESS Hockey",
       "dtstart": "2026-05-31T07:00:00.000Z",
       "dtend": "2026-05-31T08:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
+      "location": "Footscray Hockey Club - ASF",
+      "score": "6-0"
     },
     {
       "category": "womens",
@@ -238,7 +216,8 @@
       "summary": "Men 40+ NW - FHC vs ESS Hockey",
       "dtstart": "2026-06-01T09:00:00.000Z",
       "dtend": "2026-06-01T10:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
+      "location": "Footscray Hockey Club - ASF",
+      "score": "5-0"
     },
     {
       "category": "midweek",
@@ -424,17 +403,17 @@
     },
     {
       "category": "mens",
-      "summary": "Men PL - CAM vs FHC",
-      "dtstart": "2026-06-13T05:30:00.000Z",
-      "dtend": "2026-06-13T07:00:00.000Z",
-      "location": "Camberwell Hockey Club - CAM"
-    },
-    {
-      "category": "mens",
       "summary": "Men M2 NW - CS vs FHC",
       "dtstart": "2026-06-13T05:30:00.000Z",
       "dtend": "2026-06-13T07:00:00.000Z",
       "location": "Melton Hockey Ground - MEL"
+    },
+    {
+      "category": "mens",
+      "summary": "Men PL - CAM vs FHC",
+      "dtstart": "2026-06-13T05:30:00.000Z",
+      "dtend": "2026-06-13T07:00:00.000Z",
+      "location": "Camberwell Hockey Club - CAM"
     },
     {
       "category": "mens",
@@ -463,6 +442,20 @@
       "dtstart": "2026-06-14T07:00:00.000Z",
       "dtend": "2026-06-14T08:30:00.000Z",
       "location": "Elgar Park - ELG1"
+    },
+    {
+      "category": "midweek",
+      "summary": "Men 40+ NW - MEL vs FHC",
+      "dtstart": "2026-06-15T10:00:00.000Z",
+      "dtend": "2026-06-15T11:00:00.000Z",
+      "location": "Melton Hockey Ground - MEL"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 55+ - MCC vs FHC",
+      "dtstart": "2026-06-15T10:00:00.000Z",
+      "dtend": "2026-06-15T11:00:00.000Z",
+      "location": "Camberwell Hockey Club - CAM"
     }
   ]
 }
