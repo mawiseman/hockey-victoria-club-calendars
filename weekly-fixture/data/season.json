@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-01T20:43:22.808Z",
-  "sourcesGeneratedAt": "2026-06-01T20:42:43.306Z",
-  "laddersGeneratedAt": "2026-06-01T20:43:20.506Z",
+  "generatedAt": "2026-06-02T20:06:45.057Z",
+  "sourcesGeneratedAt": "2026-06-02T20:06:02.229Z",
+  "laddersGeneratedAt": "2026-06-02T20:06:43.424Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -459,7 +459,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - IND",
-          "gameId": "2533492"
+          "gameId": "2533492",
+          "score": "6-0"
         },
         {
           "round": 5,
@@ -537,57 +538,57 @@
       "ladder": [
         {
           "pos": 1,
-          "team": "Toorak East Malvern Hockey Club",
-          "p": 2,
-          "w": 1,
+          "team": "Camberwell Hockey Club",
+          "p": 3,
+          "w": 2,
           "d": 1,
           "l": 0,
           "bye": 1,
-          "gf": 5,
-          "ga": 1,
-          "gd": 4,
-          "pts": 4,
+          "gf": 10,
+          "ga": 2,
+          "gd": 8,
+          "pts": 7,
           "isClub": false
         },
         {
           "pos": 2,
-          "team": "PEGS Hockey Club",
-          "p": 2,
-          "w": 1,
+          "team": "Toorak East Malvern Hockey Club",
+          "p": 3,
+          "w": 2,
           "d": 1,
           "l": 0,
           "bye": 1,
-          "gf": 6,
-          "ga": 4,
-          "gd": 2,
-          "pts": 4,
+          "gf": 8,
+          "ga": 2,
+          "gd": 6,
+          "pts": 7,
           "isClub": false
         },
         {
           "pos": 3,
-          "team": "Camberwell Hockey Club",
-          "p": 2,
+          "team": "PEGS Hockey Club",
+          "p": 3,
           "w": 1,
           "d": 1,
-          "l": 0,
+          "l": 1,
           "bye": 1,
-          "gf": 4,
-          "ga": 2,
-          "gd": 2,
+          "gf": 7,
+          "ga": 7,
+          "gd": 0,
           "pts": 4,
           "isClub": false
         },
         {
           "pos": 4,
           "team": "Footscray Hockey Club",
-          "p": 3,
+          "p": 4,
           "w": 0,
           "d": 2,
-          "l": 1,
+          "l": 2,
           "bye": 0,
           "gf": 3,
-          "ga": 7,
-          "gd": -4,
+          "ga": 13,
+          "gd": -10,
           "pts": 2,
           "isClub": true
         },
@@ -4445,7 +4446,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Brunswick Secondary College - BRU",
-          "gameId": "2530769"
+          "gameId": "2530769",
+          "score": "4-1"
         },
         {
           "round": 9,
@@ -4492,15 +4494,15 @@
         {
           "pos": 1,
           "team": "Camberwell Hockey Club",
-          "p": 7,
-          "w": 5,
+          "p": 8,
+          "w": 6,
           "d": 2,
           "l": 0,
           "bye": 0,
-          "gf": 16,
-          "ga": 0,
-          "gd": 16,
-          "pts": 17,
+          "gf": 20,
+          "ga": 1,
+          "gd": 19,
+          "pts": 20,
           "isClub": false
         },
         {
@@ -4520,28 +4522,28 @@
         {
           "pos": 3,
           "team": "MCC Hockey Section",
-          "p": 8,
-          "w": 1,
+          "p": 9,
+          "w": 2,
           "d": 2,
           "l": 5,
           "bye": 0,
-          "gf": 4,
-          "ga": 18,
-          "gd": -14,
-          "pts": 5,
+          "gf": 8,
+          "ga": 19,
+          "gd": -11,
+          "pts": 8,
           "isClub": false
         },
         {
           "pos": 4,
           "team": "Footscray Hockey Club",
-          "p": 7,
+          "p": 9,
           "w": 1,
           "d": 1,
-          "l": 5,
+          "l": 7,
           "bye": 0,
-          "gf": 3,
-          "ga": 16,
-          "gd": -13,
+          "gf": 5,
+          "ga": 24,
+          "gd": -19,
           "pts": 4,
           "isClub": true
         }
@@ -4613,13 +4615,13 @@
         },
         {
           "round": 6,
-          "dtstart": "2026-06-13T00:00:00.000Z",
-          "dtend": "2026-06-13T01:00:00.000Z",
-          "home": "PEGS",
-          "away": "FHC",
-          "isHome": false,
-          "location": "PEGS Sporting Fields - PSF2",
-          "gameId": "2568894"
+          "dtstart": "2026-06-13T01:00:00.000Z",
+          "dtend": "2026-06-13T02:00:00.000Z",
+          "home": "FHC",
+          "away": "CF1",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2573034"
         },
         {
           "round": 7,
@@ -9330,7 +9332,8 @@
           "away": "BPS",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2463976"
+          "gameId": "2463976",
+          "score": "1-2"
         },
         {
           "round": 9,
@@ -9517,19 +9520,33 @@
         {
           "pos": 6,
           "team": "Footscray Hockey Club",
-          "p": 10,
+          "p": 11,
           "w": 4,
           "d": 1,
-          "l": 5,
+          "l": 6,
           "bye": 0,
-          "gf": 22,
-          "ga": 25,
-          "gd": -3,
+          "gf": 23,
+          "ga": 27,
+          "gd": -4,
           "pts": 13,
           "isClub": true
         },
         {
           "pos": 7,
+          "team": "Bayside Powerhouse Hockey Club",
+          "p": 11,
+          "w": 4,
+          "d": 1,
+          "l": 6,
+          "bye": 0,
+          "gf": 17,
+          "ga": 28,
+          "gd": -11,
+          "pts": 13,
+          "isClub": false
+        },
+        {
+          "pos": 8,
           "team": "Mentone Hockey Club",
           "p": 10,
           "w": 2,
@@ -9543,7 +9560,7 @@
           "isClub": false
         },
         {
-          "pos": 8,
+          "pos": 9,
           "team": "Essendon Hockey",
           "p": 10,
           "w": 2,
@@ -9554,20 +9571,6 @@
           "ga": 24,
           "gd": -5,
           "pts": 11,
-          "isClub": false
-        },
-        {
-          "pos": 9,
-          "team": "Bayside Powerhouse Hockey Club",
-          "p": 10,
-          "w": 3,
-          "d": 1,
-          "l": 6,
-          "bye": 0,
-          "gf": 15,
-          "ga": 27,
-          "gd": -12,
-          "pts": 10,
           "isClub": false
         },
         {

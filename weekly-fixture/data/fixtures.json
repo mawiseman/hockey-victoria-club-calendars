@@ -1,24 +1,8 @@
 {
-  "generatedAt": "2026-06-01T20:43:20.619Z",
-  "windowStart": "2026-05-24T20:43:20.619Z",
-  "windowEnd": "2026-06-15T20:43:20.619Z",
+  "generatedAt": "2026-06-02T20:06:43.572Z",
+  "windowStart": "2026-05-25T20:06:43.572Z",
+  "windowEnd": "2026-06-16T20:06:43.572Z",
   "events": [
-    {
-      "category": "midweek",
-      "summary": "Women 55+ - FHC vs BRU",
-      "dtstart": "2026-05-25T09:00:00.000Z",
-      "dtend": "2026-05-25T10:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF",
-      "score": "0-2"
-    },
-    {
-      "category": "midweek",
-      "summary": "Men 40+ NW - FHC vs TEM",
-      "dtstart": "2026-05-25T09:30:00.000Z",
-      "dtend": "2026-05-25T10:30:00.000Z",
-      "location": "Footscray Hockey Club - BSF",
-      "score": "1-2"
-    },
     {
       "category": "midweek",
       "summary": "2026 Winter Season Indoor Competitions 35+ Women Indoor - FHC vs TEM",
@@ -224,21 +208,24 @@
       "summary": "Women 55+ - CAM vs FHC",
       "dtstart": "2026-06-01T10:15:00.000Z",
       "dtend": "2026-06-01T11:15:00.000Z",
-      "location": "Brunswick Secondary College - BRU"
+      "location": "Brunswick Secondary College - BRU",
+      "score": "4-1"
     },
     {
       "category": "midweek",
       "summary": "2026 Winter Season Indoor Competitions 35+ Women Indoor - CAM vs FHC",
       "dtstart": "2026-06-02T08:30:00.000Z",
       "dtend": "2026-06-02T09:30:00.000Z",
-      "location": "State Sport Centres\\, Parkville - IND"
+      "location": "State Sport Centres\\, Parkville - IND",
+      "score": "6-0"
     },
     {
       "category": "womens",
       "summary": "Women PL - FHC vs BPS",
       "dtstart": "2026-06-02T10:00:00.000Z",
       "dtend": "2026-06-02T11:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
+      "location": "Footscray Hockey Club - ASF",
+      "score": "1-2"
     },
     {
       "category": "midweek",
@@ -333,13 +320,6 @@
     },
     {
       "category": "juniors",
-      "summary": "U12 District NW - PEGS vs FHC",
-      "dtstart": "2026-06-13T00:00:00.000Z",
-      "dtend": "2026-06-13T01:00:00.000Z",
-      "location": "PEGS Sporting Fields - PSF2"
-    },
-    {
-      "category": "juniors",
       "summary": "U12 Mixed Shield - BRU vs FHC",
       "dtstart": "2026-06-13T00:00:00.000Z",
       "dtend": "2026-06-13T01:00:00.000Z",
@@ -358,6 +338,13 @@
       "dtstart": "2026-06-13T01:00:00.000Z",
       "dtend": "2026-06-13T02:30:00.000Z",
       "location": "Southern United Hockey Club - MBN"
+    },
+    {
+      "category": "juniors",
+      "summary": "U12 District NW - FHC vs FAL 1",
+      "dtstart": "2026-06-13T01:00:00.000Z",
+      "dtend": "2026-06-13T02:00:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "mens",
@@ -403,17 +390,17 @@
     },
     {
       "category": "mens",
-      "summary": "Men M2 NW - CS vs FHC",
-      "dtstart": "2026-06-13T05:30:00.000Z",
-      "dtend": "2026-06-13T07:00:00.000Z",
-      "location": "Melton Hockey Ground - MEL"
-    },
-    {
-      "category": "mens",
       "summary": "Men PL - CAM vs FHC",
       "dtstart": "2026-06-13T05:30:00.000Z",
       "dtend": "2026-06-13T07:00:00.000Z",
       "location": "Camberwell Hockey Club - CAM"
+    },
+    {
+      "category": "mens",
+      "summary": "Men M2 NW - CS vs FHC",
+      "dtstart": "2026-06-13T05:30:00.000Z",
+      "dtend": "2026-06-13T07:00:00.000Z",
+      "location": "Melton Hockey Ground - MEL"
     },
     {
       "category": "mens",
@@ -445,6 +432,13 @@
     },
     {
       "category": "midweek",
+      "summary": "Women 55+ - MCC vs FHC",
+      "dtstart": "2026-06-15T10:00:00.000Z",
+      "dtend": "2026-06-15T11:00:00.000Z",
+      "location": "Camberwell Hockey Club - CAM"
+    },
+    {
+      "category": "midweek",
       "summary": "Men 40+ NW - MEL vs FHC",
       "dtstart": "2026-06-15T10:00:00.000Z",
       "dtend": "2026-06-15T11:00:00.000Z",
@@ -452,10 +446,10 @@
     },
     {
       "category": "midweek",
-      "summary": "Women 55+ - MCC vs FHC",
-      "dtstart": "2026-06-15T10:00:00.000Z",
-      "dtend": "2026-06-15T11:00:00.000Z",
-      "location": "Camberwell Hockey Club - CAM"
+      "summary": "2026 Winter Season Indoor Competitions 35+ Women Indoor - ESS Hockey vs FHC",
+      "dtstart": "2026-06-16T08:30:00.000Z",
+      "dtend": "2026-06-16T09:30:00.000Z",
+      "location": "State Sport Centres\\, Parkville - IND"
     }
   ]
 }
