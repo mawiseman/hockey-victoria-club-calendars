@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-04T18:41:46.628Z",
-  "sourcesGeneratedAt": "2026-06-04T18:41:05.267Z",
-  "laddersGeneratedAt": "2026-06-04T18:41:44.645Z",
+  "generatedAt": "2026-06-05T18:21:28.464Z",
+  "sourcesGeneratedAt": "2026-06-05T18:20:47.245Z",
+  "laddersGeneratedAt": "2026-06-05T18:21:26.461Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -9469,29 +9469,29 @@
         {
           "pos": 2,
           "team": "Southern United Hockey Club",
-          "p": 10,
+          "p": 11,
           "w": 7,
-          "d": 2,
+          "d": 3,
           "l": 1,
           "bye": 0,
-          "gf": 42,
-          "ga": 13,
+          "gf": 43,
+          "ga": 14,
           "gd": 29,
-          "pts": 23,
+          "pts": 24,
           "isClub": false
         },
         {
           "pos": 3,
           "team": "Waverley Hockey Club",
-          "p": 10,
+          "p": 11,
           "w": 6,
-          "d": 3,
+          "d": 4,
           "l": 1,
           "bye": 0,
-          "gf": 25,
-          "ga": 13,
+          "gf": 26,
+          "ga": 14,
           "gd": 12,
-          "pts": 21,
+          "pts": 22,
           "isClub": false
         },
         {
