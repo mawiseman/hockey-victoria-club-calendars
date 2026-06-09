@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-08T18:51:54.190Z",
-  "sourcesGeneratedAt": "2026-06-08T18:51:09.189Z",
-  "laddersGeneratedAt": "2026-06-08T18:51:51.651Z",
+  "generatedAt": "2026-06-09T18:32:48.763Z",
+  "sourcesGeneratedAt": "2026-06-09T18:32:03.217Z",
+  "laddersGeneratedAt": "2026-06-09T18:32:46.767Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -540,6 +540,20 @@
         {
           "pos": 1,
           "team": "Camberwell Hockey Club",
+          "p": 4,
+          "w": 3,
+          "d": 1,
+          "l": 0,
+          "bye": 1,
+          "gf": 12,
+          "ga": 3,
+          "gd": 9,
+          "pts": 10,
+          "isClub": false
+        },
+        {
+          "pos": 2,
+          "team": "Toorak East Malvern Hockey Club",
           "p": 3,
           "w": 2,
           "d": 1,
@@ -552,30 +566,16 @@
           "isClub": false
         },
         {
-          "pos": 2,
-          "team": "Toorak East Malvern Hockey Club",
-          "p": 3,
-          "w": 2,
-          "d": 1,
-          "l": 0,
-          "bye": 1,
-          "gf": 8,
-          "ga": 2,
-          "gd": 6,
-          "pts": 7,
-          "isClub": false
-        },
-        {
           "pos": 3,
           "team": "PEGS Hockey Club",
-          "p": 3,
+          "p": 4,
           "w": 1,
           "d": 1,
-          "l": 1,
+          "l": 2,
           "bye": 1,
-          "gf": 7,
-          "ga": 7,
-          "gd": 0,
+          "gf": 8,
+          "ga": 9,
+          "gd": -1,
           "pts": 4,
           "isClub": false
         },
@@ -602,8 +602,8 @@
           "l": 2,
           "bye": 1,
           "gf": 4,
-          "ga": 8,
-          "gd": -4,
+          "ga": 10,
+          "gd": -6,
           "pts": 1,
           "isClub": false
         }
