@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-09T18:32:48.763Z",
-  "sourcesGeneratedAt": "2026-06-09T18:32:03.217Z",
-  "laddersGeneratedAt": "2026-06-09T18:32:46.767Z",
+  "generatedAt": "2026-06-10T18:58:08.323Z",
+  "sourcesGeneratedAt": "2026-06-10T18:57:32.220Z",
+  "laddersGeneratedAt": "2026-06-10T18:58:06.398Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -2467,8 +2467,8 @@
         },
         {
           "round": 15,
-          "dtstart": "2026-08-01T08:30:00.000Z",
-          "dtend": "2026-08-01T10:00:00.000Z",
+          "dtstart": "2026-08-01T07:00:00.000Z",
+          "dtend": "2026-08-01T08:30:00.000Z",
           "home": "MCC",
           "away": "FHC",
           "isHome": false,
@@ -2841,8 +2841,8 @@
         },
         {
           "round": 15,
-          "dtstart": "2026-08-01T07:00:00.000Z",
-          "dtend": "2026-08-01T08:30:00.000Z",
+          "dtstart": "2026-08-01T08:30:00.000Z",
+          "dtend": "2026-08-01T10:00:00.000Z",
           "home": "MCC",
           "away": "FHC",
           "isHome": false,
@@ -9041,8 +9041,8 @@
         },
         {
           "round": 15,
-          "dtstart": "2026-08-01T02:30:00.000Z",
-          "dtend": "2026-08-01T04:00:00.000Z",
+          "dtstart": "2026-08-01T02:00:00.000Z",
+          "dtend": "2026-08-01T03:30:00.000Z",
           "home": "MCC",
           "away": "FHC",
           "isHome": false,
@@ -9412,8 +9412,8 @@
         },
         {
           "round": 15,
-          "dtstart": "2026-08-01T05:30:00.000Z",
-          "dtend": "2026-08-01T07:00:00.000Z",
+          "dtstart": "2026-08-01T05:00:00.000Z",
+          "dtend": "2026-08-01T06:30:00.000Z",
           "home": "MCC",
           "away": "FHC",
           "isHome": false,
@@ -9786,8 +9786,8 @@
         },
         {
           "round": 15,
-          "dtstart": "2026-08-01T04:00:00.000Z",
-          "dtend": "2026-08-01T05:30:00.000Z",
+          "dtstart": "2026-08-01T03:30:00.000Z",
+          "dtend": "2026-08-01T05:00:00.000Z",
           "home": "MCC",
           "away": "FHC",
           "isHome": false,
