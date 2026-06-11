@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-10T18:58:08.323Z",
-  "sourcesGeneratedAt": "2026-06-10T18:57:32.220Z",
-  "laddersGeneratedAt": "2026-06-10T18:58:06.398Z",
+  "generatedAt": "2026-06-11T19:13:21.374Z",
+  "sourcesGeneratedAt": "2026-06-11T19:12:36.345Z",
+  "laddersGeneratedAt": "2026-06-11T19:13:19.135Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -554,15 +554,15 @@
         {
           "pos": 2,
           "team": "Toorak East Malvern Hockey Club",
-          "p": 3,
+          "p": 4,
           "w": 2,
-          "d": 1,
+          "d": 2,
           "l": 0,
           "bye": 1,
           "gf": 10,
-          "ga": 2,
-          "gd": 8,
-          "pts": 7,
+          "ga": 4,
+          "gd": 6,
+          "pts": 8,
           "isClub": false
         },
         {
@@ -581,6 +581,20 @@
         },
         {
           "pos": 4,
+          "team": "Essendon Hockey",
+          "p": 4,
+          "w": 0,
+          "d": 2,
+          "l": 2,
+          "bye": 1,
+          "gf": 6,
+          "ga": 10,
+          "gd": -4,
+          "pts": 2,
+          "isClub": false
+        },
+        {
+          "pos": 5,
           "team": "Footscray Hockey Club",
           "p": 4,
           "w": 0,
@@ -592,20 +606,6 @@
           "gd": -10,
           "pts": 2,
           "isClub": true
-        },
-        {
-          "pos": 5,
-          "team": "Essendon Hockey",
-          "p": 3,
-          "w": 0,
-          "d": 1,
-          "l": 2,
-          "bye": 1,
-          "gf": 4,
-          "ga": 10,
-          "gd": -6,
-          "pts": 1,
-          "isClub": false
         }
       ]
     },
@@ -7107,8 +7107,8 @@
         },
         {
           "round": 8,
-          "dtstart": "2026-06-26T09:45:00.000Z",
-          "dtend": "2026-06-26T10:45:00.000Z",
+          "dtstart": "2026-06-26T10:20:00.000Z",
+          "dtend": "2026-06-26T11:20:00.000Z",
           "home": "SUHC - MNT",
           "away": "FHC",
           "isHome": false,
