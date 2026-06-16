@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-15T20:15:53.470Z",
-  "windowStart": "2026-06-07T20:15:53.470Z",
-  "windowEnd": "2026-06-29T20:15:53.470Z",
+  "generatedAt": "2026-06-16T20:02:53.719Z",
+  "windowStart": "2026-06-08T20:02:53.719Z",
+  "windowEnd": "2026-06-30T20:02:53.719Z",
   "events": [
     {
       "category": "juniors",
@@ -133,19 +133,19 @@
     },
     {
       "category": "womens",
-      "summary": "Women PL - CAM vs FHC",
-      "dtstart": "2026-06-13T04:00:00.000Z",
-      "dtend": "2026-06-13T05:30:00.000Z",
-      "location": "Camberwell Hockey Club - CAM",
-      "score": "2-2"
-    },
-    {
-      "category": "womens",
       "summary": "Women PEN B - BPS vs FHC",
       "dtstart": "2026-06-13T04:00:00.000Z",
       "dtend": "2026-06-13T05:30:00.000Z",
       "location": "Albert Park - APK",
       "score": "1-4"
+    },
+    {
+      "category": "womens",
+      "summary": "Women PL - CAM vs FHC",
+      "dtstart": "2026-06-13T04:00:00.000Z",
+      "dtend": "2026-06-13T05:30:00.000Z",
+      "location": "Camberwell Hockey Club - CAM",
+      "score": "2-2"
     },
     {
       "category": "mens",
@@ -165,19 +165,19 @@
     },
     {
       "category": "mens",
-      "summary": "Men PLR - CAM vs FHC",
-      "dtstart": "2026-06-13T07:00:00.000Z",
-      "dtend": "2026-06-13T08:30:00.000Z",
-      "location": "Camberwell Hockey Club - CAM",
-      "score": "4-4"
-    },
-    {
-      "category": "mens",
       "summary": "Men PEN B - MCC vs FHC",
       "dtstart": "2026-06-13T07:00:00.000Z",
       "dtend": "2026-06-13T08:30:00.000Z",
       "location": "Melbourne High School - MHS",
       "score": "1-0"
+    },
+    {
+      "category": "mens",
+      "summary": "Men PLR - CAM vs FHC",
+      "dtstart": "2026-06-13T07:00:00.000Z",
+      "dtend": "2026-06-13T08:30:00.000Z",
+      "location": "Camberwell Hockey Club - CAM",
+      "score": "4-4"
     },
     {
       "category": "womens",
@@ -208,14 +208,8 @@
       "summary": "2026 Winter Season Indoor Competitions 35+ Women Indoor - ESS Hockey vs FHC",
       "dtstart": "2026-06-16T08:30:00.000Z",
       "dtend": "2026-06-16T09:30:00.000Z",
-      "location": "State Sport Centres\\, Parkville - IND"
-    },
-    {
-      "category": "midweek",
-      "summary": "Women 45+ - FHC vs OEMHC",
-      "dtstart": "2026-06-17T10:00:00.000Z",
-      "dtend": "2026-06-17T11:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
+      "location": "State Sport Centres\\, Parkville - IND",
+      "score": "1-1"
     },
     {
       "category": "midweek",
@@ -223,6 +217,13 @@
       "dtstart": "2026-06-17T10:00:00.000Z",
       "dtend": "2026-06-17T11:00:00.000Z",
       "location": "Footscray Hockey Club - BSF"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 45+ - FHC vs OEMHC",
+      "dtstart": "2026-06-17T10:00:00.000Z",
+      "dtend": "2026-06-17T11:00:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "midweek",
@@ -261,17 +262,17 @@
     },
     {
       "category": "juniors",
-      "summary": "U14 Boys Shield - FAL vs FHC",
-      "dtstart": "2026-06-19T09:45:00.000Z",
-      "dtend": "2026-06-19T10:45:00.000Z",
-      "location": "Hume Hockey Centre - HUM"
-    },
-    {
-      "category": "juniors",
       "summary": "U16 Girls Shield - FHC vs PEGS",
       "dtstart": "2026-06-19T09:45:00.000Z",
       "dtend": "2026-06-19T10:45:00.000Z",
       "location": "Footscray Hockey Club - ASF"
+    },
+    {
+      "category": "juniors",
+      "summary": "U14 Boys Shield - FAL vs FHC",
+      "dtstart": "2026-06-19T09:45:00.000Z",
+      "dtend": "2026-06-19T10:45:00.000Z",
+      "location": "Hume Hockey Centre - HUM"
     },
     {
       "category": "juniors",
@@ -282,17 +283,17 @@
     },
     {
       "category": "juniors",
-      "summary": "U16 Boys Shield - FHC vs HAW Hockey Club",
-      "dtstart": "2026-06-19T11:00:00.000Z",
-      "dtend": "2026-06-19T12:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
-    },
-    {
-      "category": "juniors",
       "summary": "U16 Boys PEN NW - FAL vs FHC",
       "dtstart": "2026-06-19T11:00:00.000Z",
       "dtend": "2026-06-19T12:00:00.000Z",
       "location": "Hume Hockey Centre - HUM"
+    },
+    {
+      "category": "juniors",
+      "summary": "U16 Boys Shield - FHC vs HAW Hockey Club",
+      "dtstart": "2026-06-19T11:00:00.000Z",
+      "dtend": "2026-06-19T12:00:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "juniors",
@@ -443,17 +444,17 @@
     },
     {
       "category": "midweek",
-      "summary": "Men 60+ B - GEL vs FHC B",
-      "dtstart": "2026-06-24T11:00:00.000Z",
-      "dtend": "2026-06-24T12:00:00.000Z",
-      "location": "Geelong Hockey Centre - GEL1"
-    },
-    {
-      "category": "midweek",
       "summary": "Women 35+ B - HAW vs FHC",
       "dtstart": "2026-06-24T11:00:00.000Z",
       "dtend": "2026-06-24T12:00:00.000Z",
       "location": "Hawthorn Malvern Hockey Centre - H-1"
+    },
+    {
+      "category": "midweek",
+      "summary": "Men 60+ B - GEL vs FHC B",
+      "dtstart": "2026-06-24T11:00:00.000Z",
+      "dtend": "2026-06-24T12:00:00.000Z",
+      "location": "Geelong Hockey Centre - GEL1"
     },
     {
       "category": "juniors",
@@ -471,17 +472,17 @@
     },
     {
       "category": "juniors",
-      "summary": "U14 Girls PEN NW - FHC vs GRN",
-      "dtstart": "2026-06-26T09:45:00.000Z",
-      "dtend": "2026-06-26T10:45:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
-    },
-    {
-      "category": "juniors",
       "summary": "U16 Girls PEN NW - FHC vs FAL",
       "dtstart": "2026-06-26T09:45:00.000Z",
       "dtend": "2026-06-26T10:45:00.000Z",
       "location": "State Sport Centres\\, Parkville - P-2"
+    },
+    {
+      "category": "juniors",
+      "summary": "U14 Girls PEN NW - FHC vs GRN",
+      "dtstart": "2026-06-26T09:45:00.000Z",
+      "dtend": "2026-06-26T10:45:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "juniors",
@@ -492,17 +493,17 @@
     },
     {
       "category": "juniors",
-      "summary": "U16 Boys PEN NW - FHC vs WH",
-      "dtstart": "2026-06-26T11:00:00.000Z",
-      "dtend": "2026-06-26T12:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
-    },
-    {
-      "category": "juniors",
       "summary": "U14 Mixed District NW - UK vs FHC",
       "dtstart": "2026-06-26T11:00:00.000Z",
       "dtend": "2026-06-26T12:00:00.000Z",
       "location": "Hume Hockey Centre - HUM"
+    },
+    {
+      "category": "juniors",
+      "summary": "U16 Boys PEN NW - FHC vs WH",
+      "dtstart": "2026-06-26T11:00:00.000Z",
+      "dtend": "2026-06-26T12:00:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "juniors",
@@ -576,13 +577,6 @@
     },
     {
       "category": "womens",
-      "summary": "Women PEN D NW - MEL Hockey Club vs FHC",
-      "dtstart": "2026-06-27T05:30:00.000Z",
-      "dtend": "2026-06-27T07:00:00.000Z",
-      "location": "Melton Hockey Ground - MEL"
-    },
-    {
-      "category": "womens",
       "summary": "Women PEN C - FHC vs BRU",
       "dtstart": "2026-06-27T05:30:00.000Z",
       "dtend": "2026-06-27T07:00:00.000Z",
@@ -594,6 +588,13 @@
       "dtstart": "2026-06-27T05:30:00.000Z",
       "dtend": "2026-06-27T07:00:00.000Z",
       "location": "Albert Park - APK"
+    },
+    {
+      "category": "womens",
+      "summary": "Women PEN D NW - MEL Hockey Club vs FHC",
+      "dtstart": "2026-06-27T05:30:00.000Z",
+      "dtend": "2026-06-27T07:00:00.000Z",
+      "location": "Melton Hockey Ground - MEL"
     },
     {
       "category": "mens",
@@ -636,6 +637,13 @@
       "dtstart": "2026-06-29T10:00:00.000Z",
       "dtend": "2026-06-29T11:00:00.000Z",
       "location": "Camberwell Hockey Club - CAM"
+    },
+    {
+      "category": "midweek",
+      "summary": "2026 Winter Season Indoor Competitions 35+ Women Indoor - TEM vs FHC",
+      "dtstart": "2026-06-30T08:30:00.000Z",
+      "dtend": "2026-06-30T09:30:00.000Z",
+      "location": "State Sport Centres\\, Parkville - IND"
     }
   ]
 }
