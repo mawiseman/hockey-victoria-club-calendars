@@ -1,40 +1,8 @@
 {
-  "generatedAt": "2026-06-24T18:20:28.529Z",
-  "windowStart": "2026-06-16T18:20:28.529Z",
-  "windowEnd": "2026-07-08T18:20:28.529Z",
+  "generatedAt": "2026-06-25T18:12:41.355Z",
+  "windowStart": "2026-06-17T18:12:41.355Z",
+  "windowEnd": "2026-07-09T18:12:41.355Z",
   "events": [
-    {
-      "category": "midweek",
-      "summary": "Men 60+ B - FHC B vs CAM T",
-      "dtstart": "2026-06-17T10:00:00.000Z",
-      "dtend": "2026-06-17T11:00:00.000Z",
-      "location": "Footscray Hockey Club - BSF",
-      "score": "0-1"
-    },
-    {
-      "category": "midweek",
-      "summary": "Women 45+ - FHC vs OEMHC",
-      "dtstart": "2026-06-17T10:00:00.000Z",
-      "dtend": "2026-06-17T11:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF",
-      "score": "1-0"
-    },
-    {
-      "category": "midweek",
-      "summary": "Women 35+ B - PEGS vs FHC",
-      "dtstart": "2026-06-17T10:15:00.000Z",
-      "dtend": "2026-06-17T11:15:00.000Z",
-      "location": "PEGS Sporting Fields - PSF1",
-      "score": "0-3"
-    },
-    {
-      "category": "midweek",
-      "summary": "Men 50+ NW - FHC vs BRU Black",
-      "dtstart": "2026-06-17T11:00:00.000Z",
-      "dtend": "2026-06-17T12:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF",
-      "score": "1-1"
-    },
     {
       "category": "juniors",
       "summary": "U16 Girls PEN NW - NPR 9 - FHC - ALT vs FHC",
@@ -61,19 +29,19 @@
     },
     {
       "category": "juniors",
-      "summary": "U14 Boys Shield - FAL vs FHC",
-      "dtstart": "2026-06-19T09:45:00.000Z",
-      "dtend": "2026-06-19T10:45:00.000Z",
-      "location": "Hume Hockey Centre - HUM",
-      "score": "3-4"
-    },
-    {
-      "category": "juniors",
       "summary": "U16 Girls Shield - FHC vs PEGS",
       "dtstart": "2026-06-19T09:45:00.000Z",
       "dtend": "2026-06-19T10:45:00.000Z",
       "location": "Footscray Hockey Club - ASF",
       "score": "4-1"
+    },
+    {
+      "category": "juniors",
+      "summary": "U14 Boys Shield - FAL vs FHC",
+      "dtstart": "2026-06-19T09:45:00.000Z",
+      "dtend": "2026-06-19T10:45:00.000Z",
+      "location": "Hume Hockey Centre - HUM",
+      "score": "3-4"
     },
     {
       "category": "juniors",
@@ -85,19 +53,19 @@
     },
     {
       "category": "juniors",
-      "summary": "U16 Boys Shield - FHC vs HAW Hockey Club",
-      "dtstart": "2026-06-19T11:00:00.000Z",
-      "dtend": "2026-06-19T12:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF",
-      "score": "5-1"
-    },
-    {
-      "category": "juniors",
       "summary": "U16 Boys PEN NW - FAL vs FHC",
       "dtstart": "2026-06-19T11:00:00.000Z",
       "dtend": "2026-06-19T12:00:00.000Z",
       "location": "Hume Hockey Centre - HUM",
       "score": "1-1"
+    },
+    {
+      "category": "juniors",
+      "summary": "U16 Boys Shield - FHC vs HAW Hockey Club",
+      "dtstart": "2026-06-19T11:00:00.000Z",
+      "dtend": "2026-06-19T12:00:00.000Z",
+      "location": "Footscray Hockey Club - ASF",
+      "score": "5-1"
     },
     {
       "category": "juniors",
@@ -261,14 +229,6 @@
     },
     {
       "category": "midweek",
-      "summary": "Women 45+ - FHC vs MON",
-      "dtstart": "2026-06-24T11:00:00.000Z",
-      "dtend": "2026-06-24T12:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF",
-      "score": "4-2"
-    },
-    {
-      "category": "midweek",
       "summary": "Women 35+ B - HAW vs FHC",
       "dtstart": "2026-06-24T11:00:00.000Z",
       "dtend": "2026-06-24T12:00:00.000Z",
@@ -282,6 +242,14 @@
       "dtend": "2026-06-24T12:00:00.000Z",
       "location": "Geelong Hockey Centre - GEL1",
       "score": "1-0"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 45+ - FHC vs MON",
+      "dtstart": "2026-06-24T11:00:00.000Z",
+      "dtend": "2026-06-24T12:00:00.000Z",
+      "location": "Footscray Hockey Club - ASF",
+      "score": "4-2"
     },
     {
       "category": "juniors",
@@ -404,17 +372,17 @@
     },
     {
       "category": "womens",
-      "summary": "Women PEN C - FHC vs BRU",
-      "dtstart": "2026-06-27T05:30:00.000Z",
-      "dtend": "2026-06-27T07:00:00.000Z",
-      "location": "Footscray Hockey Club - BSF"
-    },
-    {
-      "category": "womens",
       "summary": "Women PL - BPS vs FHC",
       "dtstart": "2026-06-27T05:30:00.000Z",
       "dtend": "2026-06-27T07:00:00.000Z",
       "location": "Albert Park - APK"
+    },
+    {
+      "category": "womens",
+      "summary": "Women PEN C - FHC vs BRU",
+      "dtstart": "2026-06-27T05:30:00.000Z",
+      "dtend": "2026-06-27T07:00:00.000Z",
+      "location": "Footscray Hockey Club - BSF"
     },
     {
       "category": "mens",
