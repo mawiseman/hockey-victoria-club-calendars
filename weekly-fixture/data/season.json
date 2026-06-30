@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-29T18:11:27.812Z",
-  "sourcesGeneratedAt": "2026-06-29T18:10:46.378Z",
-  "laddersGeneratedAt": "2026-06-29T18:11:25.656Z",
+  "generatedAt": "2026-06-30T17:56:36.100Z",
+  "sourcesGeneratedAt": "2026-06-30T17:55:51.397Z",
+  "laddersGeneratedAt": "2026-06-30T17:56:33.869Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -501,7 +501,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - IND",
-          "gameId": "2533513"
+          "gameId": "2533513",
+          "score": "1-0"
         },
         {
           "round": 9,
@@ -558,56 +559,56 @@
         {
           "pos": 2,
           "team": "Toorak East Malvern Hockey Club",
-          "p": 5,
-          "w": 2,
+          "p": 6,
+          "w": 3,
           "d": 2,
           "l": 1,
           "bye": 2,
-          "gf": 10,
+          "gf": 11,
           "ga": 5,
-          "gd": 5,
-          "pts": 8,
+          "gd": 6,
+          "pts": 11,
           "isClub": false
         },
         {
           "pos": 3,
           "team": "PEGS Hockey Club",
-          "p": 5,
-          "w": 2,
+          "p": 6,
+          "w": 3,
           "d": 1,
           "l": 2,
           "bye": 2,
-          "gf": 11,
-          "ga": 10,
-          "gd": 1,
-          "pts": 7,
+          "gf": 16,
+          "ga": 11,
+          "gd": 5,
+          "pts": 10,
           "isClub": false
         },
         {
           "pos": 4,
           "team": "Essendon Hockey",
-          "p": 6,
+          "p": 7,
           "w": 0,
           "d": 3,
-          "l": 3,
+          "l": 4,
           "bye": 1,
-          "gf": 8,
-          "ga": 14,
-          "gd": -6,
+          "gf": 9,
+          "ga": 19,
+          "gd": -10,
           "pts": 3,
           "isClub": false
         },
         {
           "pos": 5,
           "team": "Footscray Hockey Club",
-          "p": 6,
+          "p": 7,
           "w": 0,
           "d": 3,
-          "l": 3,
+          "l": 4,
           "bye": 1,
           "gf": 5,
-          "ga": 17,
-          "gd": -12,
+          "ga": 18,
+          "gd": -13,
           "pts": 3,
           "isClub": true
         }
@@ -2195,20 +2196,6 @@
         },
         {
           "pos": 3,
-          "team": "PEGS Hockey Club",
-          "p": 10,
-          "w": 5,
-          "d": 3,
-          "l": 2,
-          "bye": 0,
-          "gf": 20,
-          "ga": 24,
-          "gd": -4,
-          "pts": 18,
-          "isClub": false
-        },
-        {
-          "pos": 4,
           "team": "Footscray Hockey Club",
           "p": 11,
           "w": 6,
@@ -2220,6 +2207,20 @@
           "gd": 13,
           "pts": 19,
           "isClub": true
+        },
+        {
+          "pos": 4,
+          "team": "PEGS Hockey Club",
+          "p": 11,
+          "w": 5,
+          "d": 3,
+          "l": 3,
+          "bye": 0,
+          "gf": 20,
+          "ga": 30,
+          "gd": -10,
+          "pts": 18,
+          "isClub": false
         },
         {
           "pos": 5,
@@ -2251,6 +2252,20 @@
         },
         {
           "pos": 7,
+          "team": "Melton Hockey Club",
+          "p": 11,
+          "w": 3,
+          "d": 0,
+          "l": 8,
+          "bye": 0,
+          "gf": 27,
+          "ga": 36,
+          "gd": -9,
+          "pts": 9,
+          "isClub": false
+        },
+        {
+          "pos": 8,
           "team": "Craigieburn Falcons Hockey Club",
           "p": 11,
           "w": 2,
@@ -2261,20 +2276,6 @@
           "ga": 53,
           "gd": -31,
           "pts": 8,
-          "isClub": false
-        },
-        {
-          "pos": 8,
-          "team": "Melton Hockey Club",
-          "p": 10,
-          "w": 2,
-          "d": 0,
-          "l": 8,
-          "bye": 0,
-          "gf": 21,
-          "ga": 36,
-          "gd": -15,
-          "pts": 6,
           "isClub": false
         }
       ]
