@@ -695,7 +695,8 @@
         "title": "FHC U12 District Half Field Mixed NW - T2 - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-07-05T17:37:01.818Z"
     },
     {
       "name": "U12 Girls Shield - 2026",
@@ -732,7 +733,7 @@
       "isActive": true
     }
   ],
-  "lastStatusUpdate": "2026-07-04T17:30:17.584Z",
-  "activeCompetitions": 32,
-  "inactiveCompetitions": 10
+  "lastStatusUpdate": "2026-07-05T17:37:03.366Z",
+  "activeCompetitions": 31,
+  "inactiveCompetitions": 11
 }
