@@ -1,16 +1,8 @@
 {
-  "generatedAt": "2026-07-07T18:27:17.932Z",
-  "windowStart": "2026-06-29T18:27:17.932Z",
-  "windowEnd": "2026-07-21T18:27:17.932Z",
+  "generatedAt": "2026-07-08T18:03:42.099Z",
+  "windowStart": "2026-06-30T18:03:42.099Z",
+  "windowEnd": "2026-07-22T18:03:42.099Z",
   "events": [
-    {
-      "category": "midweek",
-      "summary": "2026 Winter Season Indoor Competitions 35+ Women Indoor - TEM vs FHC",
-      "dtstart": "2026-06-30T08:30:00.000Z",
-      "dtend": "2026-06-30T09:30:00.000Z",
-      "location": "State Sport Centres\\, Parkville - IND",
-      "score": "1-0"
-    },
     {
       "category": "midweek",
       "summary": "Women 45+ - GRN vs FHC",
@@ -21,19 +13,19 @@
     },
     {
       "category": "midweek",
-      "summary": "Men 50+ NW - YAR vs FHC",
-      "dtstart": "2026-07-01T09:30:00.000Z",
-      "dtend": "2026-07-01T10:30:00.000Z",
-      "location": "Cyril Cummins Reserve - YAR",
-      "score": "2-2"
-    },
-    {
-      "category": "midweek",
       "summary": "Women 35+ B - MHS vs FHC",
       "dtstart": "2026-07-01T09:30:00.000Z",
       "dtend": "2026-07-01T10:30:00.000Z",
       "location": "Albert Park - APK",
       "score": "1-2"
+    },
+    {
+      "category": "midweek",
+      "summary": "Men 50+ NW - YAR vs FHC",
+      "dtstart": "2026-07-01T09:30:00.000Z",
+      "dtend": "2026-07-01T10:30:00.000Z",
+      "location": "Cyril Cummins Reserve - YAR",
+      "score": "2-2"
     },
     {
       "category": "midweek",
@@ -66,17 +58,17 @@
     },
     {
       "category": "womens",
-      "summary": "Women PEN A - FHC vs CAM",
-      "dtstart": "2026-07-11T04:00:00.000Z",
-      "dtend": "2026-07-11T05:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
-    },
-    {
-      "category": "womens",
       "summary": "Women PEN C - FHC vs CAM",
       "dtstart": "2026-07-11T04:00:00.000Z",
       "dtend": "2026-07-11T05:30:00.000Z",
       "location": "Footscray Hockey Club - BSF"
+    },
+    {
+      "category": "womens",
+      "summary": "Women PEN A - FHC vs CAM",
+      "dtstart": "2026-07-11T04:00:00.000Z",
+      "dtend": "2026-07-11T05:30:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "mens",
@@ -164,17 +156,17 @@
     },
     {
       "category": "midweek",
-      "summary": "Women 45+ - FHC vs CAM",
-      "dtstart": "2026-07-15T10:00:00.000Z",
-      "dtend": "2026-07-15T11:00:00.000Z",
-      "location": "Footscray Hockey Club - BSF"
-    },
-    {
-      "category": "midweek",
       "summary": "Men 50+ NW - FHC vs LAT",
       "dtstart": "2026-07-15T10:00:00.000Z",
       "dtend": "2026-07-15T11:00:00.000Z",
       "location": "Footscray Hockey Club - ASF"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 45+ - FHC vs CAM",
+      "dtstart": "2026-07-15T10:00:00.000Z",
+      "dtend": "2026-07-15T11:00:00.000Z",
+      "location": "Footscray Hockey Club - BSF"
     },
     {
       "category": "midweek",
@@ -213,17 +205,17 @@
     },
     {
       "category": "juniors",
-      "summary": "U16 Girls Shield - FHC vs BRU",
-      "dtstart": "2026-07-17T11:00:00.000Z",
-      "dtend": "2026-07-17T12:00:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
-    },
-    {
-      "category": "juniors",
       "summary": "U18 Mixed District NW - FAL vs FHC",
       "dtstart": "2026-07-17T11:00:00.000Z",
       "dtend": "2026-07-17T12:00:00.000Z",
       "location": "Hume Hockey Centre - HUM"
+    },
+    {
+      "category": "juniors",
+      "summary": "U16 Girls Shield - FHC vs BRU",
+      "dtstart": "2026-07-17T11:00:00.000Z",
+      "dtend": "2026-07-17T12:00:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "juniors",
@@ -350,6 +342,34 @@
       "dtstart": "2026-07-21T09:20:00.000Z",
       "dtend": "2026-07-21T10:20:00.000Z",
       "location": "State Sport Centres\\, Parkville - IND"
+    },
+    {
+      "category": "midweek",
+      "summary": "Men 50+ NW - FHC vs PEGS",
+      "dtstart": "2026-07-22T09:00:00.000Z",
+      "dtend": "2026-07-22T10:00:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 45+ - HAW Hockey Club vs FHC",
+      "dtstart": "2026-07-22T10:00:00.000Z",
+      "dtend": "2026-07-22T11:00:00.000Z",
+      "location": "Hawthorn Malvern Hockey Centre - H-1"
+    },
+    {
+      "category": "midweek",
+      "summary": "Men 60+ B - BPS vs FHC B",
+      "dtstart": "2026-07-22T10:30:00.000Z",
+      "dtend": "2026-07-22T11:30:00.000Z",
+      "location": "Albert Park - APK"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 35+ B - CAM vs FHC",
+      "dtstart": "2026-07-22T11:00:00.000Z",
+      "dtend": "2026-07-22T12:00:00.000Z",
+      "location": "Camberwell Hockey Club - CAM"
     }
   ]
 }
