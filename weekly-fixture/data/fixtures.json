@@ -1,39 +1,14 @@
 {
-  "generatedAt": "2026-07-08T18:03:42.099Z",
-  "windowStart": "2026-06-30T18:03:42.099Z",
-  "windowEnd": "2026-07-22T18:03:42.099Z",
+  "generatedAt": "2026-07-09T18:23:34.620Z",
+  "windowStart": "2026-07-01T18:23:34.620Z",
+  "windowEnd": "2026-07-23T18:23:34.620Z",
   "events": [
     {
-      "category": "midweek",
-      "summary": "Women 45+ - GRN vs FHC",
-      "dtstart": "2026-07-01T09:00:00.000Z",
-      "dtend": "2026-07-01T10:00:00.000Z",
-      "location": "Greensborough Hockey Centre - GRN1",
-      "score": "8-0"
-    },
-    {
-      "category": "midweek",
-      "summary": "Women 35+ B - MHS vs FHC",
-      "dtstart": "2026-07-01T09:30:00.000Z",
-      "dtend": "2026-07-01T10:30:00.000Z",
-      "location": "Albert Park - APK",
-      "score": "1-2"
-    },
-    {
-      "category": "midweek",
-      "summary": "Men 50+ NW - YAR vs FHC",
-      "dtstart": "2026-07-01T09:30:00.000Z",
-      "dtend": "2026-07-01T10:30:00.000Z",
-      "location": "Cyril Cummins Reserve - YAR",
-      "score": "2-2"
-    },
-    {
-      "category": "midweek",
-      "summary": "Men 60+ B - FHC B vs KNX Hockey Club",
-      "dtstart": "2026-07-01T11:00:00.000Z",
-      "dtend": "2026-07-01T12:00:00.000Z",
-      "location": "Essendon Hockey Centre - ESS2",
-      "score": "0-0"
+      "category": "mens",
+      "summary": "Men M1 NW - GRN vs FHC",
+      "dtstart": "2026-07-11T02:30:00.000Z",
+      "dtend": "2026-07-11T04:00:00.000Z",
+      "location": "Greensborough Hockey Centre - GRN1"
     },
     {
       "category": "mens",
@@ -41,13 +16,6 @@
       "dtstart": "2026-07-11T02:30:00.000Z",
       "dtend": "2026-07-11T04:00:00.000Z",
       "location": "Footscray Hockey Club - BSF"
-    },
-    {
-      "category": "mens",
-      "summary": "Men M1 NW - GRN vs FHC",
-      "dtstart": "2026-07-11T02:30:00.000Z",
-      "dtend": "2026-07-11T04:00:00.000Z",
-      "location": "Greensborough Hockey Centre - GRN1"
     },
     {
       "category": "womens",
@@ -289,17 +257,17 @@
     },
     {
       "category": "mens",
-      "summary": "Men PLR - FHC vs DON",
-      "dtstart": "2026-07-18T07:00:00.000Z",
-      "dtend": "2026-07-18T08:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
-    },
-    {
-      "category": "mens",
       "summary": "Men PEN D NW - ESS Hockey vs FHC",
       "dtstart": "2026-07-18T07:00:00.000Z",
       "dtend": "2026-07-18T08:30:00.000Z",
       "location": "Essendon Hockey Centre - ESS1"
+    },
+    {
+      "category": "mens",
+      "summary": "Men PLR - FHC vs DON",
+      "dtstart": "2026-07-18T07:00:00.000Z",
+      "dtend": "2026-07-18T08:30:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "mens",
