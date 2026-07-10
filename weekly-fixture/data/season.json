@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-09T18:23:36.165Z",
-  "sourcesGeneratedAt": "2026-07-09T18:22:52.903Z",
-  "laddersGeneratedAt": "2026-07-09T18:23:34.470Z",
+  "generatedAt": "2026-07-10T18:16:01.057Z",
+  "sourcesGeneratedAt": "2026-07-10T18:15:25.748Z",
+  "laddersGeneratedAt": "2026-07-10T18:15:58.980Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -4540,31 +4540,31 @@
         },
         {
           "pos": 3,
-          "team": "MCC Hockey Section",
-          "p": 12,
+          "team": "Footscray Hockey Club",
+          "p": 11,
           "w": 2,
-          "d": 2,
+          "d": 1,
           "l": 8,
           "bye": 0,
-          "gf": 9,
-          "ga": 26,
-          "gd": -17,
-          "pts": 8,
-          "isClub": false
+          "gf": 5,
+          "ga": 24,
+          "gd": -19,
+          "pts": 7,
+          "isClub": true
         },
         {
           "pos": 4,
-          "team": "Footscray Hockey Club",
-          "p": 12,
-          "w": 2,
-          "d": 1,
-          "l": 9,
+          "team": "MCC Hockey Section",
+          "p": 11,
+          "w": 1,
+          "d": 2,
+          "l": 8,
           "bye": 0,
-          "gf": 6,
-          "ga": 28,
-          "gd": -22,
-          "pts": 7,
-          "isClub": true
+          "gf": 5,
+          "ga": 25,
+          "gd": -20,
+          "pts": 5,
+          "isClub": false
         }
       ]
     },
@@ -6120,6 +6120,20 @@
         },
         {
           "pos": 3,
+          "team": "Brunswick Hockey Club",
+          "p": 7,
+          "w": 5,
+          "d": 1,
+          "l": 1,
+          "bye": 1,
+          "gf": 29,
+          "ga": 16,
+          "gd": 13,
+          "pts": 16,
+          "isClub": false
+        },
+        {
+          "pos": 4,
           "team": "Essendon Hockey",
           "p": 8,
           "w": 6,
@@ -6130,20 +6144,6 @@
           "ga": 14,
           "gd": 25,
           "pts": 18,
-          "isClub": false
-        },
-        {
-          "pos": 4,
-          "team": "Brunswick Hockey Club",
-          "p": 6,
-          "w": 4,
-          "d": 1,
-          "l": 1,
-          "bye": 1,
-          "gf": 24,
-          "ga": 15,
-          "gd": 9,
-          "pts": 13,
           "isClub": false
         },
         {
@@ -6177,14 +6177,14 @@
         {
           "pos": 7,
           "team": "Melton Hockey Club",
-          "p": 6,
+          "p": 7,
           "w": 1,
           "d": 1,
-          "l": 4,
+          "l": 5,
           "bye": 1,
-          "gf": 10,
-          "ga": 29,
-          "gd": -19,
+          "gf": 11,
+          "ga": 34,
+          "gd": -23,
           "pts": 4,
           "isClub": false
         },
