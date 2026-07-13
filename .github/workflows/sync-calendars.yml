@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write  # needed to commit fixtures.json / subscribe-data.json / docs back to main
+      issues: write    # needed for the scrape-failure reporting step to open/update an issue
 
     steps:
       - name: Checkout repository
@@ -88,6 +89,74 @@ jobs:
         if: success()
         continue-on-error: true
         run: npm run scrape-ladders
+
+      # Surface only *complete* scrape failures (comps that failed both the
+      # retry loop and the second pass). Per-request retries are logged in the
+      # scrape steps but never raised here. Runs even if a scrape step errored
+      # so a hard crash still gets reported via the missing/failed payload.
+      - name: Report scrape failures
+        if: always()
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const read = (p) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return null; } };
+            const sources = [
+              { name: 'Ladders', payload: read('temp/ladders.json') },
+              { name: 'Scores',  payload: read('temp/scores.json') },
+            ];
+
+            const failures = [];
+            let summary = '## Scrape results\n\n';
+            for (const s of sources) {
+              if (!s.payload) {
+                summary += `- **${s.name}**: ⚠️ no data file (scraper may have crashed)\n`;
+                failures.push({ source: s.name, comps: ['(scraper produced no output)'] });
+                continue;
+              }
+              const list = s.payload.failedCompetitions || [];
+              const scraped = s.payload.competitionsScraped ?? '?';
+              summary += `- **${s.name}**: ${scraped} scraped, ${list.length} failed completely\n`;
+              if (list.length) failures.push({ source: s.name, comps: list });
+            }
+            if (failures.length) {
+              summary += '\n### ❌ Complete failures\n';
+              for (const f of failures) summary += `- **${f.source}**: ${f.comps.join(', ')}\n`;
+            }
+            await core.summary.addRaw(summary).write();
+
+            if (!failures.length) {
+              core.info('No complete scrape failures.');
+              return;
+            }
+            for (const f of failures) core.error(`${f.source} failed completely for: ${f.comps.join(', ')}`);
+
+            // File one deduped issue rather than a fresh one every day: reuse an
+            // open issue carrying our marker, otherwise create it.
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const marker = '<!-- scrape-failure-report -->';
+            const lines = failures.map(f => `- **${f.source}**: ${f.comps.join(', ')}`).join('\n');
+            const body = `${marker}\nOne or more competitions failed to scrape completely (after retries + a second pass).\n\n${lines}\n\nRun: ${runUrl}`;
+
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'scrape-failure', per_page: 20,
+            });
+            const existing = open.data.find(i => (i.body || '').includes(marker));
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: existing.number, body,
+              });
+              core.info(`Updated existing scrape-failure issue #${existing.number}`);
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title: 'Scrape failures: competitions missing data',
+                body, labels: ['bug', 'automated', 'scrape-failure'],
+              });
+              core.info('Created scrape-failure issue');
+            }
 
       - name: Regenerate fixtures.json + season.json + subscribe-data + docs
         if: success()
