@@ -1,10 +1,10 @@
-import fetch from 'node-fetch';
 import fs from 'fs/promises';
 import path from 'path';
 
 // Import shared utilities
 import { loadCompetitionData } from '../lib/competition-utils.js';
 import { logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
+import { hvFetch } from '../lib/hv-fetch.js';
 
 const ICAL_BASE_URL = 'https://www.hockeyvictoria.org.au/games/team/export/ical/';
 
@@ -31,27 +31,11 @@ export async function downloadCalendar(competitionTeamId, outputPath) {
     logInfo(`Downloading calendar from: ${url}`);
 
     try {
-        const response = await fetch(url, {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Accept': 'text/calendar,*/*',
-                'Accept-Language': 'en-US,en;q=0.9',
-                'Referer': 'https://www.hockeyvictoria.org.au/'
-            }
-        });
-
-        // Check for specific HTTP status codes
-        if (response.status === 202) {
-            const wafAction = response.headers.get('x-amzn-waf-action');
-            if (wafAction === 'challenge') {
-                throw new Error(`Download blocked by WAF (Web Application Firewall). The server is challenging the request. Status: ${response.status}`);
-            }
-            throw new Error(`Server returned 202 Accepted with no content. This may indicate the calendar is being generated or the request was blocked. Status: ${response.status}`);
-        }
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
-        }
+        // hvFetch retries WAF challenges (202) / 429 / 5xx with backoff and
+        // carries the shared session cookie; it resolves only on an ok, non-202
+        // response, so the status checks that used to live here are handled
+        // upstream. The ICS-specific validation below stays.
+        const response = await hvFetch(url, { accept: 'text/calendar,*/*', label: teamId });
 
         // Check content-length header
         const contentLength = response.headers.get('content-length');

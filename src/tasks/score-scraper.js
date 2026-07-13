@@ -17,27 +17,16 @@
 //     <div class="badge ...">{Win|Loss|Draw|FL|FF}</div>
 //     <a href="/game/{gameId}">Details</a>
 
-import fetch from 'node-fetch';
 import fs from 'fs/promises';
 import path from 'path';
 import { loadCompetitions } from '../lib/competition-utils.js';
 import { TEMP_DIR } from '../lib/config.js';
 import { logInfo, logWarning, logSuccess } from '../lib/error-utils.js';
+import { hvFetch, warmUpHvSession, jitterSleep, shuffle } from '../lib/hv-fetch.js';
 
 const SCORES_FILE = path.join(TEMP_DIR, 'scores.json');
 
-const FETCH_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Accept-Language': 'en-US,en;q=0.9',
-    'Referer': 'https://www.hockeyvictoria.org.au/'
-};
-
 const MONTHS = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
-
-function sleep(ms) {
-    return new Promise(r => setTimeout(r, ms));
-}
 
 // Decode the HTML entities HV sprinkles in (apostrophes especially:
 // `&#039;` for the curly ones in midweek comp names like "Men's 40+").
@@ -203,14 +192,7 @@ async function scrapeCompetition(competition) {
     logInfo(`Scraping scores: ${competition.name}`);
 
     try {
-        const res = await fetch(competition.fixtureUrl, { headers: FETCH_HEADERS });
-        if (res.status === 202) {
-            const wafAction = res.headers.get('x-amzn-waf-action');
-            throw new Error(`WAF challenge (status 202, action=${wafAction})`);
-        }
-        if (!res.ok) {
-            throw new Error(`HTTP ${res.status} ${res.statusText}`);
-        }
+        const res = await hvFetch(competition.fixtureUrl, { label: competition.name });
         const html = await res.text();
         const games = parseScoresHtml(html, competition.name);
 
@@ -232,34 +214,63 @@ async function main() {
     const active = competitions.filter(c => c.fixtureUrl && c.isActive !== false);
     logInfo(`Scraping scores for ${active.length} active competitions`);
 
+    // Seed the WAF session cookie before the loop so the first real requests
+    // aren't the ones that eat a cold-start challenge.
+    await warmUpHvSession();
+
     // Single flat list — the generator builds an index from this.
     const games = [];
-    let failed = 0;
 
-    for (const comp of active) {
-        const compGames = await scrapeCompetition(comp);
-        if (compGames === null) {
-            failed++;
-        } else {
-            for (const g of compGames) {
-                games.push({ competition: comp.name, ...g });
+    // One pass over a list of comps; returns those that failed outright. A comp
+    // only reaches here on failure of an earlier pass, so games are never
+    // pushed twice.
+    async function runPass(comps) {
+        const stillFailed = [];
+        for (const comp of comps) {
+            const compGames = await scrapeCompetition(comp);
+            if (compGames === null) {
+                stillFailed.push(comp);
+            } else {
+                for (const g of compGames) {
+                    games.push({ competition: comp.name, ...g });
+                }
             }
+            // Polite jitter so we don't hammer HV's site or trip the WAF.
+            await jitterSleep();
         }
-        // Polite jitter so we don't hammer HV's site or trip the WAF.
-        await sleep(200 + Math.random() * 300);
+        return stillFailed;
     }
+
+    // Shuffle so no single comp is always first to hit a cold-start challenge.
+    let pending = await runPass(shuffle(active));
+
+    // Second pass over whatever failed — WAF challenges are transient and the
+    // session cookie is warm by now, so most stragglers succeed on retry.
+    if (pending.length > 0) {
+        logInfo(`Retrying ${pending.length} failed competition(s) in a second pass`);
+        await jitterSleep(2000, 4000);
+        pending = await runPass(shuffle(pending));
+    }
+    const failedCompetitions = pending.map(c => c.name);
+    const failed = failedCompetitions.length;
 
     await fs.mkdir(TEMP_DIR, { recursive: true });
     const payload = {
         generatedAt: new Date().toISOString(),
         competitionsScraped: active.length - failed,
         competitionsFailed: failed,
+        // Names of comps that failed both passes — the CI reporting step reads
+        // this to surface complete failures (retries are logged but not raised).
+        failedCompetitions,
         games
     };
     await fs.writeFile(SCORES_FILE, JSON.stringify(payload, null, 2) + '\n', 'utf8');
 
     const playedCount = games.filter(g => g.status === 'Played' && g.score).length;
     logSuccess(`Wrote ${games.length} cards (${playedCount} with scores) from ${active.length - failed}/${active.length} competitions to ${SCORES_FILE}`);
+    if (failed > 0) {
+        logWarning(`${failed} competition(s) failed to scrape after retries: ${failedCompetitions.join(', ')}`);
+    }
 
     // Don't fail the workflow if some scrapes failed — partial data is fine.
     // The generator merges whatever's available and leaves un-scored events alone.
