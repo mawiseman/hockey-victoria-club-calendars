@@ -1,5 +1,7 @@
 # How to Subscribe to a Public Google Calendar
 
+> **The friendliest way to subscribe is the [live subscribe page](https://fhc-fixtures.netlify.app/subscribe.html)** — it lists every category calendar with one-tap links and the same instructions below. This document is the plain-text fallback (also generated per-calendar in [competitions-mobile.md](./competitions-mobile.md)).
+
 You can easily add a public Google Calendar to your mobile device to stay updated on events. The process varies slightly depending on your device and whether you use a Google account.
 
 To subscribe, you will need the calendar's public **iCal address**. This is a direct link to the calendar's data that ends in `.ics`. It will look something like this:

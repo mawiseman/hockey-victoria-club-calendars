@@ -6,17 +6,22 @@ This guide covers the prerequisites and setup steps needed to run the Hockey Vic
 
 ### 1. Configuration Setup
 
-Edit `config/settings.json` to configure your club:
+Edit `config/settings.json` and set the two required fields before first use:
 
 ```json
 {
-  "clubName": "Footscray Hockey Club",
-  "calendarPrefix": "FHC "
+  "clubName": "Footscray",
+  "calendarPrefix": "FHC"
 }
 ```
 
-- **clubName**: Full name of your hockey club (used for scraping competitions)
-- **calendarPrefix**: Prefix for Google Calendar names (keeps calendars organized)
+- **clubName**: Your hockey club as it appears on the Hockey Victoria website — used to match competitions and to detect home games. It can be a partial name (e.g. `"Footscray"`); the scraper matches any competition/team containing it.
+- **calendarPrefix**: Prepended to every Google Calendar name (e.g. `"FHC "` → "FHC Men's Pennant A Grade"). Include a trailing space if you want one between the prefix and the name.
+
+The rest of `settings.json` is **generated for you** as you run the scripts — you don't edit these by hand:
+
+- **clubCalendar** / **categoryCalendars** (`mens`, `womens`, `midweek`, `juniors`): calendar ID + public/iCal URLs, written by `create-calendars`.
+- **calendarsHomepage**: the public site URL used in generated docs and calendar descriptions.
 
 ### 2. Google Calendar API Setup
 
