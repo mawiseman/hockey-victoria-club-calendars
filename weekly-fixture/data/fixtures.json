@@ -1,16 +1,8 @@
 {
-  "generatedAt": "2026-07-13T18:21:57.546Z",
-  "windowStart": "2026-07-05T18:21:57.546Z",
-  "windowEnd": "2026-07-27T18:21:57.546Z",
+  "generatedAt": "2026-07-14T17:41:16.905Z",
+  "windowStart": "2026-07-06T17:41:16.905Z",
+  "windowEnd": "2026-07-28T17:41:16.905Z",
   "events": [
-    {
-      "category": "mens",
-      "summary": "Men M1 NW - GRN vs FHC",
-      "dtstart": "2026-07-11T02:30:00.000Z",
-      "dtend": "2026-07-11T04:00:00.000Z",
-      "location": "Greensborough Hockey Centre - GRN1",
-      "score": "0-4"
-    },
     {
       "category": "mens",
       "summary": "Men M2 NW - FHC vs WHI",
@@ -18,6 +10,14 @@
       "dtend": "2026-07-11T04:00:00.000Z",
       "location": "Footscray Hockey Club - BSF",
       "score": "3-3"
+    },
+    {
+      "category": "mens",
+      "summary": "Men M1 NW - GRN vs FHC",
+      "dtstart": "2026-07-11T02:30:00.000Z",
+      "dtend": "2026-07-11T04:00:00.000Z",
+      "location": "Greensborough Hockey Centre - GRN1",
+      "score": "0-4"
     },
     {
       "category": "womens",
@@ -120,7 +120,8 @@
       "summary": "Women 55+ - MCC vs FHC",
       "dtstart": "2026-07-13T09:00:00.000Z",
       "dtend": "2026-07-13T10:00:00.000Z",
-      "location": "Melbourne High School - MHS"
+      "location": "Melbourne High School - MHS",
+      "score": "1-3"
     },
     {
       "category": "midweek",
@@ -139,17 +140,17 @@
     },
     {
       "category": "midweek",
-      "summary": "Women 45+ - FHC vs CAM",
-      "dtstart": "2026-07-15T10:00:00.000Z",
-      "dtend": "2026-07-15T11:00:00.000Z",
-      "location": "Footscray Hockey Club - BSF"
-    },
-    {
-      "category": "midweek",
       "summary": "Men 50+ NW - FHC vs LAT",
       "dtstart": "2026-07-15T10:00:00.000Z",
       "dtend": "2026-07-15T11:00:00.000Z",
       "location": "Footscray Hockey Club - ASF"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 45+ - FHC vs CAM",
+      "dtstart": "2026-07-15T10:00:00.000Z",
+      "dtend": "2026-07-15T11:00:00.000Z",
+      "location": "Footscray Hockey Club - BSF"
     },
     {
       "category": "midweek",
@@ -188,17 +189,17 @@
     },
     {
       "category": "juniors",
-      "summary": "U18 Mixed District NW - FAL vs FHC",
-      "dtstart": "2026-07-17T11:00:00.000Z",
-      "dtend": "2026-07-17T12:00:00.000Z",
-      "location": "Hume Hockey Centre - HUM"
-    },
-    {
-      "category": "juniors",
       "summary": "U16 Girls Shield - FHC vs BRU",
       "dtstart": "2026-07-17T11:00:00.000Z",
       "dtend": "2026-07-17T12:00:00.000Z",
       "location": "Footscray Hockey Club - ASF"
+    },
+    {
+      "category": "juniors",
+      "summary": "U18 Mixed District NW - FAL vs FHC",
+      "dtstart": "2026-07-17T11:00:00.000Z",
+      "dtend": "2026-07-17T12:00:00.000Z",
+      "location": "Hume Hockey Centre - HUM"
     },
     {
       "category": "juniors",
@@ -272,10 +273,10 @@
     },
     {
       "category": "mens",
-      "summary": "Men PLR - FHC vs DON",
+      "summary": "Men PEN D NW - ESS Hockey vs FHC",
       "dtstart": "2026-07-18T07:00:00.000Z",
       "dtend": "2026-07-18T08:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
+      "location": "Essendon Hockey Centre - ESS1"
     },
     {
       "category": "mens",
@@ -286,10 +287,10 @@
     },
     {
       "category": "mens",
-      "summary": "Men PEN D NW - ESS Hockey vs FHC",
+      "summary": "Men PLR - FHC vs DON",
       "dtstart": "2026-07-18T07:00:00.000Z",
       "dtend": "2026-07-18T08:30:00.000Z",
-      "location": "Essendon Hockey Centre - ESS1"
+      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "mens",
@@ -528,6 +529,13 @@
       "dtstart": "2026-07-27T11:00:00.000Z",
       "dtend": "2026-07-27T12:00:00.000Z",
       "location": "Hawthorn Malvern Hockey Centre - H-1"
+    },
+    {
+      "category": "womens",
+      "summary": "Women PL - FHC vs CAM",
+      "dtstart": "2026-07-28T10:00:00.000Z",
+      "dtend": "2026-07-28T11:30:00.000Z",
+      "location": "Footscray Hockey Club - ASF"
     }
   ]
 }
