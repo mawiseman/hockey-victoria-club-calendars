@@ -1,24 +1,8 @@
 {
-  "generatedAt": "2026-07-20T18:30:57.839Z",
-  "windowStart": "2026-07-12T18:30:57.839Z",
-  "windowEnd": "2026-08-03T18:30:57.839Z",
+  "generatedAt": "2026-07-21T17:47:59.761Z",
+  "windowStart": "2026-07-13T17:47:59.761Z",
+  "windowEnd": "2026-08-04T17:47:59.761Z",
   "events": [
-    {
-      "category": "midweek",
-      "summary": "Women 55+ - MCC vs FHC",
-      "dtstart": "2026-07-13T09:00:00.000Z",
-      "dtend": "2026-07-13T10:00:00.000Z",
-      "location": "Melbourne High School - MHS",
-      "score": "1-3"
-    },
-    {
-      "category": "midweek",
-      "summary": "Men 40+ NW - FHC vs MUHC",
-      "dtstart": "2026-07-13T09:30:00.000Z",
-      "dtend": "2026-07-13T10:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF",
-      "score": "2-3"
-    },
     {
       "category": "midweek",
       "summary": "Women 35+ B - FHC vs MUHC",
@@ -247,7 +231,8 @@
       "summary": "2026 Winter Season Indoor Competitions 35+ Women Indoor - FHC vs CAM",
       "dtstart": "2026-07-21T09:20:00.000Z",
       "dtend": "2026-07-21T10:20:00.000Z",
-      "location": "State Sport Centres\\, Parkville - IND"
+      "location": "State Sport Centres\\, Parkville - IND",
+      "score": "0-10"
     },
     {
       "category": "midweek",
@@ -475,17 +460,17 @@
     },
     {
       "category": "midweek",
-      "summary": "Men 60+ B - KBH vs FHC B",
-      "dtstart": "2026-07-29T10:00:00.000Z",
-      "dtend": "2026-07-29T11:00:00.000Z",
-      "location": "Elgar Park - ELG2"
-    },
-    {
-      "category": "midweek",
       "summary": "Women 35+ B - FHC vs KNX",
       "dtstart": "2026-07-29T10:00:00.000Z",
       "dtend": "2026-07-29T11:00:00.000Z",
       "location": "Footscray Hockey Club - ASF"
+    },
+    {
+      "category": "midweek",
+      "summary": "Men 60+ B - KBH vs FHC B",
+      "dtstart": "2026-07-29T10:00:00.000Z",
+      "dtend": "2026-07-29T11:00:00.000Z",
+      "location": "Elgar Park - ELG2"
     },
     {
       "category": "juniors",
@@ -510,17 +495,17 @@
     },
     {
       "category": "juniors",
-      "summary": "U16 Girls PEN NW - FHC vs GEL",
-      "dtstart": "2026-07-31T09:30:00.000Z",
-      "dtend": "2026-07-31T10:30:00.000Z",
-      "location": "Footscray Hockey Club - BSF"
-    },
-    {
-      "category": "juniors",
       "summary": "U14 Girls PEN NW - NWL vs FHC",
       "dtstart": "2026-07-31T09:30:00.000Z",
       "dtend": "2026-07-31T10:30:00.000Z",
       "location": "Bendigo Hockey Centre - BEN1"
+    },
+    {
+      "category": "juniors",
+      "summary": "U16 Girls PEN NW - FHC vs GEL",
+      "dtstart": "2026-07-31T09:30:00.000Z",
+      "dtend": "2026-07-31T10:30:00.000Z",
+      "location": "Footscray Hockey Club - BSF"
     },
     {
       "category": "juniors",
@@ -654,6 +639,13 @@
       "dtstart": "2026-08-03T09:00:00.000Z",
       "dtend": "2026-08-03T10:00:00.000Z",
       "location": "Essendon Hockey Centre - ESS1"
+    },
+    {
+      "category": "midweek",
+      "summary": "2026 Winter Season Indoor Competitions 35+ Women Indoor - FHC vs ESS Hockey",
+      "dtstart": "2026-08-04T08:30:00.000Z",
+      "dtend": "2026-08-04T09:30:00.000Z",
+      "location": "State Sport Centres\\, Parkville - IND"
     }
   ]
 }
