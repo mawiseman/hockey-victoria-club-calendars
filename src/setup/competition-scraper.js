@@ -81,12 +81,27 @@ async function loadExistingCompetitions() {
  * Load or create progress tracking data
  */
 async function loadProgress() {
+    // competitions.json is the canonical output — other scripts (create-calendars,
+    // update-competition-status, cleanup-inactive) may update googleCalendar/isActive
+    // on it independently of a scrape, so any resumed progress checkpoint needs to be
+    // refreshed against it rather than trusting its own possibly-stale snapshot.
+    const existingCompetitions = await loadExistingCompetitions();
+
     try {
         const progressData = await fs.readFile(PROGRESS_FILE, 'utf8');
-        return JSON.parse(progressData);
+        const progress = JSON.parse(progressData);
+
+        const existingByUrl = new Map(existingCompetitions.map(comp => [comp.fixtureUrl, comp]));
+        progress.foundCompetitions = progress.foundCompetitions.map(comp => {
+            const current = existingByUrl.get(comp.fixtureUrl);
+            return current
+                ? { ...comp, googleCalendar: current.googleCalendar, isActive: current.isActive }
+                : comp;
+        });
+
+        return progress;
     } catch (error) {
-        // File doesn't exist or is invalid, load existing competitions and create default structure
-        const existingCompetitions = await loadExistingCompetitions();
+        // File doesn't exist or is invalid, create default structure from existing competitions
         return {
             startedAt: new Date().toISOString(),
             lastUpdated: new Date().toISOString(),

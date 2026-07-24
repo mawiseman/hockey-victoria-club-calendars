@@ -17,14 +17,17 @@ const SETTINGS_FILE = 'config/settings.json';
 /**
  * Update settings.json with club calendar information
  */
-async function updateSettingsWithClubCalendar(calendarId, publicUrl, icalUrl) {
+async function updateSettingsWithClubCalendar(calendarId, publicUrl, icalUrl, existed) {
     try {
         const settings = await getSettings();
+        const createdAt = existed && settings.clubCalendar?.createdAt
+            ? settings.clubCalendar.createdAt
+            : getCurrentTimestamp();
         settings.clubCalendar = {
             calendarId,
             publicUrl,
             icalUrl,
-            createdAt: getCurrentTimestamp()
+            createdAt
         };
         
         await fs.writeFile(SETTINGS_FILE, JSON.stringify(settings, null, 2), 'utf8');
@@ -55,7 +58,7 @@ async function ensureClubCalendar(calendar, existingCalendars) {
         const icalUrl = `https://calendar.google.com/calendar/ical/${encodeURIComponent(existingClubCalendar.id)}/public/basic.ics`;
         
         // Update settings with existing calendar
-        await updateSettingsWithClubCalendar(existingClubCalendar.id, publicUrl, icalUrl);
+        await updateSettingsWithClubCalendar(existingClubCalendar.id, publicUrl, icalUrl, true);
         
         return {
             calendarId: existingClubCalendar.id,
@@ -77,7 +80,8 @@ async function ensureClubCalendar(calendar, existingCalendars) {
         await updateSettingsWithClubCalendar(
             clubCalendarData.calendarId,
             clubCalendarData.publicUrl,
-            clubCalendarData.icalUrl
+            clubCalendarData.icalUrl,
+            false
         );
         
         return {
@@ -90,18 +94,21 @@ async function ensureClubCalendar(calendar, existingCalendars) {
 /**
  * Update settings.json with category calendar information
  */
-async function updateSettingsWithCategoryCalendar(category, calendarId, publicUrl, icalUrl, title) {
+async function updateSettingsWithCategoryCalendar(category, calendarId, publicUrl, icalUrl, title, existed) {
     try {
         const settings = await getSettings();
         if (!settings.categoryCalendars) {
             settings.categoryCalendars = {};
         }
+        const createdAt = existed && settings.categoryCalendars[category]?.createdAt
+            ? settings.categoryCalendars[category].createdAt
+            : getCurrentTimestamp();
         settings.categoryCalendars[category] = {
             calendarId,
             publicUrl,
             icalUrl,
             title,
-            createdAt: getCurrentTimestamp()
+            createdAt
         };
 
         await fs.writeFile(SETTINGS_FILE, JSON.stringify(settings, null, 2), 'utf8');
@@ -145,7 +152,7 @@ async function ensureCategoryCalendars(calendar, existingCalendars) {
                 logWarning(`Failed to update color for ${calendarTitle}: ${error.message}`);
             }
 
-            await updateSettingsWithCategoryCalendar(categoryKey, existing.id, publicUrl, icalUrl, calendarTitle);
+            await updateSettingsWithCategoryCalendar(categoryKey, existing.id, publicUrl, icalUrl, calendarTitle, true);
             results[categoryKey] = { calendarId: existing.id, publicUrl, icalUrl, title: calendarTitle, existed: true };
         } else {
             logInfo(`Creating category calendar: ${calendarTitle}`);
@@ -169,7 +176,7 @@ async function ensureCategoryCalendars(calendar, existingCalendars) {
                 logWarning(`Failed to set color for ${calendarTitle}: ${error.message}`);
             }
 
-            await updateSettingsWithCategoryCalendar(categoryKey, calendarData.calendarId, calendarData.publicUrl, calendarData.icalUrl, calendarTitle);
+            await updateSettingsWithCategoryCalendar(categoryKey, calendarData.calendarId, calendarData.publicUrl, calendarData.icalUrl, calendarTitle, false);
             results[categoryKey] = { ...calendarData, existed: false };
             logSuccess(`Created category calendar: ${calendarTitle}`);
         }
@@ -303,23 +310,27 @@ async function createCalendar(calendar, title, description, competitionName = nu
  * Update competition data with calendar information
  */
 async function updateCompetitionData(competitionData, calendarUpdates) {
-    // Create a map of competition names to calendar data
+    // Create a map of competition names to calendar updates
     const calendarMap = new Map();
     calendarUpdates.forEach(update => {
-        calendarMap.set(update.competitionName, {
-            calendarId: update.calendarId,
-            publicUrl: update.publicUrl,
-            icalUrl: update.icalUrl,
-            title: update.title,
-            createdAt: getCurrentTimestamp()
-        });
+        calendarMap.set(update.competitionName, update);
     });
-    
-    // Update competitions with calendar data
+
+    // Update competitions with calendar data, preserving the original createdAt
+    // for calendars that already existed rather than restamping it to now
     competitionData.competitions.forEach(competition => {
-        const calendarData = calendarMap.get(competition.name);
-        if (calendarData) {
-            competition.googleCalendar = calendarData;
+        const update = calendarMap.get(competition.name);
+        if (update) {
+            const createdAt = update.existingCalendar && competition.googleCalendar?.createdAt
+                ? competition.googleCalendar.createdAt
+                : getCurrentTimestamp();
+            competition.googleCalendar = {
+                calendarId: update.calendarId,
+                publicUrl: update.publicUrl,
+                icalUrl: update.icalUrl,
+                title: update.title,
+                createdAt
+            };
         }
     });
     
