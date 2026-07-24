@@ -544,5 +544,8 @@
       },
       "isActive": true
     }
-  ]
+  ],
+  "lastStatusUpdate": "2026-07-24T05:32:35.811Z",
+  "activeCompetitions": 32,
+  "inactiveCompetitions": 0
 }
