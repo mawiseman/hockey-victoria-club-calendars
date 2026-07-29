@@ -355,7 +355,8 @@
         "title": "FHC Midweek Women's 55+ (Monday) - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-07-29T17:39:52.540Z"
     },
     {
       "name": "U18 Mixed District NW - 2026",
@@ -545,7 +546,7 @@
       "isActive": true
     }
   ],
-  "lastStatusUpdate": "2026-07-28T17:52:37.971Z",
-  "activeCompetitions": 32,
-  "inactiveCompetitions": 0
+  "lastStatusUpdate": "2026-07-29T17:40:01.057Z",
+  "activeCompetitions": 31,
+  "inactiveCompetitions": 1
 }
