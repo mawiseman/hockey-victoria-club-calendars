@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T17:41:36.257Z",
-  "sourcesGeneratedAt": "2026-07-29T17:40:57.131Z",
-  "laddersGeneratedAt": "2026-07-29T17:41:33.957Z",
+  "generatedAt": "2026-07-30T17:52:32.574Z",
+  "sourcesGeneratedAt": "2026-07-30T17:51:48.930Z",
+  "laddersGeneratedAt": "2026-07-30T17:52:30.664Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -2510,7 +2510,7 @@
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2469117",
-          "score": "FL"
+          "score": "1-5"
         },
         {
           "round": 15,
@@ -2557,15 +2557,15 @@
         {
           "pos": 1,
           "team": "Doncaster Hockey Club",
-          "p": 17,
-          "w": 12,
+          "p": 18,
+          "w": 13,
           "d": 3,
           "l": 2,
           "bye": 0,
-          "gf": 56,
-          "ga": 27,
-          "gd": 29,
-          "pts": 39,
+          "gf": 60,
+          "ga": 30,
+          "gd": 30,
+          "pts": 42,
           "isClub": false
         },
         {
@@ -2585,15 +2585,15 @@
         {
           "pos": 3,
           "team": "Camberwell Hockey Club",
-          "p": 17,
-          "w": 12,
+          "p": 18,
+          "w": 13,
           "d": 2,
           "l": 3,
           "bye": 0,
-          "gf": 64,
-          "ga": 32,
-          "gd": 32,
-          "pts": 38,
+          "gf": 69,
+          "ga": 33,
+          "gd": 36,
+          "pts": 41,
           "isClub": false
         },
         {
@@ -2612,20 +2612,6 @@
         },
         {
           "pos": 5,
-          "team": "KBH Brumbies Hockey Club",
-          "p": 17,
-          "w": 7,
-          "d": 4,
-          "l": 6,
-          "bye": 0,
-          "gf": 49,
-          "ga": 41,
-          "gd": 8,
-          "pts": 25,
-          "isClub": false
-        },
-        {
-          "pos": 6,
           "team": "Hawthorn Hockey Club",
           "p": 18,
           "w": 7,
@@ -2636,6 +2622,20 @@
           "ga": 40,
           "gd": 10,
           "pts": 26,
+          "isClub": false
+        },
+        {
+          "pos": 6,
+          "team": "KBH Brumbies Hockey Club",
+          "p": 18,
+          "w": 7,
+          "d": 4,
+          "l": 7,
+          "bye": 0,
+          "gf": 52,
+          "ga": 45,
+          "gd": 7,
+          "pts": 25,
           "isClub": false
         },
         {
@@ -2683,14 +2683,14 @@
         {
           "pos": 10,
           "team": "Footscray Hockey Club",
-          "p": 17,
+          "p": 18,
           "w": 4,
           "d": 2,
-          "l": 11,
+          "l": 12,
           "bye": 0,
-          "gf": 41,
-          "ga": 52,
-          "gd": -11,
+          "gf": 42,
+          "ga": 57,
+          "gd": -15,
           "pts": 14,
           "isClub": true
         },
@@ -3602,20 +3602,6 @@
       "ladder": [
         {
           "pos": 1,
-          "team": "Hockey Geelong",
-          "p": 12,
-          "w": 10,
-          "d": 1,
-          "l": 1,
-          "bye": 1,
-          "gf": 39,
-          "ga": 9,
-          "gd": 30,
-          "pts": 31,
-          "isClub": false
-        },
-        {
-          "pos": 2,
           "team": "Footscray Hockey Club",
           "p": 12,
           "w": 9,
@@ -3627,6 +3613,20 @@
           "gd": 23,
           "pts": 30,
           "isClub": true
+        },
+        {
+          "pos": 2,
+          "team": "Hockey Geelong",
+          "p": 13,
+          "w": 10,
+          "d": 2,
+          "l": 1,
+          "bye": 1,
+          "gf": 39,
+          "ga": 9,
+          "gd": 30,
+          "pts": 32,
+          "isClub": false
         },
         {
           "pos": 3,
@@ -3645,15 +3645,15 @@
         {
           "pos": 4,
           "team": "PEGS Hockey Club",
-          "p": 11,
+          "p": 12,
           "w": 6,
-          "d": 3,
+          "d": 4,
           "l": 2,
           "bye": 2,
           "gf": 26,
           "ga": 10,
           "gd": 16,
-          "pts": 21,
+          "pts": 22,
           "isClub": false
         },
         {
@@ -4304,14 +4304,14 @@
           "pos": 3,
           "team": "Camberwell Hockey Club",
           "p": 13,
-          "w": 7,
-          "d": 2,
+          "w": 8,
+          "d": 1,
           "l": 4,
           "bye": 1,
-          "gf": 24,
+          "gf": 26,
           "ga": 11,
-          "gd": 13,
-          "pts": 23,
+          "gd": 15,
+          "pts": 25,
           "isClub": false
         },
         {
@@ -4375,13 +4375,13 @@
           "team": "OEMHC MUDS",
           "p": 12,
           "w": 2,
-          "d": 2,
-          "l": 8,
+          "d": 1,
+          "l": 9,
           "bye": 2,
           "gf": 11,
-          "ga": 24,
-          "gd": -13,
-          "pts": 8,
+          "ga": 26,
+          "gd": -15,
+          "pts": 7,
           "isClub": false
         },
         {
@@ -9384,15 +9384,15 @@
         {
           "pos": 3,
           "team": "Hawthorn Hockey Club",
-          "p": 17,
-          "w": 9,
+          "p": 18,
+          "w": 10,
           "d": 5,
           "l": 3,
           "bye": 0,
-          "gf": 49,
+          "gf": 51,
           "ga": 18,
-          "gd": 31,
-          "pts": 32,
+          "gd": 33,
+          "pts": 35,
           "isClub": false
         },
         {
@@ -9412,14 +9412,14 @@
         {
           "pos": 5,
           "team": "Bayside Powerhouse Hockey Club",
-          "p": 17,
+          "p": 18,
           "w": 9,
           "d": 1,
-          "l": 7,
+          "l": 8,
           "bye": 0,
-          "gf": 32,
-          "ga": 34,
-          "gd": -2,
+          "gf": 33,
+          "ga": 36,
+          "gd": -3,
           "pts": 28,
           "isClub": false
         },
@@ -9440,15 +9440,15 @@
         {
           "pos": 7,
           "team": "Doncaster Hockey Club",
-          "p": 17,
-          "w": 6,
+          "p": 18,
+          "w": 7,
           "d": 5,
           "l": 6,
           "bye": 0,
-          "gf": 32,
-          "ga": 37,
-          "gd": -5,
-          "pts": 23,
+          "gf": 34,
+          "ga": 38,
+          "gd": -4,
+          "pts": 26,
           "isClub": false
         },
         {
@@ -9496,14 +9496,14 @@
         {
           "pos": 11,
           "team": "MCC Hockey Section",
-          "p": 17,
+          "p": 18,
           "w": 3,
           "d": 4,
-          "l": 10,
+          "l": 11,
           "bye": 0,
           "gf": 26,
-          "ga": 44,
-          "gd": -18,
+          "ga": 46,
+          "gd": -20,
           "pts": 13,
           "isClub": false
         },
