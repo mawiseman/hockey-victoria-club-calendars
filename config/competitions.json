@@ -263,14 +263,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26354/42646",
       "matchDuration": 60,
       "scrapedAt": "2026-05-11T05:44:00.423Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052%40group.calendar.google.com/public/basic.ics",
         "title": "FHC 35+ Womens Masters Indoor",
         "createdAt": "2026-05-11T05:48:27.989Z"
-      }
+      },
+      "statusUpdatedAt": "2026-08-20T17:02:12.189Z"
     },
     {
       "name": "Midweek Men's 40+ NW - 2026",
@@ -546,7 +547,7 @@
       "isActive": true
     }
   ],
-  "lastStatusUpdate": "2026-08-19T16:56:45.911Z",
-  "activeCompetitions": 31,
-  "inactiveCompetitions": 1
+  "lastStatusUpdate": "2026-08-20T17:02:26.879Z",
+  "activeCompetitions": 30,
+  "inactiveCompetitions": 2
 }
