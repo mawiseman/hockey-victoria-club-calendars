@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T17:03:57.450Z",
-  "windowStart": "2026-08-12T17:03:57.450Z",
-  "windowEnd": "2026-09-03T17:03:57.450Z",
+  "generatedAt": "2026-08-21T16:59:28.164Z",
+  "windowStart": "2026-08-13T16:59:28.164Z",
+  "windowEnd": "2026-09-04T16:59:28.164Z",
   "events": [
     {
       "category": "juniors",
@@ -21,19 +21,19 @@
     },
     {
       "category": "juniors",
-      "summary": "U14 Mixed District NW - PEGS Maroon vs FHC",
-      "dtstart": "2026-08-14T09:00:00.000Z",
-      "dtend": "2026-08-14T10:00:00.000Z",
-      "location": "PEGS Sporting Fields - PSF1",
-      "score": "0-3"
-    },
-    {
-      "category": "juniors",
       "summary": "U14 Boys Shield - FHC vs GRN",
       "dtstart": "2026-08-14T09:00:00.000Z",
       "dtend": "2026-08-14T10:00:00.000Z",
       "location": "Footscray Hockey Club - ASF",
       "score": "2-1"
+    },
+    {
+      "category": "juniors",
+      "summary": "U14 Mixed District NW - PEGS Maroon vs FHC",
+      "dtstart": "2026-08-14T09:00:00.000Z",
+      "dtend": "2026-08-14T10:00:00.000Z",
+      "location": "PEGS Sporting Fields - PSF1",
+      "score": "0-3"
     },
     {
       "category": "juniors",
@@ -213,19 +213,19 @@
     },
     {
       "category": "midweek",
-      "summary": "Women 45+ - FHC vs TEM",
-      "dtstart": "2026-08-19T10:00:00.000Z",
-      "dtend": "2026-08-19T11:00:00.000Z",
-      "location": "Footscray Hockey Club - BSF",
-      "score": "1-4"
-    },
-    {
-      "category": "midweek",
       "summary": "Women 35+ B - GEL vs FHC",
       "dtstart": "2026-08-19T10:00:00.000Z",
       "dtend": "2026-08-19T11:00:00.000Z",
       "location": "Geelong Hockey Centre - GEL1",
       "score": "5-0"
+    },
+    {
+      "category": "midweek",
+      "summary": "Women 45+ - FHC vs TEM",
+      "dtstart": "2026-08-19T10:00:00.000Z",
+      "dtend": "2026-08-19T11:00:00.000Z",
+      "location": "Footscray Hockey Club - BSF",
+      "score": "1-4"
     },
     {
       "category": "midweek",
@@ -237,17 +237,19 @@
     },
     {
       "category": "juniors",
-      "summary": "U14 Girls PEN NW - FHC vs YAR",
-      "dtstart": "2026-08-21T08:30:00.000Z",
-      "dtend": "2026-08-21T09:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
-    },
-    {
-      "category": "juniors",
       "summary": "U16 Girls Shield - PEGS vs FHC",
       "dtstart": "2026-08-21T08:30:00.000Z",
       "dtend": "2026-08-21T09:30:00.000Z",
-      "location": "PEGS Sporting Fields - PSF1"
+      "location": "PEGS Sporting Fields - PSF1",
+      "score": "0-2"
+    },
+    {
+      "category": "juniors",
+      "summary": "U14 Girls PEN NW - FHC vs YAR",
+      "dtstart": "2026-08-21T08:30:00.000Z",
+      "dtend": "2026-08-21T09:30:00.000Z",
+      "location": "Footscray Hockey Club - ASF",
+      "score": "0-1"
     },
     {
       "category": "juniors",
@@ -261,7 +263,8 @@
       "summary": "U16 Boys Shield - BPS vs FHC",
       "dtstart": "2026-08-21T09:30:00.000Z",
       "dtend": "2026-08-21T10:30:00.000Z",
-      "location": "Brighton Secondary College - BTN"
+      "location": "Brighton Secondary College - BTN",
+      "score": "0-10"
     },
     {
       "category": "juniors",
@@ -275,13 +278,22 @@
       "summary": "U16 Girls PEN NW - FHC vs GRN",
       "dtstart": "2026-08-21T09:45:00.000Z",
       "dtend": "2026-08-21T10:45:00.000Z",
-      "location": "Footscray Hockey Club - BSF"
+      "location": "Footscray Hockey Club - BSF",
+      "score": "3-2"
     },
     {
       "category": "juniors",
       "summary": "U18 Mixed District NW - FHC vs PEGS",
       "dtstart": "2026-08-21T11:00:00.000Z",
       "dtend": "2026-08-21T12:00:00.000Z",
+      "location": "Footscray Hockey Club - ASF",
+      "score": "1-5"
+    },
+    {
+      "category": "juniors",
+      "summary": "U12 District NW 2026 - FHC vs LAT",
+      "dtstart": "2026-08-22T00:30:00.000Z",
+      "dtend": "2026-08-22T01:30:00.000Z",
       "location": "Footscray Hockey Club - ASF"
     },
     {
@@ -290,13 +302,6 @@
       "dtstart": "2026-08-22T00:30:00.000Z",
       "dtend": "2026-08-22T01:30:00.000Z",
       "location": "Essendon Hockey Centre - ESS1"
-    },
-    {
-      "category": "juniors",
-      "summary": "U12 District NW 2026 - FHC vs LAT",
-      "dtstart": "2026-08-22T00:30:00.000Z",
-      "dtend": "2026-08-22T01:30:00.000Z",
-      "location": "Footscray Hockey Club - ASF"
     },
     {
       "category": "juniors",
