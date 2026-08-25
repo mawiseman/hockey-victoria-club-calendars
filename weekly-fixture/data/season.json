@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-24T17:01:05.923Z",
-  "sourcesGeneratedAt": "2026-08-24T17:00:17.500Z",
-  "laddersGeneratedAt": "2026-08-24T17:01:03.581Z",
+  "generatedAt": "2026-08-25T17:02:22.217Z",
+  "sourcesGeneratedAt": "2026-08-25T17:01:38.700Z",
+  "laddersGeneratedAt": "2026-08-25T17:02:20.307Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -4314,8 +4314,8 @@
         },
         {
           "round": 7,
-          "dtstart": "2026-08-29T00:00:00.000Z",
-          "dtend": "2026-08-29T01:00:00.000Z",
+          "dtstart": "2026-08-28T23:00:00.000Z",
+          "dtend": "2026-08-29T00:00:00.000Z",
           "home": "CS",
           "away": "FHC",
           "isHome": false,
