@@ -6,7 +6,7 @@
 // follow this layout, parsed below:
 //
 //   <div class="card card-hover mb-4">
-//     <b>Round N</b><br />
+//     <b>Round N</b><br />          ← or a finals label e.g. "Qualifying Final"
 //     {Day DD Mmm YYYY}<br />
 //     {HH:MM}
 //     <a href=".../venues/...">{Venue name}</a>
@@ -84,17 +84,20 @@ function parseDateLocal(dayStr, dayNum, monthStr, yearStr, hourStr, minuteStr) {
 }
 
 function parseCard(blockText, compName) {
-    // Round number — anchor on <b>Round N</b>.
-    const roundMatch = blockText.match(/<b>Round\s+(\d+)<\/b>/i);
-    if (!roundMatch) return null;
-    const round = parseInt(roundMatch[1], 10);
-
-    // Date + time follow the round line via <br /> separators.
+    // Heading is "Round N" for regular rounds, or a finals label (e.g.
+    // "Qualifying Final") for finals — match either so finals cards aren't
+    // dropped. The round/finals label itself is authoritative from the
+    // processed ICS calendar and gets matched onto this card by
+    // generate-season-json.js via (datetime, venue); we only need a round
+    // number here for bye cards, which have no ICS counterpart to match.
     const dtMatch = blockText.match(
-        /<b>Round\s+\d+<\/b>\s*<br\s*\/?>\s*(\w{3})\s+(\d{1,2})\s+(\w{3})\s+(\d{4})\s*<br\s*\/?>\s*(\d{1,2}):(\d{2})/
+        /<b>([^<]+)<\/b>\s*<br\s*\/?>\s*(\w{3})\s+(\d{1,2})\s+(\w{3})\s+(\d{4})\s*<br\s*\/?>\s*(\d{1,2}):(\d{2})/
     );
     if (!dtMatch) return null;
-    const dtstartLocal = parseDateLocal(dtMatch[1], dtMatch[2], dtMatch[3], dtMatch[4], dtMatch[5], dtMatch[6]);
+    const heading = dtMatch[1].trim();
+    const roundNumMatch = heading.match(/^Round\s+(\d+)$/i);
+    const round = roundNumMatch ? parseInt(roundNumMatch[1], 10) : null;
+    const dtstartLocal = parseDateLocal(dtMatch[2], dtMatch[3], dtMatch[4], dtMatch[5], dtMatch[6], dtMatch[7]);
     if (!dtstartLocal) return null;
 
     // Venue abbreviation — the small <div>ABBR</div> sitting after the venue

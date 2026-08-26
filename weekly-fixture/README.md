@@ -78,9 +78,10 @@ The generator (see [src/setup/generate-docs.js](../src/setup/generate-docs.js) �
 
 ## How the data is built
 
-- `npm run scrape-scores` fetches each active competition's HV team page (`competition.fixtureUrl`) once daily and writes `temp/scores.json`. Each card on the page yields one entry: round, Melbourne-local datetime, venue abbreviation, opponent club name, status (`Played` / `Playing`), score, result badge, HV game ID. WAF blocks are tolerated — the workflow step is `continue-on-error: true`.
+- `npm run process-all-competitions` downloads each active competition's HV iCal draw and writes `temp/processed/<comp>_processed.ics` (alongside uploading to Google Calendar). This is the base fixture list for `generate-season-json` below — the complete HV draw, including finals, since it comes from HV's own calendar export rather than a scrape of a rendered page.
+- `npm run scrape-scores` fetches each active competition's HV team page (`competition.fixtureUrl`) once daily and writes `temp/scores.json`. Each card on the page yields one entry: Melbourne-local datetime, venue abbreviation, opponent club name, status (`Played` / `Playing`), score, result badge, HV game ID, and (for byes only, which have no ICS counterpart) a round number. This is enrichment, not the fixture list — a failed or missing scrape means events ship without scores, not that fixtures disappear. WAF blocks are tolerated — the workflow step is `continue-on-error: true`.
 - `npm run scrape-ladders` fetches each active competition's HV pointscore page (`competition.ladderUrl`) once daily and writes `temp/ladders.json`. Each row yields position, team name, P / W / D / L / BYE / GF / GA / GD / Pts, plus an `isClub` flag set when the team name matches the configured `clubName`. Same WAF tolerance — missing scrapes mean the team page falls back to the external "Ladder" link.
-- `npm run generate-season-json` joins the scrapes against `config/competitions.json` (team metadata, URLs) and `config/mappings-club-names.json` (opponent → abbreviation), then writes `data/season.json`. It infers home/away from the venue (FHC venues start with the configured club name), converts Melbourne local → UTC ISO via `Intl.DateTimeFormat`, and assigns each team a stable URL slug like `men-pl` / `women-pen-a` / `midweek-mens-40plus-nw`. Ladder rows are attached on each team object as `ladder: [...]` (omitted if the scrape didn't return any rows).
+- `npm run generate-season-json` builds each competition's event list from `temp/processed/<comp>_processed.ics` (round number from the "Current Round" link in `DESCRIPTION`; finals rounds — Qualifying/Elimination/Semi/Preliminary/Grand Final, see `src/lib/finals.js` — from `SUMMARY`, since HV omits that link for them), then merges `temp/scores.json` onto those events by `(Melbourne-local datetime, venue abbreviation)` and adds any bye rows the scrape found. Opponent names/abbreviations are resolved against `config/mappings-club-names.json`, home/away from the venue (FHC venues start with the configured club name), Melbourne local → UTC ISO via `Intl.DateTimeFormat`, and each team gets a stable URL slug like `men-pl` / `women-pen-a` / `midweek-mens-40plus-nw`. Ladder rows are attached on each team object as `ladder: [...]` (omitted if the scrape didn't return any rows).
 
 ### Season data shape
 
@@ -121,7 +122,7 @@ The generator (see [src/setup/generate-docs.js](../src/setup/generate-docs.js) �
 }
 ```
 
-`view` controls which homepage tab the team's fixtures appear under. `slug` is what hash-routes resolve against (`#/team/{slug}`). `score` is omitted on unplayed events. `ladder` is omitted when the pointscore scrape returned nothing for that competition.
+`view` controls which homepage tab the team's fixtures appear under. `slug` is what hash-routes resolve against (`#/team/{slug}`). `round` is a number for regular rounds or a finals label string (`"Qualifying Final"`, `"Grand Final"`, …) for finals — see `src/lib/finals.js`. `score` is omitted on unplayed events. `ladder` is omitted when the pointscore scrape returned nothing for that competition.
 
 ### Front-end (`js/app.js`)
 

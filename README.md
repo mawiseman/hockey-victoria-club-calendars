@@ -34,7 +34,7 @@ Improvements:
 |--------|---------|-------------|
 | **Process All Competitions** | `npm run process-all-competitions` | Process all competitions: download, process, and upload to individual + category calendars |
 | **Process Competition** | `npm run process-competition` | Process a single competition's calendar |
-| **Scrape Scores** | `npm run scrape-scores` | Pulls match scores from each active team page into `temp/scores.json` (used by `generate-season-json`) |
+| **Scrape Scores** | `npm run scrape-scores` | Pulls match scores from each active team page into `temp/scores.json` (enrichment for `generate-season-json` — not the fixture list itself) |
 
 ### Weekly Fixture Site Generators
 
@@ -42,7 +42,7 @@ The site at [weekly-fixture/](./weekly-fixture/) reads pre-built JSON files comm
 
 | Script | Command | Output |
 |--------|---------|--------|
-| **Season JSON** | `npm run generate-season-json` | `weekly-fixture/data/season.json` — team-season view (combines `temp/scores.json` with `config/competitions.json`) |
+| **Season JSON** | `npm run generate-season-json` | `weekly-fixture/data/season.json` — team-season view. Base fixtures (incl. finals) come from `temp/processed/*.ics`; `temp/scores.json` overlays scores/results |
 | **OG Image** | `npm run generate-og-image` | `weekly-fixture/images/og-image.png` — social-card preview, rendered from `weekly-fixture/src/og-card.html` |
 
 `generate-docs` (above) also writes `weekly-fixture/data/subscribe-data.json` for the subscribe page.
@@ -606,10 +606,12 @@ The [sync-calendars.yml](./.github/workflows/sync-calendars.yml) workflow runs e
 ```mermaid
 graph TD
     A[process-all-competitions] -->|HV iCal → mappings → upload| B[Google Calendars]
+    A -->|writes| P[temp/processed/*.ics]
     A --> C[update-competition-status]
     C -->|sets isActive on each comp| D[config/competitions.json]
     D --> E[scrape-scores]
     E -->|temp/scores.json| F[generate-season-json]
+    P -->|base fixtures, incl. finals| F
     F --> I[weekly-fixture/data/season.json]
     D --> J[generate-docs]
     J --> K[docs/competitions.md, docs/competitions-mobile.md]
@@ -622,10 +624,10 @@ graph TD
 
 | Step | What it does |
 |------|--------------|
-| `process-all-competitions` | Downloads each comp's iCal from Hockey Victoria, applies the club + comp mappings, uploads enhanced events to Google Calendar |
+| `process-all-competitions` | Downloads each comp's iCal from Hockey Victoria, applies the club + comp mappings, uploads enhanced events to Google Calendar, and writes `temp/processed/*.ics` |
 | `update-competition-status` | Polls each comp's iCal latest-event date and sets `isActive` accordingly |
-| `scrape-scores` | Scrapes match scores from active team pages into `temp/scores.json` |
-| `generate-season-json` | Combines `temp/scores.json` + `config/competitions.json` → `weekly-fixture/data/season.json` (team-season view) |
+| `scrape-scores` | Scrapes match scores from active team pages into `temp/scores.json` — enrichment only, not the fixture list itself |
+| `generate-season-json` | Base fixtures (incl. finals) come from `temp/processed/*.ics`; `temp/scores.json` overlays scores/results and supplies bye rounds (which HV's iCal omits) → `weekly-fixture/data/season.json` (team-season view) |
 | `generate-docs` | Writes the two markdown calendar indexes plus `weekly-fixture/data/subscribe-data.json` |
 | Commit + push | The bot commits the updated JSON + markdown so Netlify picks them up |
 

@@ -5,6 +5,7 @@ import ical from 'ical';
 // Import shared utilities
 import { MAPPINGS_CLUB_FILE, MAPPINGS_COMPETITION_FILE, getSettings } from '../lib/config.js';
 import { logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
+import { parseRoundFromSummary } from '../lib/finals.js';
 
 const FIXTURE_BASE_URL = 'https://www.hockeyvictoria.org.au/games/team/';
 const LADDER_BASE_URL = 'https://www.hockeyvictoria.org.au/pointscore/';
@@ -35,7 +36,13 @@ export function replaceClubNames(text, clubMappings) {
         return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
-    for (const [fullName, abbreviation] of Object.entries(clubMappings.clubMappings)) {
+    // Longest-first: a short key like "Melton" would otherwise match inside
+    // "Melton Hockey Club" before that more specific entry gets a turn,
+    // mangling the result into "MEL Hockey Club".
+    const sortedEntries = Object.entries(clubMappings.clubMappings)
+        .sort(([a], [b]) => b.length - a.length);
+
+    for (const [fullName, abbreviation] of sortedEntries) {
         const escapedName = escapeRegex(fullName);
 
         // Replace club names followed by optional team suffix (space + word/number)
@@ -155,31 +162,7 @@ export function addGenderPrefix(text, originalSummary) {
  * Extract round number from event summary, returns null for finals or unknown rounds
  */
 function extractRoundFromSummary(summary, maxRegularRound = 0) {
-    // First check for regular rounds - use word boundary to avoid matching "Under 12"
-    const roundMatches = summary.match(/\b(?:Round|Rd)\s+(\d+)/i);
-    if (roundMatches) {
-        return parseInt(roundMatches[1], 10);
-    }
-    
-    // Check for finals - return null as we don't want round links for finals
-    const finalsOrder = [
-        'Elimination Final',
-        'Semi Final', 
-        'Preliminary Final',
-        'Grand Final'
-    ];
-    
-    const summaryLower = summary.toLowerCase();
-    
-    for (let i = 0; i < finalsOrder.length; i++) {
-        const finalType = finalsOrder[i].toLowerCase();
-        if (summaryLower.includes(finalType)) {
-            return null; // Don't include round links for finals
-        }
-    }
-    
-    // Return null if no round found - don't include round link
-    return null;
+    return parseRoundFromSummary(summary).round;
 }
 
 /**

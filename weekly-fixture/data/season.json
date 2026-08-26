@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-25T23:34:50.903Z",
-  "sourcesGeneratedAt": "2026-08-25T23:34:07.707Z",
+  "generatedAt": "2026-08-26T00:41:36.656Z",
+  "sourcesGeneratedAt": "2026-08-26T00:41:22.860Z",
   "laddersGeneratedAt": null,
   "teams": [
     {
@@ -427,6 +427,16 @@
           "location": "Hume Hockey Centre - HUM",
           "gameId": "2493024",
           "score": "1-2"
+        },
+        {
+          "round": "Qualifying Final",
+          "dtstart": "2026-08-29T04:00:00.000Z",
+          "dtend": "2026-08-29T05:30:00.000Z",
+          "home": "FHC",
+          "away": "PEGS",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2630129"
         }
       ]
     },
@@ -631,6 +641,16 @@
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2504916",
           "score": "3-7"
+        },
+        {
+          "round": "Elimination Final",
+          "dtstart": "2026-08-29T02:45:00.000Z",
+          "dtend": "2026-08-29T04:15:00.000Z",
+          "home": "MEL",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Melton Hockey Ground - MEL",
+          "gameId": "2630141"
         }
       ]
     },
@@ -1059,6 +1079,16 @@
           "location": "Footscray Hockey Club - BSF",
           "gameId": "2493796",
           "score": "5-1"
+        },
+        {
+          "round": "Elimination Final",
+          "dtstart": "2026-08-30T05:00:00.000Z",
+          "dtend": "2026-08-30T06:30:00.000Z",
+          "home": "MCC",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Melbourne High School - MHS",
+          "gameId": "2630176"
         }
       ]
     },
@@ -1273,6 +1303,16 @@
           "location": "Footscray Hockey Club - BSF",
           "gameId": "2505016",
           "score": "1-0"
+        },
+        {
+          "round": "Qualifying Final",
+          "dtstart": "2026-08-29T03:00:00.000Z",
+          "dtend": "2026-08-29T04:30:00.000Z",
+          "home": "ESS",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Essendon Hockey Centre - ESS1",
+          "gameId": "2630125"
         }
       ]
     },
@@ -3495,6 +3535,16 @@
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2569430",
           "score": "2-2"
+        },
+        {
+          "round": "Semi Final",
+          "dtstart": "2026-08-28T08:30:00.000Z",
+          "dtend": "2026-08-28T09:30:00.000Z",
+          "home": "FHC",
+          "away": "UK",
+          "isHome": true,
+          "location": "Footscray Hockey Club - BSF",
+          "gameId": "2630088"
         }
       ]
     },
@@ -3665,6 +3715,16 @@
           "location": "Brighton Secondary College - BTN",
           "gameId": "2569157",
           "score": "0-10"
+        },
+        {
+          "round": "Semi Final",
+          "dtstart": "2026-08-28T10:30:00.000Z",
+          "dtend": "2026-08-28T11:30:00.000Z",
+          "home": "DON",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Elgar Park - ELG1",
+          "gameId": "2630081"
         }
       ]
     },
@@ -3990,6 +4050,16 @@
           "location": "PEGS Sporting Fields - PSF1",
           "gameId": "2569695",
           "score": "0-2"
+        },
+        {
+          "round": "Semi Final",
+          "dtstart": "2026-08-28T09:45:00.000Z",
+          "dtend": "2026-08-28T10:45:00.000Z",
+          "home": "KBH",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Essendon Hockey Centre - ESS1",
+          "gameId": "2630083"
         }
       ]
     },
@@ -4558,6 +4628,16 @@
           "location": "Footscray Hockey Club - BSF",
           "gameId": "2535522",
           "score": "0-4"
+        },
+        {
+          "round": "Elimination Final",
+          "dtstart": "2026-08-30T06:00:00.000Z",
+          "dtend": "2026-08-30T07:30:00.000Z",
+          "home": "MNT",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Mentone Grammar Playing Fields - MNT",
+          "gameId": "2630181"
         }
       ]
     },
@@ -4772,6 +4852,16 @@
           "location": "Footscray Hockey Club - BSF",
           "gameId": "2492224",
           "score": "1-0"
+        },
+        {
+          "round": "Qualifying Final",
+          "dtstart": "2026-08-30T05:00:00.000Z",
+          "dtend": "2026-08-30T06:30:00.000Z",
+          "home": "CAM",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Camberwell Hockey Club - CAM",
+          "gameId": "2630163"
         }
       ]
     },
@@ -5662,6 +5752,16 @@
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2493352",
           "score": "4-3"
+        },
+        {
+          "round": "Elimination Final",
+          "dtstart": "2026-08-29T02:00:00.000Z",
+          "dtend": "2026-08-29T03:30:00.000Z",
+          "home": "FHC",
+          "away": "SUHC",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2630128"
         }
       ]
     }
