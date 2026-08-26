@@ -23,7 +23,7 @@ jobs:
   sync-calendars:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # needed to commit fixtures.json / subscribe-data.json / docs back to main
+      contents: write  # needed to commit season.json / subscribe-data.json / docs back to main
 
     steps:
       - name: Checkout repository
@@ -74,7 +74,7 @@ jobs:
         run: npm run update-competition-status
 
       # Scrape match scores from each active competition's HV team page so
-      # generate-fixtures-json can merge them into events. Failures here are
+      # generate-season-json can merge them into events. Failures here are
       # tolerated — events ship without scores rather than blocking the sync.
       - name: Scrape scores
         if: success()
@@ -89,10 +89,9 @@ jobs:
         continue-on-error: true
         run: npm run scrape-ladders
 
-      - name: Regenerate fixtures.json + season.json + subscribe-data + docs
+      - name: Regenerate season.json + subscribe-data + docs
         if: success()
         run: |
-          npm run generate-fixtures-json
           npm run generate-season-json
           npm run generate-docs
 
@@ -102,7 +101,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add config/competitions.json weekly-fixture/data/fixtures.json weekly-fixture/data/season.json weekly-fixture/data/subscribe-data.json docs/competitions.md docs/competitions-mobile.md
+          git add config/competitions.json weekly-fixture/data/season.json weekly-fixture/data/subscribe-data.json docs/competitions.md docs/competitions-mobile.md
           if git diff --cached --quiet; then
             echo "No changes to commit"
             echo "pushed=false" >> "$GITHUB_OUTPUT"
@@ -112,13 +111,12 @@ jobs:
             echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      # The browser fetches fixtures.json + subscribe-data.json directly from
+      # The browser fetches season.json + subscribe-data.json directly from
       # jsDelivr, which mirrors GitHub but caches @main refs for ~12h. Purge
       # so users see the new data within seconds instead of overnight.
       - name: Purge jsDelivr cache
         if: steps.commit.outputs.pushed == 'true'
         run: |
-          curl -fsS "https://purge.jsdelivr.net/gh/mawiseman/hockey-victoria-club-calendars@main/weekly-fixture/data/fixtures.json" || true
           curl -fsS "https://purge.jsdelivr.net/gh/mawiseman/hockey-victoria-club-calendars@main/weekly-fixture/data/season.json" || true
           curl -fsS "https://purge.jsdelivr.net/gh/mawiseman/hockey-victoria-club-calendars@main/weekly-fixture/data/subscribe-data.json" || true
 

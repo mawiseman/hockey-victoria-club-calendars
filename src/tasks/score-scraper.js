@@ -1,6 +1,6 @@
 // Scrapes Hockey Victoria team-fixture pages for scores and writes a
-// consolidated temp/scores.json that generate-fixtures-json merges into the
-// committed fixtures.json. Runs daily as part of the sync-calendars workflow.
+// consolidated temp/scores.json that generate-season-json merges into the
+// committed season.json. Runs daily as part of the sync-calendars workflow.
 //
 // One HTTP request per active competition (≈14 today). Cards on each page
 // follow this layout, parsed below:
