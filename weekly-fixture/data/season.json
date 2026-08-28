@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T17:16:24.739Z",
-  "sourcesGeneratedAt": "2026-08-26T17:15:49.844Z",
-  "laddersGeneratedAt": "2026-08-26T17:16:24.581Z",
+  "generatedAt": "2026-08-28T01:11:09.922Z",
+  "sourcesGeneratedAt": "2026-08-28T01:10:28.741Z",
+  "laddersGeneratedAt": "2026-08-28T01:11:09.663Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -304,15 +304,15 @@
         {
           "pos": 7,
           "team": "Doncaster Hockey Club",
-          "p": 17,
-          "w": 5,
+          "p": 18,
+          "w": 6,
           "d": 8,
           "l": 4,
           "bye": 0,
-          "gf": 24,
-          "ga": 18,
-          "gd": 6,
-          "pts": 23,
+          "gf": 28,
+          "ga": 19,
+          "gd": 9,
+          "pts": 26,
           "isClub": false
         },
         {
@@ -388,14 +388,14 @@
         {
           "pos": 13,
           "team": "MCC Hockey Section",
-          "p": 17,
+          "p": 18,
           "w": 1,
           "d": 1,
-          "l": 15,
+          "l": 16,
           "bye": 0,
-          "gf": 5,
-          "ga": 59,
-          "gd": -54,
+          "gf": 6,
+          "ga": 63,
+          "gd": -57,
           "pts": 4,
           "isClub": false
         },
@@ -3163,6 +3163,16 @@
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2531148",
           "score": "3-3"
+        },
+        {
+          "round": "Semi Final",
+          "dtstart": "2026-08-31T10:00:00.000Z",
+          "dtend": "2026-08-31T11:00:00.000Z",
+          "home": "GRN",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Greensborough Hockey Centre - GRN1",
+          "gameId": "2633086"
         }
       ],
       "ladder": [
@@ -4144,7 +4154,7 @@
           "isHome": false,
           "location": "Hawthorn Malvern Hockey Centre - H-1",
           "gameId": "2535121",
-          "score": "FL"
+          "score": "0-0"
         }
       ],
       "ladder": [
@@ -4165,15 +4175,15 @@
         {
           "pos": 2,
           "team": "Footscray Hockey Club",
-          "p": 15,
+          "p": 16,
           "w": 10,
-          "d": 1,
+          "d": 2,
           "l": 4,
           "bye": 2,
           "gf": 33,
           "ga": 27,
           "gd": 6,
-          "pts": 31,
+          "pts": 32,
           "isClub": true
         },
         {
@@ -4249,15 +4259,15 @@
         {
           "pos": 8,
           "team": "OEMHC MUDS",
-          "p": 15,
+          "p": 16,
           "w": 3,
-          "d": 2,
+          "d": 3,
           "l": 10,
           "bye": 2,
           "gf": 12,
           "ga": 28,
           "gd": -16,
-          "pts": 11,
+          "pts": 12,
           "isClub": false
         },
         {

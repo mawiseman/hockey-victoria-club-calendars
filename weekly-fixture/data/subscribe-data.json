@@ -1,8 +1,8 @@
 {
   "clubName": "Footscray",
-  "generatedAt": "2026-08-26T17:16:24.860Z",
-  "totalCompetitions": 15,
-  "allCompetitionsEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com&src=029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com&src=bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com&src=2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com&src=ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com&src=fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com&src=b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com&src=7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565%40group.calendar.google.com&src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com&src=96d7ce395385e71a26b648db419bb449ef502bc24781602017f659e4bb410073%40group.calendar.google.com&src=e11cc1c5ec43ad5d914841b0ac37f27065b7fe9be0c885f2f6daadba863e7cf6%40group.calendar.google.com&src=74c3859064feb3d560dac470bf3429845d7938eadea3888f64b936c080f7ee53%40group.calendar.google.com&src=64ecfb2b2179182a1522ed919c3583bf5a9e51198d396d59827b0778c9f77864%40group.calendar.google.com&color=%23616161&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23D50000&color=%23D50000&color=%23D50000&color=%23008000&color=%23008000&color=%23008000&color=%23008000&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00",
+  "generatedAt": "2026-08-28T01:11:10.118Z",
+  "totalCompetitions": 12,
+  "allCompetitionsEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com&src=029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com&src=bd04998dc318875fdcdbd0e28797bed0cae69f94e3997f412b16d5f5c4204bde%40group.calendar.google.com&src=2713467ca6e08aa82ad159ebf7eca12ec7d376fe0dbee3191ef0736b00bae483%40group.calendar.google.com&src=ac65c3c15591774ad09b0a4285a79cfc3e7b370ba1931decc9e21bdba1a0eed1%40group.calendar.google.com&src=fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com&src=b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com&src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com&src=96d7ce395385e71a26b648db419bb449ef502bc24781602017f659e4bb410073%40group.calendar.google.com&src=e11cc1c5ec43ad5d914841b0ac37f27065b7fe9be0c885f2f6daadba863e7cf6%40group.calendar.google.com&src=74c3859064feb3d560dac470bf3429845d7938eadea3888f64b936c080f7ee53%40group.calendar.google.com&src=64ecfb2b2179182a1522ed919c3583bf5a9e51198d396d59827b0778c9f77864%40group.calendar.google.com&color=%23616161&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23D50000&color=%23D50000&color=%23D50000&color=%23008000&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00&color=%23FF8C00",
   "categories": [
     {
       "key": "mens",
@@ -78,39 +78,18 @@
     {
       "key": "midweek",
       "label": "Midweek",
-      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565%40group.calendar.google.com&src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com&color=%23616161&color=%23008000&color=%23008000&color=%23008000&color=%23008000",
+      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com&color=%23616161&color=%23008000",
       "categoryCalendar": {
         "publicUrl": "https://calendar.google.com/calendar/embed?src=fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e%40group.calendar.google.com/public/basic.ics"
       },
       "competitions": [
         {
-          "name": "2026 Midweek Men's 60+ B",
-          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416497",
-          "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42443",
-          "publicUrl": "https://calendar.google.com/calendar/embed?src=7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565%40group.calendar.google.com",
-          "icalUrl": "https://calendar.google.com/calendar/ical/7682d0bc108aa1fb8f951801f145e18adbb69c24ea42e95db799d1e22ce4b565%40group.calendar.google.com/public/basic.ics"
-        },
-        {
-          "name": "Midweek Men's 50+ NW - 2026",
-          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416499",
-          "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42444",
-          "publicUrl": "https://calendar.google.com/calendar/embed?src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com",
-          "icalUrl": "https://calendar.google.com/calendar/ical/a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com/public/basic.ics"
-        },
-        {
-          "name": "Midweek Women's 35+ B - 2026",
-          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416500",
-          "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42450",
-          "publicUrl": "https://calendar.google.com/calendar/embed?src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com",
-          "icalUrl": "https://calendar.google.com/calendar/ical/52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com/public/basic.ics"
-        },
-        {
-          "name": "Midweek Women's 45+ - 2026",
-          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416501",
-          "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42451",
-          "publicUrl": "https://calendar.google.com/calendar/embed?src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com",
-          "icalUrl": "https://calendar.google.com/calendar/ical/e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com/public/basic.ics"
+          "name": "Midweek Men's 40+ NW - 2026",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416498",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42441",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com/public/basic.ics"
         }
       ]
     },
