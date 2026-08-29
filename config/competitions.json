@@ -460,7 +460,8 @@
         "title": "FHC U14 Boys Shield - 2026",
         "createdAt": "2026-07-24T04:54:14.925Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-29T19:38:58.650Z"
     },
     {
       "name": "U14 Girls Pennant NW - 2026",
@@ -477,7 +478,8 @@
         "title": "FHC U14 Girls Pennant NW - 2026",
         "createdAt": "2026-07-24T04:54:14.925Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-29T19:38:59.743Z"
     },
     {
       "name": "U14 Mixed District NW - 2026",
@@ -548,7 +550,7 @@
       "isActive": true
     }
   ],
-  "lastStatusUpdate": "2026-08-29T00:50:38.824Z",
-  "activeCompetitions": 29,
-  "inactiveCompetitions": 3
+  "lastStatusUpdate": "2026-08-29T19:39:03.408Z",
+  "activeCompetitions": 27,
+  "inactiveCompetitions": 5
 }
