@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-28T01:11:09.922Z",
-  "sourcesGeneratedAt": "2026-08-28T01:10:28.741Z",
-  "laddersGeneratedAt": "2026-08-28T01:11:09.663Z",
+  "generatedAt": "2026-08-29T00:52:08.156Z",
+  "sourcesGeneratedAt": "2026-08-29T00:51:32.469Z",
+  "laddersGeneratedAt": "2026-08-29T00:52:07.878Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -5846,7 +5846,8 @@
           "away": "UK",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2630088"
+          "gameId": "2630088",
+          "score": "FL"
         }
       ],
       "ladder": [
@@ -6112,7 +6113,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Elgar Park - ELG1",
-          "gameId": "2630081"
+          "gameId": "2630081",
+          "score": "FL"
         }
       ],
       "ladder": [
@@ -6717,7 +6719,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - P-1",
-          "gameId": "2630083"
+          "gameId": "2630083",
+          "score": "2-1"
         }
       ],
       "ladder": [
