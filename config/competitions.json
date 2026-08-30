@@ -15,7 +15,8 @@
         "title": "FHC Mens Premier League - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-30T19:26:32.813Z"
     },
     {
       "name": "Mens Premier League Reserves - 2026",
@@ -32,7 +33,8 @@
         "title": "FHC Mens Premier League Reserves - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-30T19:26:34.189Z"
     },
     {
       "name": "Mens Pennant A - 2026",
@@ -134,7 +136,8 @@
         "title": "FHC Womens Premier League - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-30T19:26:41.290Z"
     },
     {
       "name": "Womens Premier League Reserves - 2026",
@@ -374,7 +377,8 @@
         "title": "FHC U18 Mixed District NW - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-30T19:26:54.915Z"
     },
     {
       "name": "U16 Boys Pennant NW - 2026",
@@ -426,7 +430,8 @@
         "title": "FHC U16 Girls Pennant NW - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-30T19:26:58.449Z"
     },
     {
       "name": "U16 Girls Shield - 2026",
@@ -530,7 +535,8 @@
         "title": "FHC U12 Girls Shield - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-30T19:27:04.592Z"
     },
     {
       "name": "U12 Mixed Shield - 2026",
@@ -547,10 +553,11 @@
         "title": "FHC U12 Mixed Shield - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-30T19:27:05.356Z"
     }
   ],
-  "lastStatusUpdate": "2026-08-29T19:39:03.408Z",
-  "activeCompetitions": 27,
-  "inactiveCompetitions": 5
+  "lastStatusUpdate": "2026-08-30T19:27:05.356Z",
+  "activeCompetitions": 20,
+  "inactiveCompetitions": 12
 }
