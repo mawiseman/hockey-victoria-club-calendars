@@ -228,12 +228,13 @@ async function scrapeCompetition(competition) {
 
 async function main() {
     const competitions = await loadCompetitions();
-    // Match process-all-competitions.js: treat a missing isActive as active.
-    // The senior comps have isActive=true, but midweek/junior comps were
-    // added without it ever being computed and would be silently skipped
-    // by a strict === true filter.
-    const active = competitions.filter(c => c.fixtureUrl && c.isActive !== false);
-    logInfo(`Scraping scores for ${active.length} active competitions`);
+    // Not filtered on isActive — see the matching note in
+    // process-all-competitions.js. A competition that's gone inactive still
+    // needs its bye rounds and scores refreshed (e.g. a final that was
+    // "Playing" yesterday needs its result picked up today) until it's
+    // actually removed from config.
+    const active = competitions.filter(c => c.fixtureUrl);
+    logInfo(`Scraping scores for ${active.length} competitions`);
 
     // Single flat list — the generator builds an index from this.
     const games = [];

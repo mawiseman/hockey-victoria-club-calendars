@@ -181,9 +181,15 @@ async function main() {
         const competitionData = await loadCompetitionData();
         const allCompetitions = competitionData.competitions;
 
-        // Filter to only active competitions
-        const competitions = allCompetitions.filter(comp => comp.isActive !== false);
-        logInfo(`Filtered to ${competitions.length} active competitions (${allCompetitions.length} total)`);
+        // Not filtered on isActive: temp/ doesn't persist between CI runs, so
+        // skipping an inactive competition here means generate-season-json.js
+        // never gets a processed ICS for it and the team's fixture history
+        // disappears from season.json entirely, even though nothing else
+        // deletes that history short of the interactive
+        // cleanup-inactive-competitions.js. Keep reprocessing every
+        // configured competition until it's actually removed.
+        const competitions = allCompetitions.filter(comp => comp.fixtureUrl);
+        logInfo(`Processing ${competitions.length} competitions (${allCompetitions.length} total)`);
         
         // Create temp directory
         await fs.mkdir(TEMP_DIR, { recursive: true });
