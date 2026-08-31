@@ -1,56 +1,13 @@
 {
   "clubName": "Footscray",
-  "generatedAt": "2026-08-30T19:28:21.314Z",
+  "generatedAt": "2026-08-31T21:39:47.986Z",
   "totalCompetitions": 5,
-  "allCompetitionsEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com&src=fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com&src=b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com&src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com&src=64ecfb2b2179182a1522ed919c3583bf5a9e51198d396d59827b0778c9f77864%40group.calendar.google.com&color=%23616161&color=%23285F9B&color=%23D50000&color=%23D50000&color=%23008000&color=%23FF8C00",
+  "allCompetitionsEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com&src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com&src=64ecfb2b2179182a1522ed919c3583bf5a9e51198d396d59827b0778c9f77864%40group.calendar.google.com&color=%23616161&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23D50000",
   "categories": [
-    {
-      "key": "mens",
-      "label": "Men's",
-      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com&color=%23616161&color=%23285F9B",
-      "categoryCalendar": {
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6%40group.calendar.google.com/public/basic.ics"
-      },
-      "competitions": [
-        {
-          "name": "Mens Pennant B - 2026",
-          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25879/412297",
-          "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42237",
-          "publicUrl": "https://calendar.google.com/calendar/embed?src=4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com",
-          "icalUrl": "https://calendar.google.com/calendar/ical/4d4a7e478d4f47e337fa31225987715f1a0ff4af55a0a5b571b043cfc0998c92%40group.calendar.google.com/public/basic.ics"
-        }
-      ]
-    },
-    {
-      "key": "womens",
-      "label": "Women's",
-      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com&src=b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com&color=%23616161&color=%23D50000&color=%23D50000",
-      "categoryCalendar": {
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=45c236109820085226cabd0f84c97574e25fe27183d8155d6ce9fe89e1b486a9%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/45c236109820085226cabd0f84c97574e25fe27183d8155d6ce9fe89e1b486a9%40group.calendar.google.com/public/basic.ics"
-      },
-      "competitions": [
-        {
-          "name": "Womens Pennant A - 2026",
-          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25879/412301",
-          "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42251",
-          "publicUrl": "https://calendar.google.com/calendar/embed?src=fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com",
-          "icalUrl": "https://calendar.google.com/calendar/ical/fe5fa72aaee7f8950e4d41ff5e095c5afb29a12a991adde8b90f7280055e90c1%40group.calendar.google.com/public/basic.ics"
-        },
-        {
-          "name": "Womens Pennant B - 2026",
-          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25879/412302",
-          "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42252",
-          "publicUrl": "https://calendar.google.com/calendar/embed?src=b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com",
-          "icalUrl": "https://calendar.google.com/calendar/ical/b966f1661113fb96ecb688b354edfa7f481b5714a5d859f1892d0e20769fa74f%40group.calendar.google.com/public/basic.ics"
-        }
-      ]
-    },
     {
       "key": "midweek",
       "label": "Midweek",
-      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com&color=%23616161&color=%23008000",
+      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com&src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com&color=%23616161&color=%23285F9B&color=%23285F9B&color=%23285F9B&color=%23285F9B",
       "categoryCalendar": {
         "publicUrl": "https://calendar.google.com/calendar/embed?src=fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e%40group.calendar.google.com/public/basic.ics"
@@ -62,13 +19,34 @@
           "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42441",
           "publicUrl": "https://calendar.google.com/calendar/embed?src=0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com",
           "icalUrl": "https://calendar.google.com/calendar/ical/0325cbd7382213be8e415acce9af66547c172f7e8674257a767d7fa275e5ffe8%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "name": "Midweek Men's 50+ NW - 2026",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416499",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42444",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/a8a9de40b533e2dbb3166dd090f87ed0813361ac61ef5e8c2da500c02dde4ac5%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "name": "Midweek Women's 35+ B - 2026",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416500",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42450",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "name": "Midweek Women's 45+ - 2026",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416501",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42451",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/e1416b8db70503bfa903d2107f6901209d918532e3e5f59b13b5228bd724d8b7%40group.calendar.google.com/public/basic.ics"
         }
       ]
     },
     {
       "key": "juniors",
       "label": "Juniors",
-      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=64ecfb2b2179182a1522ed919c3583bf5a9e51198d396d59827b0778c9f77864%40group.calendar.google.com&color=%23616161&color=%23FF8C00",
+      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=64ecfb2b2179182a1522ed919c3583bf5a9e51198d396d59827b0778c9f77864%40group.calendar.google.com&color=%23616161&color=%23D50000",
       "categoryCalendar": {
         "publicUrl": "https://calendar.google.com/calendar/embed?src=a621fd9b3e4a3996c8ea70697cab4198ad5605847234af74be60fc91345c08c9%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/a621fd9b3e4a3996c8ea70697cab4198ad5605847234af74be60fc91345c08c9%40group.calendar.google.com/public/basic.ics"

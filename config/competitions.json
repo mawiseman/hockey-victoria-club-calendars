@@ -51,7 +51,8 @@
         "title": "FHC Mens Pennant A - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-31T21:38:24.651Z"
     },
     {
       "name": "Mens Pennant B - 2026",
@@ -205,7 +206,8 @@
         "title": "FHC Womens Pennant C - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-31T21:38:33.311Z"
     },
     {
       "name": "Womens Pennant D North West - 2026",
@@ -222,7 +224,8 @@
         "title": "FHC Womens Pennant D North West - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-31T21:38:34.423Z"
     },
     {
       "name": "Womens Metro 1 North West - 2026",
@@ -239,7 +242,8 @@
         "title": "FHC Womens Metro 1 North West - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-08-31T21:38:35.179Z"
     },
     {
       "name": "2026 Midweek Men's 60+ B",
@@ -557,7 +561,7 @@
       "statusUpdatedAt": "2026-08-30T19:27:05.356Z"
     }
   ],
-  "lastStatusUpdate": "2026-08-30T19:27:05.356Z",
-  "activeCompetitions": 20,
-  "inactiveCompetitions": 12
+  "lastStatusUpdate": "2026-08-31T21:38:51.595Z",
+  "activeCompetitions": 16,
+  "inactiveCompetitions": 16
 }

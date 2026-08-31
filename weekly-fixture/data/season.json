@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-30T19:28:21.123Z",
-  "sourcesGeneratedAt": "2026-08-30T19:27:48.923Z",
-  "laddersGeneratedAt": "2026-08-30T19:28:20.863Z",
+  "generatedAt": "2026-08-31T21:39:47.806Z",
+  "sourcesGeneratedAt": "2026-08-31T21:39:22.014Z",
+  "laddersGeneratedAt": "2026-08-31T21:39:47.559Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -414,6 +414,21 @@
           "isClub": false
         }
       ]
+    },
+    {
+      "slug": "35plus-womens-masters-indoor",
+      "label": "W35+",
+      "name": "35+ Womens Masters Indoor",
+      "category": "midweek",
+      "view": "midweek",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26354/418892",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26354/42646",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26354/42646",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/d933a23dfd28bfbb3ad3d83e61839f8e8c18a8c119690aff79070f8d5b6b9052%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
     },
     {
       "slug": "men-m1-nw",
@@ -1119,8 +1134,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Camberwell Hockey Club - CAM",
-          "gameId": "2492994",
-          "score": "3-0"
+          "gameId": null
         },
         {
           "round": 2,
@@ -1130,8 +1144,7 @@
           "away": "ALT",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2492155",
-          "score": "1-2"
+          "gameId": null
         },
         {
           "round": 3,
@@ -1141,8 +1154,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Doncaster Hockey Centre - DON",
-          "gameId": "2493005",
-          "score": "3-1"
+          "gameId": null
         },
         {
           "round": 4,
@@ -1152,8 +1164,7 @@
           "away": "WAV",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2494864",
-          "score": "2-1"
+          "gameId": null
         },
         {
           "round": 5,
@@ -1163,8 +1174,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Hawthorn Malvern Hockey Centre - H-1",
-          "gameId": "2493017",
-          "score": "2-5"
+          "gameId": null
         },
         {
           "round": 6,
@@ -1174,8 +1184,7 @@
           "away": "GRN",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2493276",
-          "score": "5-5"
+          "gameId": null
         },
         {
           "round": 7,
@@ -1185,8 +1194,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Melbourne High School - MHS",
-          "gameId": "2493038",
-          "score": "9-3"
+          "gameId": null
         },
         {
           "round": 8,
@@ -1196,8 +1204,7 @@
           "away": "KBH",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2493488",
-          "score": "1-2"
+          "gameId": null
         },
         {
           "round": 9,
@@ -1207,8 +1214,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Southern United Hockey Club - MBN",
-          "gameId": "2493071",
-          "score": "2-1"
+          "gameId": null
         },
         {
           "round": 10,
@@ -1218,8 +1224,7 @@
           "away": "CAM",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2492480",
-          "score": "1-1"
+          "gameId": null
         },
         {
           "round": 11,
@@ -1229,8 +1234,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Altona Hockey Club - ALT",
-          "gameId": "2492979",
-          "score": "5-1"
+          "gameId": null
         },
         {
           "round": 12,
@@ -1240,8 +1244,7 @@
           "away": "DON",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2492804",
-          "score": "2-5"
+          "gameId": null
         },
         {
           "round": 13,
@@ -1251,8 +1254,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Hedley Hull Field - HHF",
-          "gameId": "2493082",
-          "score": "3-2"
+          "gameId": null
         },
         {
           "round": 14,
@@ -1262,8 +1264,7 @@
           "away": "HAW",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2493350",
-          "score": "3-1"
+          "gameId": null
         },
         {
           "round": 15,
@@ -1273,8 +1274,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Greensborough Hockey Centre - GRN1",
-          "gameId": "2493015",
-          "score": "6-1"
+          "gameId": null
         },
         {
           "round": 16,
@@ -1284,8 +1284,7 @@
           "away": "MCC",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2493795",
-          "score": "0-8"
+          "gameId": null
         },
         {
           "round": 17,
@@ -1295,8 +1294,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Elgar Park - ELG1",
-          "gameId": "2493029",
-          "score": "2-1"
+          "gameId": null
         },
         {
           "round": 18,
@@ -1306,150 +1304,7 @@
           "away": "SUHC",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2494620",
-          "score": "2-2"
-        }
-      ],
-      "ladder": [
-        {
-          "pos": 1,
-          "team": "Doncaster Hockey Club",
-          "p": 18,
-          "w": 15,
-          "d": 1,
-          "l": 2,
-          "bye": 0,
-          "gf": 85,
-          "ga": 25,
-          "gd": 60,
-          "pts": 46,
-          "isClub": false
-        },
-        {
-          "pos": 2,
-          "team": "MCC Hockey Section",
-          "p": 18,
-          "w": 15,
-          "d": 0,
-          "l": 3,
-          "bye": 0,
-          "gf": 84,
-          "ga": 25,
-          "gd": 59,
-          "pts": 45,
-          "isClub": false
-        },
-        {
-          "pos": 3,
-          "team": "Greensborough Hockey Club",
-          "p": 18,
-          "w": 12,
-          "d": 2,
-          "l": 4,
-          "bye": 0,
-          "gf": 80,
-          "ga": 42,
-          "gd": 38,
-          "pts": 38,
-          "isClub": false
-        },
-        {
-          "pos": 4,
-          "team": "KBH Brumbies Hockey Club",
-          "p": 18,
-          "w": 10,
-          "d": 0,
-          "l": 8,
-          "bye": 0,
-          "gf": 34,
-          "ga": 50,
-          "gd": -16,
-          "pts": 30,
-          "isClub": false
-        },
-        {
-          "pos": 5,
-          "team": "Altona Hockey Club",
-          "p": 18,
-          "w": 9,
-          "d": 2,
-          "l": 7,
-          "bye": 0,
-          "gf": 51,
-          "ga": 49,
-          "gd": 2,
-          "pts": 29,
-          "isClub": false
-        },
-        {
-          "pos": 6,
-          "team": "Southern United Hockey Club",
-          "p": 18,
-          "w": 6,
-          "d": 3,
-          "l": 9,
-          "bye": 0,
-          "gf": 38,
-          "ga": 60,
-          "gd": -22,
-          "pts": 21,
-          "isClub": false
-        },
-        {
-          "pos": 7,
-          "team": "Camberwell Hockey Club",
-          "p": 18,
-          "w": 5,
-          "d": 3,
-          "l": 10,
-          "bye": 0,
-          "gf": 36,
-          "ga": 40,
-          "gd": -4,
-          "pts": 18,
-          "isClub": false
-        },
-        {
-          "pos": 8,
-          "team": "Waverley Hockey Club",
-          "p": 18,
-          "w": 4,
-          "d": 2,
-          "l": 12,
-          "bye": 0,
-          "gf": 28,
-          "ga": 79,
-          "gd": -51,
-          "pts": 14,
-          "isClub": false
-        },
-        {
-          "pos": 9,
-          "team": "Footscray Hockey Club",
-          "p": 18,
-          "w": 3,
-          "d": 3,
-          "l": 12,
-          "bye": 0,
-          "gf": 32,
-          "ga": 62,
-          "gd": -30,
-          "pts": 12,
-          "isClub": true
-        },
-        {
-          "pos": 10,
-          "team": "Hawthorn Hockey Club",
-          "p": 18,
-          "w": 2,
-          "d": 2,
-          "l": 14,
-          "bye": 0,
-          "gf": 26,
-          "ga": 62,
-          "gd": -36,
-          "pts": 8,
-          "isClub": false
+          "gameId": null
         }
       ]
     },
@@ -2160,6 +2015,36 @@
       ]
     },
     {
+      "slug": "men-pl",
+      "label": "MPL",
+      "name": "Mens Premier League - 2026",
+      "category": "mens",
+      "view": "pl",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25879/409884",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42156",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42156",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/ecb36ecdb4ab985e3d46cd8795ecb7d861e77248eeb00517ce8be7588f7330f6%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
+    },
+    {
+      "slug": "men-plr",
+      "label": "MPLR",
+      "name": "Mens Premier League Reserves - 2026",
+      "category": "mens",
+      "view": "pl",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25879/412299",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42243",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42243",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/aa2dee5510376276aadc05f32901e1a88c674cf31284fe6a182f43c6994bb738%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
+    },
+    {
       "slug": "midweek-mens-40plus-nw",
       "label": "M40+",
       "name": "Midweek Men's 40+ NW - 2026",
@@ -2364,7 +2249,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Greensborough Hockey Centre - GRN1",
-          "gameId": "2633086"
+          "gameId": "2633086",
+          "score": "3-1"
         }
       ],
       "ladder": [
@@ -2669,6 +2555,16 @@
           "location": "Brunswick Secondary College - BRU",
           "gameId": "2535108",
           "score": "0-2"
+        },
+        {
+          "round": "Semi Final",
+          "dtstart": "2026-09-02T09:00:00.000Z",
+          "dtend": "2026-09-02T10:00:00.000Z",
+          "home": "FHC",
+          "away": "PEGS",
+          "isHome": true,
+          "location": "Footscray Hockey Club - BSF",
+          "gameId": "2635459"
         }
       ],
       "ladder": [
@@ -3001,6 +2897,16 @@
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2535105",
           "score": "6-1"
+        },
+        {
+          "round": "Semi Final",
+          "dtstart": "2026-09-02T10:30:00.000Z",
+          "dtend": "2026-09-02T11:30:00.000Z",
+          "home": "FHC",
+          "away": "CAM",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2635463"
         }
       ],
       "ladder": [
@@ -3347,6 +3253,16 @@
           "location": "Hawthorn Malvern Hockey Centre - H-1",
           "gameId": "2535121",
           "score": "0-0"
+        },
+        {
+          "round": "Semi Final",
+          "dtstart": "2026-09-02T09:00:00.000Z",
+          "dtend": "2026-09-02T10:00:00.000Z",
+          "home": "FHC",
+          "away": "CAM",
+          "isHome": true,
+          "location": "Footscray Hockey Club - ASF",
+          "gameId": "2635465"
         }
       ],
       "ladder": [
@@ -3477,6 +3393,21 @@
           "isClub": false
         }
       ]
+    },
+    {
+      "slug": "midweek-womens-55plus",
+      "label": "W55+",
+      "name": "Midweek Women's 55+ (Monday) - 2026",
+      "category": "midweek",
+      "view": "midweek",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26185/416502",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26185/42452",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26185/42452",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/415a9df8f7563246966a15f2faf05f9aabd4748292da440ae4742cd27aeb60a7%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
     },
     {
       "slug": "u12-district-half-field-mixed-nw-t3-2026",
@@ -3722,6 +3653,66 @@
           "isClub": false
         }
       ]
+    },
+    {
+      "slug": "u12-girls-shield",
+      "label": "G U12 S",
+      "name": "U12 Girls Shield - 2026",
+      "category": "juniors",
+      "view": "juniors",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26323/418021",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42565",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42565",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=bbfaaee971a66c95705543b23c1df1b595b307865e9e48dd7c98388418cd80fa%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/bbfaaee971a66c95705543b23c1df1b595b307865e9e48dd7c98388418cd80fa%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
+    },
+    {
+      "slug": "u12-mixed-shield",
+      "label": "M U12 S",
+      "name": "U12 Mixed Shield - 2026",
+      "category": "juniors",
+      "view": "juniors",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26323/418022",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42567",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42567",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=be8b36bdf408d50b313b89fef5a9e250f456459718259975858496678f770e5f%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/be8b36bdf408d50b313b89fef5a9e250f456459718259975858496678f770e5f%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
+    },
+    {
+      "slug": "u14-boys-shield",
+      "label": "B U14 S",
+      "name": "U14 Boys Shield - 2026",
+      "category": "juniors",
+      "view": "juniors",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26323/418025",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42573",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42573",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=c529a366efbbed18466d9ad85ea004e4d79c8616a90c33e50557d85390a16849%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/c529a366efbbed18466d9ad85ea004e4d79c8616a90c33e50557d85390a16849%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
+    },
+    {
+      "slug": "u14-girls-pen-nw",
+      "label": "G U14 P",
+      "name": "U14 Girls Pennant NW - 2026",
+      "category": "juniors",
+      "view": "juniors",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26323/418026",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42571",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42571",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=39df3c47f565f74db1af11b264da6a13ec0fc2af32e871baecd1f74733887008%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/39df3c47f565f74db1af11b264da6a13ec0fc2af32e871baecd1f74733887008%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
     },
     {
       "slug": "u14-mixed-district-nw",
@@ -3984,6 +3975,21 @@
           "isClub": false
         }
       ]
+    },
+    {
+      "slug": "u16-boys-pen-nw",
+      "label": "B U16 P",
+      "name": "U16 Boys Pennant NW - 2026",
+      "category": "juniors",
+      "view": "juniors",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26323/418030",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42583",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42583",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=e722dc6d07d206f8e36152ad83658d047b6cb3493043a9f8f3a25f495624f482%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/e722dc6d07d206f8e36152ad83658d047b6cb3493043a9f8f3a25f495624f482%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
     },
     {
       "slug": "u16-boys-shield",
@@ -4309,6 +4315,21 @@
       ]
     },
     {
+      "slug": "u16-girls-pen-nw",
+      "label": "G U16 P",
+      "name": "U16 Girls Pennant NW - 2026",
+      "category": "juniors",
+      "view": "juniors",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26323/418029",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42580",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42580",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=703ae3bb535e156bbf7648f4888693523ad26f9e9f07719621d764b3a1167986%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/703ae3bb535e156bbf7648f4888693523ad26f9e9f07719621d764b3a1167986%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
+    },
+    {
       "slug": "u16-girls-shield",
       "label": "G U16 S",
       "name": "U16 Girls Shield - 2026",
@@ -4599,6 +4620,21 @@
       ]
     },
     {
+      "slug": "u18-mixed-district-nw",
+      "label": "M U18 D",
+      "name": "U18 Mixed District NW - 2026",
+      "category": "juniors",
+      "view": "juniors",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/26323/418031",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/42587",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42587",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=47b4896026dd4bc5db64dcbbeb6b3003f6500f1511912c02177869af81ac69a4%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/47b4896026dd4bc5db64dcbbeb6b3003f6500f1511912c02177869af81ac69a4%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
+    },
+    {
       "slug": "women-m1-nw",
       "label": "WM1",
       "name": "Womens Metro 1 North West - 2026",
@@ -4613,12 +4649,6 @@
       },
       "events": [
         {
-          "round": 1,
-          "dtstart": "2026-04-10T14:00:00.000Z",
-          "dtend": "2026-04-10T15:30:00.000Z",
-          "isBye": true
-        },
-        {
           "round": 2,
           "dtstart": "2026-04-18T05:30:00.000Z",
           "dtend": "2026-04-18T07:00:00.000Z",
@@ -4626,8 +4656,7 @@
           "away": "ESS",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2513065",
-          "score": "0-6"
+          "gameId": null
         },
         {
           "round": 3,
@@ -4637,8 +4666,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Brunswick Secondary College - BRU",
-          "gameId": "2513071",
-          "score": "1-0"
+          "gameId": null
         },
         {
           "round": 4,
@@ -4648,8 +4676,7 @@
           "away": "MEL",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2513074",
-          "score": "0-2"
+          "gameId": null
         },
         {
           "round": 5,
@@ -4659,8 +4686,7 @@
           "away": "SUN",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2513079",
-          "score": "3-2"
+          "gameId": null
         },
         {
           "round": 6,
@@ -4670,8 +4696,7 @@
           "away": "RMIT",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2513082",
-          "score": "0-3"
+          "gameId": null
         },
         {
           "round": 7,
@@ -4681,14 +4706,7 @@
           "away": "LAT",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2513085",
-          "score": "1-4"
-        },
-        {
-          "round": 8,
-          "dtstart": "2026-05-29T14:00:00.000Z",
-          "dtend": "2026-05-29T15:30:00.000Z",
-          "isBye": true
+          "gameId": null
         },
         {
           "round": 9,
@@ -4698,8 +4716,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Essendon Hockey Centre - ESS1",
-          "gameId": "2513093",
-          "score": "1-1"
+          "gameId": null
         },
         {
           "round": 10,
@@ -4709,8 +4726,7 @@
           "away": "BRU",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2513097",
-          "score": "1-2"
+          "gameId": null
         },
         {
           "round": 11,
@@ -4720,8 +4736,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Melton Hockey Ground - MEL",
-          "gameId": "2513104",
-          "score": "2-2"
+          "gameId": null
         },
         {
           "round": 12,
@@ -4731,8 +4746,7 @@
           "away": "SUN",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2513107",
-          "score": "6-2"
+          "gameId": null
         },
         {
           "round": 13,
@@ -4742,8 +4756,7 @@
           "away": "RMIT",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2513109",
-          "score": "2-1"
+          "gameId": null
         },
         {
           "round": 14,
@@ -4753,14 +4766,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "La Trobe Hockey Centre - LAT",
-          "gameId": "2513114",
-          "score": "2-3"
-        },
-        {
-          "round": 15,
-          "dtstart": "2026-08-01T14:00:00.000Z",
-          "dtend": "2026-08-01T15:30:00.000Z",
-          "isBye": true
+          "gameId": null
         },
         {
           "round": 16,
@@ -4770,8 +4776,7 @@
           "away": "ESS",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2513121",
-          "score": "0-3"
+          "gameId": null
         },
         {
           "round": 17,
@@ -4781,8 +4786,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - P-2",
-          "gameId": "2513126",
-          "score": "3-3"
+          "gameId": null
         },
         {
           "round": 18,
@@ -4792,108 +4796,7 @@
           "away": "MEL",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2513131",
-          "score": "4-0"
-        }
-      ],
-      "ladder": [
-        {
-          "pos": 1,
-          "team": "Essendon Hockey",
-          "p": 16,
-          "w": 12,
-          "d": 1,
-          "l": 3,
-          "bye": 2,
-          "gf": 56,
-          "ga": 11,
-          "gd": 45,
-          "pts": 37,
-          "isClub": false
-        },
-        {
-          "pos": 2,
-          "team": "Sunshine Hockey Club",
-          "p": 15,
-          "w": 11,
-          "d": 0,
-          "l": 4,
-          "bye": 3,
-          "gf": 51,
-          "ga": 17,
-          "gd": 34,
-          "pts": 33,
-          "isClub": false
-        },
-        {
-          "pos": 3,
-          "team": "La Trobe University Hockey Club",
-          "p": 15,
-          "w": 9,
-          "d": 1,
-          "l": 5,
-          "bye": 3,
-          "gf": 35,
-          "ga": 18,
-          "gd": 17,
-          "pts": 28,
-          "isClub": false
-        },
-        {
-          "pos": 4,
-          "team": "Brunswick Hockey Club",
-          "p": 16,
-          "w": 7,
-          "d": 3,
-          "l": 6,
-          "bye": 2,
-          "gf": 21,
-          "ga": 26,
-          "gd": -5,
-          "pts": 24,
-          "isClub": false
-        },
-        {
-          "pos": 5,
-          "team": "Footscray Hockey Club",
-          "p": 15,
-          "w": 5,
-          "d": 3,
-          "l": 7,
-          "bye": 3,
-          "gf": 25,
-          "ga": 35,
-          "gd": -10,
-          "pts": 18,
-          "isClub": true
-        },
-        {
-          "pos": 6,
-          "team": "RMIT Hockey Club",
-          "p": 15,
-          "w": 3,
-          "d": 1,
-          "l": 10,
-          "bye": 3,
-          "gf": 19,
-          "ga": 34,
-          "gd": -15,
-          "pts": 10,
-          "isClub": false
-        },
-        {
-          "pos": 7,
-          "team": "Melton Hockey Club",
-          "p": 16,
-          "w": 2,
-          "d": 1,
-          "l": 13,
-          "bye": 2,
-          "gf": 11,
-          "ga": 77,
-          "gd": -66,
-          "pts": 7,
-          "isClub": false
+          "gameId": null
         }
       ]
     },
@@ -5629,8 +5532,7 @@
           "away": "TEM",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2494779",
-          "score": "2-2"
+          "gameId": null
         },
         {
           "round": 2,
@@ -5640,8 +5542,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Brunswick Secondary College - BRU",
-          "gameId": "2492984",
-          "score": "0-0"
+          "gameId": null
         },
         {
           "round": 3,
@@ -5651,8 +5552,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Camberwell Hockey Club - CAM",
-          "gameId": "2492995",
-          "score": "3-0"
+          "gameId": null
         },
         {
           "round": 4,
@@ -5662,8 +5562,7 @@
           "away": "SUHC",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2494615",
-          "score": "0-4"
+          "gameId": null
         },
         {
           "round": 5,
@@ -5673,8 +5572,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Monash University - MON",
-          "gameId": "2493059",
-          "score": "1-0"
+          "gameId": null
         },
         {
           "round": 6,
@@ -5684,8 +5582,7 @@
           "away": "GRN",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2493277",
-          "score": "1-4"
+          "gameId": null
         },
         {
           "round": 7,
@@ -5695,8 +5592,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - P-2",
-          "gameId": "2493045",
-          "score": "1-1"
+          "gameId": null
         },
         {
           "round": 8,
@@ -5706,8 +5602,7 @@
           "away": "MCC",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2493792",
-          "score": "0-6"
+          "gameId": null
         },
         {
           "round": 9,
@@ -5717,8 +5612,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Elgar Park - ELG1",
-          "gameId": "2493025",
-          "score": "1-0"
+          "gameId": null
         },
         {
           "round": 10,
@@ -5728,8 +5622,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Hawthorn Malvern Hockey Centre - H-2",
-          "gameId": "2493077",
-          "score": "0-1"
+          "gameId": null
         },
         {
           "round": 11,
@@ -5739,8 +5632,7 @@
           "away": "BRU",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2492292",
-          "score": "2-0"
+          "gameId": null
         },
         {
           "round": 12,
@@ -5750,8 +5642,7 @@
           "away": "CAM",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2492483",
-          "score": "0-2"
+          "gameId": null
         },
         {
           "round": 13,
@@ -5761,8 +5652,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Southern United Hockey Club - MBN",
-          "gameId": "2493072",
-          "score": "0-1"
+          "gameId": null
         },
         {
           "round": 14,
@@ -5772,8 +5662,7 @@
           "away": "MON",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2494230",
-          "score": "1-0"
+          "gameId": null
         },
         {
           "round": 15,
@@ -5783,8 +5672,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Greensborough Hockey Centre - GRN2",
-          "gameId": "2493016",
-          "score": "3-0"
+          "gameId": null
         },
         {
           "round": 16,
@@ -5794,8 +5682,7 @@
           "away": "MUHC",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2494002",
-          "score": "2-5"
+          "gameId": null
         },
         {
           "round": 17,
@@ -5805,8 +5692,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Elwood - ELW",
-          "gameId": "2493036",
-          "score": "4-0"
+          "gameId": null
         },
         {
           "round": 18,
@@ -5816,150 +5702,7 @@
           "away": "KBH",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2493490",
-          "score": "0-1"
-        }
-      ],
-      "ladder": [
-        {
-          "pos": 1,
-          "team": "MCC Hockey Section",
-          "p": 18,
-          "w": 16,
-          "d": 1,
-          "l": 1,
-          "bye": 0,
-          "gf": 85,
-          "ga": 9,
-          "gd": 76,
-          "pts": 49,
-          "isClub": false
-        },
-        {
-          "pos": 2,
-          "team": "Greensborough Hockey Club",
-          "p": 18,
-          "w": 16,
-          "d": 1,
-          "l": 1,
-          "bye": 0,
-          "gf": 75,
-          "ga": 13,
-          "gd": 62,
-          "pts": 49,
-          "isClub": false
-        },
-        {
-          "pos": 3,
-          "team": "Camberwell Hockey Club",
-          "p": 18,
-          "w": 12,
-          "d": 2,
-          "l": 4,
-          "bye": 0,
-          "gf": 43,
-          "ga": 14,
-          "gd": 29,
-          "pts": 38,
-          "isClub": false
-        },
-        {
-          "pos": 4,
-          "team": "Monash University Hockey Club",
-          "p": 18,
-          "w": 8,
-          "d": 4,
-          "l": 6,
-          "bye": 0,
-          "gf": 23,
-          "ga": 20,
-          "gd": 3,
-          "pts": 28,
-          "isClub": false
-        },
-        {
-          "pos": 5,
-          "team": "Melbourne University Hockey Club",
-          "p": 18,
-          "w": 6,
-          "d": 6,
-          "l": 6,
-          "bye": 0,
-          "gf": 29,
-          "ga": 37,
-          "gd": -8,
-          "pts": 24,
-          "isClub": false
-        },
-        {
-          "pos": 6,
-          "team": "Southern United Hockey Club",
-          "p": 18,
-          "w": 6,
-          "d": 2,
-          "l": 10,
-          "bye": 0,
-          "gf": 19,
-          "ga": 40,
-          "gd": -21,
-          "pts": 20,
-          "isClub": false
-        },
-        {
-          "pos": 7,
-          "team": "Brunswick Hockey Club",
-          "p": 18,
-          "w": 4,
-          "d": 3,
-          "l": 11,
-          "bye": 0,
-          "gf": 17,
-          "ga": 39,
-          "gd": -22,
-          "pts": 15,
-          "isClub": false
-        },
-        {
-          "pos": 8,
-          "team": "Footscray Hockey Club",
-          "p": 18,
-          "w": 4,
-          "d": 3,
-          "l": 11,
-          "bye": 0,
-          "gf": 11,
-          "ga": 37,
-          "gd": -26,
-          "pts": 15,
-          "isClub": true
-        },
-        {
-          "pos": 9,
-          "team": "KBH Brumbies Hockey Club",
-          "p": 18,
-          "w": 4,
-          "d": 1,
-          "l": 13,
-          "bye": 0,
-          "gf": 16,
-          "ga": 64,
-          "gd": -48,
-          "pts": 13,
-          "isClub": false
-        },
-        {
-          "pos": 10,
-          "team": "Toorak East Malvern Hockey Club",
-          "p": 18,
-          "w": 1,
-          "d": 3,
-          "l": 14,
-          "bye": 0,
-          "gf": 18,
-          "ga": 63,
-          "gd": -45,
-          "pts": 6,
-          "isClub": false
+          "gameId": null
         }
       ]
     },
@@ -5985,8 +5728,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "RMIT Bundoora - BUN",
-          "gameId": "2493084",
-          "score": "2-0"
+          "gameId": null
         },
         {
           "round": 2,
@@ -5996,8 +5738,7 @@
           "away": "MEL",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2494077",
-          "score": "3-0"
+          "gameId": null
         },
         {
           "round": 3,
@@ -6007,8 +5748,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Essendon Hockey Centre - ESS1",
-          "gameId": "2493008",
-          "score": "5-1"
+          "gameId": null
         },
         {
           "round": 4,
@@ -6018,8 +5758,7 @@
           "away": "LAT",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2493643",
-          "score": "1-3"
+          "gameId": null
         },
         {
           "round": 5,
@@ -6029,8 +5768,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Brunswick Secondary College - BRU",
-          "gameId": "2492989",
-          "score": "3-0"
+          "gameId": null
         },
         {
           "round": 6,
@@ -6040,8 +5778,7 @@
           "away": "MCC",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2493790",
-          "score": "0-5"
+          "gameId": null
         },
         {
           "round": 7,
@@ -6051,20 +5788,7 @@
           "away": "PEGS",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2494471",
-          "score": "1-1"
-        },
-        {
-          "round": 8,
-          "dtstart": "2026-05-23T14:00:00.000Z",
-          "dtend": "2026-05-23T15:30:00.000Z",
-          "isBye": true
-        },
-        {
-          "round": 9,
-          "dtstart": "2026-06-19T14:00:00.000Z",
-          "dtend": "2026-06-19T15:30:00.000Z",
-          "isBye": true
+          "gameId": null
         },
         {
           "round": 10,
@@ -6074,8 +5798,7 @@
           "away": "YAR",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2579936",
-          "score": "3-1"
+          "gameId": null
         },
         {
           "round": 11,
@@ -6085,8 +5808,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "La Trobe Hockey Centre - LAT",
-          "gameId": "2579943",
-          "score": "0-0"
+          "gameId": null
         },
         {
           "round": 12,
@@ -6096,8 +5818,7 @@
           "away": "BRU",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2579944",
-          "score": "1-1"
+          "gameId": null
         },
         {
           "round": 13,
@@ -6107,8 +5828,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "PEGS Sporting Fields - PSF1",
-          "gameId": "2579951",
-          "score": "3-2"
+          "gameId": null
         },
         {
           "round": 14,
@@ -6118,8 +5838,7 @@
           "away": "ESS",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2579952",
-          "score": "0-3"
+          "gameId": null
         },
         {
           "round": 15,
@@ -6129,8 +5848,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Melton Hockey Ground - MEL",
-          "gameId": "2579959",
-          "score": "2-0"
+          "gameId": null
         },
         {
           "round": 16,
@@ -6140,8 +5858,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Melbourne High School - MHS",
-          "gameId": "2579961",
-          "score": "0-0"
+          "gameId": null
         },
         {
           "round": 17,
@@ -6151,8 +5868,7 @@
           "away": "FHC",
           "isHome": false,
           "location": "Cyril Cummins Reserve - YAR",
-          "gameId": "2579966",
-          "score": "4-1"
+          "gameId": null
         },
         {
           "round": 18,
@@ -6162,124 +5878,24 @@
           "away": "LAT",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2579971",
-          "score": "4-3"
-        }
-      ],
-      "ladder": [
-        {
-          "pos": 1,
-          "team": "MCC Hockey Section",
-          "p": 16,
-          "w": 13,
-          "d": 2,
-          "l": 1,
-          "bye": 2,
-          "gf": 65,
-          "ga": 14,
-          "gd": 51,
-          "pts": 41,
-          "isClub": false
-        },
-        {
-          "pos": 2,
-          "team": "Essendon Hockey",
-          "p": 16,
-          "w": 10,
-          "d": 2,
-          "l": 4,
-          "bye": 2,
-          "gf": 47,
-          "ga": 24,
-          "gd": 23,
-          "pts": 32,
-          "isClub": false
-        },
-        {
-          "pos": 3,
-          "team": "PEGS Hockey Club",
-          "p": 16,
-          "w": 8,
-          "d": 5,
-          "l": 3,
-          "bye": 2,
-          "gf": 37,
-          "ga": 18,
-          "gd": 19,
-          "pts": 29,
-          "isClub": false
-        },
-        {
-          "pos": 4,
-          "team": "Brunswick Hockey Club",
-          "p": 16,
-          "w": 8,
-          "d": 4,
-          "l": 4,
-          "bye": 2,
-          "gf": 36,
-          "ga": 20,
-          "gd": 16,
-          "pts": 28,
-          "isClub": false
-        },
-        {
-          "pos": 5,
-          "team": "La Trobe University Hockey Club",
-          "p": 16,
-          "w": 3,
-          "d": 6,
-          "l": 7,
-          "bye": 2,
-          "gf": 23,
-          "ga": 35,
-          "gd": -12,
-          "pts": 15,
-          "isClub": false
-        },
-        {
-          "pos": 6,
-          "team": "Footscray Hockey Club",
-          "p": 16,
-          "w": 3,
-          "d": 4,
-          "l": 9,
-          "bye": 2,
-          "gf": 17,
-          "ga": 36,
-          "gd": -19,
-          "pts": 13,
-          "isClub": true
-        },
-        {
-          "pos": 7,
-          "team": "Yarra Hockey Club",
-          "p": 16,
-          "w": 4,
-          "d": 0,
-          "l": 12,
-          "bye": 2,
-          "gf": 21,
-          "ga": 55,
-          "gd": -34,
-          "pts": 12,
-          "isClub": false
-        },
-        {
-          "pos": 8,
-          "team": "Melton Hockey Club",
-          "p": 16,
-          "w": 2,
-          "d": 3,
-          "l": 11,
-          "bye": 2,
-          "gf": 8,
-          "ga": 52,
-          "gd": -44,
-          "pts": 9,
-          "isClub": false
+          "gameId": null
         }
       ]
+    },
+    {
+      "slug": "women-pl",
+      "label": "WPL",
+      "name": "Womens Premier League - 2026",
+      "category": "womens",
+      "view": "pl",
+      "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25879/409885",
+      "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/25879/42158",
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42158",
+      "googleCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/38a189497d13abc2aec155b82f101d4ff59075c56112b06cb9f8e275a3409ae4%40group.calendar.google.com/public/basic.ics"
+      },
+      "events": []
     },
     {
       "slug": "women-plr",
