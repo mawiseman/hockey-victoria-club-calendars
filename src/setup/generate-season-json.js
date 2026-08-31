@@ -427,9 +427,14 @@ async function main() {
     const laddersPayload = laddersRaw ? JSON.parse(laddersRaw) : null;
     const ladders = laddersPayload?.ladders || {};
 
-    // Reuse the project's category logic so views match the rest of the site.
-    const activeComps = allCompetitions.filter(c => c.fixtureUrl && c.isActive !== false);
-    const categorized = categorizeCompetitions([...activeComps]);
+    // Deliberately not filtered on isActive: that flag only controls whether
+    // process-all-competitions/scrape-scores keep polling HV daily for a
+    // competition. A competition that's gone inactive (season/finals wrapped
+    // up) keeps its last-processed ICS on disk indefinitely — nothing
+    // deletes it short of someone manually running the interactive
+    // cleanup-inactive-competitions.js — so it should keep showing here too.
+    const comps = allCompetitions.filter(c => c.fixtureUrl);
+    const categorized = categorizeCompetitions([...comps]);
 
     // Group scraped cards by competition for score/bye lookup.
     const cardsByComp = new Map();
@@ -442,7 +447,7 @@ async function main() {
     const usedSlugs = new Set();
     let compsMissingIcs = 0;
 
-    for (const comp of activeComps) {
+    for (const comp of comps) {
         const icsPath = processedIcsPath(comp.name);
         const icsRaw = await readOptional(icsPath, `processed ICS for "${comp.name}"`);
         const icsEvents = icsRaw ? parseProcessedIcs(icsRaw) : [];
@@ -525,7 +530,7 @@ async function main() {
     const teamsWithLadder = teams.filter(t => t.ladder).length;
     console.log(`✅ Wrote ${teams.length} teams (${totalEvents} events, ${totalScored} scored, ${teamsWithLadder} with ladders) to ${OUTPUT}`);
     if (compsMissingIcs > 0) {
-        console.warn(`⚠️  ${compsMissingIcs} active competition(s) had no processed ICS — run npm run process-all-competitions first`);
+        console.warn(`⚠️  ${compsMissingIcs} competition(s) had no processed ICS — run npm run process-all-competitions first`);
     }
 }
 
