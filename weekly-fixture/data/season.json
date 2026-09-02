@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-01T19:41:27.052Z",
-  "sourcesGeneratedAt": "2026-09-01T19:41:06.092Z",
-  "laddersGeneratedAt": "2026-09-01T19:41:26.747Z",
+  "generatedAt": "2026-09-02T19:43:03.658Z",
+  "sourcesGeneratedAt": "2026-09-02T19:42:39.715Z",
+  "laddersGeneratedAt": "2026-09-02T19:43:03.378Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -3179,7 +3179,8 @@
           "away": "PEGS",
           "isHome": true,
           "location": "Footscray Hockey Club - BSF",
-          "gameId": "2635459"
+          "gameId": "2635459",
+          "score": "0-1"
         }
       ],
       "ladder": [
@@ -3521,7 +3522,8 @@
           "away": "GEL",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2635463"
+          "gameId": "2635463",
+          "score": "4-0"
         }
       ],
       "ladder": [
@@ -3877,7 +3879,8 @@
           "away": "CAM",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2635465"
+          "gameId": "2635465",
+          "score": "1-2"
         }
       ],
       "ladder": [
