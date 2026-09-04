@@ -260,7 +260,8 @@
         "title": "FHC 2026 Midweek Men's 60+ B",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-04T19:18:43.520Z"
     },
     {
       "name": "35+ Womens Masters Indoor",
@@ -561,7 +562,7 @@
       "statusUpdatedAt": "2026-08-30T19:27:05.356Z"
     }
   ],
-  "lastStatusUpdate": "2026-09-03T19:35:21.573Z",
-  "activeCompetitions": 16,
-  "inactiveCompetitions": 16
+  "lastStatusUpdate": "2026-09-04T19:18:58.052Z",
+  "activeCompetitions": 15,
+  "inactiveCompetitions": 17
 }
