@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-04T19:20:10.902Z",
-  "sourcesGeneratedAt": "2026-09-04T19:19:53.713Z",
-  "laddersGeneratedAt": "2026-09-04T19:20:10.609Z",
+  "generatedAt": "2026-09-05T18:26:05.916Z",
+  "sourcesGeneratedAt": "2026-09-05T18:25:43.771Z",
+  "laddersGeneratedAt": "2026-09-05T18:26:05.737Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -1494,7 +1494,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Essendon Hockey Centre - ESS1",
-          "gameId": "2635746"
+          "gameId": "2635746",
+          "score": "0-4"
         }
       ],
       "ladder": [
@@ -3326,6 +3327,16 @@
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2635463",
           "score": "4-0"
+        },
+        {
+          "round": "Grand Final",
+          "dtstart": "2026-09-09T09:00:00.000Z",
+          "dtend": "2026-09-09T10:00:00.000Z",
+          "home": "MUHC",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Brunswick Secondary College - BRU",
+          "gameId": "2638946"
         }
       ],
       "ladder": [
@@ -4072,68 +4083,55 @@
           "away": "GRN",
           "isHome": true,
           "location": "Footscray Hockey Club - ASF",
-          "gameId": "2601869"
+          "gameId": "2601869",
+          "score": "FL"
         }
       ],
       "ladder": [
         {
           "pos": 1,
           "team": "Craigieburn Falcons Hockey Club",
-          "p": 7,
-          "w": 7,
+          "p": 8,
+          "w": 8,
           "d": 0,
           "l": 0,
           "bye": 0,
-          "gf": 50,
-          "ga": 3,
-          "gd": 47,
-          "pts": 21,
+          "gf": 54,
+          "ga": 5,
+          "gd": 49,
+          "pts": 24,
           "isClub": false
         },
         {
           "pos": 2,
           "team": "Essendon Jets",
-          "p": 7,
-          "w": 5,
+          "p": 8,
+          "w": 6,
           "d": 0,
           "l": 1,
           "bye": 0,
-          "gf": 30,
-          "ga": 15,
-          "gd": 15,
-          "pts": 15,
+          "gf": 39,
+          "ga": 16,
+          "gd": 23,
+          "pts": 18,
           "isClub": false
         },
         {
           "pos": 3,
           "team": "Caroline Springs Hockey Club",
-          "p": 7,
-          "w": 5,
+          "p": 8,
+          "w": 6,
           "d": 0,
           "l": 2,
           "bye": 0,
-          "gf": 29,
+          "gf": 39,
           "ga": 16,
-          "gd": 13,
-          "pts": 15,
+          "gd": 23,
+          "pts": 18,
           "isClub": false
         },
         {
           "pos": 4,
-          "team": "Essendon Flyers",
-          "p": 6,
-          "w": 4,
-          "d": 0,
-          "l": 2,
-          "bye": 1,
-          "gf": 21,
-          "ga": 18,
-          "gd": 3,
-          "pts": 12,
-          "isClub": false
-        },
-        {
-          "pos": 5,
           "team": "Greensborough Hockey Club",
           "p": 7,
           "w": 4,
@@ -4147,16 +4145,30 @@
           "isClub": false
         },
         {
+          "pos": 5,
+          "team": "Essendon Flyers",
+          "p": 7,
+          "w": 4,
+          "d": 0,
+          "l": 3,
+          "bye": 1,
+          "gf": 23,
+          "ga": 22,
+          "gd": 1,
+          "pts": 12,
+          "isClub": false
+        },
+        {
           "pos": 6,
           "team": "La Trobe University Hockey Club",
-          "p": 7,
+          "p": 8,
           "w": 3,
           "d": 1,
-          "l": 2,
+          "l": 3,
           "bye": 0,
-          "gf": 11,
-          "ga": 22,
-          "gd": -11,
+          "gf": 12,
+          "ga": 31,
+          "gd": -19,
           "pts": 10,
           "isClub": false
         },
@@ -4205,14 +4217,14 @@
         {
           "pos": 10,
           "team": "PEGS Hockey Club",
-          "p": 7,
+          "p": 8,
           "w": 0,
           "d": 0,
-          "l": 7,
+          "l": 8,
           "bye": 0,
           "gf": 1,
-          "ga": 52,
-          "gd": -51,
+          "ga": 62,
+          "gd": -61,
           "pts": 0,
           "isClub": false
         }
@@ -7037,7 +7049,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Essendon Hockey Centre - ESS1",
-          "gameId": "2635747"
+          "gameId": "2635747",
+          "score": "3-2"
         }
       ],
       "ladder": [
