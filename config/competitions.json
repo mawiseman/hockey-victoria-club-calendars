@@ -103,7 +103,8 @@
         "title": "FHC Mens Metro 1 North West - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-06T18:30:34.841Z"
     },
     {
       "name": "Mens Metro 2 North West - 2026",
@@ -120,7 +121,8 @@
         "title": "FHC Mens Metro 2 North West - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-06T18:30:35.905Z"
     },
     {
       "name": "Womens Premier League - 2026",
@@ -155,7 +157,8 @@
         "title": "FHC Womens Premier League Reserves - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-06T18:30:37.692Z"
     },
     {
       "name": "Womens Pennant A - 2026",
@@ -418,7 +421,8 @@
         "title": "FHC U16 Boys Shield - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-06T18:30:50.542Z"
     },
     {
       "name": "U16 Girls Pennant NW - 2026",
@@ -453,7 +457,8 @@
         "title": "FHC U16 Girls Shield - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-06T18:30:52.625Z"
     },
     {
       "name": "U14 Boys Shield - 2026",
@@ -562,7 +567,7 @@
       "statusUpdatedAt": "2026-08-30T19:27:05.356Z"
     }
   ],
-  "lastStatusUpdate": "2026-09-05T18:24:48.017Z",
-  "activeCompetitions": 15,
-  "inactiveCompetitions": 17
+  "lastStatusUpdate": "2026-09-06T18:30:58.132Z",
+  "activeCompetitions": 10,
+  "inactiveCompetitions": 22
 }
