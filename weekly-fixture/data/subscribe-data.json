@@ -1,31 +1,13 @@
 {
   "clubName": "Footscray",
-  "generatedAt": "2026-09-06T18:32:09.462Z",
-  "totalCompetitions": 2,
-  "allCompetitionsEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&color=%23616161&color=%23285F9B&color=%23D50000",
+  "generatedAt": "2026-09-07T20:04:13.822Z",
+  "totalCompetitions": 1,
+  "allCompetitionsEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&color=%23616161&color=%23285F9B",
   "categories": [
-    {
-      "key": "mens",
-      "label": "Men's",
-      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com&color=%23616161&color=%23285F9B",
-      "categoryCalendar": {
-        "publicUrl": "https://calendar.google.com/calendar/embed?src=b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6%40group.calendar.google.com",
-        "icalUrl": "https://calendar.google.com/calendar/ical/b120156e90f1b5db3b0aba2c617c0ccb06891dfce71934824d2ea52522163cc6%40group.calendar.google.com/public/basic.ics"
-      },
-      "competitions": [
-        {
-          "name": "Mens Pennant D North West - 2026",
-          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/25879/412298",
-          "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42239",
-          "publicUrl": "https://calendar.google.com/calendar/embed?src=029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com",
-          "icalUrl": "https://calendar.google.com/calendar/ical/029751390b69302d004a5fe963185a0c69681106535a4404af19001667fc4938%40group.calendar.google.com/public/basic.ics"
-        }
-      ]
-    },
     {
       "key": "midweek",
       "label": "Midweek",
-      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&color=%23616161&color=%23D50000",
+      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=9427b5ecdf17a2cfa3df5970bfbdcb7b5f1ba98da08a2770ed6003e09d143cf2%40group.calendar.google.com&src=52fbdb71d3e37b9a6c1b9ab8f5f84fa8d88dc7d31bcc4175c79a88354830612f%40group.calendar.google.com&color=%23616161&color=%23285F9B",
       "categoryCalendar": {
         "publicUrl": "https://calendar.google.com/calendar/embed?src=fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/fb9a60cb22b1a5af884d53ea7a439b15264a29d9790c2b3a06e607dc25233c3e%40group.calendar.google.com/public/basic.ics"
