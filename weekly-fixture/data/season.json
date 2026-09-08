@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-07T20:04:13.645Z",
-  "sourcesGeneratedAt": "2026-09-07T20:03:59.080Z",
-  "laddersGeneratedAt": "2026-09-07T20:04:13.369Z",
+  "generatedAt": "2026-09-08T02:52:04.256Z",
+  "sourcesGeneratedAt": "2026-09-08T02:51:47.567Z",
+  "laddersGeneratedAt": "2026-09-08T02:52:03.950Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -589,6 +589,130 @@
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2630129",
           "score": "3-0"
+        },
+        {
+          "round": "Grand Final",
+          "dtstart": "2026-09-12T07:00:00.000Z",
+          "dtend": "2026-09-12T08:30:00.000Z",
+          "home": "HHC",
+          "away": "FHC",
+          "isHome": false,
+          "location": "PEGS Sporting Fields - PSF1",
+          "gameId": "2644301"
+        }
+      ],
+      "ladder": [
+        {
+          "pos": 1,
+          "team": "Footscray Hockey Club",
+          "p": 18,
+          "w": 13,
+          "d": 3,
+          "l": 2,
+          "bye": 0,
+          "gf": 51,
+          "ga": 13,
+          "gd": 38,
+          "pts": 42,
+          "isClub": true
+        },
+        {
+          "pos": 2,
+          "team": "PEGS Hockey Club",
+          "p": 18,
+          "w": 13,
+          "d": 1,
+          "l": 4,
+          "bye": 0,
+          "gf": 62,
+          "ga": 23,
+          "gd": 39,
+          "pts": 40,
+          "isClub": false
+        },
+        {
+          "pos": 3,
+          "team": "Hume Hockey Club",
+          "p": 18,
+          "w": 12,
+          "d": 4,
+          "l": 2,
+          "bye": 0,
+          "gf": 48,
+          "ga": 21,
+          "gd": 27,
+          "pts": 40,
+          "isClub": false
+        },
+        {
+          "pos": 4,
+          "team": "La Trobe University Hockey Club",
+          "p": 18,
+          "w": 11,
+          "d": 1,
+          "l": 6,
+          "bye": 0,
+          "gf": 48,
+          "ga": 24,
+          "gd": 24,
+          "pts": 34,
+          "isClub": false
+        },
+        {
+          "pos": 5,
+          "team": "Altona Hockey Club",
+          "p": 18,
+          "w": 4,
+          "d": 4,
+          "l": 10,
+          "bye": 0,
+          "gf": 27,
+          "ga": 35,
+          "gd": -8,
+          "pts": 16,
+          "isClub": false
+        },
+        {
+          "pos": 6,
+          "team": "Brunswick Hockey Club",
+          "p": 18,
+          "w": 2,
+          "d": 5,
+          "l": 11,
+          "bye": 0,
+          "gf": 24,
+          "ga": 57,
+          "gd": -33,
+          "pts": 11,
+          "isClub": false
+        },
+        {
+          "pos": 7,
+          "team": "Greensborough Hockey Club",
+          "p": 18,
+          "w": 3,
+          "d": 2,
+          "l": 11,
+          "bye": 0,
+          "gf": 20,
+          "ga": 69,
+          "gd": -49,
+          "pts": 11,
+          "isClub": false
+        },
+        {
+          "pos": 8,
+          "team": "MCC Hockey Section",
+          "p": 18,
+          "w": 2,
+          "d": 4,
+          "l": 9,
+          "bye": 0,
+          "gf": 24,
+          "ga": 62,
+          "gd": -38,
+          "pts": 10,
+          "isClub": false
         }
       ]
     },
@@ -1254,6 +1378,16 @@
           "location": "Essendon Hockey Centre - ESS1",
           "gameId": "2635746",
           "score": "0-4"
+        },
+        {
+          "round": "Semi Final",
+          "dtstart": "2026-09-12T03:00:00.000Z",
+          "dtend": "2026-09-12T04:30:00.000Z",
+          "home": "MNT",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Hawthorn Malvern Hockey Centre - H-1",
+          "gameId": "2644288"
         }
       ],
       "ladder": [
@@ -1632,6 +1766,16 @@
           "location": "Hawthorn Malvern Hockey Centre - H-1",
           "gameId": "2635772",
           "score": "3-2"
+        },
+        {
+          "round": "Grand Final",
+          "dtstart": "2026-09-12T05:00:00.000Z",
+          "dtend": "2026-09-12T06:30:00.000Z",
+          "home": "ESS",
+          "away": "FHC",
+          "isHome": false,
+          "location": "PEGS Sporting Fields - PSF1",
+          "gameId": "2644300"
         }
       ],
       "ladder": [
@@ -6426,6 +6570,16 @@
           "location": "Essendon Hockey Centre - ESS1",
           "gameId": "2635747",
           "score": "3-2"
+        },
+        {
+          "round": "Semi Final",
+          "dtstart": "2026-09-12T05:00:00.000Z",
+          "dtend": "2026-09-12T06:30:00.000Z",
+          "home": "CAM",
+          "away": "FHC",
+          "isHome": false,
+          "location": "Hawthorn Malvern Hockey Centre - H-1",
+          "gameId": "2644289"
         }
       ],
       "ladder": [

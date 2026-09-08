@@ -103,8 +103,8 @@
         "title": "FHC Mens Metro 1 North West - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": false,
-      "statusUpdatedAt": "2026-09-06T18:30:34.841Z"
+      "isActive": true,
+      "statusUpdatedAt": "2026-09-08T02:50:16.729Z"
     },
     {
       "name": "Mens Metro 2 North West - 2026",
@@ -568,7 +568,7 @@
       "statusUpdatedAt": "2026-08-30T19:27:05.356Z"
     }
   ],
-  "lastStatusUpdate": "2026-09-07T20:02:57.400Z",
-  "activeCompetitions": 9,
-  "inactiveCompetitions": 23
+  "lastStatusUpdate": "2026-09-08T02:50:41.325Z",
+  "activeCompetitions": 10,
+  "inactiveCompetitions": 22
 }
