@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-08T02:52:04.256Z",
-  "sourcesGeneratedAt": "2026-09-08T02:51:47.567Z",
-  "laddersGeneratedAt": "2026-09-08T02:52:03.950Z",
+  "generatedAt": "2026-09-08T19:46:37.806Z",
+  "sourcesGeneratedAt": "2026-09-08T19:46:21.891Z",
+  "laddersGeneratedAt": "2026-09-08T19:46:37.566Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -1380,7 +1380,7 @@
           "score": "0-4"
         },
         {
-          "round": "Semi Final",
+          "round": "Grand Final",
           "dtstart": "2026-09-12T03:00:00.000Z",
           "dtend": "2026-09-12T04:30:00.000Z",
           "home": "MNT",
@@ -6572,7 +6572,7 @@
           "score": "3-2"
         },
         {
-          "round": "Semi Final",
+          "round": "Grand Final",
           "dtstart": "2026-09-12T05:00:00.000Z",
           "dtend": "2026-09-12T06:30:00.000Z",
           "home": "CAM",
