@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-08T19:46:37.806Z",
-  "sourcesGeneratedAt": "2026-09-08T19:46:21.891Z",
-  "laddersGeneratedAt": "2026-09-08T19:46:37.566Z",
+  "generatedAt": "2026-09-09T19:38:16.762Z",
+  "sourcesGeneratedAt": "2026-09-09T19:38:02.158Z",
+  "laddersGeneratedAt": "2026-09-09T19:38:16.552Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -2573,106 +2573,6 @@
           "gameId": "2633086",
           "score": "3-1"
         }
-      ],
-      "ladder": [
-        {
-          "pos": 1,
-          "team": "Toorak East Malvern Hockey Club",
-          "p": 15,
-          "w": 12,
-          "d": 2,
-          "l": 1,
-          "bye": 3,
-          "gf": 55,
-          "ga": 18,
-          "gd": 37,
-          "pts": 38,
-          "isClub": false
-        },
-        {
-          "pos": 2,
-          "team": "Greensborough Hockey Club",
-          "p": 15,
-          "w": 10,
-          "d": 2,
-          "l": 3,
-          "bye": 3,
-          "gf": 72,
-          "ga": 41,
-          "gd": 31,
-          "pts": 32,
-          "isClub": false
-        },
-        {
-          "pos": 3,
-          "team": "Footscray Hockey Club",
-          "p": 15,
-          "w": 7,
-          "d": 3,
-          "l": 5,
-          "bye": 3,
-          "gf": 43,
-          "ga": 34,
-          "gd": 9,
-          "pts": 24,
-          "isClub": true
-        },
-        {
-          "pos": 4,
-          "team": "Melbourne University Hockey Club",
-          "p": 16,
-          "w": 8,
-          "d": 1,
-          "l": 7,
-          "bye": 2,
-          "gf": 44,
-          "ga": 36,
-          "gd": 8,
-          "pts": 25,
-          "isClub": false
-        },
-        {
-          "pos": 5,
-          "team": "Craigieburn falcons",
-          "p": 16,
-          "w": 4,
-          "d": 3,
-          "l": 9,
-          "bye": 2,
-          "gf": 44,
-          "ga": 53,
-          "gd": -9,
-          "pts": 15,
-          "isClub": false
-        },
-        {
-          "pos": 6,
-          "team": "PEGS Hockey Club",
-          "p": 15,
-          "w": 4,
-          "d": 0,
-          "l": 10,
-          "bye": 3,
-          "gf": 25,
-          "ga": 52,
-          "gd": -27,
-          "pts": 12,
-          "isClub": false
-        },
-        {
-          "pos": 7,
-          "team": "Essendon Hockey",
-          "p": 16,
-          "w": 3,
-          "d": 1,
-          "l": 12,
-          "bye": 2,
-          "gf": 12,
-          "ga": 61,
-          "gd": -49,
-          "pts": 10,
-          "isClub": false
-        }
       ]
     },
     {
@@ -3239,7 +3139,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Brunswick Secondary College - BRU",
-          "gameId": "2638946"
+          "gameId": "2638946",
+          "score": "1-0"
         }
       ],
       "ladder": [

@@ -300,7 +300,8 @@
         "title": "FHC Midweek Men's 40+ NW - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-09T19:36:43.893Z"
     },
     {
       "name": "Midweek Men's 50+ NW - 2026",
@@ -568,7 +569,7 @@
       "statusUpdatedAt": "2026-08-30T19:27:05.356Z"
     }
   ],
-  "lastStatusUpdate": "2026-09-08T19:45:21.218Z",
-  "activeCompetitions": 10,
-  "inactiveCompetitions": 22
+  "lastStatusUpdate": "2026-09-09T19:36:58.313Z",
+  "activeCompetitions": 9,
+  "inactiveCompetitions": 23
 }
