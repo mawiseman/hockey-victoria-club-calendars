@@ -318,7 +318,8 @@
         "title": "FHC Midweek Men's 50+ NW - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-10T19:26:05.339Z"
     },
     {
       "name": "Midweek Women's 35+ B - 2026",
@@ -352,7 +353,8 @@
         "title": "FHC Midweek Women's 45+ - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-10T19:26:07.506Z"
     },
     {
       "name": "Midweek Women's 55+ (Monday) - 2026",
@@ -569,7 +571,7 @@
       "statusUpdatedAt": "2026-08-30T19:27:05.356Z"
     }
   ],
-  "lastStatusUpdate": "2026-09-09T19:36:58.313Z",
-  "activeCompetitions": 9,
-  "inactiveCompetitions": 23
+  "lastStatusUpdate": "2026-09-10T19:26:19.103Z",
+  "activeCompetitions": 7,
+  "inactiveCompetitions": 25
 }
