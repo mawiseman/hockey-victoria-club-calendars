@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-11T19:29:52.539Z",
-  "sourcesGeneratedAt": "2026-09-11T19:29:40.302Z",
-  "laddersGeneratedAt": "2026-09-11T19:29:52.291Z",
+  "generatedAt": "2026-09-12T18:36:58.624Z",
+  "sourcesGeneratedAt": "2026-09-12T18:36:50.809Z",
+  "laddersGeneratedAt": "2026-09-12T18:36:58.319Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -598,7 +598,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "PEGS Sporting Fields - PSF1",
-          "gameId": "2644301"
+          "gameId": "2644301",
+          "score": "4-3"
         }
       ],
       "ladder": [
@@ -1387,7 +1388,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Hawthorn Malvern Hockey Centre - H-1",
-          "gameId": "2644288"
+          "gameId": "2644288",
+          "score": "FL"
         }
       ],
       "ladder": [
@@ -1775,7 +1777,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "PEGS Sporting Fields - PSF1",
-          "gameId": "2644300"
+          "gameId": "2644300",
+          "score": "3-0"
         }
       ],
       "ladder": [
@@ -4638,92 +4641,6 @@
           "gameId": "2635731",
           "score": "0-1"
         }
-      ],
-      "ladder": [
-        {
-          "pos": 1,
-          "team": "Melton Hockey Club",
-          "p": 13,
-          "w": 12,
-          "d": 0,
-          "l": 1,
-          "bye": 1,
-          "gf": 46,
-          "ga": 12,
-          "gd": 34,
-          "pts": 36,
-          "isClub": false
-        },
-        {
-          "pos": 2,
-          "team": "Footscray Hockey Club",
-          "p": 13,
-          "w": 10,
-          "d": 2,
-          "l": 1,
-          "bye": 1,
-          "gf": 32,
-          "ga": 13,
-          "gd": 19,
-          "pts": 32,
-          "isClub": true
-        },
-        {
-          "pos": 3,
-          "team": "United Khalsa Hockey Club Victoria",
-          "p": 13,
-          "w": 6,
-          "d": 2,
-          "l": 5,
-          "bye": 1,
-          "gf": 37,
-          "ga": 27,
-          "gd": 10,
-          "pts": 20,
-          "isClub": false
-        },
-        {
-          "pos": 4,
-          "team": "Werribee Hockey Club",
-          "p": 13,
-          "w": 5,
-          "d": 0,
-          "l": 8,
-          "bye": 1,
-          "gf": 33,
-          "ga": 33,
-          "gd": 0,
-          "pts": 15,
-          "isClub": false
-        },
-        {
-          "pos": 5,
-          "team": "Hume Hockey Club",
-          "p": 14,
-          "w": 2,
-          "d": 0,
-          "l": 12,
-          "bye": 0,
-          "gf": 11,
-          "ga": 39,
-          "gd": -28,
-          "pts": 6,
-          "isClub": false
-        },
-        {
-          "pos": 6,
-          "team": "PEGS Hockey Club Maroon",
-          "p": 10,
-          "w": 1,
-          "d": 0,
-          "l": 9,
-          "bye": 0,
-          "gf": 11,
-          "ga": 46,
-          "gd": -35,
-          "pts": 3,
-          "isClub": false
-        }
       ]
     },
     {
@@ -6224,7 +6141,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "Hawthorn Malvern Hockey Centre - H-1",
-          "gameId": "2644289"
+          "gameId": "2644289",
+          "score": "FL"
         }
       ],
       "ladder": [

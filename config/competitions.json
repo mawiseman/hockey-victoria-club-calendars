@@ -515,7 +515,8 @@
         "title": "FHC U14 Mixed District NW - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-12T18:35:54.188Z"
     },
     {
       "name": "U12 District Half Field Mixed NW - T3 2026",
@@ -571,7 +572,7 @@
       "statusUpdatedAt": "2026-08-30T19:27:05.356Z"
     }
   ],
-  "lastStatusUpdate": "2026-09-11T19:28:39.078Z",
-  "activeCompetitions": 7,
-  "inactiveCompetitions": 25
+  "lastStatusUpdate": "2026-09-12T18:35:56.539Z",
+  "activeCompetitions": 6,
+  "inactiveCompetitions": 26
 }
