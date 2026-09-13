@@ -526,14 +526,15 @@
       "ladderUrl": "https://www.hockeyvictoria.org.au/pointscore/26323/43371",
       "matchDuration": 60,
       "scrapedAt": "2026-07-24T04:49:04.522Z",
-      "isActive": true,
+      "isActive": false,
       "googleCalendar": {
         "calendarId": "64ecfb2b2179182a1522ed919c3583bf5a9e51198d396d59827b0778c9f77864@group.calendar.google.com",
         "publicUrl": "https://calendar.google.com/calendar/embed?src=64ecfb2b2179182a1522ed919c3583bf5a9e51198d396d59827b0778c9f77864%40group.calendar.google.com",
         "icalUrl": "https://calendar.google.com/calendar/ical/64ecfb2b2179182a1522ed919c3583bf5a9e51198d396d59827b0778c9f77864%40group.calendar.google.com/public/basic.ics",
         "title": "FHC U12 District Half Field Mixed NW - T3 2026",
         "createdAt": "2026-07-24T04:54:14.925Z"
-      }
+      },
+      "statusUpdatedAt": "2026-09-13T19:01:29.188Z"
     },
     {
       "name": "U12 Girls Shield - 2026",
@@ -572,7 +573,7 @@
       "statusUpdatedAt": "2026-08-30T19:27:05.356Z"
     }
   ],
-  "lastStatusUpdate": "2026-09-12T18:35:56.539Z",
-  "activeCompetitions": 6,
-  "inactiveCompetitions": 26
+  "lastStatusUpdate": "2026-09-13T19:01:30.920Z",
+  "activeCompetitions": 5,
+  "inactiveCompetitions": 27
 }

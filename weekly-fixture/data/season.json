@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-12T18:36:58.624Z",
-  "sourcesGeneratedAt": "2026-09-12T18:36:50.809Z",
-  "laddersGeneratedAt": "2026-09-12T18:36:58.319Z",
+  "generatedAt": "2026-09-13T19:02:37.550Z",
+  "sourcesGeneratedAt": "2026-09-13T19:02:29.027Z",
+  "laddersGeneratedAt": "2026-09-13T19:02:37.210Z",
   "teams": [
     {
       "slug": "2026-midweek-mens-60plus-b",
@@ -1389,7 +1389,7 @@
           "isHome": false,
           "location": "Hawthorn Malvern Hockey Centre - H-1",
           "gameId": "2644288",
-          "score": "FL"
+          "score": "7-5"
         }
       ],
       "ladder": [
@@ -3636,148 +3636,6 @@
           "location": "Footscray Hockey Club - ASF",
           "gameId": "2601869",
           "score": "1-9"
-        }
-      ],
-      "ladder": [
-        {
-          "pos": 1,
-          "team": "Craigieburn Falcons Hockey Club",
-          "p": 8,
-          "w": 8,
-          "d": 0,
-          "l": 0,
-          "bye": 0,
-          "gf": 54,
-          "ga": 5,
-          "gd": 49,
-          "pts": 24,
-          "isClub": false
-        },
-        {
-          "pos": 2,
-          "team": "Essendon Jets",
-          "p": 8,
-          "w": 6,
-          "d": 0,
-          "l": 1,
-          "bye": 0,
-          "gf": 39,
-          "ga": 16,
-          "gd": 23,
-          "pts": 18,
-          "isClub": false
-        },
-        {
-          "pos": 3,
-          "team": "Caroline Springs Hockey Club",
-          "p": 8,
-          "w": 6,
-          "d": 0,
-          "l": 2,
-          "bye": 0,
-          "gf": 39,
-          "ga": 16,
-          "gd": 23,
-          "pts": 18,
-          "isClub": false
-        },
-        {
-          "pos": 4,
-          "team": "Greensborough Hockey Club",
-          "p": 8,
-          "w": 5,
-          "d": 1,
-          "l": 1,
-          "bye": 0,
-          "gf": 41,
-          "ga": 20,
-          "gd": 21,
-          "pts": 16,
-          "isClub": false
-        },
-        {
-          "pos": 5,
-          "team": "Essendon Flyers",
-          "p": 7,
-          "w": 4,
-          "d": 0,
-          "l": 3,
-          "bye": 1,
-          "gf": 23,
-          "ga": 22,
-          "gd": 1,
-          "pts": 12,
-          "isClub": false
-        },
-        {
-          "pos": 6,
-          "team": "Altona Hockey Club",
-          "p": 8,
-          "w": 3,
-          "d": 1,
-          "l": 4,
-          "bye": 0,
-          "gf": 38,
-          "ga": 30,
-          "gd": 8,
-          "pts": 10,
-          "isClub": false
-        },
-        {
-          "pos": 7,
-          "team": "La Trobe University Hockey Club",
-          "p": 8,
-          "w": 3,
-          "d": 1,
-          "l": 3,
-          "bye": 0,
-          "gf": 12,
-          "ga": 31,
-          "gd": -19,
-          "pts": 10,
-          "isClub": false
-        },
-        {
-          "pos": 8,
-          "team": "Craigieburn Falcons Hockey Club 2",
-          "p": 7,
-          "w": 1,
-          "d": 1,
-          "l": 5,
-          "bye": 1,
-          "gf": 13,
-          "ga": 43,
-          "gd": -30,
-          "pts": 4,
-          "isClub": false
-        },
-        {
-          "pos": 9,
-          "team": "Footscray Hockey Club",
-          "p": 8,
-          "w": 1,
-          "d": 0,
-          "l": 7,
-          "bye": 0,
-          "gf": 11,
-          "ga": 26,
-          "gd": -15,
-          "pts": 3,
-          "isClub": true
-        },
-        {
-          "pos": 10,
-          "team": "PEGS Hockey Club",
-          "p": 8,
-          "w": 0,
-          "d": 0,
-          "l": 8,
-          "bye": 0,
-          "gf": 1,
-          "ga": 62,
-          "gd": -61,
-          "pts": 0,
-          "isClub": false
         }
       ]
     },
