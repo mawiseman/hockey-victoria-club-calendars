@@ -69,7 +69,8 @@
         "title": "FHC Mens Pennant B - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-20T18:56:42.401Z"
     },
     {
       "name": "Mens Pennant D North West - 2026",
@@ -86,7 +87,8 @@
         "title": "FHC Mens Pennant D North West - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-20T18:56:43.654Z"
     },
     {
       "name": "Mens Metro 1 North West - 2026",
@@ -103,8 +105,8 @@
         "title": "FHC Mens Metro 1 North West - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true,
-      "statusUpdatedAt": "2026-09-08T02:50:16.729Z"
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-20T18:56:44.831Z"
     },
     {
       "name": "Mens Metro 2 North West - 2026",
@@ -193,7 +195,8 @@
         "title": "FHC Womens Pennant B - 2026",
         "createdAt": "2026-05-11T05:48:27.989Z"
       },
-      "isActive": true
+      "isActive": false,
+      "statusUpdatedAt": "2026-09-20T18:56:50.572Z"
     },
     {
       "name": "Womens Pennant C - 2026",
@@ -574,7 +577,7 @@
       "statusUpdatedAt": "2026-08-30T19:27:05.356Z"
     }
   ],
-  "lastStatusUpdate": "2026-09-19T18:53:26.734Z",
-  "activeCompetitions": 4,
-  "inactiveCompetitions": 28
+  "lastStatusUpdate": "2026-09-20T18:57:13.442Z",
+  "activeCompetitions": 0,
+  "inactiveCompetitions": 32
 }
