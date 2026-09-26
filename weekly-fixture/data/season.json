@@ -263,7 +263,7 @@
     },
     {
       "slug": "u12-division-1-mixed",
-      "label": "M U12 MIXED",
+      "label": "U12 MD1",
       "name": "Under 12 Division 1 - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -445,7 +445,7 @@
     },
     {
       "slug": "u12-division-2-nw-mixed",
-      "label": "M U12 MIXED",
+      "label": "U12 MD2",
       "name": "Under 12 Division 2 NW - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -647,7 +647,7 @@
     },
     {
       "slug": "u12-girl",
-      "label": "U12",
+      "label": "U12 G",
       "name": "Under 12 Girl",
       "category": "juniors",
       "view": "juniors",
@@ -895,7 +895,7 @@
     },
     {
       "slug": "u14-division-1-mixed",
-      "label": "M U14 MIXED",
+      "label": "U14 MD1",
       "name": "Under 14 Division 1 - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -1095,7 +1095,7 @@
     },
     {
       "slug": "u14-division-2-nw-mixed",
-      "label": "M U14 MIXED",
+      "label": "U14 MD2",
       "name": "Under 14 Division 2 NW - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -1325,7 +1325,7 @@
     },
     {
       "slug": "u16-division-1-mixed",
-      "label": "M U16 MIXED",
+      "label": "U16 MD1",
       "name": "Under 16 Division 1 - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -1525,7 +1525,7 @@
     },
     {
       "slug": "u16-division-2-nw-mixed",
-      "label": "M U16 MIXED",
+      "label": "U14 MD2",
       "name": "Under 16 Division 2 NW - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -1727,7 +1727,7 @@
     },
     {
       "slug": "u16-girl",
-      "label": "U16",
+      "label": "U16 G",
       "name": "Under 16 Girl",
       "category": "juniors",
       "view": "juniors",
