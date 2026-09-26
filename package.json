@@ -21,7 +21,8 @@
     "generate-og-image": "node src/setup/generate-og-image.js",
     "generate-season-json": "node src/setup/generate-season-json.js",
     "scrape-scores": "node src/tasks/score-scraper.js",
-    "scrape-ladders": "node src/tasks/ladder-scraper.js"
+    "scrape-ladders": "node src/tasks/ladder-scraper.js",
+    "sync": "npm run process-all-competitions -- --all && (npm run update-competition-status || true) && (npm run scrape-scores || true) && (npm run scrape-ladders || true) && npm run generate-season-json && npm run generate-docs"
   },
   "keywords": [
     "hockey",
