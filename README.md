@@ -220,14 +220,15 @@ npm run scrape-competitions [-- options]
 
 **Features:**
 - **3-layer navigation**: Games page → Competition page → Ladder page
-- **Parallel processing**: Up to 5 competitions simultaneously
+- **Paced, sequential requests**: One competition at a time with a short randomised delay between each, matching `scrape-scores`/`scrape-ladders`, to avoid getting rate-limited by Hockey Victoria
 - **Progress tracking**: Resumes from `temp/scraper-progress.json` by default; already-processed competitions are skipped
-- **HTTP error detection**: Non-2xx responses (e.g. 403 rate-limit blocks) are logged and *not* marked as processed, so a rerun retries just those competitions
-- **Smart filtering**: Only includes pages with your configured club
+- **HTTP error detection**: Non-2xx responses (e.g. 403/429 rate-limit blocks) are logged and *not* marked as processed, so a rerun retries just those competitions; a 429 also pauses the run for 30 seconds
+- **Smart filtering**: Only includes pages with your configured club; skips competitions already marked inactive, and skips competitions previously confirmed to have no connection to your club at all (see `config/competition-scan-cache.json` below) — this is what keeps re-runs from re-checking the whole site every time
 
 **Output:**
 - `config/competitions.json` - Competition data with fixture/ladder URLs
-- `temp/scraper-progress.json` - Progress tracking
+- `config/competition-scan-cache.json` - Committed record of every competition ever checked (yours or not), so future runs — even from a fresh checkout — don't need to re-scan irrelevant competitions from scratch. Delete an entry (or the whole file) to force a recheck.
+- `temp/scraper-progress.json` - Progress tracking for resuming an interrupted run
 
 ---
 

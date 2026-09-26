@@ -22,7 +22,21 @@ async function getClubNameCached() {
 const OUTPUT_DIR = 'temp';
 const OUTPUT_FILE = COMPETITIONS_FILE; // Use the centralized path from config
 const PROGRESS_FILE = 'temp/scraper-progress.json';
-const MAX_CONCURRENT = 5;
+// Committed (unlike PROGRESS_FILE, which lives in the gitignored temp/ dir)
+// record of every Hockey Victoria competition this scraper has ever checked,
+// including the many that have nothing to do with our club. Without this,
+// every run — including a fresh checkout — has to re-visit the whole site's
+// competitions from scratch to rediscover that most of them aren't ours,
+// which is what triggered the rate limiting.
+const SCAN_CACHE_FILE = 'config/competition-scan-cache.json';
+// Kept low (and paced with sleep() below) to match the request pacing used by
+// score-scraper.js / ladder-scraper.js — running several concurrent Chrome
+// tabs against hockeyvictoria.org.au got this script rate-limited.
+const MAX_CONCURRENT = 1;
+
+function sleep(ms) {
+    return new Promise(r => setTimeout(r, ms));
+}
 
 // Load competition name mappings configuration
 let COMPETITION_CONFIG = null;
@@ -61,6 +75,34 @@ async function determineMatchDuration(competitionName) {
 
     // Return default duration
     return durationConfig.defaultDuration;
+}
+
+/**
+ * Load the scan cache: a map of competitionUrl -> { name, category, clubFound, lastChecked }
+ * covering every competition link this scraper has ever checked, whether or
+ * not our club was found in it.
+ */
+async function loadScanCache() {
+    try {
+        const data = await fs.readFile(SCAN_CACHE_FILE, 'utf8');
+        const parsed = JSON.parse(data);
+        return new Map((parsed.competitions || []).map(entry => [entry.competitionUrl, entry]));
+    } catch (error) {
+        return new Map();
+    }
+}
+
+/**
+ * Persist the scan cache, sorted by URL for stable diffs.
+ */
+async function saveScanCache(scanCache) {
+    const competitions = Array.from(scanCache.values())
+        .sort((a, b) => a.competitionUrl.localeCompare(b.competitionUrl));
+
+    await fs.writeFile(SCAN_CACHE_FILE, JSON.stringify({
+        lastUpdated: new Date().toISOString(),
+        competitions
+    }, null, 2) + '\n', 'utf8');
 }
 
 /**
@@ -200,7 +242,7 @@ async function saveCompetitionResult(progress, competitionData) {
 /**
  * Process competitions in parallel with concurrency limit
  */
-async function processCompetitionsInParallel(browser, competitionLinks, progress) {
+async function processCompetitionsInParallel(browser, competitionLinks, progress, scanCache) {
     const pendingLinks = competitionLinks.filter(link => !progress.processedLinks.has(link.url));
     
     if (pendingLinks.length === 0) {
@@ -229,10 +271,10 @@ async function processCompetitionsInParallel(browser, competitionLinks, progress
                 console.log(`\n[${i + index + 1}/${pendingLinks.length}] Checking: ${link.text}`);
                 
                 const competitionData = await checkCompetition(page, link);
-                
+
                 // Mark as processed
                 progress.processedLinks.add(link.url);
-                
+
                 if (competitionData) {
                     console.log(`✓ Found '${link.text}' in: ${competitionData.name}`);
 
@@ -241,13 +283,31 @@ async function processCompetitionsInParallel(browser, competitionLinks, progress
                 } else {
                     console.log(`✗ '${link.text}' not found in: ${link.text}`);
                 }
-                
+
+                // Record the outcome in the scan cache regardless of whether our
+                // club was found, so a future run (even a fresh checkout) knows
+                // not to bother re-checking competitions that aren't ours.
+                scanCache.set(link.url, {
+                    competitionUrl: link.url,
+                    name: link.text,
+                    category: link.category || 'Uncategorized',
+                    clubFound: Boolean(competitionData),
+                    lastChecked: new Date().toISOString()
+                });
+                await saveScanCache(scanCache);
+
                 return competitionData;
                 
             } catch (error) {
                 if (error instanceof HttpError) {
                     console.error(`🚫 HTTP ${error.status} for ${link.text} (${error.url}) — not marking as processed, will retry on next run`);
                     await saveProgress(progress);
+
+                    if (error.status === 429) {
+                        console.error(`⏳ Rate limited — waiting 30 seconds before continuing...`);
+                        await sleep(30000);
+                    }
+
                     return null;
                 }
 
@@ -264,11 +324,10 @@ async function processCompetitionsInParallel(browser, competitionLinks, progress
         });
         
         await Promise.all(batchPromises);
-        
-        // Add delay between batches to be respectful
+
+        // Pace requests like score-scraper.js / ladder-scraper.js to avoid rate limiting
         if (i + MAX_CONCURRENT < pendingLinks.length) {
-            console.log(`⏳ Waiting 2 seconds before next batch...`);
-            // await new Promise(resolve => setTimeout(resolve, 2000));
+            await sleep(200 + Math.random() * 300);
         }
     }
 }
@@ -279,8 +338,9 @@ async function processCompetitionsInParallel(browser, competitionLinks, progress
 async function scrapeCompetitions() {
     // Load or create progress
     const progress = await loadProgressWithSet();
-    
-    const browser = await puppeteer.launch({ 
+    const scanCache = await loadScanCache();
+
+    const browser = await puppeteer.launch({
         headless: false, // Set to true for production
         slowMo: 100 // Add delay between actions
     });
@@ -298,9 +358,35 @@ async function scrapeCompetitions() {
         await new Promise(resolve => setTimeout(resolve, 3000));
         
         // Get all competition links
-        const competitionLinks = await getCompetitionLinks(page);
-        console.log(`\n🔍 Found ${competitionLinks.length} competition links on games page`);
-        
+        const allCompetitionLinks = await getCompetitionLinks(page);
+        console.log(`\n🔍 Found ${allCompetitionLinks.length} competition links on games page`);
+
+        // Skip competitions already marked inactive (e.g. by update-competition-status)
+        // so we don't waste requests re-checking them or risk reactivating them.
+        const inactiveCompetitionUrls = new Set(
+            progress.foundCompetitions
+                .filter(comp => comp.isActive === false)
+                .map(comp => comp.competitionUrl)
+        );
+
+        // Skip competitions previously confirmed to have nothing to do with our
+        // club at all (most of the site — other clubs' grades/leagues). Delete
+        // the relevant entry (or the whole file) in config/competition-scan-cache.json
+        // to force a recheck if a competition's participants ever change.
+        const irrelevantCompetitionUrls = new Set(
+            Array.from(scanCache.values())
+                .filter(entry => entry.clubFound === false)
+                .map(entry => entry.competitionUrl)
+        );
+
+        const competitionLinks = allCompetitionLinks.filter(link =>
+            !inactiveCompetitionUrls.has(link.url) && !irrelevantCompetitionUrls.has(link.url)
+        );
+        const skippedCount = allCompetitionLinks.length - competitionLinks.length;
+        if (skippedCount > 0) {
+            console.log(`⏭️  Skipping ${skippedCount} competition(s) already known to be inactive or not ours`);
+        }
+
         // Update progress with total found (only if this is a new run)
         if (progress.totalLinksFound === 0) {
             progress.totalLinksFound = competitionLinks.length;
@@ -311,13 +397,14 @@ async function scrapeCompetitions() {
         await page.close();
         
         // Process competitions in parallel
-        await processCompetitionsInParallel(browser, competitionLinks, progress);
-        
+        await processCompetitionsInParallel(browser, competitionLinks, progress, scanCache);
+
         const clubName = await getClubNameCached();
         console.log(`\n🎉 Complete! Found ${progress.totalWithClub} competitions with ${clubName}`);
         console.log(`📊 Total processed: ${progress.totalProcessed}/${progress.totalLinksFound}`);
         console.log(`💾 Results saved to ${OUTPUT_FILE}`);
         console.log(`📋 Progress saved to ${PROGRESS_FILE}`);
+        console.log(`🗂️  Scan cache saved to ${SCAN_CACHE_FILE}`);
         
     } finally {
         await browser.close();
@@ -612,6 +699,7 @@ Process:
 Output:
   • Competition data: ${OUTPUT_FILE}
   • Progress tracking: ${PROGRESS_FILE}
+  • Scan cache (all competitions ever checked, ours or not): ${SCAN_CACHE_FILE}
 `);
 }
 

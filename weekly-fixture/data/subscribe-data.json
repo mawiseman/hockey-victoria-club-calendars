@@ -1,7 +1,93 @@
 {
   "clubName": "Footscray",
-  "generatedAt": "2026-09-25T20:19:26.403Z",
-  "totalCompetitions": 0,
-  "allCompetitionsEmbedUrl": null,
-  "categories": []
+  "generatedAt": "2026-09-26T01:51:51.923Z",
+  "totalCompetitions": 9,
+  "allCompetitionsEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=ebb91493d744002079302c02438dcf976589bd0a61e3106eb24ceea5a06945e9%40group.calendar.google.com&src=8a71f8a503b7af1c40a17860c2bf83907aeb6d7394f7c31d507d917f46bf19b2%40group.calendar.google.com&src=1745a595472afa2f9166d1f43f2828731782fe7b80e1d2f01286d610b44c2ce3%40group.calendar.google.com&src=8f5a3c3ebeccdaa04e4e400d4072e00f4becbbbd53a4abfcbecd2c6534db2920%40group.calendar.google.com&src=89bb2072c2698b70c83d80ee84013c2c1e51908112ba65b38432f1962bcc7ce3%40group.calendar.google.com&src=89cd67d2a4f9ecbcecfda37500d644867760157e24eeedae1c093c38f2938c74%40group.calendar.google.com&src=8ed2def754823c58f1828c9edff4ec99c5754f586ae5c812a31d1f9cfebcad50%40group.calendar.google.com&src=2e4cc292a47d6a34cdaa65326d0a231ccaee3aa822d118fd6096b98ab2eb25f9%40group.calendar.google.com&src=00a15ba32ecab8ae846b2b83894eaa116d504d4c5805389551a35da88d04bcaa%40group.calendar.google.com&src=c5b2161a3fcd3389e17e45fe778addb5a180910bcce4cb7f846c8593c6012bd9%40group.calendar.google.com&color=%23616161&color=%23285F9B&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000",
+  "categories": [
+    {
+      "key": "midweek",
+      "label": "Midweek",
+      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=ebb91493d744002079302c02438dcf976589bd0a61e3106eb24ceea5a06945e9%40group.calendar.google.com&src=8a71f8a503b7af1c40a17860c2bf83907aeb6d7394f7c31d507d917f46bf19b2%40group.calendar.google.com&color=%23616161&color=%23285F9B",
+      "categoryCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=ff62bd129a3ca5a8e18c77f3145fa5e4f3ee075ea385570696b2be3e8d8464af%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/ff62bd129a3ca5a8e18c77f3145fa5e4f3ee075ea385570696b2be3e8d8464af%40group.calendar.google.com/public/basic.ics"
+      },
+      "competitions": [
+        {
+          "name": "35+ Masters NW League - Women",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/27632/444915",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/27632/44251",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=8a71f8a503b7af1c40a17860c2bf83907aeb6d7394f7c31d507d917f46bf19b2%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/8a71f8a503b7af1c40a17860c2bf83907aeb6d7394f7c31d507d917f46bf19b2%40group.calendar.google.com/public/basic.ics"
+        }
+      ]
+    },
+    {
+      "key": "juniors",
+      "label": "Juniors",
+      "combinedEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Australia%2FMelbourne&showPrint=0&showTz=0&src=ebb91493d744002079302c02438dcf976589bd0a61e3106eb24ceea5a06945e9%40group.calendar.google.com&src=1745a595472afa2f9166d1f43f2828731782fe7b80e1d2f01286d610b44c2ce3%40group.calendar.google.com&src=8f5a3c3ebeccdaa04e4e400d4072e00f4becbbbd53a4abfcbecd2c6534db2920%40group.calendar.google.com&src=89bb2072c2698b70c83d80ee84013c2c1e51908112ba65b38432f1962bcc7ce3%40group.calendar.google.com&src=89cd67d2a4f9ecbcecfda37500d644867760157e24eeedae1c093c38f2938c74%40group.calendar.google.com&src=8ed2def754823c58f1828c9edff4ec99c5754f586ae5c812a31d1f9cfebcad50%40group.calendar.google.com&src=2e4cc292a47d6a34cdaa65326d0a231ccaee3aa822d118fd6096b98ab2eb25f9%40group.calendar.google.com&src=00a15ba32ecab8ae846b2b83894eaa116d504d4c5805389551a35da88d04bcaa%40group.calendar.google.com&src=c5b2161a3fcd3389e17e45fe778addb5a180910bcce4cb7f846c8593c6012bd9%40group.calendar.google.com&color=%23616161&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000&color=%23D50000",
+      "categoryCalendar": {
+        "publicUrl": "https://calendar.google.com/calendar/embed?src=e51abc54e91fafc6de042beb99a9b096940eae72ffbcfd48f76e622da6e1ce57%40group.calendar.google.com",
+        "icalUrl": "https://calendar.google.com/calendar/ical/e51abc54e91fafc6de042beb99a9b096940eae72ffbcfd48f76e622da6e1ce57%40group.calendar.google.com/public/basic.ics"
+      },
+      "competitions": [
+        {
+          "name": "Under 16 Division 1 - Mixed",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/27631/445007",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/27631/39706",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=1745a595472afa2f9166d1f43f2828731782fe7b80e1d2f01286d610b44c2ce3%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/1745a595472afa2f9166d1f43f2828731782fe7b80e1d2f01286d610b44c2ce3%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "name": "Under 16 Division 2 NW - Mixed",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/27631/445016",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/27631/39717",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=8f5a3c3ebeccdaa04e4e400d4072e00f4becbbbd53a4abfcbecd2c6534db2920%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/8f5a3c3ebeccdaa04e4e400d4072e00f4becbbbd53a4abfcbecd2c6534db2920%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "name": "Under 16 Girl",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/27631/445030",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/27631/39710",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=89bb2072c2698b70c83d80ee84013c2c1e51908112ba65b38432f1962bcc7ce3%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/89bb2072c2698b70c83d80ee84013c2c1e51908112ba65b38432f1962bcc7ce3%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "name": "Under 14 Division 1 - Mixed",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/27631/444968",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/27631/39705",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=89cd67d2a4f9ecbcecfda37500d644867760157e24eeedae1c093c38f2938c74%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/89cd67d2a4f9ecbcecfda37500d644867760157e24eeedae1c093c38f2938c74%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "name": "Under 14 Division 2 NW - Mixed",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/27631/444980",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/27631/39716",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=8ed2def754823c58f1828c9edff4ec99c5754f586ae5c812a31d1f9cfebcad50%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/8ed2def754823c58f1828c9edff4ec99c5754f586ae5c812a31d1f9cfebcad50%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "name": "Under 12 Division 1 - Mixed",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/27631/444923",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/27631/39704",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=2e4cc292a47d6a34cdaa65326d0a231ccaee3aa822d118fd6096b98ab2eb25f9%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/2e4cc292a47d6a34cdaa65326d0a231ccaee3aa822d118fd6096b98ab2eb25f9%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "name": "Under 12 Division 2 NW - Mixed",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/27631/444931",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/27631/39715",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=00a15ba32ecab8ae846b2b83894eaa116d504d4c5805389551a35da88d04bcaa%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/00a15ba32ecab8ae846b2b83894eaa116d504d4c5805389551a35da88d04bcaa%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "name": "Under 12 Girl",
+          "fixtureUrl": "https://www.hockeyvictoria.org.au/games/team/27631/444960",
+          "competitionUrl": "https://www.hockeyvictoria.org.au/games/27631/39708",
+          "publicUrl": "https://calendar.google.com/calendar/embed?src=c5b2161a3fcd3389e17e45fe778addb5a180910bcce4cb7f846c8593c6012bd9%40group.calendar.google.com",
+          "icalUrl": "https://calendar.google.com/calendar/ical/c5b2161a3fcd3389e17e45fe778addb5a180910bcce4cb7f846c8593c6012bd9%40group.calendar.google.com/public/basic.ics"
+        }
+      ]
+    }
+  ]
 }

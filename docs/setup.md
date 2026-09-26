@@ -98,3 +98,20 @@ If successful, it should list your Google Calendars (or show an empty list if yo
 ```bash
 npm install
 ```
+
+### 4. Puppeteer Browser
+
+The scraper scripts (`scrape-competitions`, `update-mappings-club-names`, etc.) use Puppeteer to drive a real Chrome browser. `npm install` installs the Puppeteer library but not the browser itself, so run this once as well:
+
+```bash
+npx puppeteer browsers install chrome
+```
+
+**Troubleshooting:** If this fails with an error like `The browser folder exists but the executable is missing`, a previous download was interrupted and left a corrupt entry in Puppeteer's shared cache (`~/.cache/puppeteer`, outside this project). Delete the specific version folder it names and reinstall:
+
+```bash
+rm -rf ~/.cache/puppeteer/chrome/<version-folder-from-the-error>
+npx puppeteer browsers install chrome
+```
+
+Note some of these scripts run Chrome with a visible window (not headless), so a graphical session (X11 or Wayland) is required — they won't work over a plain SSH session without one.

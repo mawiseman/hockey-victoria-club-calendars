@@ -1,0 +1,803 @@
+{
+  "lastUpdated": "2026-09-26T01:38:05.244Z",
+  "competitions": [
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40845",
+      "name": "ICC Women's Open Division 2",
+      "category": "2026 Indoor Club Championship",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:36.447Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40847",
+      "name": "ICC 35+ Womens Masters",
+      "category": "2026 Indoor Club Championship",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:36:39.499Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40849",
+      "name": "ICC Under 16 Girls",
+      "category": "2026 Indoor Club Championship",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:36:47.895Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40850",
+      "name": "ICC Under 12 Girls",
+      "category": "2026 Indoor Club Championship",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:36:58.660Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40851",
+      "name": "ICC Under 14 Girls",
+      "category": "2026 Indoor Club Championship",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:36:53.308Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40852",
+      "name": "ICC Open Men & Under 18 Boys",
+      "category": "2026 Indoor Club Championship",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:42.329Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40853",
+      "name": "ICC Under 16 Boys",
+      "category": "2026 Indoor Club Championship",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:45.037Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40854",
+      "name": "ICC Under 14 Boys",
+      "category": "2026 Indoor Club Championship",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:36:50.489Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24921/40855",
+      "name": "ICC Under 12 Mixed",
+      "category": "2026 Indoor Club Championship",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:36:55.966Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40856",
+      "name": "JIC Under 16 Mixed",
+      "category": "2026 Junior Indoor Challenge",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:37:06.777Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40857",
+      "name": "JIC Under 14 Mixed",
+      "category": "2026 Junior Indoor Challenge",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:37:04.082Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/24922/40858",
+      "name": "JIC Under 12 Mixed",
+      "category": "2026 Junior Indoor Challenge",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:37:01.410Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25009/41015",
+      "name": "2026 Men's T1 60+",
+      "category": "2026 Term 1 Competitions",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:09.466Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25009/41089",
+      "name": "2026 T1 Social 35+ Womens Masters",
+      "category": "2026 Term 1 Competitions",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:37:12.236Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25009/41279",
+      "name": "2026 T1 70+",
+      "category": "2026 Term 1 Competitions",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:14.859Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25368/41554",
+      "name": "2026 SOC - A Grade",
+      "category": "2026 Stand Out Cup",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:17.388Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25368/41555",
+      "name": "2026 SOC - B Grade",
+      "category": "2026 Stand Out Cup",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:20.050Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25368/41556",
+      "name": "2026 SOC - C Grade",
+      "category": "2026 Stand Out Cup",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:22.576Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25368/41557",
+      "name": "2026 SOC - Juniors",
+      "category": "2026 Stand Out Cup",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:25.243Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25368/41558",
+      "name": "2026 SOC - D Grade",
+      "category": "2026 Stand Out Cup",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:27.867Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42156",
+      "name": "Mens Premier League - 2026",
+      "category": "2026 Senior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T00:12:42.717Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42158",
+      "name": "Womens Premier League - 2026",
+      "category": "2026 Senior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T00:12:42.841Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42236",
+      "name": "Mens Pennant A - 2026",
+      "category": "2026 Senior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T00:12:55.262Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42237",
+      "name": "Mens Pennant B - 2026",
+      "category": "2026 Senior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T00:12:55.182Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42239",
+      "name": "Mens Pennant D North West - 2026",
+      "category": "2026 Senior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T00:12:59.263Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42243",
+      "name": "Mens Premier League Reserves - 2026",
+      "category": "2026 Senior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T00:12:42.752Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42251",
+      "name": "Womens Pennant A - 2026",
+      "category": "2026 Senior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T00:12:51.343Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42252",
+      "name": "Womens Pennant B - 2026",
+      "category": "2026 Senior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T00:12:55.088Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42253",
+      "name": "Womens Pennant C - 2026",
+      "category": "2026 Senior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T00:12:55.191Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42254",
+      "name": "Womens Pennant D North West - 2026",
+      "category": "2026 Senior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T00:12:59.112Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25879/42258",
+      "name": "Womens Premier League Reserves - 2026",
+      "category": "2026 Senior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T00:12:42.835Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25990/42212",
+      "name": "Seniors",
+      "category": "2026 Vaisakhi Festival - Hockey5s Tournament",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:30.760Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/25990/42213",
+      "name": "Juniors",
+      "category": "2026 Vaisakhi Festival - Hockey5s Tournament",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:33.742Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42584",
+      "name": "U16 Boys Pennant SE - 2026",
+      "category": "2026 Junior Competition",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:33:30.372Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42585",
+      "name": "U16 Mixed District NW - 2026",
+      "category": "2026 Junior Competition",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:33:33.327Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42586",
+      "name": "U16 Mixed District SE - 2026",
+      "category": "2026 Junior Competition",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:33:35.924Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42587",
+      "name": "U18 Mixed District NW - 2026",
+      "category": "2026 Junior Competition",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:33:38.963Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26323/42588",
+      "name": "U18 Mixed District SE - 2026",
+      "category": "2026 Junior Competition",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:33:41.886Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42619",
+      "name": "Under 8 HUM - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:32.285Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42620",
+      "name": "Under 8 MEL - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:42.834Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42621",
+      "name": "Under 8 FHC - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:55.693Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42622",
+      "name": "Under 8 ELG - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:11.936Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42623",
+      "name": "Under 8 CAM - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:01.170Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42624",
+      "name": "Under 8 HMHC - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:17.500Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42625",
+      "name": "Under 8 ESS - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:37.773Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42626",
+      "name": "Under 8 ALT - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:50.590Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42627",
+      "name": "Under 8 SUHC - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:06.421Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42628",
+      "name": "Under 8 DAN - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:22.988Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42629",
+      "name": "Under 10 HUM - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:34.923Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42630",
+      "name": "Under 10 MEL - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:45.451Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42631",
+      "name": "Under 10 FHC - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:58.391Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42632",
+      "name": "Under 10 ELG - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:14.737Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42633",
+      "name": "Under 10 GRN - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:47.959Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42634",
+      "name": "Under 10 CAM - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:03.986Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42635",
+      "name": "Under 10 HMHC - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:20.237Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42636",
+      "name": "Under 10 ESS - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:40.287Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42637",
+      "name": "Under 10 ALT - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:53.097Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42638",
+      "name": "Under 10 SUHC - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:09.309Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/42639",
+      "name": "Under 10 DAN - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:36:25.716Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/43149",
+      "name": "Under 8 Carnival Day - BCN",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:11.444Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/43150",
+      "name": "Under 10 Carnival Day - BCN",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:14.037Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/43151",
+      "name": "Under 8 Carnival Day - WER",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:35:21.940Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/43152",
+      "name": "Under 10 Carnival Day - WER",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:35:24.571Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/43153",
+      "name": "Under 8 Carnival Day - BRU",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:05.936Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/43154",
+      "name": "Under 10 Carnival Day - BRU",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:08.717Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/43155",
+      "name": "Under 8 Carnival Day - YAR",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:16.631Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/43156",
+      "name": "Under 10 Carnival Day - YAR",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:19.186Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/43157",
+      "name": "Under 8 Carnival Day - ELW",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:27.194Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26349/43158",
+      "name": "Under 10 Carnival Day - ELW",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 2",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:29.691Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26354/42646",
+      "name": "35+ Womens Masters Indoor",
+      "category": "2026 Winter Season Indoor Competitions",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:36:28.258Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26513/42775",
+      "name": "2026 Junior Country Championships - Under 14 Boys",
+      "category": "2026 Junior Country Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:41.141Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26513/42776",
+      "name": "2026 Junior Country Championships - Under 14 Girls",
+      "category": "2026 Junior Country Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:43.897Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26513/42777",
+      "name": "2026 Junior Country Championships - Under 16 Boys",
+      "category": "2026 Junior Country Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:46.642Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26513/42778",
+      "name": "2026 Junior Country Championships - Under 16 Girls",
+      "category": "2026 Junior Country Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:49.347Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26513/42779",
+      "name": "2026 Junior Country Championships - Under 18 Boys",
+      "category": "2026 Junior Country Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:52.103Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26513/42780",
+      "name": "2026 Junior Country Championships - Under 18 Girls",
+      "category": "2026 Junior Country Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:54.817Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26667/42982",
+      "name": "2026 Senior Country Championship - Open Women",
+      "category": "2026 Senior Country Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:57.480Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26667/42983",
+      "name": "2026 Senior Country Championship - Open Men",
+      "category": "2026 Senior Country Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:38:00.101Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26667/42984",
+      "name": "2026 Senior Country Championship - Women's Masters",
+      "category": "2026 Senior Country Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:38:02.668Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26667/42985",
+      "name": "2026 Senior Country Championship - Men's Masters",
+      "category": "2026 Senior Country Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:38:05.239Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26855/43224",
+      "name": "2026 U12 Boys JSC - Div 1",
+      "category": "2026 Under 12 Junior State Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:30.452Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26855/43225",
+      "name": "2026 U12 Girls JSC - Div 1",
+      "category": "2026 Under 12 Junior State Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:33.186Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26855/43226",
+      "name": "2026 U12 Boys JSC - Div 2",
+      "category": "2026 Under 12 Junior State Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:35.777Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/26855/43227",
+      "name": "2026 U12 Girls JSC - Div 2",
+      "category": "2026 Under 12 Junior State Championships",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:37:38.354Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/42629",
+      "name": "Under 10 HUM - T2 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:33:44.547Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43381",
+      "name": "Under 8 HUM - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:33:47.160Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43382",
+      "name": "Under 8 MEL - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:33:50.038Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43383",
+      "name": "Under 8 FHC - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:33:52.755Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43384",
+      "name": "Under 8 DON - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:33:55.288Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43385",
+      "name": "Under 8 HHF - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:33:58.192Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43386",
+      "name": "Under 8 HMHC - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:00.714Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43387",
+      "name": "Under 8 ESS - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:03.363Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43388",
+      "name": "Under 8 WER - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:05.981Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43389",
+      "name": "Under 8 SUHC - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:08.813Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43390",
+      "name": "Under 8 KNX - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:11.621Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43391",
+      "name": "Under 10 HUM - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:14.246Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43392",
+      "name": "Under 10 MEL - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:16.987Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43393",
+      "name": "Under 10 FHC - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:34:19.515Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43394",
+      "name": "Under 10 DON - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:22.260Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43395",
+      "name": "Under 10 LAT - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:24.880Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43396",
+      "name": "Under 10 HHF - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:27.387Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43397",
+      "name": "Under 10 HMHC - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:30.321Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43398",
+      "name": "Under 10 ESS - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:32.919Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43399",
+      "name": "Under 10 WER - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:35.478Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43400",
+      "name": "Under 10 SUHC - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:38.020Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43401",
+      "name": "Under 10 KNX - T3 2026",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:40.623Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43840",
+      "name": "Under 8 Carnival Day - ALT",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:34:43.420Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43841",
+      "name": "Under 8 Carnival Day - DAN",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:46.126Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43842",
+      "name": "Under 8 Carnival Day - ELG",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:48.692Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43843",
+      "name": "Under 8 Carnival Day - PEGS",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:51.486Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43844",
+      "name": "Under 10 Carnival Day - ALT",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": true,
+      "lastChecked": "2026-09-26T01:34:54.418Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43845",
+      "name": "Under 10 Carnival Day - DAN",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:57.073Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43846",
+      "name": "Under 10 Carnival Day - ELG",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:34:59.737Z"
+    },
+    {
+      "competitionUrl": "https://www.hockeyvictoria.org.au/games/27011/43847",
+      "name": "Under 10 Carnival Day - PEGS",
+      "category": "2026 U8 & U10 Venue-Based Competitions - Term 3",
+      "clubFound": false,
+      "lastChecked": "2026-09-26T01:35:02.873Z"
+    }
+  ]
+}

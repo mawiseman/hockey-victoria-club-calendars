@@ -99,36 +99,88 @@ async function loadCompetitions() {
 }
 
 /**
+ * If clubName is a suffixed variant of an already-mapped club — e.g. "Altona
+ * Hockey Club 1" and "Altona Hockey Club 2" both extend "Altona Hockey Club",
+ * or "Footscray Hockey Club Blue" extends "Footscray Hockey Club" — reuse
+ * that club's abbreviation with the suffix appended (e.g. "ALT 1", "FHC B"),
+ * instead of deriving fresh initials that ignore it's the same club fielding
+ * multiple teams. Returns null if clubName isn't a recognisable variant of
+ * anything already mapped.
+ */
+function deriveSuffixAbbreviation(clubName, clubMappings) {
+    // Prefer the longest matching existing name, so e.g. a future "Essendon
+    // Hockey 1 - Black" prefers the "Essendon Hockey 1" base over "Essendon
+    // Hockey" if both happen to be mapped.
+    let baseName = null;
+    for (const existingName of Object.keys(clubMappings)) {
+        const isPrefix = clubName.toLowerCase().startsWith(existingName.toLowerCase() + ' ');
+        if (isPrefix && (!baseName || existingName.length > baseName.length)) {
+            baseName = existingName;
+        }
+    }
+
+    if (!baseName) {
+        return null;
+    }
+
+    const suffix = clubName.slice(baseName.length).trim().replace(/^-\s*/, '');
+    const baseAbbreviation = clubMappings[baseName];
+
+    // Numbered team, e.g. "1" -> "ALT 1"
+    if (/^\d+$/.test(suffix)) {
+        return `${baseAbbreviation} ${suffix}`;
+    }
+
+    // Colour/word suffix, e.g. "Blue" -> "FHC B"
+    const firstWord = suffix.split(/\s+/)[0];
+    if (/^[A-Za-z]+$/.test(firstWord)) {
+        return `${baseAbbreviation} ${firstWord.charAt(0).toUpperCase()}`;
+    }
+
+    return null;
+}
+
+/**
+ * Ensure an abbreviation doesn't collide with one already in use.
+ */
+function ensureUniqueAbbreviation(abbreviation, existingAbbreviations) {
+    let unique = abbreviation;
+    let counter = 1;
+    while (existingAbbreviations.includes(unique)) {
+        unique = `${abbreviation}${counter}`;
+        counter++;
+    }
+    return unique;
+}
+
+/**
  * Generate abbreviation from club name
  */
-function generateAbbreviation(clubName, existingAbbreviations) {
+function generateAbbreviation(clubName, existingAbbreviations, clubMappings) {
+    const suffixAbbreviation = deriveSuffixAbbreviation(clubName, clubMappings);
+    if (suffixAbbreviation) {
+        return ensureUniqueAbbreviation(suffixAbbreviation, existingAbbreviations);
+    }
+
     // Clean up the club name
     let cleanName = clubName
         .replace(/Hockey Club/gi, '')
         .replace(/HC/gi, '')
         .replace(/\s+/g, ' ')
         .trim();
-    
+
     // Generate abbreviation from first letters of words
     let abbreviation = cleanName
         .split(/\s+/)
         .map(word => word.charAt(0).toUpperCase())
         .join('');
-    
+
     // Handle special cases
     if (abbreviation.length < 2) {
         abbreviation = cleanName.substring(0, 3).toUpperCase();
     }
-    
-    // Ensure abbreviation is unique
-    let counter = 1;
-    let originalAbbreviation = abbreviation;
-    while (existingAbbreviations.includes(abbreviation)) {
-        abbreviation = originalAbbreviation + counter;
-        counter++;
-    }
-    
-    return abbreviation;
+
+    return ensureUniqueAbbreviation(abbreviation, existingAbbreviations);
 }
 
 /**
@@ -194,23 +246,34 @@ async function updateClubMappings(newClubs, existingMappings, dryRun = false) {
     const updates = [];
     const existingClubNames = Object.keys(existingMappings.clubMappings);
     const existingAbbreviations = Object.values(existingMappings.clubMappings);
-    
-    for (const clubName of newClubs) {
+
+    // Work on a copy of the mappings so suffix detection (see
+    // deriveSuffixAbbreviation) can see base clubs added earlier in this same
+    // run, not just ones already on disk. Processing shortest names first
+    // means a base club discovered in the same batch as its numbered/coloured
+    // variants (e.g. "Altona Hockey Club" alongside "Altona Hockey Club 1")
+    // gets mapped before its variants are processed.
+    const workingMappings = { ...existingMappings.clubMappings };
+    const sortedNewClubs = [...newClubs].sort((a, b) => a.length - b.length);
+
+    for (const clubName of sortedNewClubs) {
         // Skip if club already exists
         if (existingClubNames.includes(clubName)) {
             continue;
         }
-        
+
         // Generate abbreviation
-        const abbreviation = generateAbbreviation(clubName, existingAbbreviations);
-        
+        const abbreviation = generateAbbreviation(clubName, existingAbbreviations, workingMappings);
+
         updates.push({
             clubName,
             abbreviation
         });
-        
-        // Add to existing abbreviations to avoid duplicates
+
+        // Add to existing abbreviations/mappings to avoid duplicates and so
+        // later suffix lookups in this same run can see it
         existingAbbreviations.push(abbreviation);
+        workingMappings[clubName] = abbreviation;
     }
     
     if (updates.length === 0) {
