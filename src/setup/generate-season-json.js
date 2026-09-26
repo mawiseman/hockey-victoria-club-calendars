@@ -118,6 +118,18 @@ function buildShortCode(name, category) {
         const gPrefix = g ? g[1][0].toUpperCase() : '';
         const u = c.match(/U\s*(\d{1,2})/i) || c.match(/Under\s*(\d{1,2})/i);
         const ageStr = u ? `U${u[1]}` : '';
+
+        // "Division N" comps (e.g. "Under 12 Division 2 NW - Mixed") — fold
+        // the division number in with the gender letter ("U12 MD2") instead
+        // of falling through to the generic slug-tail disambiguation, which
+        // just re-appended "MIXED" and still left same-age divisions
+        // indistinguishable from each other.
+        const div = c.match(/\bDivision\s*(\d+)/i);
+        if (div) {
+            const parts = [ageStr, `${gPrefix}D${div[1]}`].filter(Boolean);
+            if (parts.length > 0) return parts.join(' ');
+        }
+
         const compType = c.match(/\b(Shield|Pennant|District)\b/i);
         const cStr = compType ? compType[1][0].toUpperCase() : '';
         const parts = [gPrefix, ageStr, cStr].filter(Boolean);

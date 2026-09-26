@@ -1,0 +1,25 @@
+name: Deploy Weekly Fixture Site
+
+# Netlify's own [build] ignore heuristic (netlify.toml) proved unreliable at
+# skipping deploys for data-only commits, burning build minutes on every
+# nightly sync-calendars run. GitHub's push `paths` filter is evaluated by
+# GitHub itself before a run is even queued, so it can't misfire the way a
+# custom shell script running inside the build container can — this workflow
+# is now the sole trigger for Netlify deploys, via an explicit build hook.
+# netlify.toml's `ignore` unconditionally skips git-triggered builds so we
+# never double-deploy for the same push.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'weekly-fixture/**'
+      - '!weekly-fixture/data/**'
+      - 'netlify.toml'
+
+jobs:
+  trigger-netlify-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build hook
+        run: curl -fsS -X POST "${{ secrets.NETLIFY_BUILD_HOOK }}"

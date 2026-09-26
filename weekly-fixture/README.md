@@ -138,26 +138,31 @@ The generator (see [src/setup/generate-docs.js](../src/setup/generate-docs.js) �
 
 The site is served from Netlify on the free tier, and the daily data refresh is decoupled from the deploy pipeline so we don't burn deploy credits on data-only commits.
 
+Netlify's git-triggered auto-deploy is permanently disabled (`netlify.toml`'s `ignore` unconditionally skips it). The only thing that ever triggers a Netlify build is the `deploy-weekly-fixture.yml` GitHub Actions workflow calling a Netlify build hook — and GitHub only runs that workflow when a push's changed files match its `paths` filter (`weekly-fixture/**` excluding `weekly-fixture/data/**`, plus `netlify.toml`). A path-based `ignore` *script* running inside Netlify's own build container turned out to be unreliable at this; GitHub's push `paths` filter is evaluated before a workflow run is even queued, so it doesn't have that failure mode.
+
 ```text
-GitHub Action (daily)              Netlify                          Browser
-──────────────────────             ───────                          ───────
-sync-calendars.yml runs            netlify.toml `ignore` script:    On localhost:
-  → npm run process-...            skip build when only files in      fetch /data/season.json
-  → npm run scrape-scores          `weekly-fixture/data/` changed.  In production:
-  → npm run generate-season-json   Code commits still deploy          fetch cdn.jsdelivr.net/gh/...
-  → npm run generate-docs            normally.                          /weekly-fixture/data/season.json
-  → git commit + push to main                                          (jsDelivr mirrors the file
-  → curl purge.jsdelivr.net/...                                        from GitHub; purge step keeps
-                                                                        it fresh within seconds.)
+GitHub Action (daily)              deploy-weekly-fixture.yml         Browser
+──────────────────────             ─────────────────────────         ───────
+sync-calendars.yml runs            Triggered on push to main,       On localhost:
+  → npm run process-...            paths: weekly-fixture/** minus     fetch /data/season.json
+  → npm run scrape-scores          weekly-fixture/data/**, +        In production:
+  → npm run generate-season-json   netlify.toml.                      fetch cdn.jsdelivr.net/gh/...
+  → npm run generate-docs          Only code pushes match →             /weekly-fixture/data/season.json
+  → git commit + push to main        curl the Netlify build hook.       (jsDelivr mirrors the file
+  → curl purge.jsdelivr.net/...    Nightly data-only commits never      from GitHub; purge step keeps
+                                    match → no build triggered.          it fresh within seconds.)
 ```
 
 Key files:
 
-- [`netlify.toml`](../netlify.toml) — `[build] ignore` skips deploys when only `weekly-fixture/data/*` (or unrelated repo files) changed.
+- [`netlify.toml`](../netlify.toml) — `[build] ignore = "exit 0"` disables Netlify's git-triggered auto-deploy entirely.
+- [`.github/workflows/deploy-weekly-fixture.yml`](../.github/workflows/deploy-weekly-fixture.yml) — the sole Netlify deploy trigger; fires a build hook (`secrets.NETLIFY_BUILD_HOOK`) only when the push touched `weekly-fixture/` code.
 - [`.github/workflows/sync-calendars.yml`](../.github/workflows/sync-calendars.yml) — calls jsDelivr's purge endpoint after each push so the new data overrides jsDelivr's default 12-hour cache on `@main` refs.
 - `js/app.js` and `js/subscribe.js` — pick the data URL based on `location.hostname`.
 
-If you ever want to force a Netlify deploy after a data-only commit (e.g. to verify a build), make a no-op edit to any file outside `weekly-fixture/data/` (`netlify.toml`, an HTML/CSS/JS file, etc.) and push.
+**One-time setup** (already done if this section predates you, otherwise needed once): in Netlify, go to Site settings → Build & deploy → Build hooks → Add build hook (branch: `main`), then add its URL as a GitHub repo secret named `NETLIFY_BUILD_HOOK` (Settings → Secrets and variables → Actions).
+
+If you ever want to force a Netlify deploy after a data-only commit (e.g. to verify a build), make a no-op edit to any file under `weekly-fixture/` outside `weekly-fixture/data/` (or to `netlify.toml`) and push — that's what the workflow's `paths` filter matches on.
 
 ## Updating
 
