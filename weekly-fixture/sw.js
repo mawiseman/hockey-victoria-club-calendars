@@ -5,15 +5,22 @@
 // Strategy:
 //   • App-shell assets (HTML/CSS/JS/icons): cache-first, with background
 //     network refresh on cache hit.
-//   • Same-origin /data/*.json: network-first; cache the response so the
-//     last-seen fixtures show up offline.
-//   • jsDelivr-hosted /data/*.json (production fetches): pass through to
-//     the network. We don't try to cache cross-origin opaque responses.
+//   • Same-origin /data/*.json (local dev): network-first; cache the
+//     response so the last-seen fixtures show up offline.
+//   • jsDelivr-hosted /data/*.json (production fetches): cache-first with
+//     background refresh, same as the app shell. jsDelivr sends CORS
+//     headers for this repo, so the response is a real, readable 'cors'
+//     response — not an opaque one — and safe to store. This is what lets
+//     a relaunch show last-seen fixtures instantly instead of waiting on
+//     the network, while the cache quietly catches up in the background.
 //   • Anything else: network-first with cache fallback.
 
-const CACHE_VERSION = 'v6';
+const CACHE_VERSION = 'v7';
 const APP_SHELL_CACHE = `fhc-shell-${CACHE_VERSION}`;
 const DATA_CACHE = `fhc-data-${CACHE_VERSION}`;
+
+// Matches https://cdn.jsdelivr.net/gh/<owner>/<repo>@<ref>/weekly-fixture/data/<file>.json
+const JSDELIVR_DATA_PATTERN = /^https:\/\/cdn\.jsdelivr\.net\/gh\/[^/]+\/[^/]+@[^/]+\/weekly-fixture\/data\/[^/]+\.json$/;
 
 const APP_SHELL = [
     '/',
@@ -66,14 +73,22 @@ self.addEventListener('fetch', event => {
     const url = new URL(req.url);
     const sameOrigin = url.origin === self.location.origin;
 
-    // Same-origin data — network first, fall back to cached version offline.
+    // Same-origin data (local dev via `npm run dev`) — network first, fall
+    // back to cached version offline.
     if (sameOrigin && url.pathname.startsWith('/data/')) {
         event.respondWith(networkFirst(req, DATA_CACHE));
         return;
     }
 
-    // Cross-origin (jsDelivr) — let the browser handle it. Trying to cache
-    // opaque responses is more pain than it's worth for a club site.
+    // Production data, served cross-origin from jsDelivr — cache first,
+    // refresh in the background, so a relaunch shows last-seen fixtures
+    // immediately instead of waiting on the network round trip.
+    if (JSDELIVR_DATA_PATTERN.test(req.url)) {
+        event.respondWith(cacheFirst(req, DATA_CACHE));
+        return;
+    }
+
+    // Any other cross-origin request — let the browser handle it normally.
     if (!sameOrigin) return;
 
     // App-shell assets — cache first, refresh in the background.

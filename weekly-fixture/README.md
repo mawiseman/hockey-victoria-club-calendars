@@ -60,11 +60,11 @@ The fixtures SPA uses hash routing; URLs are shareable:
 The site is a [Progressive Web App](https://web.dev/progressive-web-apps/): installable on Android Chrome and "Add to Home Screen" on iOS. When installed it opens in standalone mode (no browser chrome) and works offline against the last-seen `season.json`.
 
 - `icons/site.webmanifest` declares both `purpose: "any"` and `purpose: "maskable"` icons.
-- `sw.js` precaches the app shell on install, serves cache-first for shell assets (with background refresh), and network-first for `/data/*.json` so users get the freshest fixtures when online and the last-known set offline.
-- jsDelivr-hosted JSON in production is *not* cached by the SW (cross-origin opaque responses are more trouble than they're worth) — but jsDelivr's own CDN handles that.
-- Bump `CACHE_VERSION` in `sw.js` whenever you ship breaking changes to shell assets so old caches are evicted.
+- `sw.js` precaches the app shell on install and serves it cache-first (with background refresh).
+- In production, `season.json` / `subscribe-data.json` (fetched cross-origin from jsDelivr — see below) are served the same way: cache-first with background refresh. A relaunch renders the last-seen fixtures immediately from cache while the SW fetches the current data in the background for next time. jsDelivr sends CORS headers for this repo, so the response is a real, readable `cors` response, not an opaque one, and safe to store.
+- Bump `CACHE_VERSION` in `sw.js` whenever you ship breaking changes to shell assets, or to the fetch-handling logic itself, so old caches are evicted.
 
-The service worker is **not** registered on `localhost` — it would interfere with `npm run dev` file edits.
+The service worker is **not** registered on `localhost` (see the guard in `app.js`) — it would interfere with `npm run dev` file edits, and dev already reads `/data/*.json` straight from disk.
 
 ## Subscribe page data
 

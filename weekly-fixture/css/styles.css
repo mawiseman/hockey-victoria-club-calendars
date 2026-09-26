@@ -76,6 +76,14 @@ body {
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     color: var(--white);
+    /* Stretch to fill the body's leftover height (body is a flex column,
+       html/body have min-height: 100vh) instead of shrink-wrapping short
+       content. This is what gives .fixtures' margin-bottom: auto below
+       something to push against, so the footer lands at the bottom of the
+       screen even on a near-empty "no fixtures this week" state. */
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
 }
 
 .card-bg {
@@ -120,6 +128,7 @@ body {
     padding: 28px 20px 24px;
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 /* ─── Header ────────────────────────────────────────────────────── */
@@ -843,6 +852,31 @@ a.card-footer:hover { color: var(--white); border-top-color: var(--red); }
     font-size: 14px;
     text-align: center;
 }
+
+/* "Last round" / "Next round" jump buttons shown under an empty week —
+   points at the nearest week that actually has a fixture in this view. */
+.round-jump-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 0 20px;
+}
+
+.round-jump-btn {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+.round-jump-btn:hover { background: rgba(255, 255, 255, 0.16); border-color: var(--red); }
 
 /* ─── Small-screen tweaks ───────────────────────────────────────── */
 

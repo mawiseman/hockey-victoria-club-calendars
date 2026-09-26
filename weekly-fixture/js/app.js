@@ -607,12 +607,85 @@ function renderWeekView(season, weekStart) {
     const container = document.getElementById('fixtures');
     container.innerHTML = '';
     renderWeekNav(monday, sunday);
+
+    if (visible.length === 0) {
+        // Bye week, finals gap, off-season, etc. — point at the nearest
+        // week that actually has a fixture in this view instead of leaving
+        // the user on a dead end they can only escape one arrow-tap at a time.
+        renderNoFixturesState(container, season, activeView, monday, sunday);
+        return;
+    }
+
     // Pass current week + tab so the chevron links remember where to return.
     const linkContext = {
         returnWeek: formatWeekKey(monday),
         returnTab: activeView,
     };
     renderFixtures(visible, linkContext);
+}
+
+// All event dates for the active view, ignoring the week filter — used to
+// find the nearest round with fixtures when the current week has none.
+function getViewEventDates(season, activeView) {
+    const favs = activeView === 'favourites' ? loadFavourites() : null;
+    const dates = [];
+    for (const team of season.teams) {
+        if (activeView === 'favourites') {
+            if (!favs.has(team.slug)) continue;
+        } else if (activeView !== 'all' && team.view !== activeView) {
+            continue;
+        }
+        for (const event of team.events) {
+            dates.push(new Date(event.dtstart));
+        }
+    }
+    return dates;
+}
+
+// The Monday of the nearest week with an event beyond `boundary` in the
+// given direction (1 = next/after, -1 = last/before). Null if none.
+function findAdjacentRoundWeek(dates, boundary, direction) {
+    let best = null;
+    for (const d of dates) {
+        const isBeyond = direction > 0 ? d > boundary : d < boundary;
+        if (!isBeyond) continue;
+        if (!best || (direction > 0 ? d < best : d > best)) best = d;
+    }
+    return best ? startOfWeek(best) : null;
+}
+
+function renderNoFixturesState(container, season, activeView, monday, sunday) {
+    const empty = document.createElement('div');
+    empty.className = 'empty-state';
+    empty.textContent = 'No fixtures this week';
+    container.appendChild(empty);
+
+    const dates = getViewEventDates(season, activeView);
+    const lastWeek = findAdjacentRoundWeek(dates, monday, -1);
+    const nextWeek = findAdjacentRoundWeek(dates, sunday, 1);
+
+    if (!lastWeek && !nextWeek) return;
+
+    const nav = document.createElement('div');
+    nav.className = 'round-jump-nav';
+
+    if (lastWeek) {
+        const btn = document.createElement('button');
+        btn.className = 'round-jump-btn';
+        btn.textContent = '‹ Last round';
+        btn.onclick = () => { location.hash = `#/week/${formatWeekKey(lastWeek)}`; };
+        nav.appendChild(btn);
+    }
+
+    if (nextWeek) {
+        const btn = document.createElement('button');
+        btn.className = 'round-jump-btn';
+        btn.textContent = 'Next round ›';
+        btn.onclick = () => { location.hash = `#/week/${formatWeekKey(nextWeek)}`; };
+        nav.appendChild(btn);
+    }
+
+    container.appendChild(nav);
 }
 
 function renderTeamView(season, slug, returnState = {}) {
