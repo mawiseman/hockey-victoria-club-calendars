@@ -153,5 +153,8 @@
         "createdAt": "2026-09-26T01:42:58.852Z"
       }
     }
-  ]
+  ],
+  "lastStatusUpdate": "2026-09-26T01:58:46.578Z",
+  "activeCompetitions": 9,
+  "inactiveCompetitions": 0
 }
