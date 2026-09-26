@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-26T01:59:20.060Z",
-  "sourcesGeneratedAt": "2026-09-26T01:59:05.396Z",
-  "laddersGeneratedAt": "2026-09-26T01:59:19.866Z",
+  "generatedAt": "2026-09-26T02:42:10.988Z",
+  "sourcesGeneratedAt": "2026-09-26T02:41:57.553Z",
+  "laddersGeneratedAt": "2026-09-26T02:42:10.852Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -263,7 +263,7 @@
     },
     {
       "slug": "u12-division-1-mixed",
-      "label": "U12 MD1",
+      "label": "M U12 MIXED",
       "name": "Under 12 Division 1 - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -445,7 +445,7 @@
     },
     {
       "slug": "u12-division-2-nw-mixed",
-      "label": "U12 MD2",
+      "label": "M U12 MIXED",
       "name": "Under 12 Division 2 NW - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -647,7 +647,7 @@
     },
     {
       "slug": "u12-girl",
-      "label": "U12 G",
+      "label": "U12",
       "name": "Under 12 Girl",
       "category": "juniors",
       "view": "juniors",
@@ -895,7 +895,7 @@
     },
     {
       "slug": "u14-division-1-mixed",
-      "label": "U14 MD1",
+      "label": "M U14 MIXED",
       "name": "Under 14 Division 1 - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -1095,7 +1095,7 @@
     },
     {
       "slug": "u14-division-2-nw-mixed",
-      "label": "U14 MD2",
+      "label": "M U14 MIXED",
       "name": "Under 14 Division 2 NW - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -1325,7 +1325,7 @@
     },
     {
       "slug": "u16-division-1-mixed",
-      "label": "U16 MD1",
+      "label": "M U16 MIXED",
       "name": "Under 16 Division 1 - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -1525,7 +1525,7 @@
     },
     {
       "slug": "u16-division-2-nw-mixed",
-      "label": "U14 MD2",
+      "label": "M U16 MIXED",
       "name": "Under 16 Division 2 NW - Mixed",
       "category": "juniors",
       "view": "juniors",
@@ -1727,7 +1727,7 @@
     },
     {
       "slug": "u16-girl",
-      "label": "U16 G",
+      "label": "U16",
       "name": "Under 16 Girl",
       "category": "juniors",
       "view": "juniors",
