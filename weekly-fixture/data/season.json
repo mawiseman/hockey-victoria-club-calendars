@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-29T20:30:48.741Z",
-  "sourcesGeneratedAt": "2026-09-29T20:30:35.080Z",
-  "laddersGeneratedAt": "2026-09-29T20:30:48.596Z",
+  "generatedAt": "2026-09-30T20:37:35.186Z",
+  "sourcesGeneratedAt": "2026-09-30T20:37:22.530Z",
+  "laddersGeneratedAt": "2026-09-30T20:37:34.980Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -21,7 +21,7 @@
           "round": 1,
           "dtstart": "2026-10-06T08:40:00.000Z",
           "dtend": "2026-10-06T09:40:00.000Z",
-          "home": "FHC 2",
+          "home": "FHC R",
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - IND",
@@ -163,7 +163,7 @@
         },
         {
           "pos": 5,
-          "team": "Footscray Hockey Club 2",
+          "team": "Footscray Hockey Club Red",
           "p": 0,
           "w": 0,
           "d": 0,
@@ -177,7 +177,7 @@
         },
         {
           "pos": 6,
-          "team": "Footscray Hockey Club 1",
+          "team": "Footscray Hockey Club Blue",
           "p": 0,
           "w": 0,
           "d": 0,
@@ -1137,7 +1137,7 @@
           "round": 4,
           "dtstart": "2026-10-24T01:40:00.000Z",
           "dtend": "2026-10-24T03:10:00.000Z",
-          "home": "BRU 1",
+          "home": "BRU WHITE",
           "away": "FHC",
           "isHome": false,
           "location": "Victoria University (Footscray) - VU - Indoor",
@@ -1147,7 +1147,7 @@
           "round": 5,
           "dtstart": "2026-11-07T04:10:00.000Z",
           "dtend": "2026-11-07T05:40:00.000Z",
-          "home": "BRU 2",
+          "home": "BRU BLACK",
           "away": "FHC",
           "isHome": false,
           "location": "Victoria University (Footscray) - VU - Indoor",
@@ -1267,7 +1267,7 @@
         },
         {
           "pos": 6,
-          "team": "Brunswick Hockey Club 2",
+          "team": "Brunswick Hockey Club BLACK",
           "p": 0,
           "w": 0,
           "d": 0,
@@ -1281,7 +1281,7 @@
         },
         {
           "pos": 7,
-          "team": "Brunswick Hockey Club 1",
+          "team": "Brunswick Hockey Club WHITE",
           "p": 0,
           "w": 0,
           "d": 0,
