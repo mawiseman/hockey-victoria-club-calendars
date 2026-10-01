@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-30T20:37:35.186Z",
-  "sourcesGeneratedAt": "2026-09-30T20:37:22.530Z",
-  "laddersGeneratedAt": "2026-09-30T20:37:34.980Z",
+  "generatedAt": "2026-10-01T20:52:05.448Z",
+  "sourcesGeneratedAt": "2026-10-01T20:51:53.585Z",
+  "laddersGeneratedAt": "2026-10-01T20:52:05.295Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -547,6 +547,20 @@
       "ladder": [
         {
           "pos": 1,
+          "team": "Essendon Jets",
+          "p": 1,
+          "w": 1,
+          "d": 0,
+          "l": 0,
+          "bye": 0,
+          "gf": 5,
+          "ga": 0,
+          "gd": 5,
+          "pts": 3,
+          "isClub": false
+        },
+        {
+          "pos": 2,
           "team": "Werribee Hockey Club",
           "p": 0,
           "w": 0,
@@ -560,7 +574,7 @@
           "isClub": false
         },
         {
-          "pos": 2,
+          "pos": 3,
           "team": "PEGS Hockey Club",
           "p": 0,
           "w": 0,
@@ -574,7 +588,7 @@
           "isClub": false
         },
         {
-          "pos": 3,
+          "pos": 4,
           "team": "Footscray Hockey Club",
           "p": 0,
           "w": 0,
@@ -588,22 +602,8 @@
           "isClub": true
         },
         {
-          "pos": 4,
-          "team": "Essendon Rockets",
-          "p": 0,
-          "w": 0,
-          "d": 0,
-          "l": 0,
-          "bye": 0,
-          "gf": 0,
-          "ga": 0,
-          "gd": 0,
-          "pts": 0,
-          "isClub": false
-        },
-        {
           "pos": 5,
-          "team": "Essendon Jets",
+          "team": "Essendon Rockets",
           "p": 0,
           "w": 0,
           "d": 0,
@@ -632,14 +632,14 @@
         {
           "pos": 7,
           "team": "Altona Hockey Club 1",
-          "p": 0,
+          "p": 1,
           "w": 0,
           "d": 0,
           "l": 0,
           "bye": 0,
           "gf": 0,
-          "ga": 0,
-          "gd": 0,
+          "ga": 5,
+          "gd": -5,
           "pts": 0,
           "isClub": false
         }
