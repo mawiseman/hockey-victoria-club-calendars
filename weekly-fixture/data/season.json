@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-01T20:52:05.448Z",
-  "sourcesGeneratedAt": "2026-10-01T20:51:53.585Z",
-  "laddersGeneratedAt": "2026-10-01T20:52:05.295Z",
+  "generatedAt": "2026-10-02T20:25:05.430Z",
+  "sourcesGeneratedAt": "2026-10-02T20:24:50.247Z",
+  "laddersGeneratedAt": "2026-10-02T20:25:05.238Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -661,8 +661,8 @@
       "events": [
         {
           "round": 1,
-          "dtstart": "2026-10-03T21:00:00.000Z",
-          "dtend": "2026-10-03T22:30:00.000Z",
+          "dtstart": "2026-10-03T21:30:00.000Z",
+          "dtend": "2026-10-03T23:00:00.000Z",
           "home": "CAM",
           "away": "FHC",
           "isHome": false,
@@ -1741,8 +1741,8 @@
       "events": [
         {
           "round": 1,
-          "dtstart": "2026-10-04T08:40:00.000Z",
-          "dtend": "2026-10-04T10:10:00.000Z",
+          "dtstart": "2026-10-04T09:10:00.000Z",
+          "dtend": "2026-10-04T10:40:00.000Z",
           "home": "YAR",
           "away": "FHC",
           "isHome": false,
