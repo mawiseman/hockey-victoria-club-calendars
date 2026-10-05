@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-04T19:16:14.588Z",
-  "sourcesGeneratedAt": "2026-10-04T19:16:01.136Z",
-  "laddersGeneratedAt": "2026-10-04T19:16:14.391Z",
+  "generatedAt": "2026-10-05T22:22:26.544Z",
+  "sourcesGeneratedAt": "2026-10-05T22:22:14.692Z",
+  "laddersGeneratedAt": "2026-10-05T22:22:26.388Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -71,7 +71,7 @@
           "round": 6,
           "dtstart": "2026-11-17T10:20:00.000Z",
           "dtend": "2026-11-17T11:20:00.000Z",
-          "home": "PEGS 2",
+          "home": "PEGS Blue",
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - IND",
@@ -121,7 +121,7 @@
         },
         {
           "pos": 2,
-          "team": "PEGS Hockey Club 2",
+          "team": "PEGS Blue",
           "p": 0,
           "w": 0,
           "d": 0,
@@ -135,7 +135,7 @@
         },
         {
           "pos": 3,
-          "team": "PEGS Hockey Club 1",
+          "team": "PEGS Maroon",
           "p": 0,
           "w": 0,
           "d": 0,
