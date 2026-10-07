@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-06T20:50:35.075Z",
-  "sourcesGeneratedAt": "2026-10-06T20:50:24.918Z",
-  "laddersGeneratedAt": "2026-10-06T20:50:34.881Z",
+  "generatedAt": "2026-10-07T21:03:57.762Z",
+  "sourcesGeneratedAt": "2026-10-07T21:03:45.394Z",
+  "laddersGeneratedAt": "2026-10-07T21:03:57.569Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -122,6 +122,20 @@
         },
         {
           "pos": 2,
+          "team": "Toorak East Malvern Hockey Club",
+          "p": 1,
+          "w": 1,
+          "d": 0,
+          "l": 0,
+          "bye": 0,
+          "gf": 4,
+          "ga": 0,
+          "gd": 4,
+          "pts": 3,
+          "isClub": false
+        },
+        {
+          "pos": 3,
           "team": "Essendon 3",
           "p": 1,
           "w": 1,
@@ -135,7 +149,7 @@
           "isClub": false
         },
         {
-          "pos": 3,
+          "pos": 4,
           "team": "Brunswick Hockey Club",
           "p": 1,
           "w": 1,
@@ -149,31 +163,17 @@
           "isClub": false
         },
         {
-          "pos": 4,
-          "team": "Toorak East Malvern Hockey Club",
-          "p": 0,
-          "w": 0,
-          "d": 0,
-          "l": 0,
-          "bye": 0,
-          "gf": 0,
-          "ga": 0,
-          "gd": 0,
-          "pts": 0,
-          "isClub": false
-        },
-        {
           "pos": 5,
-          "team": "PEGS Blue",
-          "p": 0,
-          "w": 0,
+          "team": "Essendon 2",
+          "p": 1,
+          "w": 1,
           "d": 0,
           "l": 0,
           "bye": 0,
-          "gf": 0,
-          "ga": 0,
-          "gd": 0,
-          "pts": 0,
+          "gf": 3,
+          "ga": 2,
+          "gd": 1,
+          "pts": 3,
           "isClub": false
         },
         {
@@ -192,34 +192,20 @@
         },
         {
           "pos": 7,
-          "team": "Essendon 2",
-          "p": 0,
+          "team": "Camberwell Hockey Club",
+          "p": 1,
           "w": 0,
           "d": 0,
-          "l": 0,
+          "l": 1,
           "bye": 0,
-          "gf": 0,
-          "ga": 0,
-          "gd": 0,
+          "gf": 2,
+          "ga": 3,
+          "gd": -1,
           "pts": 0,
           "isClub": false
         },
         {
           "pos": 8,
-          "team": "Camberwell Hockey Club",
-          "p": 0,
-          "w": 0,
-          "d": 0,
-          "l": 0,
-          "bye": 0,
-          "gf": 0,
-          "ga": 0,
-          "gd": 0,
-          "pts": 0,
-          "isClub": false
-        },
-        {
-          "pos": 9,
           "team": "Essendon 1",
           "p": 1,
           "w": 0,
@@ -233,7 +219,7 @@
           "isClub": false
         },
         {
-          "pos": 10,
+          "pos": 9,
           "team": "PEGS Maroon",
           "p": 1,
           "w": 0,
@@ -247,7 +233,7 @@
           "isClub": false
         },
         {
-          "pos": 11,
+          "pos": 10,
           "team": "Footscray Hockey Club Blue",
           "p": 1,
           "w": 0,
@@ -259,6 +245,20 @@
           "gd": -4,
           "pts": 0,
           "isClub": true
+        },
+        {
+          "pos": 11,
+          "team": "PEGS Blue",
+          "p": 1,
+          "w": 0,
+          "d": 0,
+          "l": 1,
+          "bye": 0,
+          "gf": 0,
+          "ga": 4,
+          "gd": -4,
+          "pts": 0,
+          "isClub": false
         }
       ]
     },
