@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-11T19:58:21.088Z",
-  "sourcesGeneratedAt": "2026-10-11T19:58:07.910Z",
-  "laddersGeneratedAt": "2026-10-11T19:58:20.890Z",
+  "generatedAt": "2026-10-12T22:46:41.692Z",
+  "sourcesGeneratedAt": "2026-10-12T22:46:29.026Z",
+  "laddersGeneratedAt": "2026-10-12T22:46:41.518Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -1434,33 +1434,19 @@
         {
           "pos": 2,
           "team": "Southern United Hockey Club",
-          "p": 1,
-          "w": 1,
+          "p": 2,
+          "w": 2,
           "d": 0,
           "l": 0,
           "bye": 0,
-          "gf": 5,
-          "ga": 1,
-          "gd": 4,
-          "pts": 3,
+          "gf": 13,
+          "ga": 4,
+          "gd": 9,
+          "pts": 6,
           "isClub": false
         },
         {
           "pos": 3,
-          "team": "Waverley Hockey Club",
-          "p": 1,
-          "w": 1,
-          "d": 0,
-          "l": 0,
-          "bye": 0,
-          "gf": 7,
-          "ga": 4,
-          "gd": 3,
-          "pts": 3,
-          "isClub": false
-        },
-        {
-          "pos": 4,
           "team": "Brunswick Hockey Club",
           "p": 2,
           "w": 2,
@@ -1474,7 +1460,7 @@
           "isClub": false
         },
         {
-          "pos": 5,
+          "pos": 4,
           "team": "Footscray Hockey Club",
           "p": 2,
           "w": 1,
@@ -1486,6 +1472,20 @@
           "gd": 0,
           "pts": 3,
           "isClub": true
+        },
+        {
+          "pos": 5,
+          "team": "Waverley Hockey Club",
+          "p": 2,
+          "w": 1,
+          "d": 0,
+          "l": 1,
+          "bye": 0,
+          "gf": 10,
+          "ga": 12,
+          "gd": -2,
+          "pts": 3,
+          "isClub": false
         },
         {
           "pos": 6,
