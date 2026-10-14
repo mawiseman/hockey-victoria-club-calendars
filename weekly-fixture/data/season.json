@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-13T21:02:40.422Z",
-  "sourcesGeneratedAt": "2026-10-13T21:02:27.556Z",
-  "laddersGeneratedAt": "2026-10-13T21:02:40.267Z",
+  "generatedAt": "2026-10-14T20:02:43.223Z",
+  "sourcesGeneratedAt": "2026-10-14T20:02:30.314Z",
+  "laddersGeneratedAt": "2026-10-14T20:02:43.021Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -36,7 +36,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - IND",
-          "gameId": "2659596"
+          "gameId": "2659596",
+          "score": "0-4"
         },
         {
           "round": 3,
@@ -136,6 +137,20 @@
         },
         {
           "pos": 3,
+          "team": "Toorak East Malvern Hockey Club",
+          "p": 2,
+          "w": 2,
+          "d": 0,
+          "l": 0,
+          "bye": 0,
+          "gf": 8,
+          "ga": 0,
+          "gd": 8,
+          "pts": 6,
+          "isClub": false
+        },
+        {
+          "pos": 4,
           "team": "Brunswick Hockey Club",
           "p": 2,
           "w": 2,
@@ -149,32 +164,18 @@
           "isClub": false
         },
         {
-          "pos": 4,
+          "pos": 5,
           "team": "Footscray Hockey Club Red",
-          "p": 1,
+          "p": 2,
           "w": 1,
           "d": 0,
-          "l": 0,
+          "l": 1,
           "bye": 0,
           "gf": 5,
-          "ga": 1,
-          "gd": 4,
+          "ga": 5,
+          "gd": 0,
           "pts": 3,
           "isClub": true
-        },
-        {
-          "pos": 5,
-          "team": "Toorak East Malvern Hockey Club",
-          "p": 1,
-          "w": 1,
-          "d": 0,
-          "l": 0,
-          "bye": 0,
-          "gf": 4,
-          "ga": 0,
-          "gd": 4,
-          "pts": 3,
-          "isClub": false
         },
         {
           "pos": 6,
