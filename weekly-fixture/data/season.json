@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-20T19:52:48.657Z",
-  "sourcesGeneratedAt": "2026-10-20T19:52:32.542Z",
-  "laddersGeneratedAt": "2026-10-20T19:52:48.447Z",
+  "generatedAt": "2026-10-21T19:58:10.016Z",
+  "sourcesGeneratedAt": "2026-10-21T19:57:58.712Z",
+  "laddersGeneratedAt": "2026-10-21T19:58:09.859Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -109,6 +109,20 @@
       "ladder": [
         {
           "pos": 1,
+          "team": "Essendon 3",
+          "p": 3,
+          "w": 3,
+          "d": 0,
+          "l": 0,
+          "bye": 0,
+          "gf": 20,
+          "ga": 2,
+          "gd": 18,
+          "pts": 9,
+          "isClub": false
+        },
+        {
+          "pos": 2,
           "team": "MCC Hockey Section",
           "p": 2,
           "w": 2,
@@ -122,35 +136,7 @@
           "isClub": false
         },
         {
-          "pos": 2,
-          "team": "Essendon 3",
-          "p": 2,
-          "w": 2,
-          "d": 0,
-          "l": 0,
-          "bye": 0,
-          "gf": 16,
-          "ga": 1,
-          "gd": 15,
-          "pts": 6,
-          "isClub": false
-        },
-        {
           "pos": 3,
-          "team": "Toorak East Malvern Hockey Club",
-          "p": 2,
-          "w": 2,
-          "d": 0,
-          "l": 0,
-          "bye": 0,
-          "gf": 8,
-          "ga": 0,
-          "gd": 8,
-          "pts": 6,
-          "isClub": false
-        },
-        {
-          "pos": 4,
           "team": "Brunswick Hockey Club",
           "p": 3,
           "w": 3,
@@ -161,6 +147,20 @@
           "ga": 5,
           "gd": 6,
           "pts": 9,
+          "isClub": false
+        },
+        {
+          "pos": 4,
+          "team": "Toorak East Malvern Hockey Club",
+          "p": 3,
+          "w": 2,
+          "d": 0,
+          "l": 1,
+          "bye": 0,
+          "gf": 9,
+          "ga": 4,
+          "gd": 5,
+          "pts": 6,
           "isClub": false
         },
         {
@@ -207,29 +207,29 @@
         },
         {
           "pos": 8,
-          "team": "Essendon 1",
-          "p": 1,
-          "w": 0,
+          "team": "PEGS Maroon",
+          "p": 3,
+          "w": 1,
           "d": 0,
-          "l": 1,
-          "bye": 1,
-          "gf": 0,
-          "ga": 2,
-          "gd": -2,
-          "pts": 0,
+          "l": 2,
+          "bye": 0,
+          "gf": 12,
+          "ga": 11,
+          "gd": 1,
+          "pts": 3,
           "isClub": false
         },
         {
           "pos": 9,
-          "team": "PEGS Maroon",
+          "team": "Essendon 1",
           "p": 2,
           "w": 0,
           "d": 0,
           "l": 2,
-          "bye": 0,
-          "gf": 4,
-          "ga": 9,
-          "gd": -5,
+          "bye": 1,
+          "gf": 2,
+          "ga": 10,
+          "gd": -8,
           "pts": 0,
           "isClub": false
         },
