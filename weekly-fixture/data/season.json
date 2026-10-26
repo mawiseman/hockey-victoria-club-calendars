@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-25T18:46:41.444Z",
-  "sourcesGeneratedAt": "2026-10-25T18:46:29.978Z",
-  "laddersGeneratedAt": "2026-10-25T18:46:41.246Z",
+  "generatedAt": "2026-10-26T20:56:30.417Z",
+  "sourcesGeneratedAt": "2026-10-26T20:56:18.014Z",
+  "laddersGeneratedAt": "2026-10-26T20:56:30.216Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -594,6 +594,20 @@
         },
         {
           "pos": 4,
+          "team": "Footscray Hockey Club",
+          "p": 4,
+          "w": 2,
+          "d": 0,
+          "l": 1,
+          "bye": 0,
+          "gf": 14,
+          "ga": 18,
+          "gd": -4,
+          "pts": 6,
+          "isClub": true
+        },
+        {
+          "pos": 5,
           "team": "Werribee Hockey Club",
           "p": 3,
           "w": 1,
@@ -605,20 +619,6 @@
           "gd": 0,
           "pts": 3,
           "isClub": false
-        },
-        {
-          "pos": 5,
-          "team": "Footscray Hockey Club",
-          "p": 3,
-          "w": 1,
-          "d": 0,
-          "l": 1,
-          "bye": 0,
-          "gf": 7,
-          "ga": 15,
-          "gd": -8,
-          "pts": 3,
-          "isClub": true
         },
         {
           "pos": 6,
@@ -637,14 +637,14 @@
         {
           "pos": 7,
           "team": "Altona 1",
-          "p": 2,
+          "p": 3,
           "w": 0,
           "d": 0,
-          "l": 1,
+          "l": 2,
           "bye": 1,
-          "gf": 0,
-          "ga": 10,
-          "gd": -10,
+          "gf": 3,
+          "ga": 17,
+          "gd": -14,
           "pts": 0,
           "isClub": false
         }
@@ -1797,7 +1797,8 @@
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - IND",
-          "gameId": "2659967"
+          "gameId": "2659967",
+          "score": "6-0"
         },
         {
           "round": 5,
@@ -1868,19 +1869,33 @@
         {
           "pos": 2,
           "team": "Footscray Hockey Club",
-          "p": 3,
+          "p": 4,
           "w": 3,
           "d": 0,
-          "l": 0,
+          "l": 1,
           "bye": 0,
           "gf": 17,
-          "ga": 1,
-          "gd": 16,
+          "ga": 7,
+          "gd": 10,
           "pts": 9,
           "isClub": true
         },
         {
           "pos": 3,
+          "team": "Brunswick Hockey Club",
+          "p": 4,
+          "w": 2,
+          "d": 1,
+          "l": 1,
+          "bye": 0,
+          "gf": 15,
+          "ga": 8,
+          "gd": 7,
+          "pts": 7,
+          "isClub": false
+        },
+        {
+          "pos": 4,
           "team": "Camberwell Hockey Club",
           "p": 4,
           "w": 2,
@@ -1894,7 +1909,7 @@
           "isClub": false
         },
         {
-          "pos": 4,
+          "pos": 5,
           "team": "KBH Brumbies Hockey Club",
           "p": 4,
           "w": 2,
@@ -1908,7 +1923,7 @@
           "isClub": false
         },
         {
-          "pos": 5,
+          "pos": 6,
           "team": "PEGS Hockey Club",
           "p": 4,
           "w": 2,
@@ -1919,20 +1934,6 @@
           "ga": 6,
           "gd": 10,
           "pts": 6,
-          "isClub": false
-        },
-        {
-          "pos": 6,
-          "team": "Brunswick Hockey Club",
-          "p": 3,
-          "w": 1,
-          "d": 1,
-          "l": 1,
-          "bye": 0,
-          "gf": 9,
-          "ga": 8,
-          "gd": 1,
-          "pts": 4,
           "isClub": false
         },
         {
