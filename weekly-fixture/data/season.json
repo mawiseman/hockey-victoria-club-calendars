@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-27T20:29:25.147Z",
-  "sourcesGeneratedAt": "2026-10-27T20:29:10.991Z",
-  "laddersGeneratedAt": "2026-10-27T20:29:25.001Z",
+  "generatedAt": "2026-10-28T20:50:03.011Z",
+  "sourcesGeneratedAt": "2026-10-28T20:49:49.169Z",
+  "laddersGeneratedAt": "2026-10-28T20:50:02.813Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -166,20 +166,6 @@
         },
         {
           "pos": 5,
-          "team": "Essendon 2",
-          "p": 2,
-          "w": 1,
-          "d": 0,
-          "l": 1,
-          "bye": 1,
-          "gf": 4,
-          "ga": 12,
-          "gd": -8,
-          "pts": 3,
-          "isClub": false
-        },
-        {
-          "pos": 6,
           "team": "PEGS Maroon",
           "p": 3,
           "w": 1,
@@ -193,7 +179,7 @@
           "isClub": false
         },
         {
-          "pos": 7,
+          "pos": 6,
           "team": "Essendon 1",
           "p": 3,
           "w": 1,
@@ -207,7 +193,7 @@
           "isClub": false
         },
         {
-          "pos": 8,
+          "pos": 7,
           "team": "Camberwell Hockey Club",
           "p": 3,
           "w": 1,
@@ -217,6 +203,20 @@
           "gf": 4,
           "ga": 10,
           "gd": -6,
+          "pts": 3,
+          "isClub": false
+        },
+        {
+          "pos": 8,
+          "team": "Essendon 2",
+          "p": 3,
+          "w": 1,
+          "d": 0,
+          "l": 2,
+          "bye": 1,
+          "gf": 5,
+          "ga": 16,
+          "gd": -11,
           "pts": 3,
           "isClub": false
         },
@@ -237,15 +237,15 @@
         {
           "pos": 10,
           "team": "PEGS Blue",
-          "p": 3,
-          "w": 0,
+          "p": 4,
+          "w": 1,
           "d": 0,
           "l": 3,
           "bye": 0,
-          "gf": 1,
-          "ga": 12,
-          "gd": -11,
-          "pts": 0,
+          "gf": 5,
+          "ga": 13,
+          "gd": -8,
+          "pts": 3,
           "isClub": false
         },
         {
@@ -1607,9 +1607,9 @@
         },
         {
           "round": 6,
-          "dtstart": "2026-11-14T05:00:00.000Z",
-          "dtend": "2026-11-14T06:30:00.000Z",
-          "home": "WER",
+          "dtstart": "2026-11-14T06:40:00.000Z",
+          "dtend": "2026-11-14T08:10:00.000Z",
+          "home": "PEGS 1",
           "away": "FHC",
           "isHome": false,
           "location": "Victoria University (Footscray) - VU - Indoor",
@@ -1625,7 +1625,7 @@
           "round": 8,
           "dtstart": "2026-11-28T05:00:00.000Z",
           "dtend": "2026-11-28T06:30:00.000Z",
-          "home": "BRU",
+          "home": "PEGS 1",
           "away": "FHC",
           "isHome": false,
           "location": "Victoria University (Footscray) - VU - Indoor",
@@ -1633,9 +1633,9 @@
         },
         {
           "round": 9,
-          "dtstart": "2026-12-05T05:00:00.000Z",
-          "dtend": "2026-12-05T06:30:00.000Z",
-          "home": "PEGS 1",
+          "dtstart": "2026-12-05T06:40:00.000Z",
+          "dtend": "2026-12-05T08:10:00.000Z",
+          "home": "ALT",
           "away": "FHC",
           "isHome": false,
           "location": "Victoria University (Footscray) - VU - Indoor",
