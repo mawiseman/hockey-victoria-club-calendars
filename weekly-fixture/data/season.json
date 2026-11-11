@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-10T21:41:53.517Z",
-  "sourcesGeneratedAt": "2026-11-10T21:41:41.481Z",
-  "laddersGeneratedAt": "2026-11-10T21:41:53.373Z",
+  "generatedAt": "2026-11-11T22:32:17.876Z",
+  "sourcesGeneratedAt": "2026-11-11T22:32:02.805Z",
+  "laddersGeneratedAt": "2026-11-11T22:32:17.673Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -190,16 +190,16 @@
         },
         {
           "pos": 7,
-          "team": "Essendon 2",
-          "p": 3,
-          "w": 1,
+          "team": "PEGS Blue",
+          "p": 5,
+          "w": 2,
           "d": 0,
-          "l": 2,
-          "bye": 1,
-          "gf": 5,
-          "ga": 16,
-          "gd": -11,
-          "pts": 3,
+          "l": 3,
+          "bye": 0,
+          "gf": 10,
+          "ga": 13,
+          "gd": -3,
+          "pts": 6,
           "isClub": false
         },
         {
@@ -218,20 +218,6 @@
         },
         {
           "pos": 9,
-          "team": "PEGS Blue",
-          "p": 4,
-          "w": 1,
-          "d": 0,
-          "l": 3,
-          "bye": 0,
-          "gf": 5,
-          "ga": 13,
-          "gd": -8,
-          "pts": 3,
-          "isClub": false
-        },
-        {
-          "pos": 10,
           "team": "Camberwell Hockey Club",
           "p": 4,
           "w": 1,
@@ -241,6 +227,20 @@
           "gf": 4,
           "ga": 14,
           "gd": -10,
+          "pts": 3,
+          "isClub": false
+        },
+        {
+          "pos": 10,
+          "team": "Essendon 2",
+          "p": 4,
+          "w": 1,
+          "d": 0,
+          "l": 3,
+          "bye": 1,
+          "gf": 5,
+          "ga": 21,
+          "gd": -16,
           "pts": 3,
           "isClub": false
         },
