@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T20:52:46.842Z",
-  "sourcesGeneratedAt": "2026-11-15T20:52:33.205Z",
-  "laddersGeneratedAt": "2026-11-15T20:52:46.650Z",
+  "generatedAt": "2026-11-17T00:01:39.588Z",
+  "sourcesGeneratedAt": "2026-11-17T00:01:28.281Z",
+  "laddersGeneratedAt": "2026-11-17T00:01:39.449Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -195,7 +195,7 @@
           "w": 2,
           "d": 0,
           "l": 3,
-          "bye": 0,
+          "bye": 1,
           "gf": 10,
           "ga": 13,
           "gd": -3,
@@ -251,7 +251,7 @@
           "w": 0,
           "d": 0,
           "l": 5,
-          "bye": 1,
+          "bye": 0,
           "gf": 4,
           "ga": 34,
           "gd": -30,
@@ -1835,26 +1835,6 @@
           "isHome": false,
           "location": "State Sport Centres, Parkville - IND",
           "gameId": "2660166"
-        },
-        {
-          "round": 8,
-          "dtstart": "2026-11-29T07:00:00.000Z",
-          "dtend": "2026-11-29T08:30:00.000Z",
-          "home": "YAR",
-          "away": "FHC",
-          "isHome": false,
-          "location": "State Sport Centres, Parkville - IND",
-          "gameId": "2660553"
-        },
-        {
-          "round": 9,
-          "dtstart": "2026-12-06T07:00:00.000Z",
-          "dtend": "2026-12-06T08:30:00.000Z",
-          "home": "PEGS",
-          "away": "FHC",
-          "isHome": false,
-          "location": "State Sport Centres, Parkville - IND",
-          "gameId": "2660169"
         }
       ],
       "ladder": [
