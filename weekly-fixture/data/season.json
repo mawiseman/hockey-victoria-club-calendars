@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-17T23:23:10.667Z",
-  "sourcesGeneratedAt": "2026-11-17T23:22:58.533Z",
-  "laddersGeneratedAt": "2026-11-17T23:23:10.528Z",
+  "generatedAt": "2026-11-18T22:53:22.002Z",
+  "sourcesGeneratedAt": "2026-11-18T22:53:09.458Z",
+  "laddersGeneratedAt": "2026-11-18T22:53:21.855Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -207,14 +207,14 @@
           "pos": 8,
           "team": "Essendon 2",
           "p": 5,
-          "w": 1,
-          "d": 1,
+          "w": 2,
+          "d": 0,
           "l": 3,
           "bye": 1,
-          "gf": 5,
-          "ga": 21,
-          "gd": -16,
-          "pts": 4,
+          "gf": 10,
+          "ga": 23,
+          "gd": -13,
+          "pts": 6,
           "isClub": false
         },
         {
@@ -250,13 +250,13 @@
           "team": "Footscray Hockey Club Blue",
           "p": 6,
           "w": 0,
-          "d": 1,
-          "l": 5,
+          "d": 0,
+          "l": 6,
           "bye": 0,
-          "gf": 4,
-          "ga": 34,
-          "gd": -30,
-          "pts": 1,
+          "gf": 6,
+          "ga": 39,
+          "gd": -33,
+          "pts": 0,
           "isClub": true
         }
       ]
