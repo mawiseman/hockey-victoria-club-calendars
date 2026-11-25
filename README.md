@@ -87,7 +87,7 @@ See [Setup Guide](./docs/setup.md) for detailed setup instructions including Goo
    ```
    - Discovers all club names for your competitions
    - Saves results to `config/mappings-club-names.json`
-   - Review the file for new names and abbreviations
+   - Review new clubs and the "treated as teams of existing clubs" list it prints
 
 #### Calendar Setup
 
@@ -180,8 +180,8 @@ When a new season begins, follow these steps to clean up old data and set up for
    ```bash
    npm run update-mappings-club-names
    ```
-   - Add any new clubs from the season
-   - Update abbreviations as needed
+   - Add any new clubs from the season (team variants like "Altona 2" need no entry)
+   - Check the "treated as teams of existing clubs" list it prints
 
 5. **Create New Calendars**
    ```bash

@@ -5,7 +5,7 @@ import puppeteer from 'puppeteer';
 import { COMPETITIONS_FILE, MAPPINGS_CLUB_FILE, MAX_CONCURRENT } from '../lib/config.js';
 import { logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
 import { HttpError, safeGoto } from '../lib/puppeteer-utils.js';
-import { buildClubMatcher, abbreviateClub, stringifyClubMappings } from '../lib/club-names.js';
+import { buildClubMatcher, abbreviateClub, normaliseClubName, stringifyClubMappings } from '../lib/club-names.js';
 
 /**
  * Parse command line arguments
@@ -206,9 +206,15 @@ async function updateClubMappings(newClubs, mappings, dryRun = false) {
     // added before the variants, which then resolve through it.
     const sortedNewClubs = [...newClubs].sort((a, b) => a.length - b.length);
 
+    const variants = [];
     for (const clubName of sortedNewClubs) {
         // Known club, team variant of one, or an override.
-        if (abbreviateClub(clubName, matcher)) {
+        const existing = abbreviateClub(clubName, matcher);
+        if (existing) {
+            const n = normaliseClubName(clubName);
+            if (!matcher.exact.has(n) && !matcher.aliases.some(([alias]) => alias === n)) {
+                variants.push({ clubName, abbreviation: existing });
+            }
             continue;
         }
 
@@ -216,6 +222,14 @@ async function updateClubMappings(newClubs, mappings, dryRun = false) {
         mappings.clubs[abbreviation] = [clubName];
         matcher = buildClubMatcher(mappings);
         updates.push({ clubName, abbreviation });
+    }
+
+    // A new club whose name starts with a known one ("Yarra Valley" vs "Yarra")
+    // lands here as a team variant, so list them for a human to check.
+    if (variants.length > 0) {
+        logInfo(`Treated ${variants.length} names as teams of existing clubs — check each is the same club:`);
+        variants.forEach(({ clubName, abbreviation }) => console.log(`  "${clubName}" -> "${abbreviation}"`));
+        logInfo('If one is a different club, add it under "clubs" with its full name, e.g. "YV": ["Yarra Valley"]');
     }
 
     if (updates.length === 0) {
