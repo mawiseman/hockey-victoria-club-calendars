@@ -3,7 +3,8 @@ import path from 'path';
 import ical from 'ical';
 
 // Import shared utilities
-import { MAPPINGS_CLUB_FILE, MAPPINGS_COMPETITION_FILE, getSettings } from '../lib/config.js';
+import { MAPPINGS_COMPETITION_FILE, getSettings } from '../lib/config.js';
+import { loadClubMatcher, abbreviateClub } from '../lib/club-names.js';
 import { logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
 import { parseRoundFromSummary } from '../lib/finals.js';
 
@@ -15,50 +16,38 @@ const ROUND_BASE_URL = 'https://www.hockeyvictoria.org.au/games/';
  * Load configuration files
  */
 export async function loadConfig() {
-    const clubMappings = JSON.parse(
-        await fs.readFile(MAPPINGS_CLUB_FILE, 'utf8')
-    );
+    const clubMatcher = await loadClubMatcher();
     const competitionNames = JSON.parse(
         await fs.readFile(MAPPINGS_COMPETITION_FILE, 'utf8')
     );
-    return { clubMappings, competitionNames };
+    return { clubMatcher, competitionNames };
 }
 
 /**
- * Replace club names with abbreviations
+ * Replace both team names in "{competition} - {home} vs {away}" with short
+ * names. The home name can itself contain " - " ("Essendon Hockey 1 - Black"),
+ * so the longest trailing run of " - " segments that is a club wins.
  */
-export function replaceClubNames(text, clubMappings) {
-    let result = text;
-    const originalText = text;
-
-    // Escape special regex characters in club name
-    function escapeRegex(str) {
-        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+export function replaceClubNames(text, clubMatcher) {
+    const vs = text.match(/\s+vs\s+/i);
+    if (!vs) {
+        logWarning(`No "vs" in summary, club names left as-is: "${text}"`);
+        return text;
     }
 
-    // Longest-first: a short key like "Melton" would otherwise match inside
-    // "Melton Hockey Club" before that more specific entry gets a turn,
-    // mangling the result into "MEL Hockey Club".
-    const sortedEntries = Object.entries(clubMappings.clubMappings)
-        .sort(([a], [b]) => b.length - a.length);
-
-    for (const [fullName, abbreviation] of sortedEntries) {
-        const escapedName = escapeRegex(fullName);
-
-        // Replace club names followed by optional team suffix (space + word/number)
-        // This handles any suffix pattern without hardcoding them
-        const patternWithSuffix = new RegExp(`${escapedName}( [A-Za-z0-9]+)?\\b`, 'g');
-        result = result.replace(patternWithSuffix, (match, suffix) => {
-            return suffix ? `${abbreviation}${suffix}` : abbreviation;
-        });
+    const segments = text.slice(0, vs.index).split(' - ');
+    let home = null;
+    for (let start = 0; start < segments.length && !home; start++) {
+        const abbr = abbreviateClub(segments.slice(start).join(' - '), clubMatcher);
+        if (abbr) home = [...segments.slice(0, start), abbr].join(' - ');
     }
+    const awayName = text.slice(vs.index + vs[0].length).trim();
+    const away = abbreviateClub(awayName, clubMatcher);
 
-    // Check if any replacements were made
-    if (result === originalText) {
-        logWarning(`No club name mappings found for: "${originalText}"`);
-    }
+    if (!home) logWarning(`No club name mapping for: "${segments.at(-1)}" in "${text}"`);
+    if (!away) logWarning(`No club name mapping for: "${awayName}" in "${text}"`);
 
-    return result;
+    return `${home ?? text.slice(0, vs.index)}${vs[0]}${away ?? awayName}`;
 }
 
 /**
@@ -350,7 +339,7 @@ export async function processCalendar(inputPath, outputPath, competition) {
             
             // Process summary
             let summary = originalSummary;
-            summary = replaceClubNames(summary, config.clubMappings);
+            summary = replaceClubNames(summary, config.clubMatcher);
             summary = replaceCompetitionNames(summary, config.competitionNames.competitionReplacements);
             summary = replaceRoundNames(summary, config.competitionNames.roundPatterns);
             summary = addGenderPrefix(summary, originalSummary);

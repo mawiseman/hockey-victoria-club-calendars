@@ -21,12 +21,13 @@
 
 import fs from 'fs/promises';
 import path from 'path';
+import { pathToFileURL } from 'url';
 import {
     TEMP_DIR,
-    MAPPINGS_CLUB_FILE,
     COMPETITIONS_FILE,
     getClubName
 } from '../lib/config.js';
+import { loadClubMatcher, abbreviateClub } from '../lib/club-names.js';
 import { categorizeCompetitions } from '../lib/competition-utils.js';
 import { parseRoundFromSummary } from '../lib/finals.js';
 
@@ -180,36 +181,11 @@ function getViewFor(category, name) {
 
 // ─── Club abbreviation ───────────────────────────────────────────────
 
-function buildClubAbbrLookup(clubMappings) {
-    // Sort longest-first so "Doncaster Hockey Club Black" wins over "Doncaster
-    // Hockey Club" when both happen to be configured.
-    const entries = Object.entries(clubMappings.clubMappings);
-    entries.sort(([a], [b]) => b.length - a.length);
-    return entries;
-}
-
-// The set of every configured abbreviation (including composite ones like
-// "SUHC - MNT" that contain their own " - ") — used to correctly locate the
-// home team's abbreviation within a summary prefix of unknown length, see
-// extractHomeTeamText below.
-function buildKnownAbbrSet(clubLookup) {
-    return new Set(clubLookup.map(([, abbr]) => abbr));
-}
-
-function clubAbbr(opponentName, lookup) {
+// Processed summaries already carry short names; this catches any full name
+// that slipped through. Unmapped names come back as-is so the UI shows something.
+export function clubAbbr(opponentName, clubMatcher) {
     if (!opponentName) return null;
-    for (const [fullName, abbr] of lookup) {
-        if (opponentName === fullName) return abbr;
-    }
-    // Fall back to longest-prefix match — handles team suffixes like "1"/"2".
-    for (const [fullName, abbr] of lookup) {
-        if (opponentName.startsWith(fullName + ' ')) {
-            const suffix = opponentName.substring(fullName.length + 1).trim();
-            return suffix ? `${abbr} ${suffix}` : abbr;
-        }
-    }
-    // No mapping — return the original so the UI shows something rather than blank.
-    return opponentName;
+    return abbreviateClub(opponentName, clubMatcher) ?? opponentName;
 }
 
 // ─── Time conversion ───────────────────────────────────────────────
@@ -310,8 +286,9 @@ function extractVenueAbbr(location) {
 // split point can't tell prefix from team name. Instead, try the longest
 // trailing run of segments first and accept the first one that's a known
 // abbreviation — "SUHC - MNT" wins over the bare "MNT" a naive last-segment
-// split would produce.
-function extractHomeTeamText(beforeVs, knownAbbrs) {
+// split would produce. knownAbbrs holds club and override abbreviations only;
+// suffixed ones like "ALT 2" fall through to the last-segment default.
+export function extractHomeTeamText(beforeVs, knownAbbrs) {
     const segments = beforeVs.split(' - ').map(s => s.trim());
     for (let start = 0; start < segments.length; start++) {
         const candidate = segments.slice(start).join(' - ');
@@ -329,16 +306,16 @@ function extractHomeTeamText(beforeVs, knownAbbrs) {
 // playing at Elgar Park, not Footscray — so isHome always comes from
 // LOCATION, and the opponent is whichever side isn't the configured club,
 // not a fixed position.
-function buildEventFromIcs(icsEvent, clubName, clubLookup, knownAbbrs) {
+function buildEventFromIcs(icsEvent, clubName, clubMatcher) {
     const vsIdx = icsEvent.summary.search(/\s+vs\s+/i);
     if (vsIdx === -1 || !icsEvent.location) return null;
 
-    const team1 = extractHomeTeamText(icsEvent.summary.slice(0, vsIdx), knownAbbrs);
+    const team1 = extractHomeTeamText(icsEvent.summary.slice(0, vsIdx), clubMatcher.knownAbbrs);
     const team2 = icsEvent.summary.slice(vsIdx).replace(/^\s+vs\s+/i, '').trim();
 
     const isHome = icsEvent.location.startsWith(clubName);
     const rawOpponent = team1.startsWith(FHC_ABBR) ? team2 : team1;
-    const oppAbbr = clubAbbr(rawOpponent, clubLookup);
+    const oppAbbr = clubAbbr(rawOpponent, clubMatcher);
     const home = isHome ? FHC_ABBR : (oppAbbr || '?');
     const away = isHome ? (oppAbbr || '?') : FHC_ABBR;
 
@@ -423,19 +400,16 @@ async function readOptional(filePath, label) {
 }
 
 async function main() {
-    const [scoresRaw, compsRaw, clubMappingsRaw, laddersRaw, clubName] = await Promise.all([
+    const [scoresRaw, compsRaw, clubMatcher, laddersRaw, clubName] = await Promise.all([
         readOptional(SCORES_FILE, 'scores.json'),
         fs.readFile(COMPETITIONS_FILE, 'utf8'),
-        fs.readFile(MAPPINGS_CLUB_FILE, 'utf8'),
+        loadClubMatcher(),
         readOptional(LADDERS_FILE, 'ladders.json'),
         getClubName()
     ]);
 
     const scoresPayload = scoresRaw ? JSON.parse(scoresRaw) : null;
     const allCompetitions = JSON.parse(compsRaw).competitions;
-    const clubMappings = JSON.parse(clubMappingsRaw);
-    const clubLookup = buildClubAbbrLookup(clubMappings);
-    const knownAbbrs = buildKnownAbbrSet(clubLookup);
     const laddersPayload = laddersRaw ? JSON.parse(laddersRaw) : null;
     const ladders = laddersPayload?.ladders || {};
 
@@ -468,7 +442,7 @@ async function main() {
         const cards = cardsByComp.get(comp.name) || [];
 
         const events = icsEvents
-            .map(e => buildEventFromIcs(e, clubName, clubLookup, knownAbbrs))
+            .map(e => buildEventFromIcs(e, clubName, clubMatcher))
             .filter(Boolean);
         mergeScoresIntoEvents(events, cards);
         // dtstartLocal was only needed for the score-merge key above.
@@ -546,7 +520,10 @@ async function main() {
     }
 }
 
-main().catch(err => {
-    console.error(err);
-    process.exit(1);
-});
+// Only run when executed directly, so tests can import the helpers above.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+    main().catch(err => {
+        console.error(err);
+        process.exit(1);
+    });
+}

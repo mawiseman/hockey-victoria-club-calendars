@@ -17,6 +17,7 @@
     "update-mappings-club-names": "node src/setup/update-mappings-club-names.js",
     "update-competition-status": "node src/setup/update-competition-status.js",
     "test-calendar-summary-processing": "node src/tests/calendar-summary-processing.js",
+    "test-club-names": "node --test src/tests/club-names.test.js",
     "dev": "npx --yes serve weekly-fixture -l 3000",
     "generate-og-image": "node src/setup/generate-og-image.js",
     "generate-season-json": "node src/setup/generate-season-json.js",

@@ -5,6 +5,7 @@ import puppeteer from 'puppeteer';
 import { COMPETITIONS_FILE, MAPPINGS_CLUB_FILE, MAX_CONCURRENT } from '../lib/config.js';
 import { logSuccess, logWarning, logInfo } from '../lib/error-utils.js';
 import { HttpError, safeGoto } from '../lib/puppeteer-utils.js';
+import { buildClubMatcher, abbreviateClub, stringifyClubMappings } from '../lib/club-names.js';
 
 /**
  * Parse command line arguments
@@ -68,7 +69,7 @@ async function loadClubMappings() {
         return JSON.parse(data);
     } catch (error) {
         logWarning(`Could not load club mappings: ${error.message}`);
-        return { clubMappings: {} };
+        return { clubs: {}, overrides: {} };
     }
 }
 
@@ -99,48 +100,6 @@ async function loadCompetitions() {
 }
 
 /**
- * If clubName is a suffixed variant of an already-mapped club — e.g. "Altona
- * Hockey Club 1" and "Altona Hockey Club 2" both extend "Altona Hockey Club",
- * or "Footscray Hockey Club Blue" extends "Footscray Hockey Club" — reuse
- * that club's abbreviation with the suffix appended (e.g. "ALT 1", "FHC B"),
- * instead of deriving fresh initials that ignore it's the same club fielding
- * multiple teams. Returns null if clubName isn't a recognisable variant of
- * anything already mapped.
- */
-function deriveSuffixAbbreviation(clubName, clubMappings) {
-    // Prefer the longest matching existing name, so e.g. a future "Essendon
-    // Hockey 1 - Black" prefers the "Essendon Hockey 1" base over "Essendon
-    // Hockey" if both happen to be mapped.
-    let baseName = null;
-    for (const existingName of Object.keys(clubMappings)) {
-        const isPrefix = clubName.toLowerCase().startsWith(existingName.toLowerCase() + ' ');
-        if (isPrefix && (!baseName || existingName.length > baseName.length)) {
-            baseName = existingName;
-        }
-    }
-
-    if (!baseName) {
-        return null;
-    }
-
-    const suffix = clubName.slice(baseName.length).trim().replace(/^-\s*/, '');
-    const baseAbbreviation = clubMappings[baseName];
-
-    // Numbered team, e.g. "1" -> "ALT 1"
-    if (/^\d+$/.test(suffix)) {
-        return `${baseAbbreviation} ${suffix}`;
-    }
-
-    // Colour/word suffix, e.g. "Blue" -> "FHC B"
-    const firstWord = suffix.split(/\s+/)[0];
-    if (/^[A-Za-z]+$/.test(firstWord)) {
-        return `${baseAbbreviation} ${firstWord.charAt(0).toUpperCase()}`;
-    }
-
-    return null;
-}
-
-/**
  * Ensure an abbreviation doesn't collide with one already in use.
  */
 function ensureUniqueAbbreviation(abbreviation, existingAbbreviations) {
@@ -154,18 +113,14 @@ function ensureUniqueAbbreviation(abbreviation, existingAbbreviations) {
 }
 
 /**
- * Generate abbreviation from club name
+ * Generate an abbreviation for a brand-new club from its initials. Team
+ * variants of known clubs ("Altona 2") never get here — the shared matcher
+ * already resolves them.
  */
-function generateAbbreviation(clubName, existingAbbreviations, clubMappings) {
-    const suffixAbbreviation = deriveSuffixAbbreviation(clubName, clubMappings);
-    if (suffixAbbreviation) {
-        return ensureUniqueAbbreviation(suffixAbbreviation, existingAbbreviations);
-    }
-
+function generateAbbreviation(clubName, existingAbbreviations) {
     // Clean up the club name
     let cleanName = clubName
-        .replace(/Hockey Club/gi, '')
-        .replace(/HC/gi, '')
+        .replace(/\b(?:Hockey Club|Hockey|HC)\b/gi, '')
         .replace(/\s+/g, ' ')
         .trim();
 
@@ -242,40 +197,27 @@ async function scrapeClubNamesFromLadder(ladderUrl, browser) {
 /**
  * Update club mappings with new clubs
  */
-async function updateClubMappings(newClubs, existingMappings, dryRun = false) {
+async function updateClubMappings(newClubs, mappings, dryRun = false) {
     const updates = [];
-    const existingClubNames = Object.keys(existingMappings.clubMappings);
-    const existingAbbreviations = Object.values(existingMappings.clubMappings);
+    let matcher = buildClubMatcher(mappings);
 
-    // Work on a copy of the mappings so suffix detection (see
-    // deriveSuffixAbbreviation) can see base clubs added earlier in this same
-    // run, not just ones already on disk. Processing shortest names first
-    // means a base club discovered in the same batch as its numbered/coloured
-    // variants (e.g. "Altona Hockey Club" alongside "Altona Hockey Club 1")
-    // gets mapped before its variants are processed.
-    const workingMappings = { ...existingMappings.clubMappings };
+    // Shortest first, so a new club found in the same batch as its team
+    // variants ("Sunbury Hockey Club" alongside "Sunbury Hockey Club 2") is
+    // added before the variants, which then resolve through it.
     const sortedNewClubs = [...newClubs].sort((a, b) => a.length - b.length);
 
     for (const clubName of sortedNewClubs) {
-        // Skip if club already exists
-        if (existingClubNames.includes(clubName)) {
+        // Known club, team variant of one, or an override.
+        if (abbreviateClub(clubName, matcher)) {
             continue;
         }
 
-        // Generate abbreviation
-        const abbreviation = generateAbbreviation(clubName, existingAbbreviations, workingMappings);
-
-        updates.push({
-            clubName,
-            abbreviation
-        });
-
-        // Add to existing abbreviations/mappings to avoid duplicates and so
-        // later suffix lookups in this same run can see it
-        existingAbbreviations.push(abbreviation);
-        workingMappings[clubName] = abbreviation;
+        const abbreviation = generateAbbreviation(clubName, [...matcher.knownAbbrs]);
+        mappings.clubs[abbreviation] = [clubName];
+        matcher = buildClubMatcher(mappings);
+        updates.push({ clubName, abbreviation });
     }
-    
+
     if (updates.length === 0) {
         logInfo('No new clubs to add');
         return;
@@ -291,20 +233,9 @@ async function updateClubMappings(newClubs, existingMappings, dryRun = false) {
         return;
     }
     
-    // Add updates to mappings
-    updates.forEach(({ clubName, abbreviation }) => {
-        existingMappings.clubMappings[clubName] = abbreviation;
-    });
+    await fs.writeFile(MAPPINGS_CLUB_FILE, stringifyClubMappings(mappings), 'utf8');
 
-    // Sort clubMappings alphabetically by club name (case-insensitive)
-    const sortedEntries = Object.entries(existingMappings.clubMappings)
-        .sort(([a], [b]) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
-    existingMappings.clubMappings = Object.fromEntries(sortedEntries);
-
-    // Write back to file
-    await fs.writeFile(MAPPINGS_CLUB_FILE, JSON.stringify(existingMappings, null, 2), 'utf8');
-
-    logSuccess(`Added ${updates.length} new club mappings to ${MAPPINGS_CLUB_FILE} (sorted alphabetically)`);
+    logSuccess(`Added ${updates.length} new clubs to ${MAPPINGS_CLUB_FILE}`);
 }
 
 /**

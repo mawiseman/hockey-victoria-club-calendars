@@ -74,7 +74,7 @@ async function testNameProcessing() {
 
                 // Process the summary
                 let processedSummary = cleanedOriginal;
-                processedSummary = replaceClubNames(processedSummary, config.clubMappings);
+                processedSummary = replaceClubNames(processedSummary, config.clubMatcher);
                 processedSummary = replaceCompetitionNames(processedSummary, config.competitionNames.competitionReplacements);
                 processedSummary = replaceRoundNames(processedSummary, config.competitionNames.roundPatterns);
                 processedSummary = addGenderPrefix(processedSummary, cleanedOriginal);

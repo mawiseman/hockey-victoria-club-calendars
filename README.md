@@ -454,8 +454,27 @@ npm run update-mappings-club-names [-- options]
 1. Loads existing club mappings from `config/mappings-club-names.json`
 2. Scans each competition's ladder URL using Puppeteer
 3. Extracts club names from ladder tables
-4. Generates unique abbreviations for new clubs
-5. Updates the mappings file with new entries
+4. Skips names that already resolve: known clubs and their team variants ("Altona 2")
+5. Adds genuinely new clubs with a unique abbreviation from their initials
+
+**Mappings file format:** each club is listed once, by short name, with every
+spelling Hockey Victoria uses for it. "Hockey Club"/"Hockey" and letter case
+are ignored, and team suffixes are derived: a number is kept (`Altona Hockey
+Club 2` → `ALT 2`), words win over a number and become their initials
+(`Brunswick WHITE` → `BRU W`, `Essendon Hockey 1 - Red Dragons` → `ESS RD`).
+The first word of the short name is the logo file name
+(`weekly-fixture/images/logos/ALT.png`). `overrides` holds the few exact names
+the rule can't produce (merged teams, clashing initials).
+
+```json
+{
+  "clubs": { "ALT": ["Altona"], "KBH": ["KBH Brumbies", "KBH Stallions"] },
+  "overrides": { "SUHC - Mentone": "SUHC - MNT" }
+}
+```
+
+The same rule (`src/lib/club-names.js`) is used for calendar titles, the
+weekly fixture site and this updater.
 
 **Examples:**
 ```bash
