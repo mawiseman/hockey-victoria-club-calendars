@@ -529,13 +529,39 @@ function parseRoute() {
     return { mode: 'week', weekStart: startOfWeek(new Date()) };
 }
 
-async function renderRoute() {
+// The service worker answers getSeason() from its saved copy so the app opens
+// instantly; this then fetches from the network and re-renders in place if
+// the data changed. Runs after first render and whenever the app is resumed.
+let refreshing = null;
+function refreshSeason() {
+    // No controlling SW (first visit, localhost) means getSeason() already hit the network.
+    if (refreshing || !seasonCache || !navigator.serviceWorker?.controller) return refreshing;
+    document.body.classList.add('is-refreshing');
+    refreshing = fetch(SEASON_URL, { cache: 'reload' })
+        .then(res => (res.ok ? res.json() : null))
+        .then(fresh => {
+            if (!fresh || fresh.generatedAt === seasonCache.generatedAt) return;
+            seasonCache = fresh;
+            renderBuildInfo(fresh.generatedAt);
+            return renderRoute(false);
+        })
+        .catch(err => console.warn('Season refresh failed:', err.message))
+        .finally(() => {
+            refreshing = null;
+            document.body.classList.remove('is-refreshing');
+        });
+    return refreshing;
+}
+
+// `resetScroll` is truthy for navigations (hashchange passes an Event) and
+// false for a background data refresh, which must not jump the page.
+async function renderRoute(resetScroll = true) {
     // Reset scroll on every navigation. Hash-only changes don't trigger the
     // browser's default top-of-page scroll, so a user clicking a chevron at
     // the bottom of the week list would otherwise land mid-page on the team
     // view. `instant` skips the smooth-scroll animation — the new view is
     // about to render, an animated scroll over old content reads as jank.
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (resetScroll) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
     let season;
     try {
@@ -976,4 +1002,8 @@ if ('serviceWorker' in navigator && !['localhost', '127.0.0.1'].includes(locatio
 // ─── Init ────────────────────────────────────────────────────────────
 
 window.addEventListener('hashchange', renderRoute);
-renderRoute();
+// iOS home-screen apps resume without reloading, so refresh on every return.
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') refreshSeason();
+});
+renderRoute().then(refreshSeason);

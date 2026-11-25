@@ -1,5 +1,6 @@
 {
   "clubMappings": {
+    "Altona": "ALT",
     "Altona Hockey Club": "ALT",
     "Altona Hockey Club 1": "ALT 1",
     "Altona Hockey Club 2": "ALT 2",
@@ -7,11 +8,14 @@
     "Altona Hockey Club Gold": "ALT G",
     "Bayside Powerhouse Hockey Club": "BPS",
     "Bayside Powerhouse Saints Hockey Club": "BPS",
+    "Brunswick": "BRU",
+    "Brunswick BLACK": "BRU B",
     "Brunswick Hockey Club": "BRU",
     "Brunswick Hockey Club 1": "BRU 1",
     "Brunswick Hockey Club 2": "BRU 2",
     "Brunswick Hockey Club Black": "BRU B",
     "Brunswick Hockey Club White": "BRU W",
+    "Brunswick WHITE": "BRU W",
     "Camberwell Blue": "CAM b",
     "Camberwell Hockey Club": "CAM",
     "Camberwell Tangerine": "CAM T",

@@ -15,7 +15,7 @@
 //     the network, while the cache quietly catches up in the background.
 //   • Anything else: network-first with cache fallback.
 
-const CACHE_VERSION = 'v7';
+const CACHE_VERSION = 'v8';
 const APP_SHELL_CACHE = `fhc-shell-${CACHE_VERSION}`;
 const DATA_CACHE = `fhc-data-${CACHE_VERSION}`;
 
@@ -82,9 +82,10 @@ self.addEventListener('fetch', event => {
 
     // Production data, served cross-origin from jsDelivr — cache first,
     // refresh in the background, so a relaunch shows last-seen fixtures
-    // immediately instead of waiting on the network round trip.
+    // immediately instead of waiting on the network round trip. The page's
+    // follow-up refresh asks with `cache: 'reload'` and gets the network.
     if (JSDELIVR_DATA_PATTERN.test(req.url)) {
-        event.respondWith(cacheFirst(req, DATA_CACHE));
+        event.respondWith(req.cache === 'reload' ? networkFirst(req, DATA_CACHE) : cacheFirst(req, DATA_CACHE));
         return;
     }
 
