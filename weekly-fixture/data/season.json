@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-27T00:21:17.999Z",
-  "sourcesGeneratedAt": "2026-11-27T00:21:07.218Z",
-  "laddersGeneratedAt": "2026-11-27T00:21:17.866Z",
+  "generatedAt": "2026-11-27T23:57:29.017Z",
+  "sourcesGeneratedAt": "2026-11-27T23:57:17.105Z",
+  "laddersGeneratedAt": "2026-11-27T23:57:28.869Z",
   "teams": [
     {
       "slug": "35plus-masters-nw-league-women",
@@ -355,12 +355,27 @@
           "away": "FHC",
           "isHome": false,
           "location": "State Sport Centres, Parkville - IND",
-          "gameId": "2660356"
+          "gameId": "2660356",
+          "score": "6-0"
         }
       ],
       "ladder": [
         {
           "pos": 1,
+          "team": "Essendon Hockey",
+          "p": 7,
+          "w": 6,
+          "d": 0,
+          "l": 1,
+          "bye": 1,
+          "gf": 35,
+          "ga": 18,
+          "gd": 17,
+          "pts": 18,
+          "isClub": false
+        },
+        {
+          "pos": 2,
           "team": "Waverley Hockey Club",
           "p": 6,
           "w": 5,
@@ -374,7 +389,7 @@
           "isClub": false
         },
         {
-          "pos": 2,
+          "pos": 3,
           "team": "PEGS Hockey Club",
           "p": 6,
           "w": 5,
@@ -384,20 +399,6 @@
           "gf": 31,
           "ga": 16,
           "gd": 15,
-          "pts": 15,
-          "isClub": false
-        },
-        {
-          "pos": 3,
-          "team": "Essendon Hockey",
-          "p": 6,
-          "w": 5,
-          "d": 0,
-          "l": 1,
-          "bye": 1,
-          "gf": 29,
-          "ga": 18,
-          "gd": 11,
           "pts": 15,
           "isClub": false
         },
@@ -432,14 +433,14 @@
         {
           "pos": 6,
           "team": "Footscray Hockey Club",
-          "p": 6,
+          "p": 7,
           "w": 1,
           "d": 1,
-          "l": 4,
+          "l": 5,
           "bye": 1,
           "gf": 9,
-          "ga": 26,
-          "gd": -17,
+          "ga": 32,
+          "gd": -23,
           "pts": 4,
           "isClub": true
         },
@@ -563,6 +564,20 @@
       "ladder": [
         {
           "pos": 1,
+          "team": "Essendon Rockets",
+          "p": 7,
+          "w": 6,
+          "d": 0,
+          "l": 1,
+          "bye": 1,
+          "gf": 43,
+          "ga": 16,
+          "gd": 27,
+          "pts": 18,
+          "isClub": false
+        },
+        {
+          "pos": 2,
           "team": "PEGS Hockey Club",
           "p": 6,
           "w": 5,
@@ -572,20 +587,6 @@
           "gf": 49,
           "ga": 26,
           "gd": 23,
-          "pts": 15,
-          "isClub": false
-        },
-        {
-          "pos": 2,
-          "team": "Essendon Rockets",
-          "p": 6,
-          "w": 5,
-          "d": 0,
-          "l": 1,
-          "bye": 1,
-          "gf": 35,
-          "ga": 13,
-          "gd": 22,
           "pts": 15,
           "isClub": false
         },
@@ -619,20 +620,6 @@
         },
         {
           "pos": 5,
-          "team": "Werribee Hockey Club",
-          "p": 6,
-          "w": 2,
-          "d": 0,
-          "l": 4,
-          "bye": 1,
-          "gf": 20,
-          "ga": 27,
-          "gd": -7,
-          "pts": 6,
-          "isClub": false
-        },
-        {
-          "pos": 6,
           "team": "Footscray Hockey Club",
           "p": 6,
           "w": 2,
@@ -644,6 +631,20 @@
           "gd": -18,
           "pts": 6,
           "isClub": true
+        },
+        {
+          "pos": 6,
+          "team": "Werribee Hockey Club",
+          "p": 7,
+          "w": 2,
+          "d": 0,
+          "l": 5,
+          "bye": 1,
+          "gf": 23,
+          "ga": 35,
+          "gd": -12,
+          "pts": 6,
+          "isClub": false
         },
         {
           "pos": 7,
